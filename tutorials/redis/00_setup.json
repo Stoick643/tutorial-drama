@@ -1,0 +1,55 @@
+{
+  "tutorial": "Redis Basics",
+  "module": 1,
+  "scene": 0,
+  "technical_concept": "Introduction to Redis and setting up your detective toolkit.",
+  "code_example": {
+    "language": "redis-cli",
+    "code": "redis-cli ping\n# PONG"
+  },
+  "challenge": {
+    "task": "Connect to Redis and verify it's running by sending a PING command.",
+    "hint": "Use the PING command to check if Redis is alive.",
+    "check": {
+      "command": "PING",
+      "expected_output_type": "exact",
+      "expected_output_value": "PONG"
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Database Detective",
+      "dialogue": [
+        {
+          "character": "Narrator",
+          "line": "The rain hammered the windows of the old office building on 42nd Street. Inside, a figure sat hunched over a glowing terminal."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Another night, another case. The city never sleeps, and neither does the data."
+        },
+        {
+          "character": "REDIS",
+          "line": "Evening, Detective. I've been expecting you. The name's REDIS - Remote Dictionary Server. I'm your new partner on this beat."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Partner? I work alone."
+        },
+        {
+          "character": "REDIS",
+          "line": "Not anymore. The data crimes in this city are getting more complex. You need someone who can store evidence fast, retrieve it faster, and never forget a lead. That's where I come in."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Prove it. Show me you're alive and ready."
+        },
+        {
+          "character": "REDIS",
+          "line": "Simple. Send me a PING, and I'll send you back a PONG. It's how we establish trust in this business."
+        }
+      ]
+    }
+  ]
+}

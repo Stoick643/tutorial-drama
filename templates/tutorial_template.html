@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - {{ tutorial }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 class="tutorial-title">{{ tutorial }}</h1>
+                <div class="lesson-info">
+                    <span class="module">Module {{ module }}</span>
+                    <span class="scene">Scene {{ scene }}</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="narrative-section">
+                <h2 class="scene-title">{{ title }}</h2>
+
+                <div class="technical-concept">
+                    <p><strong>Concept:</strong> {{ technical_concept }}</p>
+                </div>
+
+                <div class="dialogue-container">
+                    {% for line in dialogue %}
+                    <div class="dialogue-entry">
+                        <span class="character">{{ line.character }}:</span>
+                        <span class="dialogue-text">{{ line.line }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% if code_example %}
+                <div class="code-example">
+                    <div class="code-header">Example Code:</div>
+                    <pre><code class="{{ code_example.language }}">{{ code_example.code }}</code></pre>
+                </div>
+                {% endif %}
+            </section>
+
+            <section class="challenge-section">
+                <h3 class="challenge-title">Your Assignment</h3>
+
+                <div class="challenge-task">
+                    <p>{{ challenge.task }}</p>
+                </div>
+
+                {% if challenge.hint %}
+                <div class="challenge-hint">
+                    <p><strong>Hint:</strong> {{ challenge.hint }}</p>
+                </div>
+                {% endif %}
+
+                <div class="interactive-console">
+                    <div class="console-header">Redis Console</div>
+                    <div class="console-body">
+                        <div class="console-input-wrapper">
+                            <span class="console-prompt">redis&gt;</span>
+                            <input type="text"
+                                   id="command-input"
+                                   class="console-input"
+                                   placeholder="Enter your Redis command here..."
+                                   autocomplete="off">
+                        </div>
+                        <button id="check-answer" class="check-button">Check Answer</button>
+                    </div>
+                    <div id="console-output" class="console-output"></div>
+                    <div id="feedback" class="feedback-message"></div>
+                </div>
+            </section>
+
+            <nav class="navigation">
+                <a href="/tutorial/{{ topic }}/00_setup" class="nav-button prev-button">Previous</a>
+                <a href="/tutorial/{{ topic }}/02_lists" class="nav-button next-button">Next</a>
+            </nav>
+        </main>
+    </div>
+
+    <script src="/static/interactive.js"></script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+:root {
+    --noir-black: #0a0a0a;
+    --noir-dark: #1a1a1a;
+    --noir-gray: #2a2a2a;
+    --noir-light-gray: #4a4a4a;
+    --noir-white: #e8e8e8;
+    --noir-accent: #c9302c;
+    --noir-success: #5cb85c;
+    --noir-warning: #f0ad4e;
+    --console-bg: #0f0f0f;
+    --console-green: #00ff00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(135deg, var(--noir-black) 0%, var(--noir-dark) 100%);
+    color: var(--noir-white);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    border-bottom: 2px solid var(--noir-accent);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tutorial-title {
+    font-size: 2.5em;
+    color: var(--noir-accent);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.lesson-info {
+    display: flex;
+    gap: 20px;
+}
+
+.module, .scene {
+    background: var(--noir-gray);
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--noir-light-gray);
+}
+
+.narrative-section {
+    background: var(--noir-gray);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.scene-title {
+    font-size: 2em;
+    color: var(--noir-white);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--noir-light-gray);
+    padding-bottom: 10px;
+}
+
+.technical-concept {
+    background: var(--noir-dark);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--noir-accent);
+}
+
+.dialogue-container {
+    margin: 20px 0;
+}
+
+.dialogue-entry {
+    margin: 15px 0;
+    padding: 15px;
+    background: var(--noir-dark);
+    border-radius: 5px;
+    border-left: 3px solid var(--noir-light-gray);
+}
+
+.character {
+    font-weight: bold;
+    color: var(--noir-accent);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dialogue-text {
+    color: var(--noir-white);
+    line-height: 1.8;
+}
+
+.code-example {
+    background: var(--console-bg);
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.code-header {
+    background: var(--noir-light-gray);
+    padding: 10px 15px;
+    font-weight: bold;
+    color: var(--noir-accent);
+}
+
+.code-example pre {
+    padding: 15px;
+    overflow-x: auto;
+}
+
+.code-example code {
+    color: var(--console-green);
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.challenge-section {
+    background: var(--noir-gray);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 2px solid var(--noir-accent);
+}
+
+.challenge-title {
+    font-size: 1.8em;
+    color: var(--noir-accent);
+    margin-bottom: 20px;
+}
+
+.challenge-task {
+    background: var(--noir-dark);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.challenge-hint {
+    background: var(--noir-dark);
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid var(--noir-warning);
+    margin-bottom: 20px;
+}
+
+.interactive-console {
+    background: var(--console-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.console-header {
+    background: var(--noir-light-gray);
+    padding: 10px 15px;
+    font-weight: bold;
+    color: var(--console-green);
+}
+
+.console-body {
+    padding: 20px;
+}
+
+.console-input-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.console-prompt {
+    color: var(--console-green);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.console-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--console-green);
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 16px;
+    outline: none;
+}
+
+.console-input::placeholder {
+    color: var(--noir-light-gray);
+}
+
+.check-button {
+    background: var(--noir-accent);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.check-button:hover {
+    background: #a02622;
+}
+
+.console-output {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: var(--console-green);
+    font-family: 'Consolas', 'Monaco', monospace;
+    min-height: 50px;
+    display: none;
+}
+
+.console-output.show {
+    display: block;
+}
+
+.feedback-message {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: none;
+}
+
+.feedback-message.success {
+    background: var(--noir-success);
+    color: white;
+    display: block;
+}
+
+.feedback-message.error {
+    background: var(--noir-accent);
+    color: white;
+    display: block;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.nav-button {
+    background: var(--noir-gray);
+    color: var(--noir-white);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    border: 1px solid var(--noir-light-gray);
+    transition: all 0.3s;
+}
+
+.nav-button:hover {
+    background: var(--noir-accent);
+    border-color: var(--noir-accent);
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tutorial-title {
+        font-size: 1.8em;
+    }
+
+    .narrative-section, .challenge-section {
+        padding: 20px;
+    }
+}

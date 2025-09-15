@@ -1,0 +1,55 @@
+{
+  "tutorial": "Redis Basics",
+  "module": 1,
+  "scene": 1,
+  "technical_concept": "Using Strings for basic key-value storage with SET, GET, and SETEX for expiry.",
+  "code_example": {
+    "language": "redis-cli",
+    "code": "SETEX online:user789 300 \"active\""
+  },
+  "challenge": {
+    "task": "A new person of interest, `user456`, just came online. Mark their status as 'online' but make sure the lead goes cold (expires) in exactly 2 minutes (120 seconds).",
+    "hint": "You need the command that sets a key with an expiry time, all in one clean operation.",
+    "check": {
+      "command": "TTL online:user456",
+      "expected_output_type": "integer_greater_than",
+      "expected_output_value": 110
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Ephemeral Lead",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "Indecks."
+        },
+        {
+          "character": "REDIS",
+          "line": "Got a new lead for you, detective. A shadowy figure, `user789`. We need to track them, but only when they're active. We can't waste resources tailing them when they go dark."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "So I need a way to put a temporary tag on them. What's the tool?"
+        },
+        {
+          "character": "REDIS",
+          "line": "The simplest tool in the box. A basic key-value pair. You give me a key, like `online:user789`, and a value, like 'active'. My `SET` command handles it. If you need to check the status, you just ask me with `GET online:user789`."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "But you said temporary. What if I forget to remove the tag? The lead goes cold, but my board still says they're active. Sloppy work."
+        },
+        {
+          "character": "REDIS",
+          "line": "That's why you don't use `SET`. You use `SETEX`—SET with Expiry. You give me the key, the number of seconds to keep the lead alive, and the value. For example: `SETEX online:user789 300 \"active\"`. In 5 minutes (300 seconds), that record vanishes. No loose ends. No sloppy work."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Clean. I like it. Let's put it to the test."
+        }
+      ]
+    }
+  ]
+}
