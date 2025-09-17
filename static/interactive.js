@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return pathParts[pathParts.length - 1];
     }
 
+    function getCurrentTopic() {
+        const pathParts = window.location.pathname.split('/');
+        // URL format: /tutorial/redis/00_setup
+        if (pathParts.length >= 3 && pathParts[1] === 'tutorial') {
+            return pathParts[2];
+        }
+        return 'redis'; // fallback
+    }
+
     async function checkAnswer() {
         const command = commandInput.value.trim();
 
@@ -28,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({
                     command: command,
+                    topic: getCurrentTopic(),
                     lesson: getCurrentLesson()
                 })
             });
@@ -35,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
 
             showOutput(data.output);
-            showFeedback(data.message, data.success);
+            showFeedback(data.feedback_message, data.is_correct);
 
-            if (data.success) {
+            if (data.is_correct) {
                 commandInput.style.borderColor = '#5cb85c';
                 setTimeout(() => {
                     commandInput.style.borderColor = '';

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ tutorial_name }} - Tutorial Drama</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 class="tutorial-title">{{ tutorial_name }}</h1>
+                <div class="breadcrumb">
+                    <a href="/">Home</a> / {{ tutorial_name }}
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="tutorial-intro">
+                <div class="intro-content">
+                    <h2>{{ description }}</h2>
+                    <div class="tutorial-meta">
+                        <span class="lesson-count">{{ lessons|length }} lessons available</span>
+                        <span class="style-info">Style: {{ style_name }}</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lessons-list">
+                <h3 class="section-title">Lessons</h3>
+
+                <div class="lessons-grid">
+                    {% for lesson in lessons %}
+                    <div class="lesson-card">
+                        <div class="lesson-header">
+                            <div class="lesson-number">{{ lesson.module }}.{{ lesson.scene }}</div>
+                            <h4 class="lesson-title">{{ lesson.title }}</h4>
+                        </div>
+                        <div class="lesson-content">
+                            <p class="lesson-concept">{{ lesson.technical_concept }}</p>
+                            {% if lesson.code_example %}
+                            <div class="lesson-preview">
+                                <code>{{ lesson.code_example.code }}</code>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="lesson-actions">
+                            <a href="/tutorial/{{ topic }}/{{ lesson.filename }}" class="btn-primary">
+                                Start Lesson
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="tutorial-progress">
+                <h3 class="section-title">Your Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <p class="progress-text">0 of {{ lessons|length }} lessons completed</p>
+            </section>
+
+            <nav class="tutorial-navigation">
+                <a href="/" class="nav-button">← Back to Tutorials</a>
+                {% if lessons %}
+                <a href="/tutorial/{{ topic }}/{{ lessons[0].filename }}" class="nav-button btn-primary">
+                    Start First Lesson →
+                </a>
+                {% endif %}
+            </nav>
+        </main>
+    </div>
+</body>
+</html>

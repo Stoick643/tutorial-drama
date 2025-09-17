@@ -6,7 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import json
 import os
-import redis
+import httpx
+import time
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -27,28 +28,80 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
-redis_client = None
+# Dev mode: disable caching for static files
+if os.getenv("DEV_MODE"):
+    @app.middleware("http")
+    async def add_no_cache_headers(request, call_next):
+        response = await call_next(request)
+        if request.url.path.startswith("/static"):
+            response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+        return response
 
-try:
-    redis_client = redis.from_url(REDIS_URL, decode_responses=True)
-    redis_client.ping()
-except Exception as e:
-    print(f"Warning: Could not connect to Redis: {e}")
-    print("Running in demo mode without Redis sandbox")
+# REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
+GRADER_URL = os.getenv("GRADER_URL")
 
 class CommandRequest(BaseModel):
     command: str
+    topic: str
     lesson: str
 
 class CommandResponse(BaseModel):
-    success: bool
     output: str
-    message: str
+    is_correct: bool
+    feedback_message: str
 
-@app.get("/")
-async def root():
-    return {"message": "Welcome to the Narrative Learning Engine"}
+@app.get("/", response_class=HTMLResponse)
+async def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/tutorial/{topic}", response_class=HTMLResponse)
+async def get_tutorial_menu(request: Request, topic: str):
+    tutorial_dir = base_dir / f"tutorials/{topic}"
+
+    if not tutorial_dir.exists():
+        raise HTTPException(status_code=404, detail=f"Tutorial topic '{topic}' not found")
+
+    lessons = []
+    tutorial_name = topic.title()
+    description = "Learn through engaging narratives and interactive challenges"
+    style_name = "Detective Noir"
+
+    # Load all lesson files
+    for json_file in sorted(tutorial_dir.glob("*.json")):
+        try:
+            with open(json_file, "r", encoding="utf-8") as f:
+                lesson_data = json.load(f)
+
+            # Get the first style for display
+            style = lesson_data.get("styles", [{}])[0] if lesson_data.get("styles") else {}
+
+            lessons.append({
+                "filename": json_file.stem,
+                "title": style.get("title", f"Lesson {json_file.stem}"),
+                "technical_concept": lesson_data.get("technical_concept", ""),
+                "code_example": lesson_data.get("code_example"),
+                "module": lesson_data.get("module", 1),
+                "scene": lesson_data.get("scene", 1)
+            })
+
+            # Use first lesson to set tutorial info
+            if not lessons or len(lessons) == 1:
+                tutorial_name = lesson_data.get("tutorial", topic.title())
+
+        except (json.JSONDecodeError, Exception):
+            continue
+
+    return templates.TemplateResponse(
+        "tutorial_menu.html",
+        {
+            "request": request,
+            "topic": topic,
+            "tutorial_name": tutorial_name,
+            "description": description,
+            "style_name": style_name,
+            "lessons": lessons
+        }
+    )
 
 @app.get("/tutorial/{topic}/{lesson}", response_class=HTMLResponse)
 async def get_tutorial(request: Request, topic: str, lesson: str):
@@ -86,7 +139,8 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
                 "technical_concept": lesson_data.get("technical_concept", ""),
                 "topic": topic,
                 "lesson": lesson,
-                "style": style
+                "style": style,
+                "js_version": str(int(time.time()))
             }
         )
     except json.JSONDecodeError:
@@ -94,83 +148,65 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 @app.post("/api/check-answer", response_model=CommandResponse)
 async def check_answer(request: CommandRequest):
-    if not redis_client:
-        return CommandResponse(
-            success=False,
-            output="Redis sandbox is not available. Running in demo mode.",
-            message="Please set up a Redis connection to test commands."
-        )
+    print("DEBUG: check_answer endpoint called")
+    # Debug: Print what we received
+    print(f"DEBUG: Received request data: {request.dict()}")
+    print(f"DEBUG: Command: {request.command}, Topic: {request.topic}, Lesson: {request.lesson}")
 
+    if not GRADER_URL:
+        raise HTTPException(status_code=500, detail="Grader service URL not configured")
+
+    # 1. Load the lesson JSON to get the check_logic
+    json_path = base_dir / f"tutorials/{request.topic}/{request.lesson}.json"
+    if not json_path.exists():
+        raise HTTPException(status_code=404, detail="Lesson file not found")
+    
+    with open(json_path, "r", encoding="utf-8") as f:
+        lesson_data = json.load(f)
+
+    # Debug: Print loaded lesson data
+    print(f"DEBUG: Loaded lesson data for {request.lesson}")
+    print(f"DEBUG: check_logic from lesson: {lesson_data.get('challenge', {}).get('check_logic')}")
+
+    check_logic = lesson_data.get("challenge", {}).get("check_logic")
+    if not check_logic:
+        raise HTTPException(status_code=500, detail="No check logic found for this lesson")
+
+    # 2. Build the payload for the grader service
+    payload_to_grader = {
+        "language": request.topic, # e.g., "redis"
+        "user_code": request.command,
+        "check_logic": check_logic
+    }
+
+    # Debug: Print what we're sending to grader
+    print(f"DEBUG: Payload to grader service: {payload_to_grader}")
+
+    # 3. Use httpx to call the grader service
     try:
-        parts = request.command.strip().split()
-        if not parts:
-            return CommandResponse(
-                success=False,
-                output="",
-                message="Please enter a Redis command"
-            )
+        async with httpx.AsyncClient() as client:
+            response = await client.post(GRADER_URL + "/grade", json=payload_to_grader, timeout=10.0)
+            response.raise_for_status() # Raise an exception for bad status codes (4xx or 5xx)
 
-        command = parts[0].upper()
-        args = parts[1:]
-
-        result = redis_client.execute_command(command, *args)
-
-        json_path = base_dir / f"tutorials/redis/{request.lesson}.json"
-        if json_path.exists():
-            with open(json_path, "r", encoding="utf-8") as f:
-                lesson_data = json.load(f)
-
-            if "challenge" in lesson_data and "check" in lesson_data["challenge"]:
-                check = lesson_data["challenge"]["check"]
-                check_command = check.get("command", "").split()
-                if check_command:
-                    check_result = redis_client.execute_command(check_command[0], *check_command[1:])
-
-                    expected_type = check.get("expected_output_type", "")
-                    expected_value = check.get("expected_output_value")
-
-                    is_correct = False
-                    if expected_type == "integer_greater_than":
-                        is_correct = isinstance(check_result, int) and check_result > expected_value
-                    elif expected_type == "exact":
-                        is_correct = str(check_result) == str(expected_value)
-                    else:
-                        is_correct = check_result is not None
-
-                    if is_correct:
-                        return CommandResponse(
-                            success=True,
-                            output=str(result) if result is not None else "OK",
-                            message="Excellent work, detective! You've cracked the case."
-                        )
-                    else:
-                        return CommandResponse(
-                            success=False,
-                            output=str(result) if result is not None else "OK",
-                            message="Not quite right. Check your command and try again."
-                        )
-
+        # 4. Return the grader's response mapped to our model
+        grader_response = response.json()
         return CommandResponse(
-            success=True,
-            output=str(result) if result is not None else "OK",
-            message="Command executed successfully"
+            output=grader_response.get("output", ""),
+            is_correct=grader_response.get("is_correct", False),
+            feedback_message=grader_response.get("feedback_message", "")
         )
 
-    except redis.ResponseError as e:
-        return CommandResponse(
-            success=False,
-            output="",
-            message=f"Redis error: {str(e)}"
-        )
+    except httpx.RequestError as e:
+        print(f"DEBUG: httpx.RequestError: {e}")
+        raise HTTPException(status_code=503, detail=f"Error connecting to the grader service: {e}")
     except Exception as e:
-        return CommandResponse(
-            success=False,
-            output="",
-            message=f"Error: {str(e)}"
-        )
+        print(f"DEBUG: Exception occurred: {type(e).__name__}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
+
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run(app, host="127.0.0.1", port=8000)

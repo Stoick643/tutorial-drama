@@ -11,6 +11,11 @@
         <header>
             <div class="header-content">
                 <h1 class="tutorial-title">{{ tutorial }}</h1>
+                <div class="breadcrumb">
+                    <a href="/">Home</a> /
+                    <a href="/tutorial/{{ topic }}">{{ tutorial }}</a> /
+                    {{ title }}
+                </div>
                 <div class="lesson-info">
                     <span class="module">Module {{ module }}</span>
                     <span class="scene">Scene {{ scene }}</span>
@@ -74,13 +79,20 @@
                 </div>
             </section>
 
-            <nav class="navigation">
-                <a href="/tutorial/{{ topic }}/00_setup" class="nav-button prev-button">Previous</a>
-                <a href="/tutorial/{{ topic }}/02_lists" class="nav-button next-button">Next</a>
+            <nav class="tutorial-navigation">
+                <a href="/tutorial/{{ topic }}" class="nav-button">← Back to {{ tutorial }}</a>
+                <div class="lesson-nav">
+                    {% if prev_lesson %}
+                    <a href="/tutorial/{{ topic }}/{{ prev_lesson }}" class="nav-button">← Previous</a>
+                    {% endif %}
+                    {% if next_lesson %}
+                    <a href="/tutorial/{{ topic }}/{{ next_lesson }}" class="nav-button btn-primary">Next →</a>
+                    {% endif %}
+                </div>
             </nav>
         </main>
     </div>
 
-    <script src="/static/interactive.js"></script>
+    <script src="/static/interactive.js?v={{ js_version }}"></script>
 </body>
 </html>
