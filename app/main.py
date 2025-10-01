@@ -108,7 +108,7 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
     json_path = base_dir / f"tutorials/{topic}/{lesson}.json"
 
     if not json_path.exists():
-        raise HTTPException(status_code=404, detail=f"Lesson {lesson} not found for topic {topic}")
+        raise HTTPException(status_code=404, detail=f"Lesson '{lesson}' not found in topic '{topic}'")
 
     try:
         with open(json_path, "r", encoding="utf-8") as f:
@@ -144,18 +144,13 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
             }
         )
     except json.JSONDecodeError:
-        raise HTTPException(status_code=500, detail="Invalid lesson file format")
+        raise HTTPException(status_code=500, detail="Invalid JSON format in lesson file")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Error loading lesson: {str(e)}")
 
 
 @app.post("/api/check-answer", response_model=CommandResponse)
 async def check_answer(request: CommandRequest):
-    print("DEBUG: check_answer endpoint called")
-    # Debug: Print what we received
-    print(f"DEBUG: Received request data: {request.dict()}")
-    print(f"DEBUG: Command: {request.command}, Topic: {request.topic}, Lesson: {request.lesson}")
-
     if not GRADER_URL:
         raise HTTPException(status_code=500, detail="Grader service URL not configured")
 
@@ -167,13 +162,9 @@ async def check_answer(request: CommandRequest):
     with open(json_path, "r", encoding="utf-8") as f:
         lesson_data = json.load(f)
 
-    # Debug: Print loaded lesson data
-    print(f"DEBUG: Loaded lesson data for {request.lesson}")
-    print(f"DEBUG: check_logic from lesson: {lesson_data.get('challenge', {}).get('check_logic')}")
-
     check_logic = lesson_data.get("challenge", {}).get("check_logic")
     if not check_logic:
-        raise HTTPException(status_code=500, detail="No check logic found for this lesson")
+        raise HTTPException(status_code=500, detail="Missing check_logic in lesson challenge")
 
     # 2. Build the payload for the grader service
     payload_to_grader = {
@@ -181,9 +172,6 @@ async def check_answer(request: CommandRequest):
         "user_code": request.command,
         "check_logic": check_logic
     }
-
-    # Debug: Print what we're sending to grader
-    print(f"DEBUG: Payload to grader service: {payload_to_grader}")
 
     # 3. Use httpx to call the grader service
     try:
@@ -200,11 +188,9 @@ async def check_answer(request: CommandRequest):
         )
 
     except httpx.RequestError as e:
-        print(f"DEBUG: httpx.RequestError: {e}")
-        raise HTTPException(status_code=503, detail=f"Error connecting to the grader service: {e}")
+        raise HTTPException(status_code=503, detail=f"Unable to connect to grader service: {e}")
     except Exception as e:
-        print(f"DEBUG: Exception occurred: {type(e).__name__}: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error during grading: {str(e)}")
 
 
 if __name__ == "__main__":

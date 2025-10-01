@@ -1,0 +1,73 @@
+{
+  "tutorial": "Redis Basics",
+  "module": 1,
+  "scene": 4,
+  "technical_concept": "Using Hashes to store structured data with multiple fields using HSET, HGET, HGETALL, and HDEL.",
+  "code_example": {
+    "language": "redis-cli",
+    "code": "HSET suspect:charlie age 34 height \"5'9\" last_seen \"downtown_pier\"\nHGET suspect:charlie age\nHGETALL suspect:charlie"
+  },
+  "challenge": {
+    "task": "Create a comprehensive profile for suspect_delta with age 28, height 5'7\", occupation lawyer, and last_seen courthouse. Then retrieve just their occupation.",
+    "hint": "Use HSET to store multiple fields at once, then HGET to retrieve a specific field.",
+    "check_logic": {
+      "validation_command": "HGET suspect:delta occupation",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "lawyer"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Suspect Profile",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "I've got names, but names aren't enough. I need profiles—age, height, occupation, where they were last seen. The full picture."
+        },
+        {
+          "character": "REDIS",
+          "line": "You need Hashes, detective. Think of them as file folders—one key holds multiple related pieces of information. Perfect for suspect profiles."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Show me how it works."
+        },
+        {
+          "character": "REDIS",
+          "line": "Use `HSET` to build the profile. For example: `HSET suspect:charlie age 34 height \"5'9\" occupation \"mechanic\"`. One command, multiple facts. Clean and organized."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "And when I need specific information?"
+        },
+        {
+          "character": "REDIS",
+          "line": "`HGET suspect:charlie age` gives you just the age. `HGET suspect:charlie occupation` gives you just the job. Targeted retrieval—no digging through paperwork."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "What if I want the whole file?"
+        },
+        {
+          "character": "REDIS",
+          "line": "`HGETALL suspect:charlie` dumps everything—every field and value in the profile. Perfect for briefings or when you need the complete picture."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "And if information becomes irrelevant?"
+        },
+        {
+          "character": "REDIS",
+          "line": "`HDEL suspect:charlie occupation` removes just that field. Maybe their job doesn't matter to the case, but you keep the rest. Surgical precision."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Perfect. Time to build some comprehensive profiles and crack this case."
+        }
+      ]
+    }
+  ]
+}

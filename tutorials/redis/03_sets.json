@@ -1,0 +1,65 @@
+{
+  "tutorial": "Redis Basics",
+  "module": 1,
+  "scene": 3,
+  "technical_concept": "Using Sets to store unique collections and find intersections with SADD, SREM, SISMEMBER, and SINTER.",
+  "code_example": {
+    "language": "redis-cli",
+    "code": "SADD known_associates:alpha \"murphy\" \"valdez\" \"chen\"\nSADD known_associates:bravo \"murphy\" \"torres\" \"kim\"\nSINTER known_associates:alpha known_associates:bravo"
+  },
+  "challenge": {
+    "task": "Build associate networks for suspects alpha and bravo. Alpha knows murphy, valdez, and chen. Bravo knows murphy, torres, and kim. Find their common connections.",
+    "hint": "Use SADD to build each suspect's network, then SINTER to find who they both know.",
+    "check_logic": {
+      "validation_command": "SINTER known_associates:alpha known_associates:bravo",
+      "expected_result": {
+        "type": "set_contains",
+        "value": "murphy"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Connection Web",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "Two suspects, dozens of known associates. There's got to be a connection—someone who knows them both. That's my smoking gun."
+        },
+        {
+          "character": "REDIS",
+          "line": "Sounds like you need Sets, detective. Perfect for tracking unique relationships and finding overlaps. No duplicates, no confusion—just clean connections."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "How do I map out their networks?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Use `SADD` to build each suspect's associate network. For example: `SADD known_associates:alpha \"murphy\"` adds Murphy to Alpha's network. Add as many as you need—Sets automatically handle uniqueness."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "And to find the connection between them?"
+        },
+        {
+          "character": "REDIS",
+          "line": "`SINTER known_associates:alpha known_associates:bravo` gives you the intersection—everyone who appears in both networks. Your common connections, your potential witnesses."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "What about checking if someone specific is in a network?"
+        },
+        {
+          "character": "REDIS",
+          "line": "`SISMEMBER known_associates:alpha \"murphy\"` returns 1 if Murphy knows Alpha, 0 if not. Quick membership checks. And `SREM` removes someone from a network if they turn out to be a dead end."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Beautiful. Time to map these connections and find my link."
+        }
+      ]
+    }
+  ]
+}

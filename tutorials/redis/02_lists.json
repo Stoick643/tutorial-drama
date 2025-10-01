@@ -1,0 +1,65 @@
+{
+  "tutorial": "Redis Basics",
+  "module": 1,
+  "scene": 2,
+  "technical_concept": "Using Lists to manage ordered collections with LPUSH, RPUSH, LPOP, and RPOP for queue operations.",
+  "code_example": {
+    "language": "redis-cli",
+    "code": "LPUSH interrogation:queue \"suspect_charlie\"\nLPOP interrogation:queue"
+  },
+  "challenge": {
+    "task": "Three suspects just walked in: `suspect_alpha`, `suspect_bravo`, and `suspect_charlie`. Add them to the interrogation queue in that order (alpha first, charlie last), then bring the first suspect in for questioning.",
+    "hint": "Use RPUSH to add suspects to the end of the queue, then LPOP to bring the first one out.",
+    "check_logic": {
+      "validation_command": "LLEN interrogation:queue",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "2"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Interrogation Queue",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "Three suspects in the lobby. They all claim innocence, but someone's lying. I need to question them one by one, in order."
+        },
+        {
+          "character": "REDIS",
+          "line": "Sounds like you need a queue, detective. A first-in, first-out system. Redis Lists are perfect for this—they maintain order like a proper lineup."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Talk to me. How do I line them up?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Think of a List like a lineup against the wall. You can add suspects to either end: `LPUSH` puts them at the front of the line, `RPUSH` puts them at the back. Want to follow standard procedure? Use `RPUSH interrogation:queue \"suspect_alpha\"` to add them to the back."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "And when I'm ready to bring someone in?"
+        },
+        {
+          "character": "REDIS",
+          "line": "`LPOP interrogation:queue` takes the first person in line. `RPOP` takes the last. For proper interrogation protocol, you want `LPOP`—first come, first served. Fair and methodical."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Perfect. No cutting in line, no favorites. Just clean, orderly justice."
+        },
+        {
+          "character": "REDIS",
+          "line": "Want to check how many are still waiting? `LLEN interrogation:queue` gives you the count. Want to see who's next without removing them? `LINDEX interrogation:queue 0` shows the first person."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Let's put this system to work. Time to build that queue."
+        }
+      ]
+    }
+  ]
+}

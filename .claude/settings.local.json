@@ -3,7 +3,8 @@
     "allow": [
       "Bash(tasklist)",
       "Bash(netstat:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Read(//c/projects/Claude/grader-service/**)"
     ],
     "deny": [],
     "ask": []

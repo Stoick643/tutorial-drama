@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     commandInput.style.borderColor = '';
                 }, 3000);
+
+                // Mark lesson as completed
+                markLessonCompleted(getCurrentTopic(), getCurrentLesson());
             }
 
         } catch (error) {
@@ -95,4 +98,90 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     commandInput.focus();
+
+    // Check if current lesson is completed on page load
+    checkLessonCompletion();
+
+    function checkLessonCompletion() {
+        const topic = getCurrentTopic();
+        const lesson = getCurrentLesson();
+        const progressKey = `tutorial_progress_${topic}`;
+        const completedLessons = JSON.parse(localStorage.getItem(progressKey) || '[]');
+
+        const statusDiv = document.getElementById('lesson-status');
+        if (statusDiv && completedLessons.includes(lesson)) {
+            statusDiv.innerHTML = '<span class="completed-badge">✅ Completed</span>';
+            statusDiv.style.cssText = `
+                color: #5cb85c;
+                font-weight: bold;
+                margin-left: 10px;
+            `;
+        }
+    }
+
+    // Mark current lesson as completed and update progress
+    function markLessonCompleted(topic, lesson) {
+        const progressKey = `tutorial_progress_${topic}`;
+        let completedLessons = JSON.parse(localStorage.getItem(progressKey) || '[]');
+
+        if (!completedLessons.includes(lesson)) {
+            completedLessons.push(lesson);
+            localStorage.setItem(progressKey, JSON.stringify(completedLessons));
+
+            // Show completion indicator
+            showCompletionMessage();
+
+            // Update lesson status display
+            const statusDiv = document.getElementById('lesson-status');
+            if (statusDiv) {
+                statusDiv.innerHTML = '<span class="completed-badge">✅ Completed</span>';
+                statusDiv.style.cssText = `
+                    color: #5cb85c;
+                    font-weight: bold;
+                    margin-left: 10px;
+                `;
+            }
+        }
+    }
+
+    function showCompletionMessage() {
+        const completionDiv = document.createElement('div');
+        completionDiv.className = 'completion-message';
+        completionDiv.innerHTML = '✅ Lesson completed! Well done, detective.';
+        completionDiv.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #5cb85c;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        `;
+
+        document.body.appendChild(completionDiv);
+
+        setTimeout(() => {
+            completionDiv.style.animation = 'slideOut 0.3s ease-in forwards';
+            setTimeout(() => {
+                document.body.removeChild(completionDiv);
+            }, 300);
+        }, 3000);
+    }
+
+    // Add CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
 });

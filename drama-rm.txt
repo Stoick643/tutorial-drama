@@ -1,6 +1,17 @@
+
+  find . -name "*.html" | xargs wc -l
+  find . -name "*.py" -not -path "./venv/*" | xargs wc -l
+
 --dangerously-skip-permissions
-  python -m venv venv
-  source venv/Scripts/activate
+python -m venv venv
+source venv/Scripts/activate
+uvicorn app.main:app --reload
+uvicorn app.main:app --reload --port 8001
+
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+
+pip-compile requirements.in
 
   1. docker build -t grader-image-redis ./graders/redis
   2. uvicorn app.main:app --reload // after pip-compile
