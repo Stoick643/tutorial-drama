@@ -1,0 +1,107 @@
+{
+  "tutorial": "SQL Investigation",
+  "module": 1,
+  "scene": 4,
+  "technical_concept": "Using INNER JOIN to combine data from multiple related tables.",
+  "code_example": {
+    "language": "sql",
+    "code": "SELECT employees.first_name, employees.last_name, departments.name FROM employees INNER JOIN departments ON employees.department_id = departments.id;"
+  },
+  "challenge": {
+    "task": "Connect employees to their department names. Join the employees table with the departments table to see which department each employee belongs to.",
+    "hint": "Use INNER JOIN with ON to link employees.department_id to departments.id.",
+    "check_logic": {
+      "validation_command": "SELECT COUNT(*) FROM employees INNER JOIN departments ON employees.department_id = departments.id;",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "15"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "Connecting the Dots",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "I've got employee names and department IDs, but IDs don't mean anything to me. I need actual department names—Engineering, Marketing, the works."
+        },
+        {
+          "character": "Database",
+          "line": "That information lives in two separate tables, detective. Employees in one, departments in another. You need to join them together."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Join? How does that work?"
+        },
+        {
+          "character": "Database",
+          "line": "INNER JOIN connects tables using a common key. Here, `employees.department_id` matches `departments.id`. You link them with ON: `SELECT employees.first_name, departments.name FROM employees INNER JOIN departments ON employees.department_id = departments.id`."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "So it's like cross-referencing files? One file has names, another has department details, and I match them up?"
+        },
+        {
+          "character": "Database",
+          "line": "Exactly. INNER JOIN only shows rows where there's a match in both tables. If an employee has no department, they won't appear. If a department has no employees, it won't show either."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "What if I want to see employees even if they don't have a department assigned?"
+        },
+        {
+          "character": "Database",
+          "line": "That's LEFT JOIN, detective. But stick with INNER JOIN for now—it gives you clean, complete connections."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Got it. Let's link these tables and see the full picture."
+        }
+      ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Relational Data Linking",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, I have employee records with department IDs, but I need the actual department names. The data is split across tables."
+        },
+        {
+          "character": "NEXUS",
+          "line": "This is a relational database structure, Engineer. Department information resides in a separate table. You must join the tables using a common key."
+        },
+        {
+          "character": "Engineer",
+          "line": "Explain the join mechanism."
+        },
+        {
+          "character": "NEXUS",
+          "line": "INNER JOIN combines rows from two tables where a specified condition is met. Example: SELECT employees.first_name, departments.name FROM employees INNER JOIN departments ON employees.department_id = departments.id. The ON clause defines the link."
+        },
+        {
+          "character": "Engineer",
+          "line": "So it's like merging two data sets based on a shared identifier?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Precisely. INNER JOIN returns only rows with matching values in both tables. Unmatched rows are excluded from the result set."
+        },
+        {
+          "character": "Engineer",
+          "line": "What if I need to preserve all employee records, even without department matches?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "That requires LEFT JOIN, which preserves all rows from the left table. For now, INNER JOIN provides complete, matched records only."
+        },
+        {
+          "character": "Engineer",
+          "line": "Understood. Let's execute the join operation."
+        }
+      ]
+    }
+  ]
+}

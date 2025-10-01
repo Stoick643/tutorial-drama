@@ -60,6 +60,48 @@
           "line": "Let's put this system to work. Time to build that queue."
         }
       ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Priority Processing Queue",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, three maintenance requests just came in from different sectors. I need to handle them in the order they arrived."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Standard queue management protocol, Engineer. Redis Lists are optimal for sequential processing. They maintain insertion order precisely."
+        },
+        {
+          "character": "Engineer",
+          "line": "Walk me through the commands."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Visualize a List as a processing pipeline. LPUSH adds items to the front, RPUSH to the rear. For standard queue behavior, use RPUSH to append new requests: RPUSH maintenance:queue 'request_alpha'. This adds to the end of the line."
+        },
+        {
+          "character": "Engineer",
+          "line": "And when I'm ready to process the next request?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "LPOP removes and returns the first item in the queue. RPOP retrieves from the end. For first-in-first-out processing, you want LPOP—it ensures fair sequential handling."
+        },
+        {
+          "character": "Engineer",
+          "line": "Good. No priority overrides, just systematic processing."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Additional operations: LLEN returns queue length. LINDEX lets you preview items without removal. For example, LINDEX maintenance:queue 0 shows the next pending request."
+        },
+        {
+          "character": "Engineer",
+          "line": "Efficient. Let's initialize this queue system."
+        }
+      ]
     }
   ]
 }

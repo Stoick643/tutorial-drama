@@ -52,6 +52,40 @@
           "line": "Clean. I like it. Let's put it to the test."
         }
       ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Temporal Data Markers",
+      "dialogue": [
+        {
+          "character": "NEXUS",
+          "line": "Engineer, incoming transmission. Crew member designation CR-789 has just logged into the main terminal."
+        },
+        {
+          "character": "Engineer",
+          "line": "I need to track their online status, but only while they're actively connected. Can't waste memory on stale session data."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Understood. We use key-value pairs for efficient tracking. I can store a key like 'session:CR-789' with a value of 'active'. To check their status later, simply query with GET."
+        },
+        {
+          "character": "Engineer",
+          "line": "But what about when they disconnect? I can't manually purge every session marker."
+        },
+        {
+          "character": "NEXUS",
+          "line": "That's why we use SETEX - SET with EXpiry. Specify the key, duration in seconds, and value. Example: SETEX session:CR-789 300 'active'. After 300 seconds, the data automatically purges. Zero maintenance overhead."
+        },
+        {
+          "character": "Engineer",
+          "line": "Efficient. I like it. Let's test this auto-cleanup system."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Ready to receive your command, Engineer."
+        }
+      ]
     }
   ]
 }

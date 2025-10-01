@@ -19,6 +19,18 @@
                 <div class="lesson-info">
                     <span class="module">Module {{ module }}</span>
                     <span class="scene">Scene {{ scene }}</span>
+                    {% if available_styles and available_styles|length > 1 %}
+                    <div class="style-selector">
+                        <label for="style-select">Style:</label>
+                        <select id="style-select" onchange="window.location.href='/tutorial/{{ topic }}/{{ lesson }}?style=' + this.value">
+                            {% for style in available_styles %}
+                            <option value="{{ style.name }}" {% if style.name == current_style %}selected{% endif %}>
+                                {{ style.display_name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endif %}
                     <div id="lesson-status" class="lesson-status"></div>
                 </div>
             </div>
@@ -63,14 +75,14 @@
                 {% endif %}
 
                 <div class="interactive-console">
-                    <div class="console-header">Redis Console</div>
+                    <div class="console-header">{{ topic|title }} Console</div>
                     <div class="console-body">
                         <div class="console-input-wrapper">
-                            <span class="console-prompt">redis&gt;</span>
+                            <span class="console-prompt">{{ topic }}&gt;</span>
                             <input type="text"
                                    id="command-input"
                                    class="console-input"
-                                   placeholder="Enter your Redis command here..."
+                                   placeholder="Enter your {{ topic }} command here..."
                                    autocomplete="off">
                         </div>
                         <button id="check-answer" class="check-button">Check Answer</button>
@@ -81,13 +93,13 @@
             </section>
 
             <nav class="tutorial-navigation">
-                <a href="/tutorial/{{ topic }}" class="nav-button">← Back to {{ tutorial }}</a>
+                <a href="/tutorial/{{ topic }}?style={{ current_style }}" class="nav-button">← Back to {{ tutorial }}</a>
                 <div class="lesson-nav">
                     {% if prev_lesson %}
-                    <a href="/tutorial/{{ topic }}/{{ prev_lesson }}" class="nav-button">← Previous</a>
+                    <a href="/tutorial/{{ topic }}/{{ prev_lesson }}?style={{ current_style }}" class="nav-button">← Previous</a>
                     {% endif %}
                     {% if next_lesson %}
-                    <a href="/tutorial/{{ topic }}/{{ next_lesson }}" class="nav-button btn-primary">Next →</a>
+                    <a href="/tutorial/{{ topic }}/{{ next_lesson }}?style={{ current_style }}" class="nav-button btn-primary">Next →</a>
                     {% endif %}
                 </div>
             </nav>

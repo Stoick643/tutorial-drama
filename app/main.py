@@ -64,7 +64,8 @@ async def get_tutorial_menu(request: Request, topic: str):
     lessons = []
     tutorial_name = topic.title()
     description = "Learn through engaging narratives and interactive challenges"
-    style_name = "Detective Noir"
+    available_styles = []
+    current_style = request.query_params.get("style", "detective_noir")
 
     # Load all lesson files
     for json_file in sorted(tutorial_dir.glob("*.json")):
@@ -72,12 +73,28 @@ async def get_tutorial_menu(request: Request, topic: str):
             with open(json_file, "r", encoding="utf-8") as f:
                 lesson_data = json.load(f)
 
-            # Get the first style for display
-            style = lesson_data.get("styles", [{}])[0] if lesson_data.get("styles") else {}
+            # Collect available styles from first lesson
+            if not available_styles and lesson_data.get("styles"):
+                available_styles = [
+                    {
+                        "name": s.get("name", ""),
+                        "display_name": s.get("name", "").replace("_", " ").title()
+                    }
+                    for s in lesson_data.get("styles", [])
+                ]
+
+            # Find the selected style or use first style
+            selected_style = None
+            for s in lesson_data.get("styles", []):
+                if s.get("name") == current_style:
+                    selected_style = s
+                    break
+            if not selected_style and lesson_data.get("styles"):
+                selected_style = lesson_data.get("styles")[0]
 
             lessons.append({
                 "filename": json_file.stem,
-                "title": style.get("title", f"Lesson {json_file.stem}"),
+                "title": selected_style.get("title", f"Lesson {json_file.stem}") if selected_style else f"Lesson {json_file.stem}",
                 "technical_concept": lesson_data.get("technical_concept", ""),
                 "code_example": lesson_data.get("code_example"),
                 "module": lesson_data.get("module", 1),
@@ -98,7 +115,8 @@ async def get_tutorial_menu(request: Request, topic: str):
             "topic": topic,
             "tutorial_name": tutorial_name,
             "description": description,
-            "style_name": style_name,
+            "available_styles": available_styles,
+            "current_style": current_style,
             "lessons": lessons
         }
     )
@@ -115,6 +133,15 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
             lesson_data = json.load(f)
 
         style = request.query_params.get("style", "detective_noir")
+
+        # Collect available styles
+        available_styles = [
+            {
+                "name": s.get("name", ""),
+                "display_name": s.get("name", "").replace("_", " ").title()
+            }
+            for s in lesson_data.get("styles", [])
+        ]
 
         selected_style = None
         for s in lesson_data.get("styles", []):
@@ -140,6 +167,8 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
                 "topic": topic,
                 "lesson": lesson,
                 "style": style,
+                "available_styles": available_styles,
+                "current_style": style,
                 "js_version": str(int(time.time()))
             }
         )

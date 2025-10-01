@@ -60,6 +60,48 @@
           "line": "Beautiful. Time to map these connections and find my link."
         }
       ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Access Network Analysis",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, we have two security clearance groups. I need to identify personnel who have access to both restricted zones."
+        },
+        {
+          "character": "NEXUS",
+          "line": "This requires Set operations, Engineer. Sets are ideal for managing unique collections and computing intersections—no duplicates, mathematically precise."
+        },
+        {
+          "character": "Engineer",
+          "line": "How do I define each access group?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Use SADD to populate each set. Example: SADD clearance:zone_alpha 'officer_murphy' adds Murphy to Zone Alpha's access list. Sets automatically enforce uniqueness—adding the same member twice has no effect."
+        },
+        {
+          "character": "Engineer",
+          "line": "And to find personnel with dual clearance?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "SINTER clearance:zone_alpha clearance:zone_bravo computes the set intersection—all members present in both groups. These are your dual-clearance personnel."
+        },
+        {
+          "character": "Engineer",
+          "line": "Can I verify individual clearance status?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "SISMEMBER clearance:zone_alpha 'officer_murphy' returns 1 if Murphy has access, 0 otherwise. For revoking access, use SREM to remove members from the set."
+        },
+        {
+          "character": "Engineer",
+          "line": "Precise and efficient. Let's map these access networks."
+        }
+      ]
     }
   ]
 }

@@ -68,6 +68,56 @@
           "line": "Perfect. Time to build some comprehensive profiles and crack this case."
         }
       ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Personnel Record System",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, I need a proper database for crew personnel files. Age, height, role, last known location—complete records."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Hash data structures are optimal for this, Engineer. One key contains multiple field-value pairs—analogous to a structured record with multiple attributes."
+        },
+        {
+          "character": "Engineer",
+          "line": "Demonstrate the syntax."
+        },
+        {
+          "character": "NEXUS",
+          "line": "HSET creates multi-field records. Example: HSET crew:charlie age 34 height \"5'9\" role \"engineer\" last_seen \"engineering_bay\". One command stores all attributes efficiently."
+        },
+        {
+          "character": "Engineer",
+          "line": "How do I retrieve specific attributes?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "HGET provides targeted field access. HGET crew:charlie age returns only the age value. HGET crew:charlie role returns only the role. No need to retrieve the entire record."
+        },
+        {
+          "character": "Engineer",
+          "line": "What about retrieving complete records?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "HGETALL crew:charlie returns all fields and values in the hash. Useful for comprehensive data dumps or full record displays."
+        },
+        {
+          "character": "Engineer",
+          "line": "Can I remove obsolete fields?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "HDEL crew:charlie last_seen removes that specific field while preserving all others. Selective data pruning without full record deletion."
+        },
+        {
+          "character": "Engineer",
+          "line": "Efficient structure. Let's initialize these personnel records."
+        }
+      ]
     }
   ]
 }

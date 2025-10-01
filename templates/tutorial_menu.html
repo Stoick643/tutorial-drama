@@ -23,7 +23,18 @@
                     <h2>{{ description }}</h2>
                     <div class="tutorial-meta">
                         <span class="lesson-count">{{ lessons|length }} lessons available</span>
-                        <span class="style-info">Style: {{ style_name }}</span>
+                        {% if available_styles and available_styles|length > 1 %}
+                        <div class="style-selector">
+                            <label for="style-select">Narrative Style:</label>
+                            <select id="style-select" onchange="window.location.href='/tutorial/{{ topic }}?style=' + this.value">
+                                {% for style in available_styles %}
+                                <option value="{{ style.name }}" {% if style.name == current_style %}selected{% endif %}>
+                                    {{ style.display_name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </section>
@@ -47,7 +58,7 @@
                             {% endif %}
                         </div>
                         <div class="lesson-actions">
-                            <a href="/tutorial/{{ topic }}/{{ lesson.filename }}" class="btn-primary">
+                            <a href="/tutorial/{{ topic }}/{{ lesson.filename }}?style={{ current_style }}" class="btn-primary">
                                 Start Lesson
                             </a>
                         </div>
@@ -67,7 +78,7 @@
             <nav class="tutorial-navigation">
                 <a href="/" class="nav-button">← Back to Tutorials</a>
                 {% if lessons %}
-                <a href="/tutorial/{{ topic }}/{{ lessons[0].filename }}" class="nav-button btn-primary">
+                <a href="/tutorial/{{ topic }}/{{ lessons[0].filename }}?style={{ current_style }}" class="nav-button btn-primary">
                     Start First Lesson →
                 </a>
                 {% endif %}

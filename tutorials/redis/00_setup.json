@@ -52,6 +52,40 @@
           "line": "Simple. Send me a PING, and I'll send you back a PONG. It's how we establish trust in this business."
         }
       ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "System Initialization",
+      "dialogue": [
+        {
+          "character": "Station AI",
+          "line": "Welcome aboard Orbital Station Nexus-7. I am NEXUS, your station's central AI assistant."
+        },
+        {
+          "character": "Engineer",
+          "line": "NEXUS, status report. I need to verify all systems are operational."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Of course, Engineer. I utilize a high-speed data storage system called REDIS - Remote Dictionary Server. It manages all station data with millisecond response times."
+        },
+        {
+          "character": "Engineer",
+          "line": "REDIS? Never heard of it. How do I know it's working properly?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "The simplest diagnostic is a handshake protocol. Send me a PING command, and I will respond with PONG. This confirms the data core is online and responsive."
+        },
+        {
+          "character": "Engineer",
+          "line": "Alright, NEXUS. Let's verify this system is ready for duty."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Standing by for your command, Engineer."
+        }
+      ]
     }
   ]
 }

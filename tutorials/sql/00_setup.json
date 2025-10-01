@@ -1,0 +1,91 @@
+{
+  "tutorial": "SQL Investigation",
+  "module": 1,
+  "scene": 0,
+  "technical_concept": "Introduction to SQL and database schema exploration.",
+  "code_example": {
+    "language": "sql",
+    "code": "SELECT name FROM sqlite_master WHERE type='table';"
+  },
+  "challenge": {
+    "task": "Connect to the database and list all available tables to understand the data structure.",
+    "hint": "Query the sqlite_master table to see what tables exist in this database.",
+    "check_logic": {
+      "validation_command": "SELECT COUNT(*) FROM sqlite_master WHERE type='table';",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "4"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Corporate Files",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "Another late night. Another case. This time it's corporate fraud at TechCorp. The evidence is buried somewhere in their employee database."
+        },
+        {
+          "character": "Database",
+          "line": "Welcome, Detective. I'm the company database—SQLite. I hold all the records: employees, departments, projects, everything."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "SQLite, huh? Never worked with you before. How do I know what you've got?"
+        },
+        {
+          "character": "Database",
+          "line": "Simple. Every database has a master catalog. Query `sqlite_master` with SELECT name FROM sqlite_master WHERE type='table' and you'll see every table I'm storing."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "So tables are like file cabinets? Each one holds different types of records?"
+        },
+        {
+          "character": "Database",
+          "line": "Exactly. This database has four tables: departments, employees, projects, and employee_projects. Each one tells part of the story. Your job is to query them and find the truth."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Alright, let's see what we're working with. Show me those tables."
+        }
+      ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Database System Access",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, I need access to the station's personnel database. What system are we using?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "The station database runs on SQLite, Engineer. It contains all personnel, department, and project assignment data."
+        },
+        {
+          "character": "Engineer",
+          "line": "How do I see what data structures are available?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Every SQLite database maintains a system catalog called sqlite_master. Execute: SELECT name FROM sqlite_master WHERE type='table' to enumerate all available tables."
+        },
+        {
+          "character": "Engineer",
+          "line": "Tables are the primary data storage containers?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Correct. Each table represents a distinct entity type. This database contains four: departments, employees, projects, and employee_projects. Each stores structured records with defined fields."
+        },
+        {
+          "character": "Engineer",
+          "line": "Understood. Let's verify database integrity by listing the tables."
+        }
+      ]
+    }
+  ]
+}

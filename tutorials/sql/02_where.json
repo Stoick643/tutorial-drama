@@ -1,0 +1,107 @@
+{
+  "tutorial": "SQL Investigation",
+  "module": 1,
+  "scene": 2,
+  "technical_concept": "Using WHERE clause to filter query results based on conditions.",
+  "code_example": {
+    "language": "sql",
+    "code": "SELECT first_name, last_name, salary FROM employees WHERE salary > 80000;"
+  },
+  "challenge": {
+    "task": "Find all employees in department_id 1 (Engineering) who earn more than 80000. These are your high-value suspects.",
+    "hint": "Use WHERE with AND to combine multiple conditions.",
+    "check_logic": {
+      "validation_command": "SELECT COUNT(*) FROM employees WHERE department_id = 1 AND salary > 80000;",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "4"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Money Trail",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "The tip said to look at Engineering. Someone in that department is making big money and leaving a suspicious paper trail."
+        },
+        {
+          "character": "Database",
+          "line": "Engineering is department_id 1. You'll want to filter the employees table to show only engineers making over 80k."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "How do I narrow it down? I don't want the whole roster, just the high rollers."
+        },
+        {
+          "character": "Database",
+          "line": "That's what WHERE is for, detective. Add conditions: `SELECT first_name, last_name, salary FROM employees WHERE salary > 80000`. Now you only see employees making over 80k."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "But I need them from Engineering specifically. How do I add that filter?"
+        },
+        {
+          "character": "Database",
+          "line": "Use AND to combine conditions: `WHERE department_id = 1 AND salary > 80000`. Both conditions must be true. No exceptions."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "What about OR? What if I want multiple departments?"
+        },
+        {
+          "character": "Database",
+          "line": "OR means either condition works: `WHERE department_id = 1 OR department_id = 2`. You can mix AND and OR, but use parentheses to keep your logic clean."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Perfect. Let's filter this list and find our suspects."
+        }
+      ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Conditional Data Filtering",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, I need personnel data for the Engineering department only. Specifically high-salary positions over 80,000 credits."
+        },
+        {
+          "character": "NEXUS",
+          "line": "That requires conditional filtering, Engineer. The WHERE clause restricts results to rows matching specified criteria."
+        },
+        {
+          "character": "Engineer",
+          "line": "How do I specify the salary threshold?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Apply a comparison operator: SELECT first_name, last_name, salary FROM employees WHERE salary > 80000. Only rows exceeding 80,000 are returned."
+        },
+        {
+          "character": "Engineer",
+          "line": "I also need to restrict by department. How do I combine filters?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Use the AND operator for multiple conditions: WHERE department_id = 1 AND salary > 80000. Both conditions must evaluate to true for inclusion."
+        },
+        {
+          "character": "Engineer",
+          "line": "What if I need either of multiple conditions?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "The OR operator returns rows matching any condition: WHERE department_id = 1 OR department_id = 2. Use parentheses for complex logic: WHERE (condition1 OR condition2) AND condition3."
+        },
+        {
+          "character": "Engineer",
+          "line": "Clear. Let's execute the filtered query."
+        }
+      ]
+    }
+  ]
+}

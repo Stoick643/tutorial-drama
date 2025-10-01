@@ -1,0 +1,107 @@
+{
+  "tutorial": "SQL Investigation",
+  "module": 1,
+  "scene": 1,
+  "technical_concept": "Using SELECT to retrieve specific columns from a table.",
+  "code_example": {
+    "language": "sql",
+    "code": "SELECT first_name, last_name, email FROM employees;"
+  },
+  "challenge": {
+    "task": "Retrieve a list of all employee names (first_name and last_name) from the employees table to begin your investigation.",
+    "hint": "Use SELECT with column names separated by commas.",
+    "check_logic": {
+      "validation_command": "SELECT COUNT(*) FROM employees;",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "15"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Employee Roster",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "I need names. Every suspect, every witness, everyone who works at this company. That's where we start."
+        },
+        {
+          "character": "Database",
+          "line": "The employees table has it all, detective. Names, emails, salaries, hire dates, departments. What do you need?"
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Just the basics for now. First name, last name. I don't need the whole file yet."
+        },
+        {
+          "character": "Database",
+          "line": "That's what SELECT is for. You specify exactly which columns you want: `SELECT first_name, last_name FROM employees`. No clutter, no waste—just what you asked for."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "What if I want to see their email addresses too?"
+        },
+        {
+          "character": "Database",
+          "line": "Add it to the list: `SELECT first_name, last_name, email FROM employees`. Comma-separated, clean and simple."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "And if I want everything?"
+        },
+        {
+          "character": "Database",
+          "line": "Use the asterisk: `SELECT * FROM employees` gives you every column. But be careful—more data means more noise. Focused queries get better results."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Smart. Let's pull those names and see who we're dealing with."
+        }
+      ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Personnel Query Protocol",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, I need a complete crew roster. Names of everyone aboard the station."
+        },
+        {
+          "character": "NEXUS",
+          "line": "The employees table contains all personnel records, Engineer. What specific data fields do you require?"
+        },
+        {
+          "character": "Engineer",
+          "line": "Just names for now—first and last. I don't need their complete profiles yet."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Use the SELECT statement to specify columns: SELECT first_name, last_name FROM employees. This retrieves only the requested fields, optimizing query performance."
+        },
+        {
+          "character": "Engineer",
+          "line": "What if I need communication addresses as well?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Extend the column list: SELECT first_name, last_name, email FROM employees. Comma-delimited syntax allows multiple field selection."
+        },
+        {
+          "character": "Engineer",
+          "line": "Can I retrieve all available fields at once?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Affirmative. SELECT * FROM employees returns all columns. However, selective queries are more efficient when you only need specific data."
+        },
+        {
+          "character": "Engineer",
+          "line": "Understood. Let's execute a targeted query for personnel names."
+        }
+      ]
+    }
+  ]
+}

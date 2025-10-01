@@ -1,0 +1,123 @@
+{
+  "tutorial": "SQL Investigation",
+  "module": 1,
+  "scene": 3,
+  "technical_concept": "Using aggregate functions (COUNT, SUM, AVG, MAX, MIN) and GROUP BY to analyze data.",
+  "code_example": {
+    "language": "sql",
+    "code": "SELECT department_id, COUNT(*) as employee_count FROM employees GROUP BY department_id;"
+  },
+  "challenge": {
+    "task": "Calculate the total number of employees in each department. Use COUNT and GROUP BY to see how staff are distributed across the company.",
+    "hint": "Use COUNT(*) with GROUP BY department_id to count employees per department.",
+    "check_logic": {
+      "validation_command": "SELECT COUNT(*) FROM (SELECT department_id, COUNT(*) FROM employees GROUP BY department_id);",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "4"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Numbers Game",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "I don't need individual names anymore. I need patterns. How many people in each department? What's the average salary? Where's the money going?"
+        },
+        {
+          "character": "Database",
+          "line": "You need aggregate functions, detective. COUNT, SUM, AVG, MAX, MIN—they crunch the numbers and give you the big picture."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Show me how many employees are in each department."
+        },
+        {
+          "character": "Database",
+          "line": "`SELECT department_id, COUNT(*) FROM employees GROUP BY department_id`. GROUP BY splits the data into groups, and COUNT tells you how many rows are in each group."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "What about average salaries? I need to know if one department is getting paid suspiciously well."
+        },
+        {
+          "character": "Database",
+          "line": "`SELECT department_id, AVG(salary) FROM employees GROUP BY department_id`. AVG calculates the mean. You'll see which departments are overpaid—or underpaid."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Can I see the highest salary in each department?"
+        },
+        {
+          "character": "Database",
+          "line": "`SELECT department_id, MAX(salary) FROM employees GROUP BY department_id`. MAX finds the top value in each group. Perfect for spotting outliers."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "And total payroll per department?"
+        },
+        {
+          "character": "Database",
+          "line": "`SELECT department_id, SUM(salary) FROM employees GROUP BY department_id`. SUM adds up all salaries in each group. Follow the money, detective."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Beautiful. Time to see where the numbers don't add up."
+        }
+      ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Statistical Data Analysis",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, I need workforce statistics. How many personnel in each department? What are the compensation patterns?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "This requires aggregate functions, Engineer. COUNT, SUM, AVG, MAX, and MIN perform mathematical operations across data sets."
+        },
+        {
+          "character": "Engineer",
+          "line": "Show me personnel count by department."
+        },
+        {
+          "character": "NEXUS",
+          "line": "SELECT department_id, COUNT(*) FROM employees GROUP BY department_id. The GROUP BY clause partitions data, and COUNT tallies rows per partition."
+        },
+        {
+          "character": "Engineer",
+          "line": "I need average compensation levels per department."
+        },
+        {
+          "character": "NEXUS",
+          "line": "SELECT department_id, AVG(salary) FROM employees GROUP BY department_id. AVG computes the arithmetic mean for each group. Useful for identifying compensation disparities."
+        },
+        {
+          "character": "Engineer",
+          "line": "What about maximum salary per department?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "SELECT department_id, MAX(salary) FROM employees GROUP BY department_id. MAX returns the highest value in each partition. Effective for outlier detection."
+        },
+        {
+          "character": "Engineer",
+          "line": "Total payroll expenditure per department?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "SELECT department_id, SUM(salary) FROM employees GROUP BY department_id. SUM aggregates all values within each group. Critical for budget analysis."
+        },
+        {
+          "character": "Engineer",
+          "line": "Excellent. Let's generate those departmental statistics."
+        }
+      ]
+    }
+  ]
+}

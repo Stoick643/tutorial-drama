@@ -36,11 +36,7 @@ To create an interactive, web-based learning platform that teaches technical sub
     * DevOps
     * SQL
 * **Initial Styles:**
-    * Detective Noir
-    * Sci-Fi Adventure
-    * Shakespearean Drama
-    * Flirting / Romance
-    * Office Comedy / Satire
+ q
 
 ---
 #### ### 5. Phased Development Plan (Roadmap)

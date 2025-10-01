@@ -1,0 +1,107 @@
+{
+  "tutorial": "SQL Investigation",
+  "module": 1,
+  "scene": 5,
+  "technical_concept": "Combining multiple JOINs and aggregates for complex queries.",
+  "code_example": {
+    "language": "sql",
+    "code": "SELECT d.name, COUNT(e.id) as emp_count, AVG(e.salary) as avg_salary FROM departments d LEFT JOIN employees e ON d.id = e.department_id GROUP BY d.name;"
+  },
+  "challenge": {
+    "task": "Find all employees working on projects in the Engineering department (department_id = 1). Join employees, employee_projects, and projects tables to see the complete picture.",
+    "hint": "Chain multiple INNER JOINs to connect all three tables through their relationships.",
+    "check_logic": {
+      "validation_command": "SELECT COUNT(DISTINCT e.id) FROM employees e INNER JOIN employee_projects ep ON e.id = ep.employee_id INNER JOIN projects p ON ep.project_id = p.id WHERE p.department_id = 1;",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "5"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "The Full Picture",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "I need to know which engineers are working on Engineering projects. That means connecting employees to projects through assignments. Three tables, one answer."
+        },
+        {
+          "character": "Database",
+          "line": "Now you're thinking like a pro, detective. You need to chain JOINs—employees to employee_projects to projects. Each link reveals another piece of the puzzle."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Walk me through it."
+        },
+        {
+          "character": "Database",
+          "line": "Start with employees. Join to employee_projects using employee_id. Then join employee_projects to projects using project_id. Like this: `FROM employees e INNER JOIN employee_projects ep ON e.id = ep.employee_id INNER JOIN projects p ON ep.project_id = p.id`."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "And I filter for Engineering department projects?"
+        },
+        {
+          "character": "Database",
+          "line": "Add WHERE p.department_id = 1 at the end. Now you're only seeing Engineering projects and the employees assigned to them."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "What if I want to count how many engineers are on these projects?"
+        },
+        {
+          "character": "Database",
+          "line": "Wrap it in COUNT: `SELECT COUNT(DISTINCT e.id) ...`. DISTINCT makes sure you don't count the same employee twice if they're on multiple projects."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "This is it. The final piece. Let's see who's really involved in Engineering."
+        }
+      ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Multi-Table Correlation",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "NEXUS, I need personnel assignments for all Engineering department projects. This requires correlating three data tables."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Affirmative, Engineer. This operation requires chaining multiple JOIN operations to traverse the relational schema."
+        },
+        {
+          "character": "Engineer",
+          "line": "Explain the query structure."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Begin with employees table. Join to employee_projects via employee_id. Then join employee_projects to projects via project_id: FROM employees e INNER JOIN employee_projects ep ON e.id = ep.employee_id INNER JOIN projects p ON ep.project_id = p.id."
+        },
+        {
+          "character": "Engineer",
+          "line": "How do I restrict results to Engineering projects only?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Apply a WHERE clause filtering on department: WHERE p.department_id = 1. This limits results to projects assigned to the Engineering department."
+        },
+        {
+          "character": "Engineer",
+          "line": "Can I calculate the unique personnel count working on these projects?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Use COUNT with DISTINCT: SELECT COUNT(DISTINCT e.id) ... This prevents duplicate counting when personnel are assigned to multiple Engineering projects."
+        },
+        {
+          "character": "Engineer",
+          "line": "Query structure confirmed. Executing multi-table correlation."
+        }
+      ]
+    }
+  ]
+}
