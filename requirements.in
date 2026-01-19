@@ -2,4 +2,4 @@ fastapi
 uvicorn[standard]
 jinja2
 python-dotenv
-httpx
+docker>=7.0.0

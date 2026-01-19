@@ -3,17 +3,33 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 from pydantic import BaseModel
 import json
 import os
-import httpx
 import time
 from dotenv import load_dotenv
 from pathlib import Path
 
+try:
+    from .docker_manager import manager as container_manager
+    from . import grader_schemas
+except ImportError:
+    from docker_manager import manager as container_manager
+    import grader_schemas
+
 load_dotenv()
 
-app = FastAPI(title="Narrative Learning Engine")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Manage startup and shutdown events."""
+    # Startup: warm up container pools
+    await container_manager.startup()
+    yield
+    # Shutdown: cleanup containers
+    await container_manager.shutdown()
+
+app = FastAPI(title="Narrative Learning Engine", lifespan=lifespan)
 
 base_dir = Path(__file__).resolve().parent.parent
 app.mount("/static", StaticFiles(directory=str(base_dir / "static")), name="static")
@@ -38,7 +54,6 @@ if os.getenv("DEV_MODE"):
         return response
 
 # REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
-GRADER_URL = os.getenv("GRADER_URL")
 
 class CommandRequest(BaseModel):
     command: str
@@ -180,44 +195,40 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
 
 @app.post("/api/check-answer", response_model=CommandResponse)
 async def check_answer(request: CommandRequest):
-    if not GRADER_URL:
-        raise HTTPException(status_code=500, detail="Grader service URL not configured")
-
     # 1. Load the lesson JSON to get the check_logic
     json_path = base_dir / f"tutorials/{request.topic}/{request.lesson}.json"
     if not json_path.exists():
         raise HTTPException(status_code=404, detail="Lesson file not found")
-    
+
     with open(json_path, "r", encoding="utf-8") as f:
         lesson_data = json.load(f)
 
-    check_logic = lesson_data.get("challenge", {}).get("check_logic")
-    if not check_logic:
+    check_logic_data = lesson_data.get("challenge", {}).get("check_logic")
+    if not check_logic_data:
         raise HTTPException(status_code=500, detail="Missing check_logic in lesson challenge")
 
-    # 2. Build the payload for the grader service
-    payload_to_grader = {
-        "language": request.topic, # e.g., "redis"
-        "user_code": request.command,
-        "check_logic": check_logic
-    }
-
-    # 3. Use httpx to call the grader service
+    # 2. Convert check_logic dict to Pydantic model
     try:
-        async with httpx.AsyncClient() as client:
-            response = await client.post(GRADER_URL + "/grade", json=payload_to_grader, timeout=10.0)
-            response.raise_for_status() # Raise an exception for bad status codes (4xx or 5xx)
+        check_logic = grader_schemas.CheckLogic(**check_logic_data)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Invalid check_logic format: {str(e)}")
 
-        # 4. Return the grader's response mapped to our model
-        grader_response = response.json()
-        return CommandResponse(
-            output=grader_response.get("output", ""),
-            is_correct=grader_response.get("is_correct", False),
-            feedback_message=grader_response.get("feedback_message", "")
+    # 3. Execute code directly using container manager
+    try:
+        result = await container_manager.execute_code_in_container(
+            language=request.topic,  # e.g., "redis"
+            user_code=request.command,
+            check_logic=check_logic
         )
 
-    except httpx.RequestError as e:
-        raise HTTPException(status_code=503, detail=f"Unable to connect to grader service: {e}")
+        return CommandResponse(
+            output=result.output,
+            is_correct=result.is_correct,
+            feedback_message=result.feedback_message
+        )
+
+    except KeyError as e:
+        raise HTTPException(status_code=400, detail=f"Unsupported topic: {request.topic}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error during grading: {str(e)}")
 

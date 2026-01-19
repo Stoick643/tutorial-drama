@@ -1,15 +1,19 @@
 import pytest
 import json
 from fastapi.testclient import TestClient
-from unittest.mock import patch, Mock
-import httpx
+from unittest.mock import patch, Mock, AsyncMock, MagicMock
 import sys
 import os
 
 # Add the app directory to the path so we can import main
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'app'))
 
+# Mock Docker before importing main to prevent connection errors during testing
+mock_docker = MagicMock()
+sys.modules['docker'] = mock_docker
+
 from main import app, base_dir
+from grader_schemas import GradeResult
 
 @pytest.fixture
 def app_client():
@@ -18,19 +22,19 @@ def app_client():
         yield client
 
 @pytest.fixture
-def mock_grader_service():
-    """Mock httpx calls to grader service."""
-    with patch('httpx.AsyncClient') as mock_client:
-        mock_response = Mock()
-        mock_response.json.return_value = {
-            "output": "PONG",
-            "is_correct": True,
-            "feedback_message": "Excellent work, detective! You've cracked the case."
-        }
-        mock_response.raise_for_status.return_value = None
+def mock_container_manager():
+    """Mock Docker container manager for testing."""
+    with patch('main.container_manager') as mock_manager:
+        # Create async mock for execute_code_in_container
+        async def mock_execute(language, user_code, check_logic):
+            return GradeResult(
+                output="PONG",
+                is_correct=True,
+                feedback_message="Correct!"
+            )
 
-        mock_client.return_value.__aenter__.return_value.post.return_value = mock_response
-        yield mock_client
+        mock_manager.execute_code_in_container = AsyncMock(side_effect=mock_execute)
+        yield mock_manager
 
 @pytest.fixture
 def sample_lesson_data():
