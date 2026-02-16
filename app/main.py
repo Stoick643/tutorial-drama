@@ -154,6 +154,33 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
         with open(json_path, "r", encoding="utf-8") as f:
             lesson_data = json.load(f)
 
+        # i18n: load translation if language is specified
+        lang = request.query_params.get("lang", "en")
+        if lang != "en":
+            trans_path = base_dir / f"translations/{lang}/{topic}/{lesson}.json"
+            if trans_path.exists():
+                with open(trans_path, "r", encoding="utf-8") as f:
+                    trans = json.load(f)
+                # Merge translated strings into lesson data
+                if "tutorial" in trans:
+                    lesson_data["tutorial"] = trans["tutorial"]
+                if "technical_concept" in trans:
+                    lesson_data["technical_concept"] = trans["technical_concept"]
+                if "challenge" in trans:
+                    for key in ("task", "hint"):
+                        if key in trans["challenge"]:
+                            lesson_data["challenge"][key] = trans["challenge"][key]
+                # Merge translated styles (keyed by style name)
+                if "styles" in trans:
+                    for style_obj in lesson_data.get("styles", []):
+                        style_name = style_obj.get("name", "")
+                        if style_name in trans["styles"]:
+                            ts = trans["styles"][style_name]
+                            if "title" in ts:
+                                style_obj["title"] = ts["title"]
+                            if "dialogue" in ts:
+                                style_obj["dialogue"] = ts["dialogue"]
+
         style = request.query_params.get("style", "detective_noir")
 
         # Collect available styles
@@ -193,6 +220,7 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
                 "current_style": style,
                 "prev_lesson": prev_lesson,
                 "next_lesson": next_lesson,
+                "lang": lang,
                 "js_version": str(int(time.time()))
             }
         )

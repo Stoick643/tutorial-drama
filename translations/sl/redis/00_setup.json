@@ -1,0 +1,76 @@
+{
+  "tutorial": "Osnove Redis",
+  "technical_concept": "Uvod v Redis in priprava detektivskega orodja.",
+  "challenge": {
+    "task": "Povežite se z Redisom in preverite, ali deluje, tako da pošljete ukaz PING.",
+    "hint": "Uporabite ukaz PING, da preverite, ali je Redis aktiven."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Podatkovni detektiv",
+      "dialogue": [
+        {
+          "character": "Pripovedovalec",
+          "line": "Dež je tolkel po oknih stare pisarniške stavbe na 42. ulici. Notri je postava sedela sklonjeno nad svetlečim terminalom."
+        },
+        {
+          "character": "Detektiv Indecks",
+          "line": "Še ena noč, še en primer. Mesto nikoli ne spi, in podatki tudi ne."
+        },
+        {
+          "character": "REDIS",
+          "line": "Dober večer, detektiv. Pričakoval sem vas. Ime mi je REDIS — Remote Dictionary Server. Sem vaš novi partner na tem območju."
+        },
+        {
+          "character": "Detektiv Indecks",
+          "line": "Partner? Jaz delam sam."
+        },
+        {
+          "character": "REDIS",
+          "line": "Ne več. Podatkovni zločini v tem mestu postajajo vse bolj zapleteni. Potrebujete nekoga, ki lahko hitro shrani dokaze, jih še hitreje poišče in nikoli ne pozabi sledi. Tu pridem jaz na vrsto."
+        },
+        {
+          "character": "Detektiv Indecks",
+          "line": "Dokaži. Pokaži mi, da si živ in pripravljen."
+        },
+        {
+          "character": "REDIS",
+          "line": "Preprosto. Pošljite mi PING, in vrnil vam bom PONG. Tako vzpostavimo zaupanje v tem poslu."
+        }
+      ]
+    },
+    "sci_fi": {
+      "title": "Inicializacija sistema",
+      "dialogue": [
+        {
+          "character": "Postajni UI",
+          "line": "Dobrodošli na Orbitalni postaji Nexus-7. Sem NEXUS, centralni UI pomočnik vaše postaje."
+        },
+        {
+          "character": "Inženir",
+          "line": "NEXUS, poročilo o stanju. Moram preveriti, ali vsi sistemi delujejo."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Seveda, inženir. Uporabljam hitri podatkovni sistem imenovan REDIS — Remote Dictionary Server. Upravlja vse podatke postaje z milisekundnimi odzivnimi časi."
+        },
+        {
+          "character": "Inženir",
+          "line": "REDIS? Nikoli slišal. Kako vem, da pravilno deluje?"
+        },
+        {
+          "character": "NEXUS",
+          "line": "Najpreprostejša diagnostika je protokol rokovanja. Pošljite mi ukaz PING in odgovoril bom s PONG. To potrjuje, da je podatkovno jedro aktivno in odzivno."
+        },
+        {
+          "character": "Inženir",
+          "line": "V redu, NEXUS. Preverimo, ali je ta sistem pripravljen za delo."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Čakam na vaš ukaz, inženir."
+        }
+      ]
+    }
+  }
+}

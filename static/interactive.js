@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkButton = document.getElementById('check-answer');
     const consoleOutput = document.getElementById('console-output');
     const feedbackDiv = document.getElementById('feedback');
+    const consoleEl = document.querySelector('.interactive-console');
+    const isChat = consoleEl && consoleEl.dataset.mode === 'chat';
 
     function getCurrentLesson() {
         const pathParts = window.location.pathname.split('/');
@@ -22,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const command = commandInput.value.trim();
 
         if (!command) {
-            showFeedback('Please enter a Redis command', false);
+            showFeedback(isChat ? 'Please type a message' : 'Please enter a command', false);
             return;
         }
 
         checkButton.disabled = true;
-        checkButton.textContent = 'Checking...';
+        checkButton.textContent = isChat ? 'Sending...' : 'Checking...';
 
         try {
             const response = await fetch('/api/check-answer', {
@@ -50,23 +52,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             showOutput(data.output);
-            showFeedback(data.feedback_message, data.is_correct);
 
-            if (data.is_correct) {
-                commandInput.style.borderColor = '#5cb85c';
-                setTimeout(() => {
-                    commandInput.style.borderColor = '';
-                }, 3000);
-
-                // Mark lesson as completed
+            if (isChat) {
+                // Chat mode: no correct/incorrect, just show response
                 markLessonCompleted(getCurrentTopic(), getCurrentLesson());
+            } else {
+                // Check mode: show grading feedback
+                showFeedback(data.feedback_message, data.is_correct);
+
+                if (data.is_correct) {
+                    commandInput.style.borderColor = '#5cb85c';
+                    setTimeout(() => {
+                        commandInput.style.borderColor = '';
+                    }, 3000);
+
+                    // Mark lesson as completed
+                    markLessonCompleted(getCurrentTopic(), getCurrentLesson());
+                }
             }
 
         } catch (error) {
             showFeedback('Error connecting to server: ' + error.message, false);
         } finally {
             checkButton.disabled = false;
-            checkButton.textContent = 'Check Answer';
+            checkButton.textContent = isChat ? 'Send' : 'Check Answer';
         }
     }
 

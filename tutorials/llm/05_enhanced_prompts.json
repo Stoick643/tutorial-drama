@@ -1,0 +1,109 @@
+{
+  "tutorial": "LLM Internals",
+  "module": 1,
+  "scene": 5,
+  "technical_concept": "Production AI systems don't send your raw question to the LLM. They enhance it: a system prompt sets persona and rules, retrieved documents provide context (RAG = Retrieval Augmented Generation), and your question comes last. The user types 'What's our refund policy?' but the real prompt includes the entire policy document. RAG uses embeddings (lesson 02) to find relevant docs, then injects them into the prompt. This is how AI chatbots answer about YOUR data without retraining the model.",
+  "code_example": {
+    "language": "llm",
+    "code": "# What the user types:\n\"What is the refund policy for premium accounts?\"\n\n# What actually gets sent to the LLM:\n{\n  \"model\": \"moonshot-v1-8k\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a customer support assistant for TechCorp. Answer based ONLY on the provided context. If the answer is not in the context, say 'I don't have that information.'\\n\\nContext:\\nTechCorp Refund Policy (2024):\\n- Standard accounts: 30-day refund, no questions asked.\\n- Premium accounts: 90-day refund with full feature credit.\\n- Enterprise accounts: Custom terms, contact sales.\\n- All refunds processed within 5 business days.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"What is the refund policy for premium accounts?\"\n    }\n  ],\n  \"temperature\": 0.3,\n  \"max_tokens\": 200\n}"
+  },
+  "challenge": {
+    "multiline": true,
+    "task": "Build an enhanced prompt that a real company chatbot would use. Create a JSON request with: (1) a 'system' message that includes a persona AND the following context: 'TechCorp Refund Policy: Standard accounts get 30-day refund. Premium accounts get 90-day refund with full feature credit. Enterprise accounts have custom terms.' (2) a 'user' message asking about refunds. Include 'model', 'temperature', and 'max_tokens'.",
+    "hint": "The system message should contain BOTH the persona instructions (e.g., 'You are a customer support assistant') AND the context document. The user message is just the question. Use low temperature (0.3) for factual answers.",
+    "check_logic": {
+      "setup_commands": ["echo echo > /tmp/llm_mode"],
+      "validation_command": "validate-api-request /tmp/user_input basic,roles,params,context:refund",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "PASS"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "sci_fi",
+      "title": "The Augmented Signal",
+      "dialogue": [
+        {
+          "character": "Science Officer Chen",
+          "line": "Commander, I have a confession. When you've been sending transmissions to ARIA... they weren't going directly."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "What? I thought I was talking to ARIA directly!"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "You were — but the ship's computer was augmenting your signal first. Before your message reached ARIA, the system added a mission briefing — the system prompt — setting ARIA's behavior and rules."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "So ARIA was getting instructions I didn't see?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Standard protocol. But it gets more powerful. In production systems, before your question is sent, the system searches our intelligence database — using those embeddings from lesson 02 — and finds the most relevant documents. Then it injects them into the signal."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "RAG — Retrieval Augmented Generation. I've seen this in the technical briefs."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Exactly. The user asks 'What's our refund policy?' The system retrieves the actual policy document, adds it to the system prompt, THEN sends everything to ARIA. ARIA answers from the document, not from its general training. No hallucination. No guessing."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "This is how every AI assistant works behind the scenes."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Every single one. ChatGPT, Claude, enterprise chatbots — they all augment the signal. Now you know the full picture: tokens, vectors, API calls, enhanced prompts. Let me give you a context document. Build the full augmented transmission yourself."
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "What Really Gets Sent to Alex",
+      "dialogue": [
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Okay, final lesson. Time for the big reveal. When you chat with Alex through the web interface... Alex doesn't see what you see."
+        },
+        {
+          "character": "Manager",
+          "line": "I type a question, Alex answers. What's to reveal?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "You type 'What's our refund policy?' — seven words. What Alex actually receives? A system prompt with persona rules, the entire refund policy document retrieved from our database, PLUS your question. Seven words become seven hundred."
+        },
+        {
+          "character": "Manager",
+          "line": "Wait — who adds all that extra stuff?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Our application does. Step one: system prompt — 'You are TechCorp's support assistant. Only answer from the provided context.' Step two: RAG — we search our document database using those embeddings from lesson 02, find the relevant docs, and paste them in. Step three: your question."
+        },
+        {
+          "character": "Manager",
+          "line": "RAG — Retrieval Augmented Generation. I've heard that in meetings!"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Now you actually know what it means. Retrieve docs → Augment the prompt → Generate a response. This is why Alex can answer about OUR company without being retrained. We just feed it the right documents at query time."
+        },
+        {
+          "character": "Manager",
+          "line": "So that's why the chatbot knows our policies but doesn't make stuff up?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "The low temperature plus 'only answer from context' instruction keeps it honest. This is how every enterprise AI product works. ChatGPT plugins, Claude's web search, our customer support bot — all RAG. Now build one yourself. I'll give you a context document to work with."
+        }
+      ]
+    }
+  ]
+}

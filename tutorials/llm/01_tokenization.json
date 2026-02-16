@@ -1,0 +1,101 @@
+{
+  "tutorial": "LLM Internals",
+  "module": 1,
+  "scene": 1,
+  "technical_concept": "LLMs don't read words — they read tokens. Tokenization splits text into subword pieces using Byte Pair Encoding (BPE). 'Hello' is one token, but 'tokenization' might be split into ['token', 'ization']. Spaces often attach to the next word. This is why API pricing is per-token, and why context windows are measured in tokens (e.g., 128K tokens ≈ 300 pages).",
+  "code_example": {
+    "language": "llm",
+    "code": "Input: \"Hello world\"\n\nToken splits:\n  [0] \"Hello\" (ID: 9906)\n  [1] \" world\" (ID: 1917)\n\nTotal tokens: 2\nCharacters: 11\nRatio: 5.5 chars per token"
+  },
+  "challenge": {
+    "multiline": true,
+    "task": "Type any text and see how the tokenizer breaks it into tokens. Try different things: a simple sentence, a long word like 'internationalization', or even some code like 'print(\"hello\")'.",
+    "hint": "Try comparing short common words (fewer tokens) with long technical words (more tokens). Notice how spaces are handled!",
+    "check_logic": {
+      "setup_commands": ["echo tokenize > /tmp/llm_mode"],
+      "validation_command": null,
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "Total tokens:"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "sci_fi",
+      "title": "Decoding the Signal",
+      "dialogue": [
+        {
+          "character": "Science Officer Chen",
+          "line": "Commander, I've been analyzing how ARIA processes our transmissions. It doesn't read our words the way we do."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "What do you mean? We send text, it responds with text."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Yes, but between sending and receiving, ARIA breaks our text into fragments called tokens. 'Hello world' isn't two words to ARIA — it's two tokens: 'Hello' and ' world'. Notice the space is attached to 'world'."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Why not just use words?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Because words are messy. Different languages, compound words, code, numbers... Instead, ARIA uses Byte Pair Encoding — it learned the most common character sequences from its training data. Common words like 'the' are single tokens. Rare words get split: 'tokenization' becomes 'token' + 'ization'."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "So that's what 'tokens' means when ARIA reports usage. Our last transmission was 56 tokens."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Exactly. And ARIA has a context window — the maximum number of tokens it can process at once. 128,000 tokens is roughly 300 pages. Everything beyond that is invisible to the intelligence."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Let me try the signal decoder. I want to see how ARIA would read my transmissions."
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "How Alex Reads Your Emails",
+      "dialogue": [
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "So I've been looking into how Alex actually processes our messages. Turns out, it doesn't read words like we do."
+        },
+        {
+          "character": "Manager",
+          "line": "What? We're writing in plain English."
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Plain English to YOU. To Alex, your email gets chopped into 'tokens' — little pieces. 'Hello world' isn't two words, it's two tokens. Some words get split up. 'Quarterly' might become 'Qu' + 'arterly'."
+        },
+        {
+          "character": "Manager",
+          "line": "That seems... inefficient?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Actually it's genius. It's called Byte Pair Encoding. Alex learned the most common letter combinations from billions of texts. Common stuff like 'the' is one token. Weird stuff like 'internationalization' gets split into pieces. It's how Alex handles every language, plus code, plus emojis."
+        },
+        {
+          "character": "Manager",
+          "line": "Is this why the API bill says 'tokens' and not 'words'?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Bingo. We're charged per token. And Alex has a limit — 128,000 tokens per conversation. That's roughly 300 pages. So when you paste your entire project spec into the chat, that's why Alex forgets the beginning."
+        },
+        {
+          "character": "Manager",
+          "line": "Let me see this tokenizer thing. I want to know how many tokens my emails cost."
+        }
+      ]
+    }
+  ]
+}

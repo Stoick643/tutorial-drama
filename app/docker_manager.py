@@ -3,6 +3,7 @@
 
 import base64
 import docker
+import os
 try:
     from . import grader_schemas as schemas
 except ImportError:
@@ -13,7 +14,8 @@ GRADER_IMAGES = {
     "redis": "grader-image-redis",
     "sql": "grader-image-sql",
     "git": "grader-image-git",
-    "docker": "grader-image-docker"
+    "docker": "grader-image-docker",
+    "llm": "grader-image-llm"
 }
 POOL_SIZE = 3 # Number of warm containers to keep per language
 
@@ -29,8 +31,21 @@ class ContainerManager:
         for lang, image_name in GRADER_IMAGES.items():
             self.pool[lang] = []
             self.pool_index[lang] = 0  # Initialize round-robin index
+
+            # Pass API keys to containers that need them
+            env_vars = {}
+            if lang == "llm":
+                llm_key = os.environ.get("LLM_API_KEY", "")
+                if llm_key:
+                    env_vars["LLM_API_KEY"] = llm_key
+                else:
+                    print(f"  Warning: LLM_API_KEY not set. LLM API lessons will not work.")
+
             for i in range(POOL_SIZE):
-                container = self.client.containers.run(image_name, detach=True, tty=True)
+                container = self.client.containers.run(
+                    image_name, detach=True, tty=True,
+                    environment=env_vars if env_vars else None
+                )
                 self.pool[lang].append(container)
                 print(f"Started container {container.short_id} for {lang}")
 
@@ -92,6 +107,9 @@ class ContainerManager:
         elif language == "docker":
             # Clean up any user input files
             container.exec_run("sh -c \"rm -f /tmp/user_input\"")
+        elif language == "llm":
+            # Clean up user input and mode files
+            container.exec_run("sh -c \"rm -f /tmp/user_input /tmp/llm_mode\"")
 
     def _build_command(self, language: str, code: str) -> str:
         """Build language-specific execution command.
@@ -127,6 +145,18 @@ class ContainerManager:
                 # Saves to /tmp/user_input for validation commands to read
                 encoded = base64.b64encode(code.encode()).decode()
                 return f"sh -c \"echo '{encoded}' | base64 -d > /tmp/user_input && cat /tmp/user_input\""
+        elif language == "llm":
+            stripped = code.strip()
+            if stripped.startswith("validate-") or stripped.startswith("call-llm") or stripped.startswith("tokenize-") or stripped.startswith("compute-"):
+                # Validation/tool commands — execute directly
+                return code
+            elif stripped.startswith("curl"):
+                # Lesson 04: execute curl command directly
+                return code
+            else:
+                # User input (question, text, JSON) — save to file, run dispatcher
+                encoded = base64.b64encode(code.encode()).decode()
+                return f"sh -c \"echo '{encoded}' | base64 -d > /tmp/user_input && cd /scripts && python llm_dispatch.py\""
         else:
             raise ValueError(f"Unsupported language: {language}")
 

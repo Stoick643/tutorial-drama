@@ -22,7 +22,7 @@
                     {% if available_styles and available_styles|length > 1 %}
                     <div class="style-selector">
                         <label for="style-select">Style:</label>
-                        <select id="style-select" onchange="window.location.href='/tutorial/{{ topic }}/{{ lesson }}?style=' + this.value">
+                        <select id="style-select" onchange="window.location.href='/tutorial/{{ topic }}/{{ lesson }}?style=' + this.value + '&lang={{ lang }}'">
                             {% for style in available_styles %}
                             <option value="{{ style.name }}" {% if style.name == current_style %}selected{% endif %}>
                                 {{ style.display_name }}
@@ -31,6 +31,13 @@
                         </select>
                     </div>
                     {% endif %}
+                    <div class="lang-selector">
+                        <label for="lang-select">🌐</label>
+                        <select id="lang-select" onchange="window.location.href='/tutorial/{{ topic }}/{{ lesson }}?style={{ current_style }}&lang=' + this.value">
+                            <option value="en" {% if lang == 'en' %}selected{% endif %}>English</option>
+                            <option value="sl" {% if lang == 'sl' %}selected{% endif %}>Slovenščina</option>
+                        </select>
+                    </div>
                     <div id="lesson-status" class="lesson-status"></div>
                 </div>
             </div>
@@ -74,7 +81,7 @@
                 </div>
                 {% endif %}
 
-                <div class="interactive-console">
+                <div class="interactive-console" data-mode="{{ challenge.mode or 'check' }}">
                     <div class="console-header">{{ topic|title }} Console</div>
                     <div class="console-body">
                         <div class="console-input-wrapper">
@@ -93,7 +100,7 @@
                                    autocomplete="off">
                             {% endif %}
                         </div>
-                        <button id="check-answer" class="check-button">Check Answer</button>
+                        <button id="check-answer" class="check-button">{{ 'Send' if challenge.mode == 'chat' else 'Check Answer' }}</button>
                     </div>
                     <div id="console-output" class="console-output"></div>
                     <div id="feedback" class="feedback-message"></div>
@@ -101,13 +108,13 @@
             </section>
 
             <nav class="tutorial-navigation">
-                <a href="/tutorial/{{ topic }}?style={{ current_style }}" class="nav-button">← Back to {{ tutorial }}</a>
+                <a href="/tutorial/{{ topic }}?style={{ current_style }}&lang={{ lang }}" class="nav-button">← Back to {{ tutorial }}</a>
                 <div class="lesson-nav">
                     {% if prev_lesson %}
-                    <a href="/tutorial/{{ topic }}/{{ prev_lesson }}?style={{ current_style }}" class="nav-button">← Previous</a>
+                    <a href="/tutorial/{{ topic }}/{{ prev_lesson }}?style={{ current_style }}&lang={{ lang }}" class="nav-button">← Previous</a>
                     {% endif %}
                     {% if next_lesson %}
-                    <a href="/tutorial/{{ topic }}/{{ next_lesson }}?style={{ current_style }}" class="nav-button btn-primary">Next →</a>
+                    <a href="/tutorial/{{ topic }}/{{ next_lesson }}?style={{ current_style }}&lang={{ lang }}" class="nav-button btn-primary">Next →</a>
                     {% endif %}
                 </div>
             </nav>

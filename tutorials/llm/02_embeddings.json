@@ -1,0 +1,101 @@
+{
+  "tutorial": "LLM Internals",
+  "module": 1,
+  "scene": 2,
+  "technical_concept": "After tokenization, each token is converted to an embedding — a vector (list of numbers) that captures its meaning. Similar meanings produce similar vectors. 'Happy' and 'joyful' have nearby vectors; 'happy' and 'database' are far apart. Cosine similarity measures this: 1.0 = identical, 0.0 = unrelated. This is the foundation of semantic search and RAG.",
+  "code_example": {
+    "language": "llm",
+    "code": "Sentence A: \"The cat sat on the warm windowsill\"\nSentence B: \"A kitten was sleeping on the couch\"\n\nCosine similarity: 0.8966\nVery similar! Both describe a small feline resting.\n\nSentence A: \"The cat sat on the warm windowsill\"\nSentence C: \"The stock market crashed on Monday\"\n\nCosine similarity: 0.0411\nVery different meanings."
+  },
+  "challenge": {
+    "multiline": true,
+    "task": "Compare two sentences by entering their numbers (e.g., '0 3'). Type 'list' first to see all available sentences, then pick two and see how similar the LLM thinks they are.",
+    "hint": "Try comparing sentences from the same topic (e.g., 0 and 1 — both about cats) vs different topics (e.g., 0 and 11 — cats vs finance). Watch the similarity score change!",
+    "check_logic": {
+      "setup_commands": ["echo similarity > /tmp/llm_mode"],
+      "validation_command": null,
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "similarity"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "sci_fi",
+      "title": "Mapping ARIA's Meaning Space",
+      "dialogue": [
+        {
+          "character": "Science Officer Chen",
+          "line": "Commander, I've made a breakthrough. I've mapped how ARIA organizes concepts internally. It's not a dictionary — it's a space. A vast, multi-dimensional space."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "A space? Explain."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Every token gets converted into a vector — a list of hundreds of numbers. Think of it as coordinates. 'Star' and 'sun' have similar coordinates — they're neighbors in ARIA's meaning space. But 'star' and 'breakfast' are galaxies apart."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "So similar meanings are close together?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Exactly. We measure closeness with cosine similarity — a score from -1 to 1. 'Cat on the windowsill' and 'kitten sleeping on the couch' score 0.89 — almost the same meaning. 'Cat' and 'stock market crash' score 0.04 — completely unrelated."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "This is how it understands what we mean, even when we use different words."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Precisely. And it gets more fascinating. Remember from lesson 00 how ARIA responded to your question? It used these vectors to understand your meaning. And in lesson 05, we'll see how this powers something called RAG — finding relevant documents by meaning, not keywords."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Show me the meaning map. Let me compare some concepts."
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "Alex's Filing System",
+      "dialogue": [
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Okay, so last time we saw how Alex reads in tokens. But here's the interesting part — how does Alex know that 'happy' and 'joyful' mean the same thing?"
+        },
+        {
+          "character": "Manager",
+          "line": "I assumed it had a dictionary?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Nope. Embeddings. Every token gets converted into a vector — a list of, say, 768 numbers. Think of it as coordinates in a massive filing cabinet. 'Happy' and 'joyful' end up in the same drawer. 'Happy' and 'database' are in different buildings."
+        },
+        {
+          "character": "Manager",
+          "line": "So it's like... a map of meaning?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Exactly. And we can measure how close two things are with cosine similarity. Score of 1.0 means identical meaning. 0.0 means completely unrelated. 'Cat on the windowsill' vs 'kitten on the couch'? 0.89 — almost the same filing folder."
+        },
+        {
+          "character": "Manager",
+          "line": "Is this how search engines find results even when I don't type the exact keywords?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Now you're getting it! Semantic search. And it's the foundation of RAG — which is how we'll make Alex actually know about OUR company data in lesson 05. But first, let's explore the filing cabinet."
+        },
+        {
+          "character": "Manager",
+          "line": "Show me. I want to compare some sentences."
+        }
+      ]
+    }
+  ]
+}

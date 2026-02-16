@@ -1,0 +1,109 @@
+{
+  "tutorial": "LLM Internals",
+  "module": 1,
+  "scene": 4,
+  "technical_concept": "The same JSON request works everywhere — curl, Java HttpClient, Python requests, JavaScript fetch. This is the OpenAI-compatible REST API format, used by Moonshot, Deepseek, OpenAI, and many others. You POST to /v1/chat/completions with an Authorization header and JSON body. The response contains choices[0].message.content. Different providers, same format — just change the URL.",
+  "code_example": {
+    "language": "llm",
+    "code": "# curl (command line)\ncurl https://api.moonshot.cn/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer $LLM_API_KEY\" \\\n  -d '{ \"model\": \"moonshot-v1-8k\",\n       \"messages\": [{\"role\": \"user\", \"content\": \"Hi\"}],\n       \"max_tokens\": 100 }'\n\n# Java (same request, different language)\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n  .uri(URI.create(\"https://api.moonshot.cn/v1/chat/completions\"))\n  .header(\"Content-Type\", \"application/json\")\n  .header(\"Authorization\", \"Bearer \" + apiKey)\n  .POST(HttpRequest.BodyPublishers.ofString(jsonBody))\n  .build();\n\n# Deepseek (same format, different URL)\n# Just change: https://api.deepseek.com/v1/chat/completions"
+  },
+  "challenge": {
+    "multiline": true,
+    "task": "Write a complete API request JSON and see the real response. Include 'model' (moonshot-v1-8k), 'messages' with at least a 'user' message, and 'max_tokens'. This will make a REAL call to the Moonshot LLM!",
+    "hint": "Write valid JSON with model, messages array, and max_tokens. The API key is handled automatically. Try asking something interesting!",
+    "check_logic": {
+      "setup_commands": ["echo echo > /tmp/llm_mode"],
+      "validation_command": "call-llm-json /tmp/user_input",
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "model"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "sci_fi",
+      "title": "Live Transmission",
+      "dialogue": [
+        {
+          "character": "Commander Vega",
+          "line": "Chen, I've learned the protocol. Now I want to send a live transmission to ARIA. Not through the interface — I want to do it manually."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Of course, Commander. The transmission goes to ARIA's endpoint: api.moonshot.cn/v1/chat/completions. We attach two signal headers — Content-Type and Authorization — and the JSON payload we built in the last lesson."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Can I send this from different systems?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "That's the elegant part. The same JSON works from any system. Our command-line terminal uses curl. The engineering deck uses Java. The science lab uses Python. Different tools, identical payload. ARIA doesn't care how the signal arrives — only that the format is correct."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "What about other intelligences? The one at Deepseek station?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Same protocol! Just change the endpoint URL. api.deepseek.com instead of api.moonshot.cn. They all speak the same language — the OpenAI-compatible format. One protocol to reach them all."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Impressive. Let me craft a transmission and send it live."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Build your JSON request. This time, it will reach the real ARIA. Live transmission, Commander."
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "Sending the Memo For Real",
+      "dialogue": [
+        {
+          "character": "Manager",
+          "line": "Okay Sam, I built the JSON memo. Now how do I actually SEND it?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Multiple ways. Command line? Use curl. Building a Java service? Use HttpClient. Python script? Use requests. The memo is the same — only the delivery method changes."
+        },
+        {
+          "character": "Manager",
+          "line": "Show me the curl one."
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "You POST to the API endpoint with two headers — Content-Type says 'this is JSON' and Authorization carries your API key. Then the JSON body with model, messages, max_tokens. Hit enter and... Alex responds."
+        },
+        {
+          "character": "Manager",
+          "line": "Wait — could I send the same memo to a different AI? Like Deepseek instead of Moonshot?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Yep. Same JSON, different URL. They all use the OpenAI-compatible format. It's like email — different providers, same protocol. That's why switching AI providers is easy."
+        },
+        {
+          "character": "Manager",
+          "line": "Our Java backend could call this too?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Same request, different language. I'll show you the Java code — HttpClient, HttpRequest, same headers, same JSON. But for now, let's send a real request and see what Alex says."
+        },
+        {
+          "character": "Manager",
+          "line": "For real? A live call to the actual AI?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "For real. Write your JSON, hit send, and watch the magic happen."
+        }
+      ]
+    }
+  ]
+}

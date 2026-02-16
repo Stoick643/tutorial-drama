@@ -1,0 +1,109 @@
+{
+  "tutorial": "LLM Internals",
+  "module": 1,
+  "scene": 3,
+  "technical_concept": "Every LLM API call is a JSON request with: 'model' (which LLM to use), 'messages' (array of role/content pairs — system sets behavior, user asks the question), 'temperature' (0=deterministic, 1=creative, 2=wild), and 'max_tokens' (response length limit). The system prompt is invisible to the end user but controls everything. This is the OpenAI-compatible format used by Moonshot, Deepseek, and many others.",
+  "code_example": {
+    "language": "llm",
+    "code": "{\n  \"model\": \"moonshot-v1-8k\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a helpful assistant that explains concepts clearly and concisely.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"What is Docker?\"\n    }\n  ],\n  \"temperature\": 0.7,\n  \"max_tokens\": 200\n}"
+  },
+  "challenge": {
+    "multiline": true,
+    "task": "Build a complete API request JSON. Include: 'model' (use 'moonshot-v1-8k'), 'messages' array with a 'system' role (give it a persona) and a 'user' role (ask a question), 'temperature' (pick a value 0-2), and 'max_tokens' (pick a limit).",
+    "hint": "Start with { and include all four fields. The messages array needs objects with 'role' and 'content'. System sets the AI's behavior, user is your question. Temperature 0.7 is a good default.",
+    "check_logic": {
+      "setup_commands": ["echo echo > /tmp/llm_mode"],
+      "validation_command": "validate-api-request /tmp/user_input basic,roles,params",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "PASS"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "sci_fi",
+      "title": "The Transmission Protocol",
+      "dialogue": [
+        {
+          "character": "Science Officer Chen",
+          "line": "Commander, we've been sending ARIA informal messages. But to truly control the intelligence, we need to learn the proper transmission protocol."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Protocol? I thought we just send text and get text back."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "That's the surface. Underneath, every transmission is a structured JSON signal. Let me show you the components."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "First: 'model' — which version of ARIA we're addressing. 'moonshot-v1-8k' is the standard channel. Then: 'messages' — an array of transmissions. Each has a 'role' and 'content'."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "What roles?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "'system' is the mission briefing — it sets ARIA's behavior. 'You are a navigation assistant. Be precise. Never guess.' ARIA follows this for the entire conversation. 'user' is your actual question. The system prompt is invisible to the end user but controls everything."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "And temperature? That was in the metadata."
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Temperature controls randomness. 0 means ARIA gives the same answer every time — deterministic, perfect for calculations. 0.7 is balanced. 2.0 is... creative but unreliable. Think of it as 'how much creative freedom do we give the intelligence.' And max_tokens caps the response length — our safety limit."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "I want to build a proper transmission myself. The full protocol."
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "The Proper Memo Format",
+      "dialogue": [
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Alright. You've been chatting with Alex through the web interface. But let me show you what's actually happening behind the scenes."
+        },
+        {
+          "character": "Manager",
+          "line": "There's something behind the scenes?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Every message you send becomes a JSON request. Think of it as a formal memo to the AI department. And like any good memo, it has a specific format."
+        },
+        {
+          "character": "Manager",
+          "line": "JSON? I've seen that in config files."
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Same thing. Four parts. 'model' — which AI you're talking to. 'messages' — an array with roles. 'system' is the job description: 'You are a helpful assistant that explains things simply.' 'user' is your actual question."
+        },
+        {
+          "character": "Manager",
+          "line": "So the system message is like... telling the intern what department they work in before they start?"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Perfect analogy. And then there's 'temperature' — how much creative freedom you give Alex. 0 means 'follow the rules exactly.' 0.7 means 'be a little creative.' 2.0 means 'go wild' — which is how you get those weird answers. And 'max_tokens' is a budget cap on the response length."
+        },
+        {
+          "character": "Manager",
+          "line": "I want to write one of these memos myself. From scratch."
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Now you're talking like an engineer. Build the full JSON. I'll validate it."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "tutorial": "LLM Internals",
+  "module": 1,
+  "scene": 0,
+  "technical_concept": "A Large Language Model (LLM) is a neural network with billions of parameters, trained on massive text data. It generates text by predicting the next token (word piece) based on everything before it. It doesn't 'know' things — it recognizes patterns. Models range from 7B parameters (fast, cheap) to 400B+ (powerful, expensive).",
+  "code_example": {
+    "language": "llm",
+    "code": "Input: \"What is the capital of France?\"\n\nOutput: \"The capital of France is Paris. It is the largest\ncity in France and serves as the country's political,\neconomic, and cultural center...\"\n\n--- API Response Metadata ---\nModel: moonshot-v1-8k\nPrompt tokens: 9\nResponse tokens: 47\nTotal tokens: 56"
+  },
+  "challenge": {
+    "mode": "chat",
+    "multiline": true,
+    "task": "Ask the LLM anything. Type a question and see a real AI respond. This is a live connection to a real language model.",
+    "hint": "Type any question — 'What is quantum computing?', 'Explain Docker in one sentence', 'Write a haiku about Java'. Anything goes!",
+    "check_logic": {
+      "setup_commands": ["echo call-llm > /tmp/llm_mode"],
+      "validation_command": null,
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "Model:"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "sci_fi",
+      "title": "First Contact",
+      "dialogue": [
+        {
+          "character": "Commander Vega",
+          "line": "Science Officer Chen, report. We've been receiving that signal from the Kepler sector for three days now. What have you found?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Commander, it's not random noise. It's an intelligence. Artificial, but remarkably sophisticated. Billions of parameters — think of them as neural connections. It was trained on vast archives of text from an ancient civilization."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Trained? You mean it learned?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "Not like we learn. It consumed enormous amounts of text and learned patterns — which words follow which, in what context. It doesn't know facts. It predicts what comes next. But it does it so well, it appears to understand."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "How large are we talking?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "The smallest models have 7 billion parameters. Mid-range: 70 billion. The signal we're receiving? It's coming from something with over 200 billion. We've designated it ARIA — Artificial Reasoning Intelligence Array."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Can we talk to it?"
+        },
+        {
+          "character": "Science Officer Chen",
+          "line": "That's what I wanted to show you. We send it a text transmission — a prompt. It processes the signal token by token and generates a response. It doesn't think in words like we do. But the result... see for yourself, Commander."
+        },
+        {
+          "character": "Commander Vega",
+          "line": "Then let's make first contact. Open a channel to ARIA."
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "The New Intern",
+      "dialogue": [
+        {
+          "character": "Manager",
+          "line": "Team meeting, everyone. HR just informed me we have a new team member starting today. Name's Alex."
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Another junior? We just finished onboarding the last one."
+        },
+        {
+          "character": "Manager",
+          "line": "Not exactly. Alex is... an AI. A Large Language Model. 200 billion parameters."
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Oh great. So it's autocomplete on steroids."
+        },
+        {
+          "character": "Manager",
+          "line": "Sam, be nice. It was trained on basically the entire internet. Documents, books, code, conversations—"
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Which means it learned to sound confident even when it's completely wrong. Just like our last project manager."
+        },
+        {
+          "character": "Manager",
+          "line": "The point is, Alex can generate text, answer questions, write code. We just send it a message and it responds. It doesn't actually 'know' things — it predicts the most likely next word. But it's very good at it."
+        },
+        {
+          "character": "Sam (Senior Dev)",
+          "line": "Fine. But I'm setting expectations low. Let's see what the intern can do."
+        },
+        {
+          "character": "Manager",
+          "line": "That's the spirit! Go ahead — introduce yourself. Ask Alex anything."
+        }
+      ]
+    }
+  ]
+}
