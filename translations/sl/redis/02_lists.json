@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Redis",
+  "technical_concept": "Uporaba seznamov (Lists) za upravljanje urejenih zbirk z ukazi LPUSH, RPUSH, LPOP in RPOP za čakalne vrste in nize.",
+  "challenge": {
+    "task": "Trije osumljenci so pravkar prišli: `suspect_alpha`, `suspect_bravo` in `suspect_charlie`. Dodajte jih v čakalno vrsto za zaslišanje, nato pa pokličite prvega na zaslišanje.",
+    "hint": "Uporabite RPUSH za dodajanje osumljencev na konec vrste, nato LPOP za priklic prvega na zaslišanje."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Vrsta za zaslišanje",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Tri osumljence imam v čakalnici. Potrebujem sistem — kdo je prišel prvi, gre prvi na zaslišanje."},
+        {"character": "REDIS", "line": "Za to so tu seznami, detektiv. Pomislite na čakalno vrsto. RPUSH doda nekoga na konec. LPUSH ga postavi na začetek — za prednostne primere."},
+        {"character": "Detektiv Indecks", "line": "In ko sem pripravljen za zaslišanje?"},
+        {"character": "REDIS", "line": "LPOP vzame prvega iz vrste. RPOP vzame zadnjega. Kot vrsta v pekarni — prvi pride, prvi odide. Ali pa obratno, če imate razlog."},
+        {"character": "Detektiv Indecks", "line": "Urejen sistem. Ni zmede, ni preskakovanja."},
+        {"character": "REDIS", "line": "Natanko. In z LRANGE lahko kadarkoli pogledate celotno vrsto, ne da bi koga odstranili. Kot pogled skozi enosmerno steklo."},
+        {"character": "Detektiv Indecks", "line": "Postavimo to vrsto za zaslišanje."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Prednostna čakalna vrsta za obdelavo",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Inženir, trije diagnostični procesi čakajo na izvedbo. Potrebujemo urejeno čakalno vrsto."},
+        {"character": "Inženir", "line": "Moram jih obdelati po vrsti. Prvi noter, prvi ven."},
+        {"character": "NEXUS", "line": "Seznami Redis so idealni za to. RPUSH doda v čakalno vrsto, LPOP vzame naslednjega za obdelavo. Popolna FIFO struktura — prvi noter, prvi ven."},
+        {"character": "Inženir", "line": "Kaj pa če moram nujni proces potisniti na vrh?"},
+        {"character": "NEXUS", "line": "Uporabite LPUSH — vstavi na začetek namesto na konec. Prednostni procesi gredo naprej. LRANGE vam pokaže celotno vrsto kadarkoli."},
+        {"character": "Inženir", "line": "Fleksibilno. Nastavimo vrsto in začnimo z obdelavo."},
+        {"character": "NEXUS", "line": "Čakam na vaše ukaze, inženir."}
+      ]
+    }
+  }
+}

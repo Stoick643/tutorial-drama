@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Redis",
+  "technical_concept": "Uporaba množic (Sets) za shranjevanje unikatnih zbirk in iskanje presečišč z ukazi SADD, SREM, SMEMBERS in SINTER.",
+  "challenge": {
+    "task": "Zgradite mreže poznanstev za osumljenca alpha in bravo. Alpha pozna murphy, valdez in chen. Bravo pozna murphy, jackson in chen. Poiščite skupne kontakte.",
+    "hint": "Uporabite SADD za gradnjo mreže vsakega osumljenca, nato SINTER za iskanje skupnih poznanstev."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Mreža povezav",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Imam dva osumljenca. Moram vedeti — koga poznata oba? Kje se njuni krogi prekrivajo?"},
+        {"character": "REDIS", "line": "Za to so tu množice, detektiv. Množica je zbirka, kjer je vsak element unikaten. SADD doda člana. Brez podvojitev — če že obstaja, ga preprosto prezre."},
+        {"character": "Detektiv Indecks", "line": "Torej zgradim mrežo kontaktov za vsakega osumljenca posebej?"},
+        {"character": "REDIS", "line": "Natanko. SADD contacts:alpha murphy valdez chen. SADD contacts:bravo murphy jackson chen. Nato SINTER contacts:alpha contacts:bravo — in dobite imena, ki so v OBEH množicah."},
+        {"character": "Detektiv Indecks", "line": "Presečišče. Skupni kontakti. To so moji vodilni osumljenci."},
+        {"character": "REDIS", "line": "Točno tako. SMEMBERS vam pokaže celotno množico. SINTER najde prekrivanja. Kot Vennov diagram, ampak hitrejši."},
+        {"character": "Detektiv Indecks", "line": "Čas za gradnjo teh mrež in iskanje povezav."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Analiza dostopnih mrež",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Inženir, zaznana sta bila dva nepooblaščena dostopa. Moramo analizirati njune vzorce dostopa in poiskati prekrivanja."},
+        {"character": "Inženir", "line": "Moram vedeti, do katerih sistemov sta dostopala oba. Presečišče."},
+        {"character": "NEXUS", "line": "Množice Redis so zasnovane za natanko to. SADD doda elemente v množico — samodejno unikatne. Nato SINTER najde elemente, ki obstajajo v obeh množicah."},
+        {"character": "Inženir", "line": "Torej zgradim dostopno množico za vsakega uporabnika?"},
+        {"character": "NEXUS", "line": "Natanko. SMEMBERS prikaže vse člane množice. SINTER izračuna presečišče v milisekundah, ne glede na velikost."},
+        {"character": "Inženir", "line": "Učinkovita analiza. Zgradimo te dostopne množice."},
+        {"character": "NEXUS", "line": "Pripravljen na podatke, inženir."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Redis",
+  "technical_concept": "Uporaba nizov (Strings) za osnovno shranjevanje ključ-vrednost z ukazi SET, GET in SETEX za potek veljavnosti.",
+  "challenge": {
+    "task": "Nova oseba interesa, `user456`, je pravkar prišla na mrežo. Označite njen status kot 'online', a poskrbite, da sled ugasne (poteče) v natanko 2 minutah (120 sekund).",
+    "hint": "Potrebujete ukaz, ki nastavi ključ s časom poteka v eni sami operaciji."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Minljiva sled",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Indecks."},
+        {"character": "REDIS", "line": "Imam novo sled za vas, detektiv. Sumljiva figura, `user789`. Moramo jo slediti, ampak samo ko je aktivna. Ne moremo zapravljati virov, ko izgine."},
+        {"character": "Detektiv Indecks", "line": "Torej potrebujem način, da ji dam začasno oznako. Kakšno orodje?"},
+        {"character": "REDIS", "line": "Najpreprostejše orodje. Osnovni par ključ-vrednost. Daste mi ključ, kot `online:user789`, in vrednost, kot 'active'. Moj ukaz `SET` to uredi. Če želite preveriti status, me vprašate z `GET online:user789`."},
+        {"character": "Detektiv Indecks", "line": "Ampak rekli ste začasno. Kaj če pozabim odstraniti oznako? Sled ugasne, ampak moja tabla še vedno kaže, da je aktivna. Površno delo."},
+        {"character": "REDIS", "line": "Zato ne uporabite `SET`. Uporabite `SETEX` — SET s potekom. Date mi ključ, število sekund in vrednost. Na primer: `SETEX online:user789 300 \"active\"`. V 5 minutah (300 sekund) ta zapis izgine. Brez odprtih koncev."},
+        {"character": "Detektiv Indecks", "line": "Čisto. Mi je všeč. Preizkusimo."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Časovni podatkovni označevalci",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Inženir, dohodna transmisija. Član posadke z oznako CR-789 se je pravkar prijavil na glavni terminal."},
+        {"character": "Inženir", "line": "Moram slediti njihovemu statusu, ampak samo medtem ko so aktivno povezani. Ne morem zapravljati pomnilnika za zastarele podatke sej."},
+        {"character": "NEXUS", "line": "Razumljeno. Uporabljamo pare ključ-vrednost za učinkovito sledenje. Shranim ključ kot 'session:CR-789' z vrednostjo 'active'. Za poznejšo preveritev preprosto poizvedite z GET."},
+        {"character": "Inženir", "line": "Ampak kaj ko se odklopijo? Ne morem ročno čistiti vsakega označevalca seje."},
+        {"character": "NEXUS", "line": "Zato uporabljamo SETEX — SET s potekom. Določite ključ, trajanje v sekundah in vrednost. Primer: SETEX session:CR-789 300 'active'. Po 300 sekundah se podatki samodejno izbrišejo. Nič vzdrževanja."},
+        {"character": "Inženir", "line": "Učinkovito. Mi je všeč. Preizkusimo ta sistem samodejnega čiščenja."},
+        {"character": "NEXUS", "line": "Pripravljen na vaš ukaz, inženir."}
+      ]
+    }
+  }
+}
