@@ -1,0 +1,120 @@
+{
+  "tutorial": "Docker Basics",
+  "module": 1,
+  "scene": 3,
+  "technical_concept": "In lesson 02 we wrote FROM, RUN, CMD — but how does your code get INTO the image? That's COPY. And where does it go? That's WORKDIR. Finally, EXPOSE documents which port your app listens on. Imagine you have a Java app (App.java) with a simple HTTP server on port 8080 — you need to COPY it in, compile it with RUN, and EXPOSE the port. Each instruction creates a cached layer — Docker only rebuilds what changed. Real-world use: package any Java app so anyone can run it without installing a JDK.",
+  "code_example": {
+    "language": "docker",
+    "code": "# Your App.java file:\n# import com.sun.net.httpserver.HttpServer;\n# import java.net.InetSocketAddress;\n# public class App {\n#     public static void main(String[] args) throws Exception {\n#         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);\n#         server.createContext(\"/\", ex -> {\n#             String r = \"Hello from inside the Docker container!\";\n#             ex.sendResponseHeaders(200, r.length());\n#             ex.getResponseBody().write(r.getBytes());\n#             ex.getResponseBody().close();\n#         });\n#         server.start();\n#     }\n# }\n\n# Dockerfile to package it:\nFROM eclipse-temurin:21\nWORKDIR /app\nCOPY App.java .\nRUN javac App.java\nEXPOSE 8080\nCMD [\"java\", \"App\"]"
+  },
+  "challenge": {
+    "multiline": true,
+    "task": "Write a Dockerfile for our Java app: start FROM eclipse-temurin:21, set WORKDIR to /app, COPY App.java into the container, RUN javac App.java to compile it, EXPOSE port 8080, and set CMD to run 'java App'.",
+    "hint": "Six lines: FROM, WORKDIR, COPY, RUN, EXPOSE, CMD. Use 'COPY App.java .' (with the dot!) to copy into the working directory.",
+    "check_logic": {
+      "validation_command": "validate-dockerfile /tmp/user_input FROM,WORKDIR,COPY,RUN,EXPOSE,CMD",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "PASS"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "fairy_tale",
+      "title": "The Art of Layered Enchantment",
+      "dialogue": [
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Your first spell scroll was simple but powerful. Now let me teach you the advanced art — layered enchantment!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "Layered enchantment? Sounds complex."
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Think of building a tower. Each spell instruction adds a floor. WORKDIR sets which room you're working in. COPY brings scrolls and ingredients from the outside world into your tower."
+        },
+        {
+          "character": "Apprentice",
+          "line": "And EXPOSE?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "EXPOSE opens a window in your tower — it tells the world 'my creature listens here on this port.' It's like hanging a sign: 'Knock on door 8080.'"
+        },
+        {
+          "character": "Apprentice",
+          "line": "But Master — in the last lesson we wrote FROM and RUN and CMD... but we never actually put our code inside the creature! How does App.java get in there?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Excellent question! That's exactly what COPY does. 'COPY App.java .' takes your scroll from the outside world and places it inside the creature's room. Then 'RUN javac App.java' compiles it right there. Without COPY, your creature has Java but no application to run!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "So the full recipe is: choose a foundation, set up a room, copy the source code in, compile it, open a window, and set the purpose?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Precisely! And here's a secret — each instruction creates a magical layer that Docker remembers. If a layer hasn't changed, Docker skips rebuilding it. Rebuilds take seconds, not minutes!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "Stable things first, changing things last. Let me write the complete scroll for our Java creature!"
+        }
+      ]
+    },
+    {
+      "name": "flirting",
+      "title": "Getting to Know Each Other Better",
+      "dialogue": [
+        {
+          "character": "Docker",
+          "line": "Our first Dockerfile was cute, but let's go deeper. Time to build something real together."
+        },
+        {
+          "character": "You",
+          "line": "I'm ready. What's new?"
+        },
+        {
+          "character": "Docker",
+          "line": "WORKDIR — that's picking our apartment. 'WORKDIR /app' says 'this is where we live now.' Everything after happens in that directory."
+        },
+        {
+          "character": "You",
+          "line": "And COPY?"
+        },
+        {
+          "character": "Docker",
+          "line": "COPY is moving your stuff in. Remember our Java app? 'COPY App.java .' brings your source code into our place. Then 'RUN javac App.java' compiles it right there. Without COPY, I've got a JDK but nothing to compile. Awkward."
+        },
+        {
+          "character": "You",
+          "line": "And EXPOSE?"
+        },
+        {
+          "character": "Docker",
+          "line": "That's giving out our address. 'EXPOSE 8080' — 'you can reach us on port 8080.' Open door policy. 😏"
+        },
+        {
+          "character": "You",
+          "line": "So the full picture is: pick a base, set up the apartment, move the code in, compile it, open the door, set the purpose?"
+        },
+        {
+          "character": "Docker",
+          "line": "Look at you, putting it all together! And here's a pro tip — every instruction is a layer I cache. Put stable stuff first, changing stuff last. Rebuilds become lightning fast. I'm efficient like that."
+        },
+        {
+          "character": "You",
+          "line": "Alright, I'm writing the full Dockerfile for our Java app. Six lines."
+        },
+        {
+          "character": "Docker",
+          "line": "Now THAT's what I like to hear. Show me what you've got. 💕"
+        }
+      ]
+    }
+  ]
+}

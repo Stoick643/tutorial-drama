@@ -1,0 +1,107 @@
+{
+  "tutorial": "Docker Basics",
+  "module": 1,
+  "scene": 4,
+  "technical_concept": "Containers are ephemeral — when they stop, their data is gone. Volumes (-v) persist data outside the container. Port mapping (-p) connects container ports to your machine: '-p 8080:80' means 'my port 8080 → container port 80'. Real-world use: run a DB2 database with persistent storage, or expose your Java web app to the browser.",
+  "code_example": {
+    "language": "docker",
+    "code": "docker run -d -p 8080:80 nginx\ndocker run -d -v db2data:/database -p 50000:50000 ibmcom/db2"
+  },
+  "challenge": {
+    "task": "Run an nginx container in detached mode (-d) with port 8080 mapped to container port 80.",
+    "hint": "Use 'docker run -d -p 8080:80 nginx' — the -d flag runs it in the background.",
+    "check_logic": {
+      "validation_command": null,
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "nginx"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "fairy_tale",
+      "title": "Treasure Chests and Tower Windows",
+      "dialogue": [
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "There is something you must understand, apprentice. When a summoned creature vanishes, everything inside it vanishes too. Poof!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "Everything? All its data? That's terrible!"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Indeed — unless you give it a Treasure Chest! A volume is a magic chest that exists outside the creature. When the creature stores gems inside — say, your DB2 database — the chest keeps them safe even after the creature is gone."
+        },
+        {
+          "character": "Apprentice",
+          "line": "So the next creature can open the same chest and find all the database records?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Precisely! '-v db2data:/database' means 'attach the chest called db2data to the creature's database room.' Now for ports — remember EXPOSE opened a window inside the tower? Port mapping builds a bridge FROM your castle to that window."
+        },
+        {
+          "character": "Apprentice",
+          "line": "A bridge from my world to the creature's world?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Yes! '-p 8080:80' means 'build a bridge from your castle gate 8080 to the creature's window 80.' Visitors knock on YOUR gate, and the bridge takes them to the creature. You could run a whole web server or a DB2 database this way!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "Treasure chests for data, bridges for connections. I love this magic!"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Now summon an nginx creature with a bridge — detached, so it runs in the background while you continue your studies."
+        }
+      ]
+    },
+    {
+      "name": "flirting",
+      "title": "Moving In Together",
+      "dialogue": [
+        {
+          "character": "Docker",
+          "line": "Okay, important relationship talk. Containers are... temporary. When they stop, everything inside is gone. I know, I know — commitment issues."
+        },
+        {
+          "character": "You",
+          "line": "So every time I restart, all my data disappears? That's a dealbreaker."
+        },
+        {
+          "character": "Docker",
+          "line": "That's why we have volumes! Think of it as getting a storage unit together. '-v db2data:/database' — the data lives OUTSIDE the container. Containers come and go, but the DB2 data stays. It's our shared space."
+        },
+        {
+          "character": "You",
+          "line": "Okay, that's actually sweet. What about ports?"
+        },
+        {
+          "character": "Docker",
+          "line": "Ports are how we let the outside world in. '-p 8080:80' means 'my place has door 80, but you can reach me through your door 8080.' It's like giving someone your apartment buzzer code."
+        },
+        {
+          "character": "You",
+          "line": "So I could run a web server and actually visit it in my browser?"
+        },
+        {
+          "character": "Docker",
+          "line": "Exactly! localhost:8080 and boom — you're connected. The -d flag means I run quietly in the background. Low maintenance, always there when you need me. 😏"
+        },
+        {
+          "character": "You",
+          "line": "Alright, let's try it. Nginx, detached, port mapping."
+        },
+        {
+          "character": "Docker",
+          "line": "That's the spirit. Run it and see."
+        }
+      ]
+    }
+  ]
+}

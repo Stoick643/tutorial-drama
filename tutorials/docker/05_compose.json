@@ -1,0 +1,108 @@
+{
+  "tutorial": "Docker Basics",
+  "module": 1,
+  "scene": 5,
+  "technical_concept": "Docker Compose lets you define and run multi-container applications in a single YAML file. Instead of running multiple 'docker run' commands, you describe all services in docker-compose.yml and start everything with 'docker compose up'. Services can communicate by name. Real-world use: a Java web app with a DB2 database — all defined in one file, started with one command.",
+  "code_example": {
+    "language": "docker",
+    "code": "services:\n  web:\n    image: nginx\n    ports:\n      - \"8080:80\"\n  db:\n    image: ibmcom/db2\n    environment:\n      DB2INST1_PASSWORD: secret\n      LICENSE: accept\n    volumes:\n      - db2data:/database\nvolumes:\n  db2data:"
+  },
+  "challenge": {
+    "multiline": true,
+    "task": "Write a docker-compose.yml with two services: 'web' using the nginx image with port 8080:80, and 'db' using the ibmcom/db2 image with environment variables DB2INST1_PASSWORD set to 'secret' and LICENSE set to 'accept'.",
+    "hint": "Start with 'services:', then define 'web' and 'db' as sub-keys. Each needs 'image:'. Web needs 'ports:', db needs 'environment:' with two variables.",
+    "check_logic": {
+      "validation_command": "validate-compose /tmp/user_input services,service:web,service:db,image:web,image:db,ports:web,environment:db",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "PASS"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "fairy_tale",
+      "title": "Assembling Your Party of Creatures",
+      "dialogue": [
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "You have learned to summon individual creatures. But real quests require a PARTY — multiple creatures working together!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "Like a web server creature and a DB2 database creature fighting side by side?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Exactly! But summoning them one by one is tedious and error-prone. That's why the ancient wizards created the Compose Scroll — a single enchanted document that describes your entire party."
+        },
+        {
+          "character": "Apprentice",
+          "line": "One scroll to summon them all?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Indeed! In this scroll, each creature is a 'service' with its own section. You declare its blueprint (image), its bridges (ports), its treasure chests (volumes), and its enchanted properties (environment variables)."
+        },
+        {
+          "character": "Apprentice",
+          "line": "And they can talk to each other?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Yes! Docker Compose creates a magical network where creatures can find each other by name. The web creature simply says 'db' and the database creature answers. No complicated spells needed."
+        },
+        {
+          "character": "Apprentice",
+          "line": "This is how real applications work in the wild, isn't it?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Indeed it is. Every enterprise application — a web server, a DB2 database, perhaps a cache — all running as a party. Now write your first Compose scroll: a web creature and a DB2 creature, united!"
+        }
+      ]
+    },
+    {
+      "name": "flirting",
+      "title": "Moving In Together (For Real)",
+      "dialogue": [
+        {
+          "character": "Docker",
+          "line": "So we've been seeing each other for a while now. Individual containers, port mapping, volumes... I think it's time we talk about... living together."
+        },
+        {
+          "character": "You",
+          "line": "You mean... Docker Compose?"
+        },
+        {
+          "character": "Docker",
+          "line": "You've been reading ahead! Yes. Docker Compose is when multiple containers share a life together. One file describes the whole household — who lives here, what they do, how they connect."
+        },
+        {
+          "character": "You",
+          "line": "Like a web server and a DB2 database sharing an apartment?"
+        },
+        {
+          "character": "Docker",
+          "line": "Exactly. The web server handles the front door (ports), DB2 keeps all the data (volumes), and they talk to each other by name. 'Hey db, got any records for me?' — 'Sure thing, web.' Just like a real enterprise setup."
+        },
+        {
+          "character": "You",
+          "line": "That's... actually adorable. They have a little network between them?"
+        },
+        {
+          "character": "Docker",
+          "line": "Compose creates it automatically. No awkward introductions needed. And the best part? 'docker compose up' — one command and the whole household comes alive. 'docker compose down' and everyone goes to bed."
+        },
+        {
+          "character": "You",
+          "line": "One command for everything. I'm sold."
+        },
+        {
+          "character": "Docker",
+          "line": "Then write our first household together. A web server and a DB2 database. Our little digital family. 💕"
+        }
+      ]
+    }
+  ]
+}

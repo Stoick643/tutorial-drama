@@ -1,0 +1,108 @@
+{
+  "tutorial": "Docker Basics",
+  "module": 1,
+  "scene": 2,
+  "technical_concept": "A Dockerfile is a text file with instructions to build a Docker image. Key instructions: FROM (base image to start from), RUN (execute commands during build), CMD (default command when container starts). Every Dockerfile must start with FROM. Real-world use: package your Java app so anyone can run it identically — no JDK installation needed on the target machine.",
+  "code_example": {
+    "language": "docker",
+    "code": "FROM eclipse-temurin:21\nRUN javac -version\nCMD [\"java\", \"App\"]"
+  },
+  "challenge": {
+    "multiline": true,
+    "task": "Write a Dockerfile that starts FROM eclipse-temurin:21, RUNs 'javac -version' to verify the compiler, and sets CMD to run 'java App'. Write each instruction on a new line.",
+    "hint": "You need three lines: FROM, RUN, and CMD. The CMD should use exec form: CMD [\"java\", \"App\"]",
+    "check_logic": {
+      "validation_command": "validate-dockerfile /tmp/user_input FROM,RUN,CMD",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "PASS"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "fairy_tale",
+      "title": "Writing Your First Spell Scroll",
+      "dialogue": [
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "You've summoned creatures from existing blueprints. Now it's time to write your OWN spell scroll — a Dockerfile!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "My own spell scroll! What goes into it?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Every scroll begins with FROM — the foundation spell. It declares which existing creature you're building upon. 'FROM eclipse-temurin:21' means 'start with a creature that already has Java 21 installed.'"
+        },
+        {
+          "character": "Apprentice",
+          "line": "So we stand on the shoulders of existing creatures?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Exactly! Then comes RUN — the transformation spell. 'RUN javac -version' verifies your creature's powers during creation. You can have many RUN spells — installing libraries, compiling code, anything!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "And when the creature is summoned, what does it do?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "That's CMD — the purpose spell. It tells the creature what to do when it awakens. 'CMD [\"java\", \"App\"]' means 'when summoned, run the Java application.' Every creature needs a purpose!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "FROM for foundation, RUN for teaching, CMD for purpose. Let me try!"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Write your scroll in the console below. Three lines: the foundation, the teaching, and the purpose."
+        }
+      ]
+    },
+    {
+      "name": "flirting",
+      "title": "Creating Your Dating Profile",
+      "dialogue": [
+        {
+          "character": "Docker",
+          "line": "Okay, things are getting serious. It's time to create your first Dockerfile. Think of it as... writing your dating profile."
+        },
+        {
+          "character": "You",
+          "line": "A dating profile? How so?"
+        },
+        {
+          "character": "Docker",
+          "line": "First line: FROM. That's your background. 'FROM eclipse-temurin:21' — it says where you come from, what you're built on. In this case: Java 21. Everyone starts somewhere."
+        },
+        {
+          "character": "You",
+          "line": "Okay, so FROM is like 'Originally from...' on a profile."
+        },
+        {
+          "character": "Docker",
+          "line": "Exactly. Then RUN — that's your skills and experience. 'RUN javac -version' means 'let me show you what I can do.' You can list as many skills as you want."
+        },
+        {
+          "character": "You",
+          "line": "And CMD?"
+        },
+        {
+          "character": "Docker",
+          "line": "CMD is what you're looking for. Your purpose. 'CMD [\"java\", \"App\"]' — 'I'm here to run this application.' It's the 'what I bring to the relationship' part. Every good profile needs one."
+        },
+        {
+          "character": "You",
+          "line": "FROM, RUN, CMD. Background, skills, purpose. This is actually making sense."
+        },
+        {
+          "character": "Docker",
+          "line": "Now write your first profile. Three lines. Make it count. 💕"
+        }
+      ]
+    }
+  ]
+}

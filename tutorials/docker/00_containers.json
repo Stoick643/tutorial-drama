@@ -1,0 +1,91 @@
+{
+  "tutorial": "Docker Basics",
+  "module": 1,
+  "scene": 0,
+  "technical_concept": "Docker is a tool that packages applications into containers — lightweight, portable environments that run the same everywhere. The key mental model: Dockerfile (recipe) → Image (template) → Container (running instance). Think of it like Java: .java file → .class file → running in JVM.",
+  "code_example": {
+    "language": "docker",
+    "code": "docker --version"
+  },
+  "challenge": {
+    "task": "Check that Docker is installed by running the version command.",
+    "hint": "Type 'docker --version' to see the installed Docker version.",
+    "check_logic": {
+      "validation_command": null,
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "Docker version"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "fairy_tale",
+      "title": "The Wizard's Container Spell",
+      "dialogue": [
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Come, young apprentice. Sit by the fire. Today I shall teach you the most powerful spell in all the land — the art of Containerization."
+        },
+        {
+          "character": "Apprentice",
+          "line": "Containerization? That sounds... complicated, Master."
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Not at all! Think of it this way. When a baker wants to share a recipe, they don't ship their entire kitchen. They write down the recipe, anyone can recreate the cake. That's Docker."
+        },
+        {
+          "character": "Apprentice",
+          "line": "So Docker is like... a magic recipe book?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Precisely! Three steps, child. First, you write a Spell Scroll — that's your Dockerfile. Then you enchant it into a Blueprint — that's your Image. Finally, you summon a living Creature from the blueprint — that's your Container!"
+        },
+        {
+          "character": "Apprentice",
+          "line": "Spell Scroll → Blueprint → Creature. I think I understand!"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Before we cast any spells, let us first check that our magical tools are ready. Speak the incantation 'docker --version' into the crystal console below."
+        }
+      ]
+    },
+    {
+      "name": "flirting",
+      "title": "Swiping Right on Containers",
+      "dialogue": [
+        {
+          "character": "Docker",
+          "line": "Hey there. Come here often? I'm Docker. I package things up nicely and I'm available on every platform. 😏"
+        },
+        {
+          "character": "You",
+          "line": "Smooth. So what exactly do you... do?"
+        },
+        {
+          "character": "Docker",
+          "line": "You know that thing where your code works on your laptop but breaks everywhere else? I fix that. I'm consistent, reliable, and I work great in any environment."
+        },
+        {
+          "character": "You",
+          "line": "Okay, I'm intrigued. How does it work?"
+        },
+        {
+          "character": "Docker",
+          "line": "Three dates. First date: you write me a Dockerfile — that's like your dating profile, tells me who you are. Second date: I turn that into an Image — think of it as our official photo together. Third date: we run a Container — that's the real thing, baby. Live and running."
+        },
+        {
+          "character": "You",
+          "line": "Dockerfile → Image → Container. Profile → Photo → The real deal. I like this metaphor."
+        },
+        {
+          "character": "Docker",
+          "line": "Before we go any further... let's make sure we're compatible. Type 'docker --version' and let's see if there's a connection."
+        }
+      ]
+    }
+  ]
+}

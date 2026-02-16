@@ -1,0 +1,91 @@
+{
+  "tutorial": "Docker Basics",
+  "module": 1,
+  "scene": 1,
+  "technical_concept": "The 'docker run' command creates and starts a container from an image. If the image isn't available locally, Docker automatically downloads it from Docker Hub (a public registry of images). 'docker ps' shows running containers. Real-world use: spin up a web server, database, or any tool in seconds — no installation required.",
+  "code_example": {
+    "language": "docker",
+    "code": "docker run hello-world\ndocker ps\ndocker images"
+  },
+  "challenge": {
+    "task": "Run the classic 'hello-world' container to verify Docker is working end-to-end.",
+    "hint": "Type 'docker run hello-world' — Docker will pull the image and run it.",
+    "check_logic": {
+      "validation_command": null,
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "Hello from Docker!"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "fairy_tale",
+      "title": "Summoning Your First Creature",
+      "dialogue": [
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Now that we know our tools work, it's time to summon your very first creature! The incantation is 'docker run' followed by the creature's true name."
+        },
+        {
+          "character": "Apprentice",
+          "line": "What creature shall I summon, Master?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Start with the simplest one — 'hello-world'. It's a tiny friendly sprite that appears, delivers a message, and vanishes. Perfect for beginners."
+        },
+        {
+          "character": "Apprentice",
+          "line": "What if I don't have the blueprint for this creature?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Ah, that's the beauty! Docker will fly to the Great Library — called Docker Hub — and fetch the blueprint automatically. Thousands of blueprints live there: web servers, databases, programming languages... all free for the summoning."
+        },
+        {
+          "character": "Apprentice",
+          "line": "So I can summon a whole web server without building it myself?"
+        },
+        {
+          "character": "Old Wizard Dockerus",
+          "line": "Indeed! 'docker run nginx' gives you a web server. 'docker run postgres' gives you a database. But first, let's start simple. Summon the hello-world sprite!"
+        }
+      ]
+    },
+    {
+      "name": "flirting",
+      "title": "The First Date",
+      "dialogue": [
+        {
+          "character": "Docker",
+          "line": "So... ready for our first real date? I've got something special planned. Type 'docker run hello-world' and see what happens."
+        },
+        {
+          "character": "You",
+          "line": "What's hello-world? Sounds a bit basic for a first date."
+        },
+        {
+          "character": "Docker",
+          "line": "Trust me. It's a classic. Quick, simple, and it tells you everything is working between us. Think of it as the 'are we compatible?' test."
+        },
+        {
+          "character": "You",
+          "line": "And if I don't have this hello-world thing?"
+        },
+        {
+          "character": "Docker",
+          "line": "Don't worry, I'll grab it for you. I know a place — Docker Hub. It's like an app store, but for containers. Thousands of ready-made images: nginx for web servers, postgres for databases... I'm very well-connected. 😉"
+        },
+        {
+          "character": "You",
+          "line": "So you're telling me I can get a fully running database in one command?"
+        },
+        {
+          "character": "Docker",
+          "line": "Now you're getting it. But let's not rush things. First dates first. Run hello-world for me."
+        }
+      ]
+    }
+  ]
+}

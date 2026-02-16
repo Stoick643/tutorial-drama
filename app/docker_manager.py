@@ -1,6 +1,7 @@
 # ABOUTME: Manages Docker containers for code execution in sandboxed environments.
 # ABOUTME: Handles container pooling, command building, and grading logic for multiple languages.
 
+import base64
 import docker
 try:
     from . import grader_schemas as schemas
@@ -10,7 +11,9 @@ except ImportError:
 # Map language names to the Docker images we will build
 GRADER_IMAGES = {
     "redis": "grader-image-redis",
-    "sql": "grader-image-sql"
+    "sql": "grader-image-sql",
+    "git": "grader-image-git",
+    "docker": "grader-image-docker"
 }
 POOL_SIZE = 3 # Number of warm containers to keep per language
 
@@ -73,7 +76,7 @@ class ContainerManager:
         """Return container to pool after resetting its state.
 
         Args:
-            language: The language of the container (e.g., "redis", "sql")
+            language: The language of the container (e.g., "redis", "sql", "git")
             container: The Docker container to return
         """
         # Reset container state based on language
@@ -83,12 +86,18 @@ class ContainerManager:
         elif language == "sql":
             # Restore database to original state from backup
             container.exec_run("sh -c \"cp /data/company.db.original /data/company.db\"")
+        elif language == "git":
+            # Reset git repository to clean state
+            container.exec_run("sh -c \"git reset --hard && git clean -fd\"")
+        elif language == "docker":
+            # Clean up any user input files
+            container.exec_run("sh -c \"rm -f /tmp/user_input\"")
 
     def _build_command(self, language: str, code: str) -> str:
         """Build language-specific execution command.
 
         Args:
-            language: The programming language/tool (e.g., "redis", "sql")
+            language: The programming language/tool (e.g., "redis", "sql", "git")
             code: The code/command to execute
 
         Returns:
@@ -105,6 +114,19 @@ class ContainerManager:
             # Escape single quotes for shell safety: ' becomes '\''
             escaped_code = code.replace("'", "'\\''")
             return f"sh -c \"echo '{escaped_code}' | sqlite3 /data/company.db\""
+        elif language == "git":
+            # Execute command as-is (allows both git commands and shell commands)
+            return code
+        elif language == "docker":
+            stripped = code.strip()
+            if stripped.startswith("docker") or stripped.startswith("validate-"):
+                # CLI command or validation command — execute directly
+                return code
+            else:
+                # Content (Dockerfile or compose) — base64 encode to avoid escaping issues
+                # Saves to /tmp/user_input for validation commands to read
+                encoded = base64.b64encode(code.encode()).decode()
+                return f"sh -c \"echo '{encoded}' | base64 -d > /tmp/user_input && cat /tmp/user_input\""
         else:
             raise ValueError(f"Unsupported language: {language}")
 

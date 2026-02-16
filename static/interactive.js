@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const data = await response.json();
 
+            if (!response.ok) {
+                showFeedback('Server error: ' + (data.detail || 'Unknown error'), false);
+                return;
+            }
+
             showOutput(data.output);
             showFeedback(data.feedback_message, data.is_correct);
 
@@ -91,11 +96,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     checkButton.addEventListener('click', checkAnswer);
 
-    commandInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            checkAnswer();
-        }
-    });
+    // Only bind Enter to submit for single-line inputs (not textareas)
+    if (commandInput.tagName === 'INPUT') {
+        commandInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+    } else {
+        // For textarea, use Ctrl+Enter to submit
+        commandInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                checkAnswer();
+            }
+        });
+    }
 
     commandInput.focus();
 
