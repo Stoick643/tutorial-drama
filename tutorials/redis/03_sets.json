@@ -102,6 +102,94 @@
           "line": "Precise and efficient. Let's map these access networks."
         }
       ]
+    },
+    {
+      "name": "shakespearean",
+      "title": "The Web of Conspirators",
+      "dialogue": [
+        {
+          "character": "Lord Cachington",
+          "line": "Two suspects, yet a web of associates most tangled! Alpha knows Murphy, Valdez, and Chen. Bravo knows Murphy, Torres, and Kim. Who is the common thread in this conspiracy?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Ah, my lord seeks the intersection of two circles! For this, we employ Sets—collections most unique, where each soul appears but once."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "How dost thou construct such webs of connection?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Use SADD to inscribe each associate! SADD known_associates:alpha 'murphy' records Murphy in Alpha's circle. Add Valdez and Chen likewise. Then do the same for Bravo's confederates."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "And to find who dwells in both circles—the link between these rogues?"
+        },
+        {
+          "character": "REDIS",
+          "line": "SINTER known_associates:alpha known_associates:bravo reveals the intersection! All souls who appear in BOTH sets—thy smoking gun, thy witness most valuable!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "What if I must verify whether Murphy truly knows Alpha?"
+        },
+        {
+          "character": "REDIS",
+          "line": "SISMEMBER known_associates:alpha 'murphy' returns 1 for truth, 0 for falsehood. Swift verification, like asking 'Art thou guilty?' and receiving a simple yea or nay!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Brilliant! Let us map these conspirators and unmask their common ally!"
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "The Slack Channel Overlap Report",
+      "dialogue": [
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Corporate wants to know which employees are in both the #engineering channel AND the #management channel. Apparently they're 'potential leadership candidates.' Or flight risks. Hard to tell with HR."
+        },
+        {
+          "character": "New Hire",
+          "line": "How do I find people who are in multiple channels?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Sets are perfect for this. Add members to each channel using SADD, then use SINTER to find the overlap. It's like a Venn diagram, but actually useful."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "SADD channel:engineering 'murphy' 'valdez' 'chen'. SADD channel:management 'murphy' 'torres' 'kim'. Then SINTER shows you who's in both."
+        },
+        {
+          "character": "New Hire",
+          "line": "Why not just use a spreadsheet?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Because Sets automatically handle uniqueness. You can add Murphy five times and I'll only store him once. Try that with Excel—you'll spend three hours filtering duplicates."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Also, SISMEMBER lets you quickly check if someone's in a set. Like checking if Karen from Accounting is in the #complaints channel. Spoiler: she is."
+        },
+        {
+          "character": "New Hire",
+          "line": "Can I remove someone from a set?"
+        },
+        {
+          "character": "REDIS",
+          "line": "SREM. Sarah left the company? SREM channel:engineering 'sarah'. She's gone from the set, but the rest remain untouched."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Alright, let's build these channel membership sets and find our overlap candidates before HR sends another reminder email."
+        }
+      ]
     }
   ]
 }

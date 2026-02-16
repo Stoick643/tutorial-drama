@@ -143,6 +143,13 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
     if not json_path.exists():
         raise HTTPException(status_code=404, detail=f"Lesson '{lesson}' not found in topic '{topic}'")
 
+    # Calculate prev/next lesson navigation
+    topic_dir = base_dir / f"tutorials/{topic}"
+    lesson_files = sorted([f.stem for f in topic_dir.glob("*.json")])
+    current_index = lesson_files.index(lesson) if lesson in lesson_files else -1
+    prev_lesson = lesson_files[current_index - 1] if current_index > 0 else None
+    next_lesson = lesson_files[current_index + 1] if current_index < len(lesson_files) - 1 else None
+
     try:
         with open(json_path, "r", encoding="utf-8") as f:
             lesson_data = json.load(f)
@@ -184,6 +191,8 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
                 "style": style,
                 "available_styles": available_styles,
                 "current_style": style,
+                "prev_lesson": prev_lesson,
+                "next_lesson": next_lesson,
                 "js_version": str(int(time.time()))
             }
         )

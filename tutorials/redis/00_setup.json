@@ -86,6 +86,78 @@
           "line": "Standing by for your command, Engineer."
         }
       ]
+    },
+    {
+      "name": "shakespearean",
+      "title": "The Opening of the Data Vault",
+      "dialogue": [
+        {
+          "character": "Narrator",
+          "line": "In fair Serverland, where we lay our scene, a noble keeper of data doth await the call of those who seek its wisdom."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "What light through yonder terminal breaks? 'Tis the glow of knowledge yet untapped!"
+        },
+        {
+          "character": "REDIS",
+          "line": "Hark! I am REDIS, humble servant to thy data needs. A Remote Dictionary Server, if thou pleasest—swift as Mercury, faithful as the northern star."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Pray tell, good REDIS, art thou truly present? Or dost mine eyes deceive with phantom processes?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Doubt not my presence, noble lord! Send unto me a PING, and I shall return to thee a PONG most true. 'Tis the sacred handshake of our kind."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Then let us commence! If thy PONG rings true, our partnership shall flourish like spring's first bloom."
+        },
+        {
+          "character": "REDIS",
+          "line": "Await thy command with bated breath, my liege. The stage is set!"
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "New IT Guy's First Day",
+      "dialogue": [
+        {
+          "character": "Dave (IT Manager)",
+          "line": "So, you're the new database admin. Welcome to DataCorp. I'm Dave, your manager. This is your desk. That's the coffee machine. Don't touch Kevin's mug."
+        },
+        {
+          "character": "New Hire",
+          "line": "Thanks, Dave. So what system will I be working with?"
+        },
+        {
+          "character": "REDIS",
+          "line": "That would be me. I'm REDIS. I handle all the fast data around here. Think of me as the office microwave—quick, efficient, and everyone relies on me but nobody really understands how I work."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "REDIS has been here longer than most of the employees. It's outlasted three CEOs and the great Coffee Machine Incident of 2019."
+        },
+        {
+          "character": "New Hire",
+          "line": "How do I even know if it's... working? Running? Alive?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Just send me a PING. If I respond with PONG, everything's fine. If I don't respond, start updating your LinkedIn profile because something has gone very wrong."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "It's basically like checking if the printer is online, except REDIS actually responds when you ask."
+        },
+        {
+          "character": "New Hire",
+          "line": "Alright, let me try this PING thing. Seems simple enough."
+        }
+      ]
     }
   ]
 }

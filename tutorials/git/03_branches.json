@@ -1,0 +1,195 @@
+{
+  "tutorial": "Git Basics",
+  "module": 1,
+  "scene": 3,
+  "technical_concept": "Creating and switching between branches to work on different features independently.",
+  "code_example": {
+    "language": "git",
+    "code": "git branch new-feature\ngit checkout new-feature"
+  },
+  "challenge": {
+    "task": "Create a new branch called 'investigation' and switch to it.",
+    "hint": "Use 'git branch' to create the branch, then 'git checkout' to switch to it. Or use 'git checkout -b' to do both at once.",
+    "check_logic": {
+      "setup_commands": [
+        "git config user.email 'test@test.com'",
+        "git config user.name 'Test'"
+      ],
+      "validation_command": "git branch --show-current",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "investigation"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "detective_noir",
+      "title": "Parallel Investigations",
+      "dialogue": [
+        {
+          "character": "Detective Indecks",
+          "line": "I've got two theories on this case. One involves organized crime, the other is corporate fraud. But I can't pursue both at once without mixing up my evidence."
+        },
+        {
+          "character": "Git",
+          "line": "That's exactly what branches are for, Detective. Think of a branch as an alternate timeline—a parallel investigation. You can work on one theory without touching the main case file."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "So I create a separate branch for each theory?"
+        },
+        {
+          "character": "Git",
+          "line": "Precisely. Your main branch—usually called 'master' or 'main'—stays clean. Then you create a new branch with 'git branch investigation', and switch to it with 'git checkout investigation'. Now you're working in that alternate timeline."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "What if one theory pans out and the other doesn't?"
+        },
+        {
+          "character": "Git",
+          "line": "If the investigation branch solves the case, you merge it back into main. If it's a dead end, you delete the branch. No harm done—your main timeline stays untouched."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Can I switch between branches?"
+        },
+        {
+          "character": "Git",
+          "line": "Anytime. 'git checkout main' takes you back to the main timeline. 'git checkout investigation' returns you to your alternate theory. Each branch remembers its own changes."
+        },
+        {
+          "character": "Detective Indecks",
+          "line": "Smart. Let me create an investigation branch and start working."
+        }
+      ]
+    },
+    {
+      "name": "sci_fi",
+      "title": "Timeline Divergence",
+      "dialogue": [
+        {
+          "character": "Engineer",
+          "line": "I need to test a new propulsion system, but I can't risk breaking our current working code. How do I experiment safely?"
+        },
+        {
+          "character": "Git Protocol",
+          "line": "Create a branch. A branch is a divergent timeline—a separate line of development that exists parallel to your main codebase."
+        },
+        {
+          "character": "NEXUS",
+          "line": "Think of it as quantum superposition, Engineer. Multiple realities existing simultaneously. Your main branch remains stable while you experiment in an alternate timeline."
+        },
+        {
+          "character": "Engineer",
+          "line": "How do I create this alternate timeline?"
+        },
+        {
+          "character": "Git Protocol",
+          "line": "'git branch experiment' creates the branch. 'git checkout experiment' switches you into that timeline. Or use 'git checkout -b experiment' to create and switch in one command."
+        },
+        {
+          "character": "NEXUS",
+          "line": "All changes you commit while on the experiment branch stay isolated. The main branch sees nothing until you explicitly merge the timelines."
+        },
+        {
+          "character": "Engineer",
+          "line": "What if the experiment fails?"
+        },
+        {
+          "character": "Git Protocol",
+          "line": "Delete the branch. Timeline collapses. Your main branch remains pristine and unaffected. Zero risk to production systems."
+        },
+        {
+          "character": "Engineer",
+          "line": "Efficient. Creating investigation branch and switching to alternate timeline."
+        }
+      ]
+    },
+    {
+      "name": "shakespearean",
+      "title": "The Forking Path",
+      "dialogue": [
+        {
+          "character": "Lord Cachington",
+          "line": "I wish to explore a radical new approach to my code, yet I dare not corrupt the master scroll! What if mine experiment ends in disaster?"
+        },
+        {
+          "character": "Git",
+          "line": "Fear not, my lord! Thou shalt employ branches—divergent paths through the forest of development! One path remains safe and true, whilst thou exploreth dangerous new territories along another!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Divergent paths? Speak clearly, Git!"
+        },
+        {
+          "character": "Git",
+          "line": "With 'git branch investigation', thou createst a new branch—a parallel chronicle separate from thy main tome! Then 'git checkout investigation' transports thee to this new path! All changes occur there, leaving thy main branch pristine!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "And if mine new approach succeeds gloriously?"
+        },
+        {
+          "character": "Git",
+          "line": "Thou shalt merge the branches! The investigation path rejoins the main road, and all thy discoveries become part of the master chronicle! But if it fails—simply abandon the branch! 'Twas but a dream, and the main path remembers naught!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Can I travel between these paths at will?"
+        },
+        {
+          "character": "Git",
+          "line": "Indeed! 'git checkout main' returns thee to the primary path. 'git checkout investigation' sends thee back to thy experiment! Each path remembers its own history!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Brilliant! Let me forge this investigation branch and embark upon mine quest!"
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "Branch Management 101",
+      "dialogue": [
+        {
+          "character": "New Hire",
+          "line": "I want to try rewriting the authentication system, but I don't want to break what's already working."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Then you need a branch. Branches let you experiment without blowing up production. It's like having a test kitchen—you don't cook experimental recipes during dinner service."
+        },
+        {
+          "character": "Git",
+          "line": "Create a branch with 'git branch experiment', then switch to it with 'git checkout experiment'. Or do both at once: 'git checkout -b experiment'."
+        },
+        {
+          "character": "New Hire",
+          "line": "So everything I commit goes to the experiment branch, not main?"
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Exactly. Main stays clean and working. Your experiment branch is where you try crazy stuff. If it works, you merge it back into main. If it doesn't, you delete the branch and pretend it never happened."
+        },
+        {
+          "character": "Git",
+          "line": "You can switch between branches anytime with 'git checkout'. Just make sure you commit or stash your changes first, or things get messy."
+        },
+        {
+          "character": "New Hire",
+          "line": "What's the typical workflow?"
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Create a branch for each feature or bug fix. Work on it, test it, then merge it back to main when it's ready. This way main always stays stable. Unlike Kevin's branches, which somehow manage to break things that weren't even related."
+        },
+        {
+          "character": "New Hire",
+          "line": "Alright, let me create an investigation branch and start experimenting."
+        }
+      ]
+    }
+  ]
+}

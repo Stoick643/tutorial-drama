@@ -86,6 +86,82 @@
           "line": "Ready to receive your command, Engineer."
         }
       ]
+    },
+    {
+      "name": "shakespearean",
+      "title": "Of Fleeting Marks and Temporal Tags",
+      "dialogue": [
+        {
+          "character": "Lord Cachington",
+          "line": "REDIS, a visitor approaches—User456, a most suspicious character! I must mark their presence, yet only whilst they tarry."
+        },
+        {
+          "character": "REDIS",
+          "line": "Ah, my lord seeks the art of the ephemeral notation! For this, we employ the humble String—a key paired with its value, as lovers in the moonlight."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "But what if mine memory fails me? What if I forget to strike their name when they depart? Such negligence would shame mine house!"
+        },
+        {
+          "character": "REDIS",
+          "line": "Fear not! For I possess SETEX—'tis SET with EXpiry most wondrous! Thou givest me the key 'online:user456', the seconds it shall live, and its value. Example: SETEX online:user456 120 'online'. In two minutes' time—120 heartbeats—the record shall vanish like morning dew!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "A self-cleaning ledger! 'Tis sorcery most practical!"
+        },
+        {
+          "character": "REDIS",
+          "line": "No sorcery, my lord—merely the passage of time made useful. The data expires as naturally as the setting sun."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Then let us inscribe this temporary mark and watch time claim it back!"
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "Session Tracking Meeting",
+      "dialogue": [
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Okay team, we need to track user sessions. When someone logs in, we mark them as 'online'. When they log out, we clear the marker. Simple, right?"
+        },
+        {
+          "character": "New Hire",
+          "line": "What if they don't log out properly? Like, what if they just close the browser?"
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Then we have ghost sessions clogging up the system forever. It's like leaving yogurt in the break room fridge—eventually someone has to clean it up."
+        },
+        {
+          "character": "REDIS",
+          "line": "That's why I have SETEX. SET with EXpiry. You set a key with a timeout. After those seconds elapse, I automatically delete it. Zero manual cleanup required."
+        },
+        {
+          "character": "New Hire",
+          "line": "So I just... tell you how long to remember something?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Exactly. SETEX online:user456 120 'online' means: Remember that user456 is online, but only for 120 seconds. After that, forget about them completely."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "It's like setting a timer on the microwave, except instead of reheating burrito, you're managing session state."
+        },
+        {
+          "character": "New Hire",
+          "line": "That's... actually pretty elegant."
+        },
+        {
+          "character": "REDIS",
+          "line": "I like to think so. Now let's track user456 with a 2-minute expiration and prove this works."
+        }
+      ]
     }
   ]
 }

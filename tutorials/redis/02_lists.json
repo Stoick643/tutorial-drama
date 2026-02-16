@@ -102,6 +102,94 @@
           "line": "Efficient. Let's initialize this queue system."
         }
       ]
+    },
+    {
+      "name": "shakespearean",
+      "title": "The Queue of Questionable Souls",
+      "dialogue": [
+        {
+          "character": "Lord Cachington",
+          "line": "Three rogues await judgment in mine antechamber! Alpha, Bravo, and Charlie—each claiming innocence most vehemently."
+        },
+        {
+          "character": "REDIS",
+          "line": "Then thou requirest a proper Queue, my lord—a List most orderly! First to arrive shall be first to face thy questioning."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Speak plainly, REDIS. How doth one construct such a line of miscreants?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Envision a line against thy wall, sire. RPUSH places rogues at the rear: RPUSH interrogation:queue 'suspect_alpha'. Add the others likewise—Bravo, then Charlie. They shall queue as proper as churchgoers at Sunday mass!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "And when I'm prepared to interrogate the first knave?"
+        },
+        {
+          "character": "REDIS",
+          "line": "LPOP interrogation:queue plucks the first soul from the line! 'Tis justice in sequence—no favoritism, no chaos. The natural order preserved!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "What of LPUSH and RPOP? Speak these mysteries unto me."
+        },
+        {
+          "character": "REDIS",
+          "line": "LPUSH adds to the front—for emergencies most dire. RPOP removes from the rear—for when thou seekest the newest arrival. But for proper procedure? RPUSH to add, LPOP to remove. 'Tis the way of honorable queuing!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Then let us form this line most righteous and commence our questioning!"
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "The Support Ticket Queue",
+      "dialogue": [
+        {
+          "character": "Dave (IT Manager)",
+          "line": "We've got three support tickets that came in this morning. We need to handle them in order. First come, first served. Fair is fair."
+        },
+        {
+          "character": "New Hire",
+          "line": "How do I make sure I don't accidentally skip someone or handle them out of order?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Use a List. Think of it like a physical queue at the DMV, except more reliable and less depressing."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "RPUSH adds tickets to the back of the line. LPOP takes the ticket from the front. It's like a conveyor belt, but for customer complaints."
+        },
+        {
+          "character": "New Hire",
+          "line": "So I RPUSH ticket_alpha, then ticket_bravo, then ticket_charlie?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Exactly. RPUSH support:queue 'ticket_alpha' and so on. Then when you're ready to work on the next one, LPOP support:queue grabs the oldest ticket."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "You can also use LLEN to see how many tickets are waiting, which is useful right before lunch when you're deciding whether to take that long break or not."
+        },
+        {
+          "character": "New Hire",
+          "line": "What about emergencies? What if the CEO's laptop dies?"
+        },
+        {
+          "character": "REDIS",
+          "line": "That's what LPUSH is for—adds to the front of the line. But Dave's going to tell you not to do that."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Correct. We have a separate 'emergency' queue for that. Otherwise everyone suddenly becomes an emergency. Now let's queue these tickets properly."
+        }
+      ]
     }
   ]
 }

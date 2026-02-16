@@ -118,6 +118,106 @@
           "line": "Efficient structure. Let's initialize these personnel records."
         }
       ]
+    },
+    {
+      "name": "shakespearean",
+      "title": "The Dossier of Suspect Delta",
+      "dialogue": [
+        {
+          "character": "Lord Cachington",
+          "line": "I tire of scattered notes and fragments! I need complete dossiers—age, height, occupation, whereabouts. A proper file for each suspicious soul!"
+        },
+        {
+          "character": "REDIS",
+          "line": "Then thou requirest Hashes, my lord! Think of them as illuminated manuscripts—one cover, many pages of related truths inscribed within."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Demonstrate this sorcery of organization!"
+        },
+        {
+          "character": "REDIS",
+          "line": "Behold: HSET suspect:delta age 28 height \"5'7\" occupation \"lawyer\" last_seen \"courthouse\". One command, my lord—four facts inscribed in Delta's tome!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "And when I require but a single fact—say, their profession?"
+        },
+        {
+          "character": "REDIS",
+          "line": "HGET suspect:delta occupation returns 'lawyer' alone! No need to unfurl the entire scroll—just the page thou seekest."
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "What if I must review the complete profile?"
+        },
+        {
+          "character": "REDIS",
+          "line": "HGETALL suspect:delta spills forth every field and value! Age, height, occupation, whereabouts—the full chronicle laid bare before thee!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "And should certain facts prove irrelevant to my investigation?"
+        },
+        {
+          "character": "REDIS",
+          "line": "HDEL suspect:delta last_seen strikes that single page from the book! The rest remains pristine and untouched. Surgical editing, as precise as a scribe's pen!"
+        },
+        {
+          "character": "Lord Cachington",
+          "line": "Magnificent! Let us compile a dossier most comprehensive and solve this mystery!"
+        }
+      ]
+    },
+    {
+      "name": "office_comedy",
+      "title": "Employee Database Migration Day",
+      "dialogue": [
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Alright, the old employee database crashed—again—so we're moving to Redis. We need to store structured employee records. Name, age, department, that kind of stuff."
+        },
+        {
+          "character": "New Hire",
+          "line": "Should I just create a bunch of separate keys? Like employee_delta_age, employee_delta_department?"
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Please don't. That's how we ended up with 47,000 keys last time and nobody could find anything."
+        },
+        {
+          "character": "REDIS",
+          "line": "Use Hashes. One key holds multiple fields. Like a mini-database inside a single record. HSET employee:delta age 28 height \"5'7\" occupation \"lawyer\" last_seen \"courthouse\"."
+        },
+        {
+          "character": "New Hire",
+          "line": "So all of Delta's info lives under one key?"
+        },
+        {
+          "character": "REDIS",
+          "line": "Exactly. Then HGET employee:delta occupation pulls just the occupation. HGETALL employee:delta dumps everything. Clean, organized, not a mess."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "It's like having a filing cabinet where each employee has one folder, and that folder has multiple pages. Instead of 500 loose papers flying around my office."
+        },
+        {
+          "character": "New Hire",
+          "line": "What if someone changes departments?"
+        },
+        {
+          "character": "REDIS",
+          "line": "HSET employee:delta department \"Legal\" updates just that field. Or HDEL employee:delta last_seen removes outdated information. The rest stays intact."
+        },
+        {
+          "character": "Dave (IT Manager)",
+          "line": "Much better than deleting the whole record and starting over, which is what Kevin did last month. Don't be like Kevin."
+        },
+        {
+          "character": "New Hire",
+          "line": "Got it. One Hash per employee. Let me create a proper record for Delta."
+        }
+      ]
     }
   ]
 }

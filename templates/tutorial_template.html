@@ -78,12 +78,20 @@
                     <div class="console-header">{{ topic|title }} Console</div>
                     <div class="console-body">
                         <div class="console-input-wrapper">
+                            {% if challenge.multiline %}
+                            <textarea id="command-input"
+                                      class="console-input console-textarea"
+                                      placeholder="Write your {{ topic }} code here..."
+                                      rows="8"
+                                      spellcheck="false"></textarea>
+                            {% else %}
                             <span class="console-prompt">{{ topic }}&gt;</span>
                             <input type="text"
                                    id="command-input"
                                    class="console-input"
                                    placeholder="Enter your {{ topic }} command here..."
                                    autocomplete="off">
+                            {% endif %}
                         </div>
                         <button id="check-answer" class="check-button">Check Answer</button>
                     </div>
