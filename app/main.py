@@ -90,6 +90,11 @@ class CommandResponse(BaseModel):
     is_correct: bool
     feedback_message: str
 
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for monitoring and fly.io."""
+    return {"status": "ok", "grader_mode": GRADER_MODE}
+
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
