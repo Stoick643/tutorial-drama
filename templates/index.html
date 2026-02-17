@@ -12,7 +12,25 @@
             <div class="header-content">
                 <h1 class="tutorial-title">Tutorial Drama</h1>
                 <div class="subtitle">Narrative Learning Engine</div>
+                <div class="lang-selector">
+                    <label for="lang-select">🌐</label>
+                    <select id="lang-select">
+                        <option value="en">English</option>
+                        <option value="sl">Slovenščina</option>
+                        <option value="sr-cyrl">Српски</option>
+                    </select>
+                </div>
             </div>
+            <script>
+                (function() {
+                    var sel = document.getElementById('lang-select');
+                    var saved = localStorage.getItem('preferred_lang') || 'en';
+                    sel.value = saved;
+                    sel.addEventListener('change', function() {
+                        localStorage.setItem('preferred_lang', this.value);
+                    });
+                })();
+            </script>
         </header>
 
         <main>
