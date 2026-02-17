@@ -142,4 +142,6 @@ fly deploy --dockerfile Dockerfile.flyio
 
 ### Platform Features
 - User accounts and authentication
-- Persistent progress tracking (replace localStorage)
+- Persistent progress tracking (replace localStorage with server-side DB)
+- Accessibility improvements (ARIA labels, keyboard navigation, color contrast)
+- Tests for subprocess_manager.py
