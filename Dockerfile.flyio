@@ -29,7 +29,6 @@ WORKDIR /app
 
 # Subprocess mode, no Docker needed
 ENV GRADER_MODE=subprocess
-ENV DEV_MODE=true
 
 EXPOSE 8000
 

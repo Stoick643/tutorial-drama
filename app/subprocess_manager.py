@@ -1,7 +1,9 @@
 # ABOUTME: Subprocess-based grader for fly.io deployment (no Docker needed).
 # ABOUTME: Runs tools directly (redis-cli, sqlite3, git, etc.) via subprocess.run().
+# ABOUTME: Includes input sanitization to prevent command injection and env var leaks.
 
 import base64
+import re
 import subprocess
 import os
 import shutil
@@ -13,6 +15,112 @@ except ImportError:
     import grader_schemas as schemas
 
 TIMEOUT_SECONDS = 10
+
+# --- Input Sanitization ---
+
+# Shell injection patterns to block in ALL topics
+DANGEROUS_PATTERNS = [
+    r'\$\(',          # $(command substitution)
+    r'`',             # `backtick substitution`
+    r'\$\{',          # ${VAR} expansion
+    r'\$[A-Z_]',      # $ENV_VAR access
+    r'\benv\b',       # env command
+    r'\bexport\b',    # export command
+    r'\bsource\b',    # source command
+    r'\beval\b',      # eval command
+    r'\bexec\b',      # exec command
+    r'\bcurl\b',      # curl (except LLM topic)
+    r'\bwget\b',      # wget
+    r'\bnc\b',        # netcat
+    r'\brm\s+-rf',    # rm -rf
+    r'/etc/',         # filesystem snooping
+    r'/proc/',        # proc filesystem
+    r'\bsudo\b',      # sudo
+    r'\bchmod\b',     # chmod
+    r'\bchown\b',     # chown
+    r'\bkill\b',      # kill processes
+    r'\bps\b\s',      # process listing
+    r'\bcat\s+/\b',   # cat /etc/passwd etc.
+]
+
+# Allowed Redis commands (case-insensitive)
+REDIS_COMMANDS = {
+    'PING', 'SET', 'GET', 'DEL', 'EXISTS', 'EXPIRE', 'TTL', 'SETEX',
+    'MSET', 'MGET', 'INCR', 'DECR', 'APPEND', 'STRLEN',
+    'LPUSH', 'RPUSH', 'LPOP', 'RPOP', 'LRANGE', 'LLEN', 'LINDEX',
+    'SADD', 'SREM', 'SMEMBERS', 'SINTER', 'SUNION', 'SDIFF', 'SCARD', 'SISMEMBER',
+    'HSET', 'HGET', 'HDEL', 'HGETALL', 'HMSET', 'HMGET', 'HKEYS', 'HVALS', 'HEXISTS',
+    'KEYS', 'TYPE', 'FLUSHALL', 'FLUSHDB', 'DBSIZE', 'INFO',
+}
+
+# Allowed Git commands
+GIT_ALLOWED_PREFIXES = [
+    'git ',
+    'touch ',
+    'echo ',
+    'cat ',
+    'ls',
+]
+
+# SQL: block dangerous statements
+SQL_BLOCKED = [
+    r'\bDROP\b',
+    r'\bDELETE\b',
+    r'\bTRUNCATE\b',
+    r'\bALTER\b',
+    r'\bCREATE\b',
+    r'\bINSERT\b',
+    r'\bUPDATE\b',
+    r'\bATTACH\b',
+    r'\bDETACH\b',
+    r'\.shell',
+    r'\.system',
+]
+
+
+def sanitize_input(language: str, code: str) -> tuple[bool, str]:
+    """Validate user input before execution.
+
+    Returns:
+        (is_safe, error_message) — if is_safe is False, error_message explains why.
+    """
+    if not code or not code.strip():
+        return False, "Empty command"
+
+    stripped = code.strip()
+
+    # Check dangerous patterns (all topics except specific exceptions)
+    for pattern in DANGEROUS_PATTERNS:
+        # Allow curl for LLM topic only
+        if pattern == r'\bcurl\b' and language == 'llm':
+            continue
+        if re.search(pattern, stripped, re.IGNORECASE):
+            return False, "Command not allowed for security reasons."
+
+    # Topic-specific validation
+    if language == "redis":
+        first_word = stripped.split()[0].upper()
+        if first_word not in REDIS_COMMANDS:
+            return False, f"Unknown Redis command: {first_word}. Try PING, SET, GET, etc."
+
+    elif language == "sql":
+        for pattern in SQL_BLOCKED:
+            if re.search(pattern, stripped, re.IGNORECASE):
+                return False, "Only SELECT queries are allowed in this tutorial."
+
+    elif language == "git":
+        # Allow chained commands with && but validate each part
+        parts = [p.strip() for p in stripped.split('&&')]
+        for part in parts:
+            if not any(part.startswith(prefix) for prefix in GIT_ALLOWED_PREFIXES):
+                return False, f"Command not allowed. Use git, touch, echo, cat, or ls."
+
+    # Docker and LLM: content input (Dockerfiles, JSON, text) is always safe
+    # since it's saved to a file, not executed as shell commands.
+    # Only their CLI commands need checking, which is handled by the
+    # execution methods (they only route to specific scripts).
+
+    return True, ""
 
 # Base directory for grader data files
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -200,8 +308,17 @@ class SubprocessManager:
     ) -> schemas.GradeResult:
         """Execute and grade code. Same interface as ContainerManager."""
 
+        # Sanitize user input before execution
+        is_safe, error_msg = sanitize_input(language, user_code)
+        if not is_safe:
+            return schemas.GradeResult(
+                output=error_msg,
+                is_correct=False,
+                feedback_message=error_msg,
+            )
+
         try:
-            # 1. Run setup commands
+            # 1. Run setup commands (trusted, from lesson JSON — not sanitized)
             if check_logic.setup_commands:
                 for cmd in check_logic.setup_commands:
                     self._execute(language, cmd)

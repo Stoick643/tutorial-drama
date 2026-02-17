@@ -27,7 +27,7 @@
 | i18n (translation support) | ✅ Complete (Slovenian + Serbian Cyrillic, all topics) |
 | Real LLM API integration (Moonshot) | ✅ |
 | User accounts + persistent progress | ⏳ Planned |
-| Deployment to fly.io | ⏳ Planned |
+| Deployment to fly.io | ✅ Live at tutorial-drama.fly.dev |
 
 ---
 
@@ -86,62 +86,40 @@
 - Sans-serif body font, monospace only for code/console
 - Dark console blocks (Catppuccin-inspired) inside light page
 
-### Subprocess Refactor (for fly.io deployment)
-Refactor grading from Docker containers to direct subprocess calls:
-- **Create** `app/subprocess_manager.py` — same interface as `docker_manager.py`
+### Subprocess Refactor ✅
+- `app/subprocess_manager.py` — same interface as `docker_manager.py`
 - Tools installed directly: redis-cli, sqlite3, git, python + libs
 - `subprocess.run()` with timeouts instead of `docker exec`
+- Input sanitization: command whitelisting, env var access blocked, shell injection prevented
 - State reset between requests (FLUSHALL, copy fresh DB, git reset)
-- **Keep** `docker_manager.py` for local dev with Docker
-- Toggle via env var: `GRADER_MODE=subprocess` vs `GRADER_MODE=docker`
-- Rollout: Redis first, then SQL, Git, Docker, LLM
+- Toggle via env var: `GRADER_MODE=subprocess` vs `GRADER_MODE=docker` (default)
 
-### Deployment to fly.io
-Two fly.io apps deployed from this monorepo:
+### Deployment to fly.io ✅
+Single fly.io app deployed from this monorepo:
 
 **Architecture:**
-- **App 1: `tutorial-drama-web`** — FastAPI + templates + static + tutorials + translations
-- **App 2: `tutorial-drama-grader`** — FastAPI + subprocess calls (redis-cli, sqlite3, git, etc.)
-- Connected via `GRADER_URL` env var
-- No Docker-in-Docker needed (subprocess grading is sufficient for educational platform)
-- Estimated cost: ~$0/mo (within free tier or pennies)
+- **One app: `tutorial-drama`** — FastAPI + all grading tools in one image
+- `Dockerfile.flyio` installs redis-server, redis-cli, sqlite3, git, python + libs
+- `GRADER_MODE=subprocess` — no Docker-in-Docker needed
+- CI/CD: GitHub Actions auto-deploys on push to master
+- Cost: ~$0/mo (pennies)
 
-**Repo structure:**
-```
-fly.web.toml              # fly config for web app
-fly.grader.toml           # fly config for grader app
-Dockerfile.web            # web app image
-Dockerfile.grader         # grader image (redis-tools, sqlite3, git, python + libs)
-.github/workflows/
-  fly-web.yml             # deploy web on push
-  fly-grader.yml          # deploy grader on push
-```
+**Live at:** [tutorial-drama.fly.dev](https://tutorial-drama.fly.dev)
 
-**Deployment commands (per app):**
+**Deployment commands:**
 ```bash
-# One-time setup (web)
-fly launch --no-deploy --config fly.web.toml
-fly secrets set GRADER_URL=https://tutorial-drama-grader.fly.dev --config fly.web.toml
+# One-time setup
+fly launch --no-deploy --dockerfile Dockerfile.flyio
+fly secrets set LLM_API_KEY=your-moonshot-key
 
-# One-time setup (grader)
-fly launch --no-deploy --config fly.grader.toml
-fly secrets import < .env --config fly.grader.toml   # LLM_API_KEY etc.
-
-# Deploy
-fly deploy --config fly.web.toml --dockerfile Dockerfile.web
-fly deploy --config fly.grader.toml --dockerfile Dockerfile.grader
+# Deploy (or just git push — CI/CD handles it)
+fly deploy --dockerfile Dockerfile.flyio
 ```
-
-**GitHub Actions (CI/CD):**
-- Define `FLY_API_TOKEN` in repo Settings → Secrets → Actions
-- Each workflow triggers on push to relevant paths
-- `fly-web.yml`: deploys web app
-- `fly-grader.yml`: deploys grader app
 
 **Plan B: Single Hetzner VPS**
 - Both services on one VPS with native Docker (existing `docker_manager.py` works as-is)
 - Zero code changes, but requires Docker + nginx + certbot setup
-- Fallback if fly.io subprocess approach hits limitations
+- Fallback if fly.io approach hits limitations
 
 ### Bash/Linux Tutorial
 - Real shell commands in Alpine container
