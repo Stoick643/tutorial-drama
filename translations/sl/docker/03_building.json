@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove Docker",
+  "technical_concept": "V lekciji 02 smo napisali FROM, RUN, CMD — ampak kako pride vaša koda V sliko? To je COPY. In kam gre? To je WORKDIR. In kako svet ve, kje vas najde? To je EXPOSE.",
+  "challenge": {
+    "task": "Napišite Dockerfile za našo Java aplikacijo: začnite FROM eclipse-temurin:21, nastavite WORKDIR na /app, COPY App.java v kontejner, RUN javac za prevajanje, EXPOSE port 8080 in CMD za zagon.",
+    "hint": "Šest vrstic: FROM, WORKDIR, COPY, RUN, EXPOSE, CMD. Uporabite 'COPY App.java .' (s piko!) za kopiranje v WORKDIR."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Umetnost plastovitih urokov",
+      "dialogue": [
+        {"character": "Stari čarovnik Dockerus", "line": "Tvoj prvi čarobni zvitek je bil preprost a močan. Zdaj te naučim napredno umetnost — plastovite uroke!"},
+        {"character": "Vajenec", "line": "Plastoviti uroki? Zveni zapleteno."},
+        {"character": "Stari čarovnik Dockerus", "line": "Pomisli, da gradiš stolp. Vsako navodilo doda nadstropje. WORKDIR nastavi, v kateri sobi delaš. COPY prinese tvoje čarobne sestavine noter."},
+        {"character": "Vajenec", "line": "In EXPOSE?"},
+        {"character": "Stari čarovnik Dockerus", "line": "EXPOSE odpre okno v tvojem stolpu — pove svetu 'moje bitje posluša tukaj na teh vratih'. Ne odpre dejansko, samo dokumentira namen."},
+        {"character": "Vajenec", "line": "Ampak mojster — v prejšnji lekciji smo napisali FROM in RUN in CMD... ampak nikoli nismo dejansko dali svoje kode v kontejner!"},
+        {"character": "Stari čarovnik Dockerus", "line": "Odlično vprašanje! Natanko to počne COPY. 'COPY App.java .' vzame tvoj zvitek iz zunanjega sveta in ga postavi v WORKDIR kontejnerja."},
+        {"character": "Vajenec", "line": "Torej je celoten recept: izberi temelj, nastavi sobo, kopiraj izvorno kodo, prevedi in odpri okno?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Natanko! In tukaj je skrivnost — vsako navodilo ustvari čarobno plast, ki si jo Docker zapomni. Če se plast ne spremeni, jo preskoči!"}
+      ]
+    },
+    "flirting": {
+      "title": "Boljše spoznavanje",
+      "dialogue": [
+        {"character": "Docker", "line": "Najin prvi Dockerfile je bil lep, ampak pojdiva globlje. Čas, da zgradiva nekaj pravega skupaj."},
+        {"character": "Ti", "line": "Pripravljen sem. Kaj je novega?"},
+        {"character": "Docker", "line": "WORKDIR — to je izbira najinega stanovanja. 'WORKDIR /app' pravi 'tukaj zdaj živiva.' Vse po tem se zgodi v tej mapi."},
+        {"character": "Ti", "line": "In COPY?"},
+        {"character": "Docker", "line": "COPY je selitev tvojih stvari. Spomniš se najine Java aplikacije? 'COPY App.java .' prinese tvojo izvorno kodo v stanovanje."},
+        {"character": "Ti", "line": "In EXPOSE?"},
+        {"character": "Docker", "line": "To je deljenje najinega naslova. 'EXPOSE 8080' — 'dosegljiva sva na portu 8080.' Odprta vrata za obiskovalce."},
+        {"character": "Ti", "line": "Torej je celotna slika: izberi osnovo, nastavi stanovanje, preseli kodo, prevedi, odpri vrata in zaženi?"},
+        {"character": "Docker", "line": "Poglej te, kako vse sestavljaš! In tukaj je profesionalni nasvet — vsako navodilo je plast, ki jo Docker predpomni. Stabilne stvari najprej!"}
+      ]
+    }
+  }
+}

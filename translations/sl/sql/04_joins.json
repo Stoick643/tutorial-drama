@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove SQL",
+  "technical_concept": "Uporaba INNER JOIN za kombiniranje podatkov iz več povezanih tabel.",
+  "challenge": {
+    "task": "Povežite zaposlene z imeni njihovih oddelkov. Združite tabelo employees s tabelo departments, da vidite, kdo dela kje.",
+    "hint": "Uporabite INNER JOIN z ON za povezavo employees.department_id z departments.id."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Povezovanje točk",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Imam imena zaposlenih in ID-je oddelkov, ampak ID-ji mi ne pomenijo ničesar. Potrebujem dejanska imena oddelkov."},
+        {"character": "Podatkovna baza", "line": "Te informacije so v dveh ločenih tabelah, detektiv. Zaposleni v eni, podatki o oddelkih v drugi. Potrebujete JOIN — združitev."},
+        {"character": "Detektiv Indecks", "line": "Združitev? Kako to deluje?"},
+        {"character": "Podatkovna baza", "line": "INNER JOIN poveže tabele z uporabo skupnega ključa. Tu se `employees.department_id` ujema z `departments.id`. Rezultat prikaže ime zaposlenega SKUPAJ z imenom oddelka."},
+        {"character": "Detektiv Indecks", "line": "Torej je to kot navzkrižno preverjanje datotek? Ena datoteka ima imena, druga ima podatke o oddelkih, in jih povežeš?"},
+        {"character": "Podatkovna baza", "line": "Natanko. INNER JOIN prikaže samo vrstice, kjer obstaja ujemanje v obeh tabelah. Če zaposleni nima oddelka, se ne prikaže."},
+        {"character": "Detektiv Indecks", "line": "Razumem. Združimo te tabele in poglejmo celotno sliko."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Relacijsko povezovanje podatkov",
+      "dialogue": [
+        {"character": "Inženir", "line": "NEXUS, imam kadrovske zapise z ID-ji oddelkov, ampak potrebujem dejanska imena oddelkov poleg imen osebja."},
+        {"character": "NEXUS", "line": "To je relacijska podatkovna struktura, inženir. Informacije o oddelkih so v ločeni tabeli. Za kombiniranje potrebujete operacijo JOIN."},
+        {"character": "Inženir", "line": "Razloži mehanizem združevanja."},
+        {"character": "NEXUS", "line": "INNER JOIN kombinira vrstice iz dveh tabel, kjer je izpolnjen določen pogoj. Primer: SELECT e.first_name, d.name FROM employees e INNER JOIN departments d ON e.department_id = d.id."},
+        {"character": "Inženir", "line": "Torej je to kot združevanje dveh naborov podatkov na podlagi skupnega identifikatorja?"},
+        {"character": "NEXUS", "line": "Natančno. INNER JOIN vrne samo vrstice z ujemajočimi vrednostmi v obeh tabelah. Neujemajoči zapisi so izključeni."},
+        {"character": "Inženir", "line": "Razumljeno. Izvedimo operacijo združevanja."}
+      ]
+    }
+  }
+}

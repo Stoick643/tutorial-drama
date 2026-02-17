@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Git",
+  "technical_concept": "Ustvarjanje zapisov (commitov) z 'git commit' za shranjevanje posnetka pripravljenih sprememb v zgodovino repozitorija.",
+  "challenge": {
+    "task": "Ustvarite datoteko z imenom 'report.txt', jo pripravite in zapišite s sporočilom 'Initial report'.",
+    "hint": "Uporabite 'touch report.txt', nato 'git add report.txt', nato 'git commit -m \"Initial report\"'."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Zapiranje primera",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Dokazi so pripravljeni. Čas, da zaprem ta primer — naredim uradni zapis."},
+        {"character": "REDIS", "line": "To je 'git commit', detektiv. Vzame vse, kar je na odru, in naredi trajen posnetek — zapis v zgodovino. Z datumom, avtorjem in sporočilom."},
+        {"character": "Detektiv Indecks", "line": "Sporočilo?"},
+        {"character": "REDIS", "line": "'git commit -m \"Vaše sporočilo\"' — kratek opis, kaj ste naredili. Kot opomba na primeru. 'Dodani začetni dokazi' ali 'Popravljen seznam osumljencev'. Prihodnji vi bo hvaležen."},
+        {"character": "Detektiv Indecks", "line": "In tega zapisa se ne da spremeniti?"},
+        {"character": "REDIS", "line": "Vsak zapis dobi unikaten identifikator — zgoščeno vrednost. Je trajen del zgodovine. Vedno se lahko vrnete na katerikoli prejšnji zapis. Nič ni zares izgubljeno."},
+        {"character": "Detektiv Indecks", "line": "Ustvarimo ta poročilo in ga uradno zapišimo."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Zapis v časovnico",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Inženir, pripravljene spremembe so pripravljene za zapis v časovnico repozitorija. 'git commit' ustvari trajen posnetek."},
+        {"character": "Inženir", "line": "Kako se razlikuje od priprave?"},
+        {"character": "NEXUS", "line": "Priprava izbere spremembe. Zapis jih zaklene v zgodovino. Vsak zapis je nespremenljiva časovna točka z unikatnim identifikatorjem, avtorjem in sporočilom."},
+        {"character": "Inženir", "line": "Torej lahko vedno potujem nazaj na katerikoli zapis?"},
+        {"character": "NEXUS", "line": "Pravilno. Zgodovina zapisov je popoln revizijski dnevnik. 'git commit -m \"sporočilo\"' ustvari zapis z opisnim sporočilom."},
+        {"character": "Inženir", "line": "Ustvarimo datoteko, pripravimo jo in zapišimo v časovnico."},
+        {"character": "NEXUS", "line": "Čakam na vaše ukaze, inženir."}
+      ]
+    }
+  }
+}

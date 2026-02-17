@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove SQL",
+  "technical_concept": "Uporaba stavka WHERE za filtriranje rezultatov poizvedb na podlagi pogojev.",
+  "challenge": {
+    "task": "Poiščite vse zaposlene v oddelku department_id 1 (Engineering), ki zaslužijo več kot 80000. To so vaši visoko vredni osumljenci.",
+    "hint": "Uporabite WHERE z AND za kombiniranje več pogojev."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Sledenje denarju",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Namig pravi, da naj pogledam Engineering. Nekdo v tem oddelku služi veliko denarja. Moram zožiti seznam."},
+        {"character": "Podatkovna baza", "line": "Engineering je department_id 1. Filtrirali boste tabelo employees, da pokažete samo tiste z visokimi plačami v tem oddelku."},
+        {"character": "Detektiv Indecks", "line": "Kako to zožim? Nočem celotnega seznama, samo velike zaslužkarje."},
+        {"character": "Podatkovna baza", "line": "Za to je WHERE, detektiv. Dodajte pogoje: `SELECT first_name, last_name, salary FROM employees WHERE salary > 80000`. To prikaže samo tiste, ki zaslužijo nad 80000."},
+        {"character": "Detektiv Indecks", "line": "Ampak potrebujem jih specifično iz Engineeringa. Kako dodam ta filter?"},
+        {"character": "Podatkovna baza", "line": "Uporabite AND za kombiniranje pogojev: `WHERE department_id = 1 AND salary > 80000`. Oba pogoja morata biti izpolnjena."},
+        {"character": "Detektiv Indecks", "line": "Kaj pa OR? Kaj če želim več oddelkov?"},
+        {"character": "Podatkovna baza", "line": "OR pomeni, da velja katerikoli pogoj: `WHERE department_id = 1 OR department_id = 2`. Prikaže zaposlene iz obeh oddelkov."},
+        {"character": "Detektiv Indecks", "line": "Odlično. Filtrirajmo ta seznam in poiščimo osumljence."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Pogojno filtriranje podatkov",
+      "dialogue": [
+        {"character": "Inženir", "line": "NEXUS, potrebujem kadrovske podatke samo za oddelek Engineering. Specifično tiste z visokimi kompenzacijami."},
+        {"character": "NEXUS", "line": "To zahteva pogojno filtriranje, inženir. Stavek WHERE omejuje rezultate na podlagi določenih kriterijev."},
+        {"character": "Inženir", "line": "Kako določim prag plače?"},
+        {"character": "NEXUS", "line": "Uporabite primerjalni operator: SELECT first_name, last_name, salary FROM employees WHERE salary > 80000. Vrne samo zapise, ki presegajo prag."},
+        {"character": "Inženir", "line": "Moram tudi omejiti po oddelku. Kako kombiniram filtre?"},
+        {"character": "NEXUS", "line": "Uporabite operator AND za več pogojev: WHERE department_id = 1 AND salary > 80000. Oba pogoja morata biti izpolnjena."},
+        {"character": "Inženir", "line": "Kaj če potrebujem katerikoli od več pogojev?"},
+        {"character": "NEXUS", "line": "Operator OR vrne vrstice, ki ustrezajo kateremukoli pogoju: WHERE department_id = 1 OR department_id = 2."},
+        {"character": "Inženir", "line": "Jasno. Izvedimo filtrirano poizvedbo."}
+      ]
+    }
+  }
+}

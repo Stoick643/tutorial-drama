@@ -1,0 +1,36 @@
+{
+  "tutorial": "Osnove LLM",
+  "technical_concept": "LLM-ji ne berejo besed — berejo tokene. Tokenizacija razdeli tekst na podbesedne koščke z uporabo kodiranja parov bajtov (BPE). 'Hello world' postane dva tokena. Tokeni so osnovna enota, ki jo LLM razume.",
+  "challenge": {
+    "task": "Vpišite katerikoli tekst in poglejte, kako ga tokenizer razdeli na tokene. Poskusite različne stvari: preprost stavek, dolgo besedo kot 'containerization', kodo kot 'System.out.println'.",
+    "hint": "Poskusite primerjati kratke pogoste besede (manj tokenov) z dolgimi tehničnimi besedami (več tokenov)."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Dekodiranje signala",
+      "dialogue": [
+        {"character": "Znanstvena častnica Chen", "line": "Poveljnik, analizirala sem, kako ARIA obdeluje naše prenose. Ne bere naših besed tako kot mi — razdeli jih na fragmente imenovane tokeni."},
+        {"character": "Poveljnik Vega", "line": "Kako mislite? Pošljemo tekst, odgovori s tekstom."},
+        {"character": "Znanstvena častnica Chen", "line": "Da, ampak med pošiljanjem in prejemanjem ARIA razbije naš tekst na fragmente imenovane tokeni. 'Hello world' postane dva tokena."},
+        {"character": "Poveljnik Vega", "line": "Zakaj ne uporablja kar besed?"},
+        {"character": "Znanstvena častnica Chen", "line": "Ker so besede neurejene. Različni jeziki, sestavljene besede, koda, številke... Namesto tega ARIA uporablja Byte Pair Encoding — naučila se je najpogostejše vzorce črk."},
+        {"character": "Poveljnik Vega", "line": "Torej to pomeni 'tokeni', ko ARIA poroča o porabi. Naš zadnji prenos je bil 56 tokenov."},
+        {"character": "Znanstvena častnica Chen", "line": "Natanko. In ARIA ima kontekstno okno — maksimalno število tokenov, ki jih lahko obdela naenkrat. 128.000 tokenov pomeni približno 300 strani teksta."},
+        {"character": "Poveljnik Vega", "line": "Naj preizkusim dekoder signalov. Želim videti, kako bi ARIA prebrala moje prenose."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Kako Alex bere vaša elektronska sporočila",
+      "dialogue": [
+        {"character": "Sam (starejši razvijalec)", "line": "Torej sem raziskoval, kako Alex dejansko obdeluje naša sporočila. Izkazalo se je, da ne bere besed kot mi."},
+        {"character": "Vodja", "line": "Kaj? Pišemo v navadni slovenščini."},
+        {"character": "Sam (starejši razvijalec)", "line": "Navadna slovenščina za VAS. Za Alexa se vaše sporočilo razseka na 'tokene' — majhne koščke. 'Hello world' sta dva tokena."},
+        {"character": "Vodja", "line": "To se zdi... neučinkovito?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Dejansko je genialno. Imenuje se Byte Pair Encoding. Alex se je naučil najpogostejše kombinacije črk in jih združil v tokene. 'The' je en token. 'Containerization' pa štirje."},
+        {"character": "Vodja", "line": "Ali je to razlog, da račun za API pravi 'tokeni' in ne 'besede'?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Zadetek. Plačamo po tokenu. In Alex ima omejitev — 128.000 tokenov na pogovor. To je približno 300 strani."},
+        {"character": "Vodja", "line": "Naj vidim ta tokenizer. Želim vedeti, koliko tokenov stanejo moja sporočila."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Git",
+  "technical_concept": "Pripravljanje datotek z 'git add' za pripravo na zapis (commit).",
+  "challenge": {
+    "task": "Ustvarite novo datoteko z imenom 'evidence.txt' in jo pripravite za zapis z uporabo git add.",
+    "hint": "Najprej ustvarite datoteko s 'touch evidence.txt', nato jo pripravite z 'git add evidence.txt'."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Priprava dokazov",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Imam novo datoteko z dokazi. Ampak preden jo zaprem v arhiv, jo moram pripraviti — organizirati."},
+        {"character": "REDIS", "line": "To je pripravljalno območje, detektiv. 'git add' doda datoteko na oder — pripravi jo za zapis. Kot ko razporediš dokaze na mizi, preden jih fotografiraš."},
+        {"character": "Detektiv Indecks", "line": "Torej ne gre neposredno v arhiv?"},
+        {"character": "REDIS", "line": "Ne. Najprej ustvariš ali spremeniš datoteko. Nato z 'git add' poveš: 'to želim vključiti v naslednji zapis.' Lahko dodaš več datotek, preden naredih zapis."},
+        {"character": "Detektiv Indecks", "line": "In če si premislim?"},
+        {"character": "REDIS", "line": "'git reset' odstrani datoteko z odra. Ni škode. Pripravljanje ti daje nadzor — zapišeš natanko tisto, kar želiš, nič več."},
+        {"character": "Detektiv Indecks", "line": "Ustvarimo ta dokazni spis in ga pripravimo."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Protokol priprave",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Inženir, preden spremembe zapišete v časovnico, jih je treba pripraviti. To je dvostopenjski proces."},
+        {"character": "Inženir", "line": "Zakaj ne morem neposredno zapisati?"},
+        {"character": "NEXUS", "line": "Pripravljalno območje vam omogoča, da izberete, katere spremembe vključiti. 'git add datoteka' pripravi določene datoteke. To vam daje natančen nadzor nad vsakim zapisom."},
+        {"character": "Inženir", "line": "Torej lahko pripravim nekatere spremembe in druge pustim za pozneje?"},
+        {"character": "NEXUS", "line": "Pravilno. Pripravljanje je kuratorski proces. Dodajte tisto, kar je pripravljeno, pustite tisto, kar še ni dokončano."},
+        {"character": "Inženir", "line": "Ustvarimo datoteko in jo pripravimo za zapis."},
+        {"character": "NEXUS", "line": "Čakam na vaše ukaze, inženir."}
+      ]
+    }
+  }
+}

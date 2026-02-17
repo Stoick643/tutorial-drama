@@ -1,0 +1,36 @@
+{
+  "tutorial": "Osnove LLM",
+  "technical_concept": "Po tokenizaciji se vsak token pretvori v vložitev (embedding) — vektor (seznam številk), ki zajame njegov pomen. Podobni pomeni so blizu skupaj v tem prostoru, kar LLM-ju omogoča razumevanje konteksta.",
+  "challenge": {
+    "task": "Primerjajte dva stavka z vnosom njunih številk (npr. '0 3'). Najprej vpišite 'list' za prikaz vseh razpoložljivih stavkov, nato izberite par za primerjavo.",
+    "hint": "Poskusite primerjati stavke z isto temo (npr. 0 in 1 — oba o mačkah) z različnimi temami (npr. 0 in 4)."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Kartiranje ARIA-inega pomenskega prostora",
+      "dialogue": [
+        {"character": "Znanstvena častnica Chen", "line": "Poveljnik, imama preboj. Kartirala sem, kako ARIA interno organizira koncepte. To ni slovar — je večdimenzionalni pomenski prostor."},
+        {"character": "Poveljnik Vega", "line": "Prostor? Razložite."},
+        {"character": "Znanstvena častnica Chen", "line": "Vsak token se pretvori v vektor — seznam stotin številk. Pomislite na koordinate v pomenskem vesolju. Besede s podobnim pomenom so postavljene blizu skupaj."},
+        {"character": "Poveljnik Vega", "line": "Torej so podobni pomeni blizu skupaj?"},
+        {"character": "Znanstvena častnica Chen", "line": "Natanko. Bližino merimo s kosinusno podobnostjo — ocena od -1 do 1. 'Mačka na oknu' in 'maček na polici' dobita visoko oceno. 'Mačka na oknu' in 'borza se je zrušila' — nizko."},
+        {"character": "Poveljnik Vega", "line": "Tako razume, kaj mislimo, čeprav uporabljamo različne besede."},
+        {"character": "Znanstvena častnica Chen", "line": "Natančno. Pokažem vam pomenski zemljevid. Primerjajte nekatere koncepte."},
+        {"character": "Poveljnik Vega", "line": "Pokažite mi pomenski zemljevid. Želim primerjati nekatere koncepte."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Alexov sistem arhiviranja",
+      "dialogue": [
+        {"character": "Sam (starejši razvijalec)", "line": "Okej, zadnjič smo videli, kako Alex bere tokene. Ampak tukaj je zanimivi del — kako ve, da 'vesel' in 'radosten' pomenita isto stvar?"},
+        {"character": "Vodja", "line": "Mislila sem, da ima slovar?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Ne. Vložitve (embeddings). Vsak token se pretvori v vektor — seznam, recimo, 768 številk. Pomislite na GPS koordinate, samo v 768-dimenzionalnem pomenskem prostoru."},
+        {"character": "Vodja", "line": "Torej je to kot... zemljevid pomena?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Natanko. In lahko merimo, kako blizu sta si dve stvari, s kosinusno podobnostjo. Ocena 1,0 pomeni identičen pomen. 0 pomeni nepovezano."},
+        {"character": "Vodja", "line": "Ali iskalniki zato najdejo rezultate, čeprav ne vtipkam natančnih ključnih besed?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Zdaj razumete! Semantično iskanje. In to je temelj RAG-a — tako bomo naredili Alexa uporabnega za naše podjetje."},
+        {"character": "Vodja", "line": "Pokaži mi. Želim primerjati nekaj stavkov."}
+      ]
+    }
+  }
+}

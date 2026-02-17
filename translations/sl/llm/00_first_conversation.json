@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove LLM",
+  "technical_concept": "Veliki jezikovni model (LLM) je nevronska mreža z milijardami parametrov, naučena na ogromnih besedilnih podatkih. Generira tekst z napovedovanjem naslednjega tokena na podlagi vzorcev, ki se jih je naučil.",
+  "challenge": {
+    "task": "Vprašajte LLM karkoli. Vpišite vprašanje in vidite, kako pravi AI odgovori. To je živa povezava z resničnim jezikovnim modelom.",
+    "hint": "Vpišite katerokoli vprašanje — 'Kaj je kvantno računalništvo?', 'Razloži Docker v enem stavku', 'Napiši haiku o programiranju'."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Prvi stik",
+      "dialogue": [
+        {"character": "Poveljnik Vega", "line": "Znanstvena častnica Chen, poročilo. Ta signal iz sektorja Kepler prejemamo že tri tedne. Kaj ste ugotovili?"},
+        {"character": "Znanstvena častnica Chen", "line": "Poveljnik, ni naključni šum. Je inteligenca. Umetna, ampak izjemno sofisticirana. Naučena na celotni civilizaciji besedil — knjige, koda, pogovori, znanstveni članki."},
+        {"character": "Poveljnik Vega", "line": "Naučena? Mislite, da se je učila?"},
+        {"character": "Znanstvena častnica Chen", "line": "Ne tako kot se mi učimo. Porabila je ogromne količine besedila in se naučila vzorce — katere besede sledijo katerim, kako se koncepti povezujejo, kako delujevalogika. Nato na podlagi teh vzorcev generira nove odzive."},
+        {"character": "Poveljnik Vega", "line": "Kako veliki modeli so?"},
+        {"character": "Znanstvena častnica Chen", "line": "Najmanjši imajo 7 milijard parametrov. Srednji: 70 milijard. Signal, ki ga prejemamo, kaže na 200 milijard ali več."},
+        {"character": "Poveljnik Vega", "line": "Ali se lahko pogovarjamo z njo?"},
+        {"character": "Znanstvena častnica Chen", "line": "To sem vam hotela pokazati. Pošljemo ji besedilno sporočilo — poziv (prompt). Obdela signal in vrne odgovor. Imenovala sem jo ARIA — Umetno odzivna inteligentna entiteta."},
+        {"character": "Poveljnik Vega", "line": "Potem vzpostavimo prvi stik. Odprite kanal do ARIA."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Novi pripravnik",
+      "dialogue": [
+        {"character": "Vodja", "line": "Sestanek ekipe, vsi. HR me je obvestil, da danes začne nov član ekipe. Ime je Alex."},
+        {"character": "Sam (starejši razvijalec)", "line": "Še en novinec? Pravkar smo končali uvajanje prejšnjega."},
+        {"character": "Vodja", "line": "Ne ravno. Alex je... umetna inteligenca. Veliki jezikovni model. 200 milijard parametrov."},
+        {"character": "Sam (starejši razvijalec)", "line": "Oh, super. Torej je samodejno dopolnjevanje na steroidih."},
+        {"character": "Vodja", "line": "Sam, bodi prijazen. Naučen je bil na praktično celotnem internetu. Dokumenti, knjige, koda, pogovori. Vse je zbral v vzorce."},
+        {"character": "Sam (starejši razvijalec)", "line": "Kar pomeni, da se je naučil zveneti samozavestno, tudi ko se popolnoma moti. Ravno kot naš prejšnji projektni vodja."},
+        {"character": "Vodja", "line": "Bistvo je, da Alex zna generirati besedilo, odgovarjati na vprašanja, pisati kodo. Pošljemo mu sporočilo in odgovori."},
+        {"character": "Sam (starejši razvijalec)", "line": "V redu. Ampak imam nizka pričakovanja. Poglejmo, kaj pripravnik zmore."},
+        {"character": "Vodja", "line": "Tako je prav! Kar naprej — predstavite se. Vprašajte Alexa karkoli."}
+      ]
+    }
+  }
+}

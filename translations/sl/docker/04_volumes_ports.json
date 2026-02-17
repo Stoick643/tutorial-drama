@@ -1,0 +1,36 @@
+{
+  "tutorial": "Osnove Docker",
+  "technical_concept": "Kontejnerji so minljivi — ko se ustavijo, so njihovi podatki izgubljeni. Volumni (-v) ohranjajo podatke zunaj kontejnerja. Preslikava vrat (-p) izpostavi storitve gostitelju.",
+  "challenge": {
+    "task": "Zaženite nginx kontejner v ločenem načinu (-d) s preslikavo vrat 8080 na vrata kontejnerja 80.",
+    "hint": "Uporabite 'docker run -d -p 8080:80 nginx' — zastavica -d ga zažene v ozadju."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Zakladnice in stolpna okna",
+      "dialogue": [
+        {"character": "Stari čarovnik Dockerus", "line": "Nekaj moraš razumeti, vajenec. Ko priklicano bitje izgine, izgine VSE v njem. Vsak podatek, vsaka datoteka — puf!"},
+        {"character": "Vajenec", "line": "Vse? Vsi podatki? To je grozno!"},
+        {"character": "Stari čarovnik Dockerus", "line": "Res — razen če mu daš Zakladnico! Volumen je čarobna skrinja, ki obstaja zunaj bitja. '-v db2data:/database' pomeni 'pritrdi skrijo z imenom db2data na bitjevo mapo /database'."},
+        {"character": "Vajenec", "line": "Torej lahko naslednje bitje odpre isto skrijo in najde vse zapise podatkovne baze?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Natanko! In nato so tu Stolpna okna — preslikava vrat! '-p 8080:80' pomeni 'zgradi most od tvojih grajskih vrat 8080 do bitjevega okna 80'."},
+        {"character": "Vajenec", "line": "Most iz mojega sveta v bitjev svet?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Da! Zdaj prikliči nginx bitje z mostom — ločeno, da teče v ozadju, medtem ko ti nadaljuješ s študijem."},
+        {"character": "Vajenec", "line": "Zakladnice za podatke, mostovi za povezave. Obožujem to čarovnijo!"}
+      ]
+    },
+    "flirting": {
+      "title": "Skupno življenje",
+      "dialogue": [
+        {"character": "Docker", "line": "Okej, pomemben razgovor o zvezi. Kontejnerji so... začasni. Ko se ustavijo, vse notri izgine."},
+        {"character": "Ti", "line": "Torej vsakič ko restartiram, vsi moji podatki izginejo? To je razlog za prekinitev."},
+        {"character": "Docker", "line": "Zato imamo volumne! Pomisli na to kot na skupni skladiščni prostor. '-v db2data:/database' pomeni 'shranjujeva podatke skupaj, celo ko me ni doma'."},
+        {"character": "Ti", "line": "Okej, to je dejansko lepo. Kaj pa vrata?"},
+        {"character": "Docker", "line": "Vrata so način, kako spustimo zunanji svet noter. '-p 8080:80' pomeni 'moje mesto ima vrata 80, ampak obiskovalci prihajajo skozi 8080'."},
+        {"character": "Ti", "line": "Torej bi lahko zagnal spletni strežnik in ga dejansko obiskal v brskalniku?"},
+        {"character": "Docker", "line": "Natanko! localhost:8080 in bum — si povezan. Zastavica -d pomeni, da tečem tiho v ozadju."},
+        {"character": "Ti", "line": "V redu, poskusimo. Nginx, ločeno, preslikava vrat."}
+      ]
+    }
+  }
+}

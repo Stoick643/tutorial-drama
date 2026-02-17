@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove LLM",
+  "technical_concept": "Vsak klic LLM API-ja je JSON zahteva s: 'model' (kateri LLM uporabiti), 'messages' (seznam vloga/vsebina parov — system nastavi obnašanje, user postavi vprašanje), 'temperature' (naključnost 0-2) in 'max_tokens' (omejitev dolžine).",
+  "challenge": {
+    "task": "Zgradite popolno JSON zahtevo za API. Vključite: 'model' (uporabite 'moonshot-v1-8k'), polje 'messages' z vlogo 'system' (dajte AI osebnost) in vlogo 'user' (postavite vprašanje), 'temperature' in 'max_tokens'.",
+    "hint": "Začnite z { in vključite vsa štiri polja. Polje messages potrebuje objekte z 'role' in 'content'."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Protokol prenosa",
+      "dialogue": [
+        {"character": "Znanstvena častnica Chen", "line": "Poveljnik, do sedaj smo ARIA-i pošiljali neformalna sporočila. Ampak za resen nadzor nad inteligenco moramo uporabiti strukturiran protokol prenosa."},
+        {"character": "Poveljnik Vega", "line": "Protokol? Mislil sem, da samo pošljemo tekst in dobimo tekst nazaj."},
+        {"character": "Znanstvena častnica Chen", "line": "To je površje. Pod njim je vsak prenos strukturiran JSON signal. Pokažem vam štiri komponente."},
+        {"character": "Znanstvena častnica Chen", "line": "Prvo: 'model' — kateri verziji ARIA se obračamo. 'moonshot-v1-8k' je standardni kanal."},
+        {"character": "Poveljnik Vega", "line": "Kakšne vloge?"},
+        {"character": "Znanstvena častnica Chen", "line": "'system' je navodilo za misijo — nastavi ARIA-ino obnašanje. 'Ste navigacijski pomočnik. Bodite natančni.' Nato 'user' — to je vaše dejansko vprašanje."},
+        {"character": "Poveljnik Vega", "line": "In temperatura? To je bilo v metapodatkih."},
+        {"character": "Znanstvena častnica Chen", "line": "Temperatura nadzira naključnost. 0 pomeni, da ARIA vedno da enak odgovor — deterministično, natanko. 1 ali več pa prinese kreativnejše, raznolike odzive."},
+        {"character": "Poveljnik Vega", "line": "Želim sam zgraditi pravilen prenos. Celoten protokol."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Pravilen format memoranduma",
+      "dialogue": [
+        {"character": "Sam (starejši razvijalec)", "line": "V redu. Z Alexom ste klepetali prek spletnega vmesnika. Ampak pokažem vam, kaj se dejansko dogaja v ozadju."},
+        {"character": "Vodja", "line": "Nekaj se dogaja v ozadju?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Vsako sporočilo postane JSON zahteva. Pomislite na to kot na formalen memorandum oddelku za AI. Ima štiri dele."},
+        {"character": "Vodja", "line": "JSON? To sem videla v konfiguracijskih datotekah."},
+        {"character": "Sam (starejši razvijalec)", "line": "Ista stvar. Štirje deli. 'model' — kateri AI-ju govorite. 'messages' — seznam z vlogami. 'system' je ozadje, 'user' je dejansko vprašanje. Plus 'temperature' in 'max_tokens'."},
+        {"character": "Vodja", "line": "Torej je sistemsko sporočilo kot... povedati pripravniku, v katerem oddelku dela, preden začne?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Popolna analogija. In nato je tu 'temperature' — koliko kreativne svobode date Alexu. 0 pomeni strog in predvidljiv. 1 pomeni kreativen."},
+        {"character": "Vodja", "line": "Želim napisati enega od teh memorandumov sama. Od začetka."},
+        {"character": "Sam (starejši razvijalec)", "line": "Zdaj govorite kot inženirka. Zgradite celoten JSON. Jaz ga bom preveril."}
+      ]
+    }
+  }
+}

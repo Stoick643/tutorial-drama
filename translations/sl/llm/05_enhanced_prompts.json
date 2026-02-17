@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove LLM",
+  "technical_concept": "Produkcijski AI sistemi ne pošljejo vašega surovega vprašanja LLM-ju. Izboljšajo ga: sistemski poziv nastavi osebnost in pravila, kontekstna okna dodajo relevantne podatke iz baze znanja (RAG), in šele nato se vprašanje uporabnika doda na konec.",
+  "challenge": {
+    "task": "Zgradite izboljšan poziv, ki bi ga uporabil pravi klepetalni robot podjetja. Ustvarite JSON zahtevo s: (1) 'system' sporočilom, ki vsebuje osebnost AI-ja IN pravila, (2) 'user' sporočilom z vprašanjem stranke.",
+    "hint": "Sistemsko sporočilo naj vsebuje OBOJE — navodila za osebnost (npr. 'Ste pomočnik za podporo strankam') IN kontekstualne podatke (npr. politike podjetja)."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Izboljšan signal",
+      "dialogue": [
+        {"character": "Znanstvena častnica Chen", "line": "Poveljnik, moram vam nekaj priznati. Ko ste pošiljali prenose ARIA-i... niso šli neposredno. Ladijski računalnik je najprej izboljšal vaš signal."},
+        {"character": "Poveljnik Vega", "line": "Kaj? Mislil sem, da govorim z ARIA neposredno!"},
+        {"character": "Znanstvena častnica Chen", "line": "Ste — ampak ladijski računalnik je pred vašim sporočilom dodal kontekst. Misijsko navodilo, varnostne protokole, relevantne podatke iz ladijskega dnevnika."},
+        {"character": "Poveljnik Vega", "line": "Torej je ARIA prejemala navodila, ki jih nisem videl?"},
+        {"character": "Znanstvena častnica Chen", "line": "Standardni protokol. V produkcijskih sistemih se pred vašim vprašanjem pošlje iskanje po bazi znanja in doda najden kontekst."},
+        {"character": "Poveljnik Vega", "line": "RAG — Retrieval Augmented Generation. To sem videl v tehničnih poročilih."},
+        {"character": "Znanstvena častnica Chen", "line": "Natanko. Uporabnik vpraša 'Kakšna je politika vračil?' Sistem pridobi dejanski dokument o politiki in ga doda v sistemski poziv skupaj z vprašanjem."},
+        {"character": "Poveljnik Vega", "line": "Tako deluje vsak AI pomočnik v ozadju."},
+        {"character": "Znanstvena častnica Chen", "line": "Vsak. ChatGPT, Claude, poslovni klepetalni roboti — vsi izboljšajo signal. Zdaj znate zgraditi svojega."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Kaj se res pošlje Alexu",
+      "dialogue": [
+        {"character": "Sam (starejši razvijalec)", "line": "Okej, zadnja lekcija. Čas za veliko razkritje. Ko klepetate z Alexom prek spletnega vmesnika..."},
+        {"character": "Vodja", "line": "Vtipkam vprašanje, Alex odgovori. Kaj je tu za razkriti?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Vtipkate 'Kakšna je politika vračil?' — sedem besed. Kaj Alex dejansko prejme? Sistemski poziv s 500 besedami, tri strani kontekstualnih podatkov in šele nato vaše vprašanje."},
+        {"character": "Vodja", "line": "Počakaj — kdo doda vse to ekstra vsebino?"},
+        {"character": "Sam (starejši razvijalec)", "line": "Naša aplikacija. Korak ena: sistemski poziv — 'Ste TechCorp-ov pomočnik za podporo. Odgovarjajte samo na podlagi uradnih politik.' Korak dva: RAG — iskanje po bazi znanja za relevantne dokumente."},
+        {"character": "Vodja", "line": "RAG — Retrieval Augmented Generation. To sem slišala na sestankih!"},
+        {"character": "Sam (starejši razvijalec)", "line": "In zdaj veste, kaj pomeni. Sistem pridobi kontekst IN postavi pravila, preden Alex sploh vidi vaše vprašanje. TO naredi AI-ja uporabnega za podjetja."},
+        {"character": "Vodja", "line": "Želim zgraditi enega sama. Celoten izboljšan poziv."},
+        {"character": "Sam (starejši razvijalec)", "line": "Napišite JSON z bogatim sistemskim sporočilom. Osebnost, pravila, kontekst — vse v enem."}
+      ]
+    }
+  }
+}

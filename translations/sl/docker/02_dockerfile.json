@@ -1,0 +1,37 @@
+{
+  "tutorial": "Osnove Docker",
+  "technical_concept": "Dockerfile je besedilna datoteka z navodili za gradnjo Docker slike. Ključna navodila: FROM (osnovna slika), RUN (izvedi ukaz med gradnjo) in CMD (privzeti ukaz ob zagonu).",
+  "challenge": {
+    "task": "Napišite Dockerfile, ki se začne s FROM eclipse-temurin:21, izvede RUN 'javac -version' za preverjanje prevajalnika in nastavi CMD za zagon 'java App'.",
+    "hint": "Potrebujete tri vrstice: FROM, RUN in CMD. CMD naj uporabi exec obliko: CMD [\"java\", \"App\"]"
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Pisanje prvega čarobnega zvitka",
+      "dialogue": [
+        {"character": "Stari čarovnik Dockerus", "line": "Priklicali ste bitja iz obstoječih načrtov. Zdaj je čas, da napišete SVOJ čarobni zvitek — vaš Dockerfile!"},
+        {"character": "Vajenec", "line": "Moj lastni čarobni zvitek! Kaj gre vanj?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Vsak zvitek se začne s FROM — temeljno urok. Določa, na katerem obstoječem bitju gradimo. 'FROM eclipse-temurin:21' pomeni 'začni z bitjem, ki zna Javo'."},
+        {"character": "Vajenec", "line": "Torej stojimo na ramenih obstoječih bitij?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Natanko! Nato pride RUN — preoblikovalna urok. 'RUN javac -version' preveri, da tvoje bitje zna prevajati Javo. Vsak RUN doda novo plast znanja."},
+        {"character": "Vajenec", "line": "In ko je bitje priklicano, kaj počne?"},
+        {"character": "Stari čarovnik Dockerus", "line": "To je CMD — urok namena. Pove bitju, kaj naj počne, ko se zbudi. 'CMD [\"java\", \"App\"]' pomeni 'tvoj namen je zagnati to Java aplikacijo'."},
+        {"character": "Vajenec", "line": "FROM za temelj, RUN za učenje, CMD za namen. Naj poskusim!"},
+        {"character": "Stari čarovnik Dockerus", "line": "Napišite zvitek v konzolo spodaj. Tri vrstice: temelj, učenje in namen."}
+      ]
+    },
+    "flirting": {
+      "title": "Ustvarjanje profila za zmenke",
+      "dialogue": [
+        {"character": "Docker", "line": "Okej, zadeva postaja resna. Čas za vaš prvi Dockerfile. Pomislite nanj kot na profil za zmenke."},
+        {"character": "Ti", "line": "Profil za zmenke? Kako to?"},
+        {"character": "Docker", "line": "Prva vrstica: FROM. To je vaše ozadje. 'FROM eclipse-temurin:21' — pove, od kod ste. Java 21 okolje. Solidna osnova."},
+        {"character": "Ti", "line": "Okej, torej je FROM kot 'Izviram iz...' na profilu."},
+        {"character": "Docker", "line": "Natanko. Nato RUN — to so vaše spretnosti in izkušnje. 'RUN javac -version' pomeni 'naj vam pokažem, da znam prevajati Javo'."},
+        {"character": "Ti", "line": "In CMD?"},
+        {"character": "Docker", "line": "CMD je tisto, kar iščete. Vaš namen. 'CMD [\"java\", \"App\"]' — 'Tu sem, da zaženem to Java aplikacijo.' Jasno, samozavestno, privlačno."},
+        {"character": "Ti", "line": "FROM, RUN, CMD. Ozadje, spretnosti, namen. To dejansko ima smisel."}
+      ]
+    }
+  }
+}

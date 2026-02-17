@@ -1,0 +1,38 @@
+{
+  "tutorial": "Основе SQL",
+  "technical_concept": "Коришћење агрегатних функција (COUNT, SUM, AVG, MAX, MIN) и GROUP BY за анализу података.",
+  "challenge": {
+    "task": "Израчунајте укупан број запослених у сваком одељењу. Користите COUNT и GROUP BY да видите расподелу кадрова.",
+    "hint": "Користите COUNT(*) са GROUP BY department_id за бројање запослених по одељењима."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Игра бројевима",
+      "dialogue": [
+        {"character": "Детектив Индекс", "line": "Не требају ми више појединачна имена. Требају ми обрасци. Колико људи у сваком одељењу? Где иде новац?"},
+        {"character": "База података", "line": "Требају вам агрегатне функције, детективе. COUNT, SUM, AVG, MAX, MIN — оне обрађују бројеве уместо вас."},
+        {"character": "Детектив Индекс", "line": "Покажи ми колико запослених је у сваком одељењу."},
+        {"character": "База података", "line": "`SELECT department_id, COUNT(*) FROM employees GROUP BY department_id`. GROUP BY разврстава запослене по одељењима, COUNT их броји."},
+        {"character": "Детектив Индекс", "line": "А просечне плате? Морам да знам да ли је неко одељење сумњиво добро плаћено."},
+        {"character": "База података", "line": "`SELECT department_id, AVG(salary) FROM employees GROUP BY department_id`. AVG рачуна просек за сваку групу."},
+        {"character": "Детектив Индекс", "line": "Могу ли да видим највишу плату у сваком одељењу?"},
+        {"character": "База података", "line": "`SELECT department_id, MAX(salary) FROM employees GROUP BY department_id`. MAX проналази врх за сваку групу."},
+        {"character": "Детектив Индекс", "line": "Време да видимо где се бројеви не слажу."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Статистичка анализа података",
+      "dialogue": [
+        {"character": "Инжењер", "line": "НЕКСУС, потребна ми је статистика радне снаге. Колико кадрова у сваком одељењу?"},
+        {"character": "НЕКСУС", "line": "То захтева агрегатне функције, инжењеру. COUNT, SUM, AVG, MAX и MIN извршавају прорачуне преко целих скупова података."},
+        {"character": "Инжењер", "line": "Покажи ми број кадрова по одељењима."},
+        {"character": "НЕКСУС", "line": "SELECT department_id, COUNT(*) FROM employees GROUP BY department_id. GROUP BY клаузула категоризује записе пре агрегације."},
+        {"character": "Инжењер", "line": "Требају ми просечни нивои компензација по одељењима."},
+        {"character": "НЕКСУС", "line": "SELECT department_id, AVG(salary) FROM employees GROUP BY department_id. AVG рачуна аритметичку средину за сваку групу."},
+        {"character": "Инжењер", "line": "Укупни трошкови плата по одељењима?"},
+        {"character": "НЕКСУС", "line": "SELECT department_id, SUM(salary) FROM employees GROUP BY department_id. SUM сабира све вредности у групи."},
+        {"character": "Инжењер", "line": "Одлично. Генеришимо те одељенске статистике."}
+      ]
+    }
+  }
+}

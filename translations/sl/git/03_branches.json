@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Git",
+  "technical_concept": "Ustvarjanje in preklapljanje med vejami za neodvisno delo na različnih funkcionalnostih.",
+  "challenge": {
+    "task": "Ustvarite novo vejo z imenom 'investigation' in preklopite nanjo.",
+    "hint": "Uporabite 'git checkout -b investigation' za ustvarjanje in preklapljanje v enem koraku."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Vzporedne preiskave",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Imam dva sleda. Ne morem slediti obema hkrati na istem primeru — kaj če eden pokvari drugega?"},
+        {"character": "REDIS", "line": "Zato imaš veje, detektiv. 'git branch' ustvari vzporedno linijo preiskave. Delaš na enem sledu, ne da bi motil drugega."},
+        {"character": "Detektiv Indecks", "line": "Torej je kot kopija mojega primera, na kateri lahko eksperimentiram?"},
+        {"character": "REDIS", "line": "Natanko. 'git checkout -b investigation' ustvari novo vejo in te prekopi nanjo. Vse spremembe so na tej veji — glavna veja ostane nedotaknjena."},
+        {"character": "Detektiv Indecks", "line": "In ko sem pripravljen, lahko združim nazaj?"},
+        {"character": "REDIS", "line": "Z 'git merge'. Ampak to je za naslednjič. Za zdaj — ustvari svojo preiskovalno vejo."},
+        {"character": "Detektiv Indecks", "line": "Čas za vzporedno preiskavo."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Razhajanje časovnice",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Inženir, veje vam omogočajo delo na alternativnih časovnicah brez vpliva na glavno časovnico."},
+        {"character": "Inženir", "line": "Kot vzporedni univerzumi?"},
+        {"character": "NEXUS", "line": "Natančna analogija. 'git checkout -b ime-veje' ustvari novo časovnico in vas prenese vanjo. Spremembe v eni časovnici ne vplivajo na drugo."},
+        {"character": "Inženir", "line": "In jih lahko pozneje združim?"},
+        {"character": "NEXUS", "line": "Potrjeno. 'git merge' združi časovnici nazaj. Ampak najprej — ustvarjamo novo vejo za vašo preiskavo."},
+        {"character": "Inženir", "line": "Ustvarimo to alternativno časovnico."},
+        {"character": "NEXUS", "line": "Čakam na vaš ukaz, inženir."}
+      ]
+    }
+  }
+}

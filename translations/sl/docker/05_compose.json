@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove Docker",
+  "technical_concept": "Docker Compose vam omogoča definiranje in zagon več-kontejnerskih aplikacij v eni sami YAML datoteki. Namesto zaganjanja več 'docker run' ukazov, opišete vse v docker-compose.yml.",
+  "challenge": {
+    "task": "Napišite docker-compose.yml z dvema storitvama: 'web' z uporabo slike nginx s preslikavo vrat 8080:80 in 'db' z uporabo slike ibmcom/db2.",
+    "hint": "Začnite s 'services:', nato definirajte 'web' in 'db' kot pod-ključe. Vsak potrebuje 'image:'. Web potrebuje 'ports:'."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Sestavljanje družine bitij",
+      "dialogue": [
+        {"character": "Stari čarovnik Dockerus", "line": "Naučili ste se priklicati posamezna bitja. Ampak prave avanture zahtevajo DRUŽINO — več bitij, ki delajo skupaj!"},
+        {"character": "Vajenec", "line": "Kot bitje spletnega strežnika in bitje DB2 podatkovne baze, ki se borita skupaj?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Natanko! Ampak priklicanje enega za drugim je dolgočasno in nagnjeno k napakam. Zato so starodavni čarovniki ustvarili 'docker-compose.yml' — Veliki Zvitek."},
+        {"character": "Vajenec", "line": "En zvitek, da jih prikličeš vse?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Res! V tem zvitku je vsako bitje 'storitev' s svojim razdelkom. Določiš sliko, vrata, volumne — vse."},
+        {"character": "Vajenec", "line": "In lahko govorijo med seboj?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Da! Docker Compose ustvari čarobno mrežo, kjer se bitja najdejo po imenu. 'docker compose up' in vsa bitja se zbudijo hkrati!"},
+        {"character": "Vajenec", "line": "Tako delujejo prave aplikacije v resničnem svetu, kajne?"},
+        {"character": "Stari čarovnik Dockerus", "line": "Seveda. Vsaka poslovna aplikacija — spletni strežnik, DB2 baza, morda predpomnilnik — vse skupaj v enem zvitku."}
+      ]
+    },
+    "flirting": {
+      "title": "Skupno življenje (zares)",
+      "dialogue": [
+        {"character": "Docker", "line": "Torej se vidiva že kar nekaj časa. Posamezni kontejnerji, preslikava vrat, volumni. Čas za naslednji korak — skupno življenje."},
+        {"character": "Ti", "line": "Misliš... Docker Compose?"},
+        {"character": "Docker", "line": "Bereš vnaprej! Da. Docker Compose je, ko si več kontejnerjev deli skupno življenje v eni YAML datoteki."},
+        {"character": "Ti", "line": "Kot spletni strežnik in DB2 baza, ki si delita stanovanje?"},
+        {"character": "Docker", "line": "Natanko. Spletni strežnik upravlja z vhodnimi vrati (porti), DB2 hrani vse podatke (volumni) in samodejno se najdeta po omrežju."},
+        {"character": "Ti", "line": "To je... dejansko ljubko. Imata svojo malo mrežo med seboj?"},
+        {"character": "Docker", "line": "Compose jo ustvari samodejno. Brez neprijetnih predstavljanj. In najboljši del? 'docker compose up' — en ukaz za vse."},
+        {"character": "Ti", "line": "En ukaz za vse. Prepričan sem."},
+        {"character": "Docker", "line": "Potem napiši najino prvo skupno gospodinjstvo. Spletni strežnik in DB2 baza. Najin mali digitalni dom."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove SQL",
+  "technical_concept": "Uporaba SELECT za pridobivanje določenih stolpcev iz tabele.",
+  "challenge": {
+    "task": "Pridobite seznam vseh imen zaposlenih (first_name in last_name) iz tabele employees.",
+    "hint": "Uporabite SELECT z imeni stolpcev, ločenimi z vejicami."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Seznam zaposlenih",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Potrebujem imena. Vsakega osumljenca, vsakega pričo, vsakega, ki dela v tem podjetju. Daj mi seznam."},
+        {"character": "Podatkovna baza", "line": "Tabela employees ima vse, detektiv. Imena, elektronske naslove, plače, datume zaposlitve, oddelke. Kaj natanko potrebujete?"},
+        {"character": "Detektiv Indecks", "line": "Za zdaj samo osnove. Ime, priimek. Ne potrebujem še celotne datoteke."},
+        {"character": "Podatkovna baza", "line": "Za to je SELECT. Določite natanko, katere stolpce želite: `SELECT first_name, last_name FROM employees`. Nič več, nič manj."},
+        {"character": "Detektiv Indecks", "line": "Kaj pa če želim videti tudi njihove elektronske naslove?"},
+        {"character": "Podatkovna baza", "line": "Dodajte ga na seznam: `SELECT first_name, last_name, email FROM employees`. Stolpce ločite z vejicami — to je vse."},
+        {"character": "Detektiv Indecks", "line": "In če želim vse?"},
+        {"character": "Podatkovna baza", "line": "Uporabite zvezdico: `SELECT * FROM employees` vrne vsak stolpec. Ampak bodite previdni — v resnični preiskavi jemljete samo tisto, kar potrebujete."},
+        {"character": "Detektiv Indecks", "line": "Pametno. Potegnimo ta imena in poglejmo, s kom imamo opravka."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Protokol kadrovskih poizvedb",
+      "dialogue": [
+        {"character": "Inženir", "line": "NEXUS, potrebujem popoln seznam posadke. Imena vseh na postaji."},
+        {"character": "NEXUS", "line": "Tabela employees vsebuje vse kadrovske zapise, inženir. Katere specifične podatke potrebujete?"},
+        {"character": "Inženir", "line": "Za zdaj samo imena — ime in priimek. Še ne potrebujem njihovih celotnih profilov."},
+        {"character": "NEXUS", "line": "Uporabite stavek SELECT za določitev stolpcev: SELECT first_name, last_name FROM employees. Pridobi natanko zahtevane podatke."},
+        {"character": "Inženir", "line": "Kaj če potrebujem tudi komunikacijske naslove?"},
+        {"character": "NEXUS", "line": "Razširite seznam stolpcev: SELECT first_name, last_name, email FROM employees. Stolpce ločite z vejicami za več podatkovnih polj."},
+        {"character": "Inženir", "line": "Ali lahko pridobim vsa razpoložljiva polja naenkrat?"},
+        {"character": "NEXUS", "line": "Potrjeno. SELECT * FROM employees vrne vse stolpce. Vendar pa je selektivno poizvedovanje učinkovitejše za obdelavo podatkov."},
+        {"character": "Inženir", "line": "Razumljeno. Izvedimo ciljno poizvedbo za imena kadrov."}
+      ]
+    }
+  }
+}
