@@ -1,0 +1,37 @@
+# ABOUTME: Combined web + grader image for testing subprocess mode.
+# ABOUTME: Installs all grading tools directly (no Docker-in-Docker).
+
+FROM python:3.12-slim
+
+# Install system tools for grading
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    redis-tools \
+    redis-server \
+    sqlite3 \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+RUN pip install --no-cache-dir tiktoken numpy pyyaml
+
+# Copy application
+COPY app/ /app/app/
+COPY static/ /app/static/
+COPY templates/ /app/templates/
+COPY tutorials/ /app/tutorials/
+COPY translations/ /app/translations/
+COPY docker/ /app/docker/
+
+WORKDIR /app
+
+# Subprocess mode, no Docker needed
+ENV GRADER_MODE=subprocess
+ENV DEV_MODE=true
+
+EXPOSE 8000
+
+# Start redis-server in background, then the app
+CMD redis-server --daemonize yes && python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
