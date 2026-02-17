@@ -36,3 +36,6 @@ htmlcov/
 node_modules/
 dist/
 build/
+
+# Screenshots
+page-*.png

@@ -7,9 +7,9 @@
     --text-primary: #2c2c2c;
     --text-secondary: #555555;
     --text-muted: #888888;
-    --accent: #4f6df5;
-    --accent-hover: #3b57d9;
-    --accent-light: #eef1fe;
+    --accent: #1877f2;
+    --accent-hover: #1466d0;
+    --accent-light: #e7f0fd;
     --success: #2ea44f;
     --success-light: #eafbf0;
     --warning: #d4880f;
@@ -367,7 +367,7 @@ header {
 .hero-section {
     text-align: center;
     padding: 48px 24px;
-    background: linear-gradient(135deg, var(--accent) 0%, #6c5ce7 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, #42a5f5 100%);
     border-radius: var(--radius-lg);
     margin-bottom: 40px;
 }
