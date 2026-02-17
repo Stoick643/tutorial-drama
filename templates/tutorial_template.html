@@ -122,6 +122,25 @@
         </main>
     </div>
 
+    <script>
+        // Persist language selection globally
+        const langSelect = document.getElementById('lang-select');
+        if (langSelect) {
+            langSelect.addEventListener('change', function() {
+                localStorage.setItem('preferred_lang', this.value);
+            });
+        }
+        // On page load, redirect if lang doesn't match saved preference
+        (function() {
+            const saved = localStorage.getItem('preferred_lang');
+            const current = '{{ lang }}';
+            if (saved && saved !== current) {
+                const url = new URL(window.location);
+                url.searchParams.set('lang', saved);
+                window.location.replace(url);
+            }
+        })();
+    </script>
     <script src="/static/interactive.js?v={{ js_version }}"></script>
 </body>
 </html>

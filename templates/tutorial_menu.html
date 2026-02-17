@@ -86,6 +86,19 @@
         </main>
     </div>
 
+    <script>
+        // Apply saved language preference to lesson links
+        (function() {
+            const saved = localStorage.getItem('preferred_lang');
+            if (saved && saved !== 'en') {
+                document.querySelectorAll('a.btn-primary').forEach(function(a) {
+                    const url = new URL(a.href, window.location.origin);
+                    url.searchParams.set('lang', saved);
+                    a.href = url.toString();
+                });
+            }
+        })();
+    </script>
     <script src="/static/progress.js"></script>
 </body>
 </html>

@@ -122,7 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    commandInput.focus();
+    // Don't auto-focus console — let user read the lesson first
+    // commandInput.focus();
 
     // Check if current lesson is completed on page load
     checkLessonCompletion();
