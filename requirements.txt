@@ -68,5 +68,4 @@ watchfiles==1.1.0
     # via uvicorn
 websockets==15.0.1
     # via uvicorn
-docker>=7.0.0
-    # via -r requirements.in
+# docker>=7.0.0 — only needed for local dev (GRADER_MODE=docker), not for fly.io

@@ -231,6 +231,28 @@ class ContainerManager:
                 else:
                     feedback = f"Your output is missing: {', '.join(missing)}"
 
+            elif check_logic.expected_result.type == "integer_greater_than":
+                # Numeric validation: check if validation output is greater than threshold
+                try:
+                    actual_int = int(validation_output)
+                    threshold = int(check_logic.expected_result.value)
+                    if actual_int > threshold:
+                        is_correct = True
+                        feedback = "Correct!"
+                    else:
+                        feedback = f"Expected value greater than {threshold}, got {actual_int}."
+                except ValueError:
+                    feedback = f"Expected a number but got '{validation_output}'."
+
+            elif check_logic.expected_result.type == "set_contains":
+                # Set membership validation: check if expected member is in validation output
+                expected_member = str(check_logic.expected_result.value)
+                if expected_member in validation_output:
+                    is_correct = True
+                    feedback = "Correct!"
+                else:
+                    feedback = f"Expected result to contain '{expected_member}'."
+
             else:
                 # Unknown validation type
                 feedback = f"Unknown validation type: '{check_logic.expected_result.type}'"

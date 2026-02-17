@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
+from collections import defaultdict
 from pydantic import BaseModel
 import json
 import os
@@ -62,7 +63,22 @@ if os.getenv("DEV_MODE"):
             response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
         return response
 
-# REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
+# --- Rate Limiting ---
+# Simple in-memory rate limiter: max requests per IP per window
+RATE_LIMIT_MAX = 30          # max requests
+RATE_LIMIT_WINDOW = 60       # per 60 seconds
+_rate_limit_store = defaultdict(list)  # {ip: [timestamp, ...]}
+
+def check_rate_limit(ip: str) -> bool:
+    """Returns True if request is allowed, False if rate limited."""
+    now = time.time()
+    # Clean old entries
+    _rate_limit_store[ip] = [t for t in _rate_limit_store[ip] if now - t < RATE_LIMIT_WINDOW]
+    if len(_rate_limit_store[ip]) >= RATE_LIMIT_MAX:
+        return False
+    _rate_limit_store[ip].append(now)
+    return True
+
 
 class CommandRequest(BaseModel):
     command: str
@@ -240,7 +256,15 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
 
 
 @app.post("/api/check-answer", response_model=CommandResponse)
-async def check_answer(request: CommandRequest):
+async def check_answer(request: CommandRequest, req: Request):
+    # Rate limiting
+    client_ip = req.client.host if req.client else "unknown"
+    if not check_rate_limit(client_ip):
+        return JSONResponse(
+            status_code=429,
+            content={"detail": "Too many requests. Please wait a moment."}
+        )
+
     # 1. Load the lesson JSON to get the check_logic
     json_path = base_dir / f"tutorials/{request.topic}/{request.lesson}.json"
     if not json_path.exists():
