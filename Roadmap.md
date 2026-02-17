@@ -24,7 +24,7 @@
 | Multiple narrative styles per lesson | ✅ |
 | Prev/Next lesson navigation | ✅ |
 | Progress tracking (localStorage) | ✅ |
-| i18n (translation support) | ✅ POC (Slovenian, Redis lesson 00) |
+| i18n (translation support) | ✅ Complete (Slovenian + Serbian Cyrillic, all topics) |
 | Real LLM API integration (Moonshot) | ✅ |
 | User accounts + persistent progress | ⏳ Planned |
 | Deployment to fly.io | ⏳ Planned |
@@ -71,12 +71,40 @@
 ### Phase 2f: i18n Support
 - Translation architecture: separate files in `translations/{lang}/{topic}/`
 - Only translatable strings overridden, grading logic untouched
-- Language selector dropdown on lesson pages
-- POC: Redis lesson 00 in Slovenian (detective_noir + sci_fi)
+- Language selector dropdown on lesson pages (English, Slovenščina, Српски)
+- 54 translation files: all 5 topics × 2 languages (sl, sr-cyrl)
+- Slovenian: all 27 lessons translated (detective_noir + sci_fi / fairy_tale + flirting / office_comedy)
+- Serbian Cyrillic: all 27 lessons translated, full Cyrillic script including character names
 
 ---
 
 ## Next Up
+
+### UI Theme Redesign
+- Current dark noir theme is too black/heavy
+- Switch to a lighter, more inviting design
+- Keep it professional but approachable for learners
+
+### Deployment to fly.io
+Two fly.io apps deployed from this monorepo:
+
+**Plan A: fly.io with subprocess grader (recommended)**
+- **App 1: `tutorial-drama-web`** — FastAPI + templates + static + tutorials + translations
+- **App 2: `tutorial-drama-grader`** — FastAPI + subprocess calls (redis-cli, sqlite3, git, etc.)
+- Grader installs tools directly (no Docker-in-Docker needed)
+- Refactor `docker_manager.py` → subprocess-based execution
+- Connected via `GRADER_URL` env var
+- Two Dockerfiles: `Dockerfile.web`, `Dockerfile.grader`
+- Two fly configs: `fly.web.toml`, `fly.grader.toml`
+- Two GitHub Actions workflows for CI/CD
+- Estimated cost: ~$0/mo (within free tier or pennies)
+
+**Plan B: Single Hetzner VPS**
+- Both services on one VPS with native Docker (existing `docker_manager.py` works as-is)
+- Zero code changes, but requires Docker + nginx + certbot setup
+- Fallback if fly.io subprocess approach hits limitations
+
+**Key decision:** Subprocess grading is sufficient for educational platform — students run controlled commands (SET foo bar, SELECT * FROM...), not arbitrary code. Docker isolation is overkill for this use case.
 
 ### Bash/Linux Tutorial
 - Real shell commands in Alpine container
@@ -85,14 +113,13 @@
 
 **Detailed design:** `docs/bash-curriculum.md` (to be created)
 
-### i18n Expansion
-- Complete Slovenian translations for all topics
-- Add Serbian Cyrillic (`sr-cyrl`)
-- Translate UI strings (buttons, headers)
-
 ---
 
 ## Future / Phase 3
+
+### Remaining i18n Work
+- Translate UI strings (buttons, headers, homepage)
+- Additional languages if needed
 
 ### More Narrative Styles
 - Shakespearean Drama (for more topics)
@@ -101,11 +128,3 @@
 ### Platform Features
 - User accounts and authentication
 - Persistent progress tracking (replace localStorage)
-- Deployment to fly.io (two services: tutorial app + grader)
-
-### Deployment Architecture
-Two fly.io services deployed from this monorepo:
-- **Tutorial app** — lightweight container with UI + content
-- **Grader service** — Fly Machine (microVM) with Docker daemon
-
-See `plan-phase-3.md` for the original merge/split rationale.
