@@ -80,31 +80,68 @@
 
 ## Next Up
 
-### UI Theme Redesign
-- Current dark noir theme is too black/heavy
-- Switch to a lighter, more inviting design
-- Keep it professional but approachable for learners
+### UI Theme Redesign ✅
+- Light warm theme replacing dark noir (#f8f7f4 background, white cards)
+- Facebook blue accent (#1877F2) instead of red
+- Sans-serif body font, monospace only for code/console
+- Dark console blocks (Catppuccin-inspired) inside light page
+
+### Subprocess Refactor (for fly.io deployment)
+Refactor grading from Docker containers to direct subprocess calls:
+- **Create** `app/subprocess_manager.py` — same interface as `docker_manager.py`
+- Tools installed directly: redis-cli, sqlite3, git, python + libs
+- `subprocess.run()` with timeouts instead of `docker exec`
+- State reset between requests (FLUSHALL, copy fresh DB, git reset)
+- **Keep** `docker_manager.py` for local dev with Docker
+- Toggle via env var: `GRADER_MODE=subprocess` vs `GRADER_MODE=docker`
+- Rollout: Redis first, then SQL, Git, Docker, LLM
 
 ### Deployment to fly.io
 Two fly.io apps deployed from this monorepo:
 
-**Plan A: fly.io with subprocess grader (recommended)**
+**Architecture:**
 - **App 1: `tutorial-drama-web`** — FastAPI + templates + static + tutorials + translations
 - **App 2: `tutorial-drama-grader`** — FastAPI + subprocess calls (redis-cli, sqlite3, git, etc.)
-- Grader installs tools directly (no Docker-in-Docker needed)
-- Refactor `docker_manager.py` → subprocess-based execution
 - Connected via `GRADER_URL` env var
-- Two Dockerfiles: `Dockerfile.web`, `Dockerfile.grader`
-- Two fly configs: `fly.web.toml`, `fly.grader.toml`
-- Two GitHub Actions workflows for CI/CD
+- No Docker-in-Docker needed (subprocess grading is sufficient for educational platform)
 - Estimated cost: ~$0/mo (within free tier or pennies)
+
+**Repo structure:**
+```
+fly.web.toml              # fly config for web app
+fly.grader.toml           # fly config for grader app
+Dockerfile.web            # web app image
+Dockerfile.grader         # grader image (redis-tools, sqlite3, git, python + libs)
+.github/workflows/
+  fly-web.yml             # deploy web on push
+  fly-grader.yml          # deploy grader on push
+```
+
+**Deployment commands (per app):**
+```bash
+# One-time setup (web)
+fly launch --no-deploy --config fly.web.toml
+fly secrets set GRADER_URL=https://tutorial-drama-grader.fly.dev --config fly.web.toml
+
+# One-time setup (grader)
+fly launch --no-deploy --config fly.grader.toml
+fly secrets import < .env --config fly.grader.toml   # LLM_API_KEY etc.
+
+# Deploy
+fly deploy --config fly.web.toml --dockerfile Dockerfile.web
+fly deploy --config fly.grader.toml --dockerfile Dockerfile.grader
+```
+
+**GitHub Actions (CI/CD):**
+- Define `FLY_API_TOKEN` in repo Settings → Secrets → Actions
+- Each workflow triggers on push to relevant paths
+- `fly-web.yml`: deploys web app
+- `fly-grader.yml`: deploys grader app
 
 **Plan B: Single Hetzner VPS**
 - Both services on one VPS with native Docker (existing `docker_manager.py` works as-is)
 - Zero code changes, but requires Docker + nginx + certbot setup
 - Fallback if fly.io subprocess approach hits limitations
-
-**Key decision:** Subprocess grading is sufficient for educational platform — students run controlled commands (SET foo bar, SELECT * FROM...), not arbitrary code. Docker isolation is overkill for this use case.
 
 ### Bash/Linux Tutorial
 - Real shell commands in Alpine container
