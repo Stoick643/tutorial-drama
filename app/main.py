@@ -11,12 +11,21 @@ import time
 from dotenv import load_dotenv
 from pathlib import Path
 
+# Grader backend: "docker" (default for local dev) or "subprocess" (for fly.io)
+GRADER_MODE = os.getenv("GRADER_MODE", "docker")
+
 try:
-    from .docker_manager import manager as container_manager
     from . import grader_schemas
+    if GRADER_MODE == "subprocess":
+        from .subprocess_manager import manager as container_manager
+    else:
+        from .docker_manager import manager as container_manager
 except ImportError:
-    from docker_manager import manager as container_manager
     import grader_schemas
+    if GRADER_MODE == "subprocess":
+        from subprocess_manager import manager as container_manager
+    else:
+        from docker_manager import manager as container_manager
 
 load_dotenv()
 
