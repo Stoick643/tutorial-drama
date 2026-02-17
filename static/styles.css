@@ -1,14 +1,31 @@
 :root {
-    --noir-black: #0a0a0a;
-    --noir-dark: #1a1a1a;
-    --noir-gray: #2a2a2a;
-    --noir-light-gray: #4a4a4a;
-    --noir-white: #e8e8e8;
-    --noir-accent: #c9302c;
-    --noir-success: #5cb85c;
-    --noir-warning: #f0ad4e;
-    --console-bg: #0f0f0f;
-    --console-green: #00ff00;
+    --bg-primary: #f8f7f4;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f0eeeb;
+    --border-color: #e0ddd8;
+    --border-light: #ebe8e4;
+    --text-primary: #2c2c2c;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+    --accent: #4f6df5;
+    --accent-hover: #3b57d9;
+    --accent-light: #eef1fe;
+    --success: #2ea44f;
+    --success-light: #eafbf0;
+    --warning: #d4880f;
+    --warning-light: #fef7ea;
+    --error: #d03a3a;
+    --error-light: #fdeaea;
+    --console-bg: #1e1e2e;
+    --console-text: #cdd6f4;
+    --console-green: #a6e3a1;
+    --console-prompt: #89b4fa;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
 }
 
 * {
@@ -18,71 +35,86 @@
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(135deg, var(--noir-black) 0%, var(--noir-dark) 100%);
-    color: var(--noir-white);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     min-height: 100vh;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 24px;
 }
 
+/* ===== HEADER ===== */
+
 header {
-    border-bottom: 2px solid var(--noir-accent);
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .tutorial-title {
-    font-size: 2.5em;
-    color: var(--noir-accent);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
 }
 
 .lesson-info {
     display: flex;
-    gap: 20px;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .module, .scene {
-    background: var(--noir-gray);
-    padding: 5px 15px;
-    border-radius: 5px;
-    border: 1px solid var(--noir-light-gray);
+    background: var(--bg-tertiary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    font-size: 0.85em;
+    color: var(--text-secondary);
 }
 
+/* ===== NARRATIVE SECTION ===== */
+
 .narrative-section {
-    background: var(--noir-gray);
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background: var(--bg-secondary);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
 }
 
 .scene-title {
-    font-size: 2em;
-    color: var(--noir-white);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 20px;
-    border-bottom: 1px solid var(--noir-light-gray);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .technical-concept {
-    background: var(--noir-dark);
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    border-left: 4px solid var(--noir-accent);
+    background: var(--accent-light);
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+    border-left: 4px solid var(--accent);
+    color: var(--text-primary);
+    font-size: 0.95em;
 }
 
 .dialogue-container {
@@ -90,90 +122,110 @@ header {
 }
 
 .dialogue-entry {
-    margin: 15px 0;
-    padding: 15px;
-    background: var(--noir-dark);
-    border-radius: 5px;
-    border-left: 3px solid var(--noir-light-gray);
+    margin: 12px 0;
+    padding: 14px 18px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--border-color);
 }
 
 .character {
-    font-weight: bold;
-    color: var(--noir-accent);
+    font-weight: 700;
+    color: var(--accent);
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 8px;
+    font-size: 0.95em;
 }
 
 .dialogue-text {
-    color: var(--noir-white);
+    color: var(--text-primary);
     line-height: 1.8;
 }
 
+/* ===== CODE EXAMPLES ===== */
+
 .code-example {
     background: var(--console-bg);
-    border-radius: 5px;
+    border-radius: var(--radius-md);
     margin: 20px 0;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .code-header {
-    background: var(--noir-light-gray);
-    padding: 10px 15px;
-    font-weight: bold;
-    color: var(--noir-accent);
+    background: #2a2a3e;
+    padding: 10px 16px;
+    font-weight: 600;
+    color: var(--console-prompt);
+    font-size: 0.85em;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 .code-example pre {
-    padding: 15px;
+    padding: 16px;
     overflow-x: auto;
 }
 
 .code-example code {
     color: var(--console-green);
-    font-family: 'Consolas', 'Monaco', monospace;
+    font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+    font-size: 0.9em;
 }
 
+/* ===== CHALLENGE SECTION ===== */
+
 .challenge-section {
-    background: var(--noir-gray);
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    border: 2px solid var(--noir-accent);
+    background: var(--bg-secondary);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 28px;
+    border: 2px solid var(--accent);
+    box-shadow: var(--shadow-md);
 }
 
 .challenge-title {
-    font-size: 1.8em;
-    color: var(--noir-accent);
-    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 18px;
 }
 
 .challenge-task {
-    background: var(--noir-dark);
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    background: var(--bg-tertiary);
+    padding: 18px 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 14px;
+    line-height: 1.7;
 }
 
 .challenge-hint {
-    background: var(--noir-dark);
-    padding: 15px;
-    border-radius: 5px;
-    border-left: 4px solid var(--noir-warning);
+    background: var(--warning-light);
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--warning);
     margin-bottom: 20px;
+    font-size: 0.93em;
+    color: var(--text-primary);
 }
+
+/* ===== INTERACTIVE CONSOLE ===== */
 
 .interactive-console {
     background: var(--console-bg);
-    border-radius: 5px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     margin-top: 20px;
+    box-shadow: var(--shadow-md);
 }
 
 .console-header {
-    background: var(--noir-light-gray);
-    padding: 10px 15px;
-    font-weight: bold;
+    background: #2a2a3e;
+    padding: 10px 16px;
+    font-weight: 600;
     color: var(--console-green);
+    font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+    font-size: 0.85em;
 }
 
 .console-body {
@@ -183,52 +235,55 @@ header {
 .console-input-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 .console-prompt {
-    color: var(--console-green);
+    color: var(--console-prompt);
     margin-right: 10px;
     font-weight: bold;
+    font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
 }
 
 .console-input {
     flex: 1;
     background: transparent;
     border: none;
-    color: var(--console-green);
-    font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 16px;
+    color: var(--console-text);
+    font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+    font-size: 15px;
     outline: none;
 }
 
 .console-input::placeholder {
-    color: var(--noir-light-gray);
+    color: #585b70;
 }
 
 .check-button {
-    background: var(--noir-accent);
+    background: var(--accent);
     color: white;
     border: none;
-    padding: 10px 30px;
-    border-radius: 5px;
+    padding: 10px 28px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.3s;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+    font-family: inherit;
 }
 
 .check-button:hover {
-    background: #a02622;
+    background: var(--accent-hover);
 }
 
 .console-output {
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    color: var(--console-green);
-    font-family: 'Consolas', 'Monaco', monospace;
+    margin-top: 16px;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-sm);
+    color: var(--console-text);
+    font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+    font-size: 0.9em;
     min-height: 50px;
     display: none;
 }
@@ -238,61 +293,68 @@ header {
 }
 
 .feedback-message {
-    margin-top: 15px;
-    padding: 15px;
-    border-radius: 5px;
-    font-weight: bold;
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
     display: none;
+    font-size: 0.93em;
 }
 
 .feedback-message.success {
-    background: var(--noir-success);
+    background: var(--success);
     color: white;
     display: block;
 }
 
 .feedback-message.error {
-    background: var(--noir-accent);
+    background: var(--error);
     color: white;
     display: block;
 }
 
+/* ===== NAVIGATION ===== */
+
 .navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 28px;
 }
 
 .nav-button {
-    background: var(--noir-gray);
-    color: var(--noir-white);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    border: 1px solid var(--noir-light-gray);
-    transition: all 0.3s;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+    font-weight: 500;
+    font-size: 0.93em;
 }
 
 .nav-button:hover {
-    background: var(--noir-accent);
-    border-color: var(--noir-accent);
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
 }
 
-/* Menu and Navigation Styles */
+/* ===== BREADCRUMB ===== */
+
 .subtitle {
-    color: var(--noir-light-gray);
-    font-size: 1.2em;
-    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 1.1em;
+    margin-top: 6px;
+    font-weight: 400;
 }
 
 .breadcrumb {
-    color: var(--noir-light-gray);
-    font-size: 0.9em;
-    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 0.88em;
 }
 
 .breadcrumb a {
-    color: var(--noir-accent);
+    color: var(--accent);
     text-decoration: none;
 }
 
@@ -300,100 +362,111 @@ header {
     text-decoration: underline;
 }
 
+/* ===== HOMEPAGE ===== */
+
 .hero-section {
     text-align: center;
-    padding: 40px 0;
-    background: var(--noir-gray);
-    border-radius: 10px;
+    padding: 48px 24px;
+    background: linear-gradient(135deg, var(--accent) 0%, #6c5ce7 100%);
+    border-radius: var(--radius-lg);
     margin-bottom: 40px;
 }
 
 .hero-text h2 {
-    font-size: 2.5em;
-    color: var(--noir-accent);
-    margin-bottom: 20px;
+    font-size: 2.2em;
+    color: white;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .hero-text p {
-    font-size: 1.2em;
-    color: var(--noir-white);
-    max-width: 600px;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 560px;
     margin: 0 auto;
+    line-height: 1.7;
 }
 
 .section-title {
-    font-size: 1.8em;
-    color: var(--noir-accent);
-    margin-bottom: 30px;
-    border-bottom: 2px solid var(--noir-light-gray);
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
     padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .tutorials-grid, .lessons-grid {
-    margin-bottom: 50px;
+    margin-bottom: 48px;
 }
 
 .tutorial-cards, .lessons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
 }
 
 .tutorial-card, .lesson-card {
-    background: var(--noir-gray);
-    border-radius: 10px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .tutorial-card:hover, .lesson-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
 }
 
 .tutorial-card.coming-soon {
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .card-header, .lesson-header {
-    padding: 20px;
-    border-bottom: 1px solid var(--noir-light-gray);
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-light);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .card-header h4, .lesson-header h4 {
-    color: var(--noir-accent);
+    color: var(--text-primary);
     margin: 0;
+    font-weight: 600;
 }
 
 .lesson-number {
-    background: var(--noir-accent);
+    background: var(--accent);
     color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8em;
-    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.78em;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
 .status-badge {
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.7em;
-    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72em;
+    font-weight: 700;
 }
 
 .status-badge.completed {
-    background: var(--noir-success);
-    color: white;
+    background: var(--success-light);
+    color: var(--success);
+    border: 1px solid var(--success);
 }
 
 .status-badge.coming-soon {
-    background: var(--noir-warning);
-    color: black;
+    background: var(--warning-light);
+    color: var(--warning);
+    border: 1px solid var(--warning);
 }
 
 .card-content, .lesson-content {
@@ -401,158 +474,269 @@ header {
 }
 
 .card-description, .lesson-concept {
-    color: var(--noir-white);
-    line-height: 1.6;
-    margin-bottom: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    font-size: 0.93em;
 }
 
 .card-stats {
     display: flex;
-    gap: 15px;
-    color: var(--noir-light-gray);
-    font-size: 0.9em;
+    gap: 14px;
+    color: var(--text-muted);
+    font-size: 0.85em;
 }
 
 .lesson-preview {
     background: var(--console-bg);
-    padding: 10px;
-    border-radius: 5px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
     margin-top: 10px;
 }
 
 .lesson-preview code {
     color: var(--console-green);
-    font-family: 'Consolas', 'Monaco', monospace;
+    font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+    font-size: 0.85em;
 }
 
 .card-actions, .lesson-actions {
-    padding: 20px;
-    border-top: 1px solid var(--noir-light-gray);
+    padding: 16px 20px;
+    border-top: 1px solid var(--border-light);
 }
 
 .btn-primary {
-    background: var(--noir-accent);
+    background: var(--accent);
     color: white;
     text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 5px;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
     display: inline-block;
-    font-weight: bold;
-    transition: background 0.3s;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background 0.2s;
 }
 
 .btn-primary:hover {
-    background: #a02622;
+    background: var(--accent-hover);
 }
 
 .btn-disabled {
-    background: var(--noir-light-gray);
-    color: var(--noir-gray);
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+    padding: 10px 24px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.9em;
     cursor: not-allowed;
 }
 
+/* ===== FEATURES GRID ===== */
+
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
 }
 
 .feature {
     text-align: center;
-    padding: 30px 20px;
-    background: var(--noir-gray);
-    border-radius: 10px;
+    padding: 28px 20px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
 }
 
 .feature-icon {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 2.5em;
+    margin-bottom: 16px;
 }
 
 .feature h4 {
-    color: var(--noir-accent);
-    margin-bottom: 15px;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .feature p {
-    color: var(--noir-white);
+    color: var(--text-secondary);
     line-height: 1.6;
+    font-size: 0.93em;
 }
 
+/* ===== TUTORIAL INTRO (menu page) ===== */
+
 .tutorial-intro {
-    background: var(--noir-gray);
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 40px;
+    background: var(--bg-secondary);
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 36px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
 }
 
 .intro-content h2 {
-    color: var(--noir-accent);
-    margin-bottom: 20px;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    font-weight: 700;
 }
 
 .tutorial-meta {
     display: flex;
     gap: 20px;
-    color: var(--noir-light-gray);
+    color: var(--text-muted);
+    align-items: center;
 }
 
 .progress-bar {
-    background: var(--noir-dark);
-    height: 10px;
-    border-radius: 5px;
+    background: var(--bg-tertiary);
+    height: 8px;
+    border-radius: 4px;
     overflow: hidden;
-    margin: 20px 0;
+    margin: 16px 0;
+    border: 1px solid var(--border-color);
 }
 
 .progress-fill {
-    background: var(--noir-success);
+    background: var(--success);
     height: 100%;
     transition: width 0.3s;
 }
 
 .progress-text {
-    color: var(--noir-light-gray);
+    color: var(--text-muted);
     text-align: center;
+    font-size: 0.9em;
 }
 
 .tutorial-navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid var(--noir-light-gray);
+    align-items: center;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
 }
+
+.lesson-nav {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===== FOOTER ===== */
 
 footer {
     text-align: center;
-    padding: 40px 0;
-    margin-top: 60px;
-    border-top: 1px solid var(--noir-light-gray);
-    color: var(--noir-light-gray);
+    padding: 32px 0;
+    margin-top: 48px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.88em;
 }
 
+/* ===== LANGUAGE & STYLE SELECTORS ===== */
+
+.lang-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lang-selector select,
+.style-selector select {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.style-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+/* ===== MULTI-LINE TEXTAREA ===== */
+
+.console-textarea {
+    width: 100%;
+    background: #181825;
+    color: var(--console-text);
+    border: 1px solid #45475a;
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: vertical;
+    min-height: 120px;
+    box-sizing: border-box;
+}
+
+.console-textarea:focus {
+    outline: none;
+    border-color: var(--console-prompt);
+}
+
+.console-textarea::placeholder {
+    color: #585b70;
+}
+
+/* ===== MINOR LAYOUT HELPERS ===== */
+
+.lessons-list {
+    margin-bottom: 36px;
+}
+
+.tutorial-progress {
+    margin-bottom: 24px;
+}
+
+.lesson-status {
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+.lesson-title {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ===== RESPONSIVE ===== */
+
 @media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
     .header-content {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
 
     .tutorial-title {
-        font-size: 1.8em;
+        font-size: 1.3em;
     }
 
     .narrative-section, .challenge-section {
         padding: 20px;
     }
 
+    .hero-section {
+        padding: 32px 20px;
+    }
+
     .hero-text h2 {
-        font-size: 2em;
+        font-size: 1.7em;
     }
 
     .hero-text p {
@@ -569,48 +753,10 @@ footer {
 
     .tutorial-navigation {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
-}
 
-/* Language selector */
-.lang-selector {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 10px;
-}
-
-.lang-selector select {
-    background: #1a1a2e;
-    color: #e0e0e0;
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 13px;
-}
-
-/* Multi-line console textarea for Dockerfile/Compose input */
-.console-textarea {
-    width: 100%;
-    background: #1a1a2e;
-    color: #e0e0e0;
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 12px;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    resize: vertical;
-    min-height: 120px;
-    box-sizing: border-box;
-}
-
-.console-textarea:focus {
-    outline: none;
-    border-color: #6c63ff;
-}
-
-.console-textarea::placeholder {
-    color: #666;
+    .lesson-nav {
+        flex-direction: column;
+    }
 }
