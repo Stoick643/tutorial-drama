@@ -1,0 +1,137 @@
+{
+  "tutorial": "Git from the Terminal",
+  "module": 1,
+  "scene": 3,
+  "technical_concept": "The .git folder is Git's entire database. HEAD is a text file pointing to your current branch. Each branch is a file in .git/refs/heads/ containing a 40-character commit hash. The objects/ folder stores every version of every file ever committed. Delete .git and all history vanishes — your files stay but Git is gone. The .gitignore file tells Git which files to never track: build artifacts, IDE configs, secrets, logs.",
+  "code_example": {
+    "language": "text",
+    "code": "    my-project/\n    ├── src/\n    │   └── App.java\n    ├── .gitignore          ← files Git should ignore\n    └── .git/               ← Git's entire database\n        ├── HEAD             ← text file: 'ref: refs/heads/main'\n        ├── objects/         ← every version of every file (hashed)\n        ├── refs/heads/      ← branches (just files with commit hashes)\n        │   └── main         ← contains: a3f9d12c8b...\n        └── config           ← repo settings\n\n    Example .gitignore:\n    target/           # build output\n    .idea/            # IDE files\n    *.log             # log files\n    .env              # secrets — NEVER commit these"
+  },
+  "challenge": {
+    "task": "Look inside Git's brain: read the contents of the HEAD file with 'cat .git/HEAD' to see which branch you're on.",
+    "hint": "HEAD is just a text file inside the .git folder. Think about which basic Linux command reads the contents of a file.",
+    "solution": "cat .git/HEAD",
+    "multiline": false,
+    "check_logic": {
+      "setup_commands": [
+        "git config user.email 'test@test.com'",
+        "git config user.name 'Test'"
+      ],
+      "validation_command": null,
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "ref: refs/heads/"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "socratic",
+      "title": "Behind the Curtain",
+      "dialogue": [
+        {
+          "character": "Socrates",
+          "line": "We have spoken of branches, commits, and the four areas. But all this time, I have been asking you to trust me. Let us now verify. Where do you think Git stores everything?"
+        },
+        {
+          "character": "Student",
+          "line": "Somewhere on my computer? In a database?"
+        },
+        {
+          "character": "Socrates",
+          "line": "In a hidden folder called .git, sitting right inside your project. No cloud service, no background process. Just files in a folder. Would you like to look inside?"
+        },
+        {
+          "character": "Student",
+          "line": "We can just... open it?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Of course! There is no magic. HEAD is a text file — open it and you will see which branch you are on. Each branch in refs/heads/ is a file containing a 40-character hash. The objects/ folder holds every version of every file ever committed."
+        },
+        {
+          "character": "Student",
+          "line": "So when we said 'a branch is just a pointer'..."
+        },
+        {
+          "character": "Socrates",
+          "line": "We meant it literally. A file with a hash inside. Delete that file and the branch is gone. Delete the entire .git folder and all history vanishes — though your working files remain."
+        },
+        {
+          "character": "Student",
+          "line": "That's both elegant and terrifying."
+        },
+        {
+          "character": "Socrates",
+          "line": "Which is why we also need .gitignore — a file that tells Git what to never track. Build artifacts, IDE settings, log files, and above all, secrets. A .env file committed to GitHub is visible to anyone who can see the repository."
+        },
+        {
+          "character": "Student",
+          "line": "I should create .gitignore before my first commit?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Always. Retroactively ignoring a file that is already tracked requires extra work — 'git rm --cached'. Prevention is cleaner than cure. Now — read the HEAD file yourself. See with your own eyes what your GUI never showed you."
+        }
+      ]
+    },
+    {
+      "name": "zen",
+      "title": "Opening the Box",
+      "dialogue": [
+        {
+          "character": "Master",
+          "line": "You have been using a tool without ever looking inside it. Today we open the box."
+        },
+        {
+          "character": "Student",
+          "line": "What box?"
+        },
+        {
+          "character": "Master",
+          "line": "The .git folder. It is Git's entire world. A hidden directory inside your project, containing every commit, every branch, every piece of history you have ever created."
+        },
+        {
+          "character": "Student",
+          "line": "I was told never to touch that folder."
+        },
+        {
+          "character": "Master",
+          "line": "Never modify it carelessly. But reading it — that is how understanding comes. HEAD is a text file. Open it. It says which branch you are on. Nothing more."
+        },
+        {
+          "character": "Student",
+          "line": "And the branches themselves?"
+        },
+        {
+          "character": "Master",
+          "line": "Files in refs/heads/. Each one contains forty characters — the hash of a commit. You said branches felt mysterious. Now you see: they are the simplest thing in Git."
+        },
+        {
+          "character": "Student",
+          "line": "What about the objects folder?"
+        },
+        {
+          "character": "Master",
+          "line": "Every version of every file, stored by its content hash. This is why Git is reliable — the same content always produces the same hash, on any machine, at any time. Truth through mathematics."
+        },
+        {
+          "character": "Student",
+          "line": "And .gitignore?"
+        },
+        {
+          "character": "Master",
+          "line": "Not everything belongs in history. Build artifacts are temporary. IDE settings are personal. Secrets are dangerous. The .gitignore file names what should be left outside. Create it before your first commit — removing something already tracked is like trying to unring a bell."
+        },
+        {
+          "character": "Student",
+          "line": "I want to see inside."
+        },
+        {
+          "character": "Master",
+          "line": "Then look. Read HEAD. See the truth written there in plain text."
+        }
+      ]
+    }
+  ]
+}

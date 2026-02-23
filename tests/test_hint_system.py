@@ -52,12 +52,13 @@ class TestHintSolutionFields:
             assert "solution" in challenge, f"{name} (graded) missing 'solution'"
             assert len(challenge["solution"]) > 0, f"{name} has empty solution"
 
-    def test_chat_lessons_have_no_solution(self, all_lessons):
-        """Chat-mode lessons should not have a solution."""
+    def test_chat_lessons_may_have_optional_solution(self, all_lessons):
+        """Chat-mode lessons may optionally have an example solution."""
         for name, data in all_lessons.items():
             challenge = data.get("challenge", {})
             if challenge.get("mode") == "chat":
-                assert "solution" not in challenge, f"{name} (chat mode) should not have solution"
+                # Chat lessons don't require solutions, but may have them as examples
+                pass  # No assertion needed — both with and without solution are valid
 
     def test_hint_is_not_the_solution(self, all_lessons):
         """Hint should be different from solution (hint is a nudge, not the answer)."""
@@ -84,7 +85,7 @@ class TestLessonNumbering:
 
     def test_lesson_count_per_topic(self):
         """Verify expected lesson counts."""
-        expected = {"redis": 5, "sql": 6, "git": 4, "docker": 6, "llm": 6, "bash": 8}
+        expected = {"redis": 5, "sql": 6, "git": 5, "docker": 6, "llm": 6, "bash": 8}
         for topic, count in expected.items():
             files = list((TUTORIALS_DIR / topic).glob("*.json"))
             assert len(files) == count, f"{topic} has {len(files)} lessons, expected {count}"

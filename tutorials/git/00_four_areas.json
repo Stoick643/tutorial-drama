@@ -1,0 +1,145 @@
+{
+  "tutorial": "Git from the Terminal",
+  "module": 1,
+  "scene": 0,
+  "technical_concept": "Git moves your files between four areas: Working Directory (your files on disk), Staging Area (what you've chosen to include in the next commit), Local Repository (your committed history in .git/), and Remote Repository (GitHub). Every Git command is just moving something between these areas. Your desktop GUI hid the Staging Area from you — that's the key piece you were missing.",
+  "code_example": {
+    "language": "text",
+    "code": "┌──────────────┐  git add   ┌──────────────┐  git commit  ┌──────────────┐  git push   ┌──────────────┐\n│              │ ─────────► │              │ ───────────► │              │ ──────────► │              │\n│  Working Dir │            │ Staging Area │              │  Local Repo  │             │  Remote Repo │\n│  (your files)│ ◄───────── │  (the index) │              │   (.git/)    │ ◄────────── │   (GitHub)   │\n└──────────────┘ git restore└──────────────┘              └──────────────┘  git fetch  └──────────────┘\n\n                  git status tells you where each file currently lives\n                  git pull  =  git fetch + git merge"
+  },
+  "challenge": {
+    "task": "Create a file called 'notes.txt' with the content 'first draft', stage it with git add, then commit it with the message 'Add notes'.",
+    "hint": "You need three steps: echo to create the file, git add to stage it, and git commit -m to commit. Chain them with &&.",
+    "solution": "echo 'first draft' > notes.txt && git add notes.txt && git commit -m 'Add notes'",
+    "multiline": false,
+    "check_logic": {
+      "setup_commands": [
+        "git config user.email 'test@test.com'",
+        "git config user.name 'Test'"
+      ],
+      "validation_command": "git log --oneline",
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "Add notes"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "socratic",
+      "title": "The Geometry of Version Control",
+      "dialogue": [
+        {
+          "character": "Socrates",
+          "line": "Come, my friend. You tell me you know Git — that you have been using it daily. Is that so?"
+        },
+        {
+          "character": "Student",
+          "line": "Yes, Socrates. I commit, I push, I pull. I've been using GitHub Desktop for over a year."
+        },
+        {
+          "character": "Socrates",
+          "line": "Excellent! Then tell me — when you click 'Commit' in your tool, where exactly does your code go?"
+        },
+        {
+          "character": "Student",
+          "line": "To... the repository?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Which repository? The one on your machine, or the one on GitHub?"
+        },
+        {
+          "character": "Student",
+          "line": "I... hmm. I suppose the local one first? Then I push to GitHub?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Good — you are already halfway there. Now, your tool has a checkbox beside each file before you commit. What is that?"
+        },
+        {
+          "character": "Student",
+          "line": "That's to select which files to include in the commit."
+        },
+        {
+          "character": "Socrates",
+          "line": "Precisely. And in the terminal, that selection is its own distinct place — the Staging Area. Your tool hid it behind a checkbox. Look at the diagram: four areas, four arrows. Every Git command you will ever learn simply moves files between them."
+        },
+        {
+          "character": "Student",
+          "line": "So 'git add' is the checkbox? And 'git commit' is clicking the Commit button?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Now you see it. 'git add' moves a file from your Working Directory to the Staging Area. 'git commit' moves everything staged into the Local Repository. 'git push' sends it to the Remote. And 'git status' — that is your compass. It tells you exactly where each file lives right now."
+        },
+        {
+          "character": "Student",
+          "line": "And 'git pull'?"
+        },
+        {
+          "character": "Socrates",
+          "line": "That is the reverse journey — from Remote to your machine. It fetches the commits, then merges them into your Working Directory. Two steps disguised as one. Now — let us not merely talk about it. Show me the complete journey of a file, from creation to committed history."
+        }
+      ]
+    },
+    {
+      "name": "zen",
+      "title": "The Four Gardens",
+      "dialogue": [
+        {
+          "character": "Master",
+          "line": "Before you learned the GUI, Git was simple. After you learned the GUI, Git was complicated. After you learn the terminal... Git will be simple again."
+        },
+        {
+          "character": "Student",
+          "line": "Master, I have used Git for a long time. Why do I still feel confused?"
+        },
+        {
+          "character": "Master",
+          "line": "Because your tool showed you a window into a house, but never the house itself. Tell me — how many places can a file be?"
+        },
+        {
+          "character": "Student",
+          "line": "Two? On my computer and on GitHub?"
+        },
+        {
+          "character": "Master",
+          "line": "Four. Study the diagram. A file begins in the Working Directory — your garden of raw earth. With 'git add', it enters the Staging Area — the place of intention, where you decide what the next moment of history will contain."
+        },
+        {
+          "character": "Student",
+          "line": "My GUI never mentioned a Staging Area."
+        },
+        {
+          "character": "Master",
+          "line": "It was there. Hidden behind a checkbox. The GUI chose simplicity over understanding. We choose understanding."
+        },
+        {
+          "character": "Student",
+          "line": "And the third and fourth areas?"
+        },
+        {
+          "character": "Master",
+          "line": "With 'git commit', your intention becomes history — stored in the Local Repository, the .git folder on your own machine. With 'git push', that history travels to the Remote — GitHub, where others may receive it."
+        },
+        {
+          "character": "Student",
+          "line": "So every command is just... moving between four places?"
+        },
+        {
+          "character": "Master",
+          "line": "Now you hold the whole of Git in one thought. When lost, return to the four areas and ask: where am I, and where do I wish to go?"
+        },
+        {
+          "character": "Student",
+          "line": "How do I know where I am?"
+        },
+        {
+          "character": "Master",
+          "line": "'git status'. It is the still water that reflects truth. Use it before every action, after every action. Now — walk the path yourself. Create a file, carry it through the areas, and make it history."
+        }
+      ]
+    }
+  ]
+}

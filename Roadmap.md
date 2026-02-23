@@ -8,7 +8,7 @@
 |-------|---------|--------|--------|
 | Redis | 5 (00-04) | Detective Noir, Sci-Fi, Shakespearean, Office Comedy | ✅ Complete |
 | SQL | 6 (00-05) | Detective Noir, Sci-Fi | ✅ Complete |
-| Git | 4 (00-03) | Detective Noir, Sci-Fi | ✅ Complete |
+| Git | 5 (00-04) | Socratic, Zen | ✅ Rewritten Feb 2026 |
 | Docker | 6 (00-05) | Fairy Tale, Romance | ✅ Complete |
 | LLM | 6 (00-05) | Sci-Fi, Office Comedy | ✅ Complete |
 | Bash | 8 (00-07) | Survival Adventure, Heist/Spy | ✅ Complete |
@@ -116,6 +116,16 @@
 - Added grading unit tests (`tests/test_grader.py`) — all 6 validation types covered
 - Added JSON structure tests for all 35 lessons across all 6 topics (`tests/test_lesson_structure.py`)
 - Test count: 55 → 389 passing
+
+### Git Tutorial Rewrite
+- Replaced 4-lesson Git tutorial with 5-lesson "Git from the Terminal"
+- New audience: developers moving from GUI tools to terminal
+- New narrative styles: Socratic (Socrates & student) + Zen (Master & student)
+- Socratic method in all dialogues — questions lead to discovery
+- ASCII diagrams: 4-area model, branch pointers, undo table
+- Lessons: The 4 Areas, Branches as Pointers, Inspecting & Undoing, Under the Hood, The Big Picture (chat mode)
+- Removed old translations (sl, sr-cyrl) — need redoing for new content
+- Test count: 389 → 397 passing
 
 ---
 

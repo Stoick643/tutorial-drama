@@ -1,0 +1,140 @@
+{
+  "tutorial": "Git from the Terminal",
+  "module": 1,
+  "scene": 4,
+  "technical_concept": "GitHub is simply a hosted copy of your .git folder with a web interface layered on top. Pull Requests, issues, and code review are GitHub features — the Git underneath is identical to what you do locally. CI/CD (Continuous Integration/Deployment) wires automation to your pushes: push to main, a pipeline runs tests and deploys automatically. Once a pipeline is connected, every 'git push' has real consequences — which is why clean Git habits matter.",
+  "code_example": {
+    "language": "text",
+    "code": "    git push             ← sends commits to GitHub\n         │\n         │  GitHub detects the push\n         ▼\n    CI pipeline          ← runs tests, builds the project\n         │\n         │  If everything passes\n         ▼\n    Production           ← your new code is live\n\n    Useful remote commands:\n    git remote -v                   # see configured remotes\n    git remote add origin <url>     # connect to GitHub\n    git push -u origin main         # first push (sets tracking)\n    git clone <url>                 # copy a remote repo locally"
+  },
+  "challenge": {
+    "task": "This is an open exploration. Type any git command you've learned — try 'git log --oneline --graph --all', 'cat .git/HEAD', 'git status', 'git branch', or ask about anything from this tutorial.",
+    "hint": "Try commands from any lesson. This is your sandbox to experiment freely.",
+    "solution": "git log --oneline --graph --all",
+    "mode": "chat",
+    "check_logic": {
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": ""
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "socratic",
+      "title": "Beyond Your Machine",
+      "dialogue": [
+        {
+          "character": "Socrates",
+          "line": "We have explored the four areas, branches, undoing, and the .git folder. But so far, everything has been local. When you push — where does it go?"
+        },
+        {
+          "character": "Student",
+          "line": "To GitHub."
+        },
+        {
+          "character": "Socrates",
+          "line": "And what is GitHub, in terms of what we have learned?"
+        },
+        {
+          "character": "Student",
+          "line": "A... remote copy of my .git folder?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Precisely! GitHub stores the same objects, the same refs, the same history. Everything else — Pull Requests, issues, the web interface — those are GitHub's additions. The Git underneath is identical to what sits on your machine."
+        },
+        {
+          "character": "Student",
+          "line": "So 'origin' is just the name for that remote?"
+        },
+        {
+          "character": "Socrates",
+          "line": "A convention, nothing more. You could call it anything. Now — here is where it gets consequential. Many teams wire automation to their repositories. When you push to main, a pipeline detects the change, runs tests, and deploys the code. Automatically."
+        },
+        {
+          "character": "Student",
+          "line": "So my 'git push' could deploy to production?"
+        },
+        {
+          "character": "Socrates",
+          "line": "It can and often does. This is called CI/CD — Continuous Integration, Continuous Deployment. It means every push has real consequences. A sloppy commit message becomes a mystery in the deployment log. A broken test blocks the whole team."
+        },
+        {
+          "character": "Student",
+          "line": "That's why people care so much about clean commits and good messages."
+        },
+        {
+          "character": "Socrates",
+          "line": "Now you understand the full picture. Small focused commits. Meaningful messages. Feature branches to isolate work. A stable main branch. These are not pedantic rules — they are practical necessities once automation is involved."
+        },
+        {
+          "character": "Student",
+          "line": "I feel like I actually understand Git now."
+        },
+        {
+          "character": "Socrates",
+          "line": "You always had the knowledge — you just needed the right questions. Go — explore freely. Try any command you have learned. The terminal is yours."
+        }
+      ]
+    },
+    {
+      "name": "zen",
+      "title": "The River Reaches the Sea",
+      "dialogue": [
+        {
+          "character": "Master",
+          "line": "Everything we have practiced has been within your own machine. A river flowing in circles. Today it reaches the sea."
+        },
+        {
+          "character": "Student",
+          "line": "The remote — GitHub."
+        },
+        {
+          "character": "Master",
+          "line": "Yes. And what is GitHub, now that you understand .git?"
+        },
+        {
+          "character": "Student",
+          "line": "Another copy of the same .git folder, hosted on a server."
+        },
+        {
+          "character": "Master",
+          "line": "Good. Pull Requests, issues, the web interface — those are the harbor built around the sea. But the water itself is the same Git you already know."
+        },
+        {
+          "character": "Student",
+          "line": "What happens after I push?"
+        },
+        {
+          "character": "Master",
+          "line": "That depends on what is listening. Many teams connect a pipeline to their repository. A push to main triggers a chain: tests run, the project builds, and if all is well, the code deploys. Automatically. Your 'git push' becomes a deployment."
+        },
+        {
+          "character": "Student",
+          "line": "That is powerful. And frightening."
+        },
+        {
+          "character": "Master",
+          "line": "Which is why discipline matters. Write clear commit messages — they appear in deployment logs. Keep main stable. Use feature branches. Make small, focused commits that are easy to understand and easy to revert."
+        },
+        {
+          "character": "Student",
+          "line": "These aren't just style preferences."
+        },
+        {
+          "character": "Master",
+          "line": "They are consequences of the system. When your push triggers a deployment, cleanliness becomes survival. You began this journey unable to explain what a branch is. Now you know it is a forty-character file. You know the four areas. You know how to undo with confidence."
+        },
+        {
+          "character": "Student",
+          "line": "Git is simple again."
+        },
+        {
+          "character": "Master",
+          "line": "As I promised. Go now — use this space freely. Try any command. The terminal is no longer a mystery."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "tutorial": "Git from the Terminal",
+  "module": 1,
+  "scene": 1,
+  "technical_concept": "A branch is not a copy of your code. It is a tiny file containing a single 40-character hash pointing to a commit. Creating a branch is instant because Git copies nothing — it just writes a new pointer. HEAD is another pointer that tells Git which branch you're currently on. Merging brings one branch's commits into another — always switch to the target branch first.",
+  "code_example": {
+    "language": "text",
+    "code": "         HEAD\n           │\n         main\n           │\n           ▼\n    C1 ◄── C2 ◄── C3          After: git switch -c feature\n                    \\\n                     C4  ◄── feature  ◄── HEAD\n\n\n    git branch                    # list all branches\n    git switch -c feature         # create AND switch to new branch\n    git switch main               # switch back\n    git merge feature             # bring feature's commits into main\n    git branch -d feature         # delete merged branch"
+  },
+  "challenge": {
+    "task": "Create a new branch called 'feature', switch to it, create a file 'feature.txt', stage and commit it with message 'Add feature', then switch back to main and merge the feature branch.",
+    "hint": "Use 'git switch -c feature' to create and switch, then the usual add/commit cycle, then 'git switch main' and 'git merge feature'.",
+    "solution": "git switch -c feature && echo 'new feature' > feature.txt && git add feature.txt && git commit -m 'Add feature' && git switch main && git merge feature",
+    "multiline": false,
+    "check_logic": {
+      "setup_commands": [
+        "git config user.email 'test@test.com'",
+        "git config user.name 'Test'",
+        "echo 'initial' > README.md && git add README.md && git commit -m 'Initial commit'"
+      ],
+      "validation_command": "git log --oneline",
+      "expected_result": {
+        "type": "user_output_contains_all",
+        "value": ["Add feature", "Initial commit"]
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "socratic",
+      "title": "The Nature of Branching",
+      "dialogue": [
+        {
+          "character": "Socrates",
+          "line": "Tell me — when you create a branch in your desktop tool, what do you believe happens?"
+        },
+        {
+          "character": "Student",
+          "line": "Git makes a copy of all my files on the new branch, doesn't it?"
+        },
+        {
+          "character": "Socrates",
+          "line": "A reasonable belief. And how long does it take?"
+        },
+        {
+          "character": "Student",
+          "line": "It's instant. Even on large projects."
+        },
+        {
+          "character": "Socrates",
+          "line": "Instant! And yet you say Git copies all your files? Tell me — if I asked you to copy a thousand files, would that be instant?"
+        },
+        {
+          "character": "Student",
+          "line": "No, that would take time. So... Git isn't copying files?"
+        },
+        {
+          "character": "Socrates",
+          "line": "It is not. A branch is a tiny file — forty characters long — containing the hash of a commit. Nothing more. When you 'create a branch', Git writes one small file. That is why it is instant."
+        },
+        {
+          "character": "Student",
+          "line": "Just a pointer? Then what is HEAD?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Another pointer! HEAD points to the branch you are currently on. When you switch branches, only HEAD changes — it points to a different branch file. Study the diagram: pointers all the way down."
+        },
+        {
+          "character": "Student",
+          "line": "And merging?"
+        },
+        {
+          "character": "Socrates",
+          "line": "When you merge, Git takes the commits from one branch and weaves them into another. But here is the crucial thing — you must first stand on the branch that will receive the work. Switch to main, then merge feature into it."
+        },
+        {
+          "character": "Student",
+          "line": "So I always go to the destination first, then merge the source into it?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Precisely. And after merging, the feature branch has served its purpose. Delete it. A clean workshop is a clear mind. Now — create a branch, do some work, come back, and merge. The full cycle."
+        }
+      ]
+    },
+    {
+      "name": "zen",
+      "title": "The Finger Pointing at the Moon",
+      "dialogue": [
+        {
+          "character": "Master",
+          "line": "What is a branch?"
+        },
+        {
+          "character": "Student",
+          "line": "A copy of the code, so I can work without breaking things."
+        },
+        {
+          "character": "Master",
+          "line": "You describe what it does, not what it is. A branch is not a tree. It is a finger pointing at the moon."
+        },
+        {
+          "character": "Student",
+          "line": "I don't understand."
+        },
+        {
+          "character": "Master",
+          "line": "A branch is a pointer — forty characters written in a small file. It points to a commit, nothing more. Git copies nothing when you create a branch. It writes one line."
+        },
+        {
+          "character": "Student",
+          "line": "That's why it's instant?"
+        },
+        {
+          "character": "Master",
+          "line": "You begin to see. And HEAD — do you know what HEAD is?"
+        },
+        {
+          "character": "Student",
+          "line": "The current commit?"
+        },
+        {
+          "character": "Master",
+          "line": "Close. HEAD is a pointer to a branch, which is a pointer to a commit. A finger pointing at a finger pointing at the moon. 'git switch' simply moves where HEAD points."
+        },
+        {
+          "character": "Student",
+          "line": "And merging brings two branches together?"
+        },
+        {
+          "character": "Master",
+          "line": "Yes, but with intention. First stand where you want the river to flow — switch to the receiving branch. Then invite the other stream in. 'git merge' joins the streams."
+        },
+        {
+          "character": "Student",
+          "line": "What happens to the feature branch after?"
+        },
+        {
+          "character": "Master",
+          "line": "It has done its work. Release it. 'git branch -d' removes the pointer. The commits remain — they are now part of main's history. Now go: create, branch, work, return, merge. Feel the cycle."
+        }
+      ]
+    }
+  ]
+}

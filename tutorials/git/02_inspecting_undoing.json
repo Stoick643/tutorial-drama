@@ -1,0 +1,139 @@
+{
+  "tutorial": "Git from the Terminal",
+  "module": 1,
+  "scene": 2,
+  "technical_concept": "git log shows your commit history — add --oneline --graph --all for a visual tree of all branches. git diff shows what changed (Working Dir vs Staging, or --staged for Staging vs last commit). Undoing maps to the 4 areas: 'git restore' discards Working Dir changes, 'git restore --staged' unstages, 'git reset' undoes local commits, and 'git revert' safely undoes pushed commits by creating a new undo-commit.",
+  "code_example": {
+    "language": "text",
+    "code": "    Inspecting:\n    git log --oneline --graph --all     # visual history\n    git diff                             # Working Dir vs Staging\n    git diff --staged                    # Staging vs last commit\n    git show <hash>                      # what changed in one commit\n\n    Undoing (mapped to the 4 areas):\n    ┌────────────────────────────────┬──────────────────────────────────┐\n    │ What you want to undo          │ Command                          │\n    ├────────────────────────────────┼──────────────────────────────────┤\n    │ Working Dir changes            │ git restore <file>               │\n    │ Staged file (back to unstaged) │ git restore --staged <file>      │\n    │ Last commit (keep staged)      │ git reset --soft HEAD~1          │\n    │ Last commit (keep in Work Dir) │ git reset --mixed HEAD~1         │\n    │ Last commit (discard all) ⚠️    │ git reset --hard HEAD~1          │\n    │ Pushed commit (safe for team)  │ git revert HEAD                  │\n    └────────────────────────────────┴──────────────────────────────────┘"
+  },
+  "challenge": {
+    "task": "A bad commit has been made. Use 'git revert HEAD' to undo it safely, then check the log shows the revert.",
+    "hint": "git revert creates a new commit that undoes the previous one. Use --no-edit to accept the default message.",
+    "solution": "git revert HEAD --no-edit && git log --oneline",
+    "multiline": false,
+    "check_logic": {
+      "setup_commands": [
+        "git config user.email 'test@test.com'",
+        "git config user.name 'Test'",
+        "echo 'good code' > app.txt && git add app.txt && git commit -m 'Initial commit'",
+        "echo 'bad code' > app.txt && git add app.txt && git commit -m 'Break everything'"
+      ],
+      "validation_command": "git log --oneline",
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "Revert"
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "socratic",
+      "title": "The Art of Undoing",
+      "dialogue": [
+        {
+          "character": "Socrates",
+          "line": "You have committed and pushed many times. But tell me — have you ever needed to undo a commit?"
+        },
+        {
+          "character": "Student",
+          "line": "Yes! And it was terrifying. I never knew which command to use."
+        },
+        {
+          "character": "Socrates",
+          "line": "Because you did not have the map. Remember our four areas? Each undo command targets a specific area. If you know which area you want to roll back, the command reveals itself."
+        },
+        {
+          "character": "Student",
+          "line": "So if I changed a file but haven't staged it yet?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Then the damage is in the Working Directory. 'git restore' discards those changes. What if you already staged the file?"
+        },
+        {
+          "character": "Student",
+          "line": "'git restore --staged' to move it back out of Staging?"
+        },
+        {
+          "character": "Socrates",
+          "line": "You learn quickly. And what if you already committed?"
+        },
+        {
+          "character": "Student",
+          "line": "That's where I always got lost."
+        },
+        {
+          "character": "Socrates",
+          "line": "Two paths. If the commit is only local — never pushed — you can rewrite history with 'git reset'. Soft keeps your changes staged. Mixed puts them back in the Working Directory. Hard... erases everything."
+        },
+        {
+          "character": "Student",
+          "line": "And if I already pushed?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Then you must not rewrite history — your teammates have already received it. Instead, 'git revert' creates a new commit that reverses the damage. The mistake stays in history, but its effects are undone. Honest and safe."
+        },
+        {
+          "character": "Student",
+          "line": "So revert is for shared work, reset is for local mistakes?"
+        },
+        {
+          "character": "Socrates",
+          "line": "Now you have the complete picture. But first — let us also look at history. 'git log --oneline --graph --all' shows you the full tree of your repository. And 'git diff' shows exactly what changed. Know where you are before you try to undo. Now — a bad commit awaits you. Fix it safely."
+        }
+      ]
+    },
+    {
+      "name": "zen",
+      "title": "Breaking and Mending",
+      "dialogue": [
+        {
+          "character": "Master",
+          "line": "The student who never makes a mistake never learns to recover. Tell me — what frightens you most about Git?"
+        },
+        {
+          "character": "Student",
+          "line": "Undoing things. I'm always afraid I'll lose my work."
+        },
+        {
+          "character": "Master",
+          "line": "A reasonable fear, born from not understanding. In Git, only one command can truly destroy work: 'git reset --hard'. Everything else is recoverable. Remember this and your fear will quiet."
+        },
+        {
+          "character": "Student",
+          "line": "But there are so many undo commands. How do I choose?"
+        },
+        {
+          "character": "Master",
+          "line": "Return to the four areas. Where is the change you wish to undo? In the Working Directory — use 'git restore'. In the Staging Area — 'git restore --staged'. In a local commit — 'git reset'. Already shared with others — 'git revert'."
+        },
+        {
+          "character": "Student",
+          "line": "What is the difference between reset and revert?"
+        },
+        {
+          "character": "Master",
+          "line": "Reset erases the commit as if it never happened. Revert creates a new commit that undoes the old one. Both fix the problem. But reset rewrites history — if others have already received that history, you create confusion."
+        },
+        {
+          "character": "Student",
+          "line": "So revert is the respectful choice."
+        },
+        {
+          "character": "Master",
+          "line": "For shared branches, yes. It says: I made a mistake, and here is the correction. The history is honest. Before undoing, always look first. 'git log --oneline --graph --all' reveals the full shape of your history. 'git diff' shows exactly what changed."
+        },
+        {
+          "character": "Student",
+          "line": "Look before acting."
+        },
+        {
+          "character": "Master",
+          "line": "Always. A bad commit has been made in your repository. It is already part of history. Undo it with respect — create a revert, and observe the result."
+        }
+      ]
+    }
+  ]
+}
