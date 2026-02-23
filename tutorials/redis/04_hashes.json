@@ -17,7 +17,7 @@
         "value": "lawyer"
       }
     },
-    "solution": "HSET suspect:1 name \"Alice\" age 30 status \"wanted\"\nHGETALL suspect:1"
+    "solution": "HSET suspect:delta age 28 height \"5'7\"\" occupation lawyer last_seen courthouse\nHGET suspect:delta occupation"
   },
   "styles": [
     {

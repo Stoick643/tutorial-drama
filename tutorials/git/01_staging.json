@@ -21,7 +21,7 @@
         "value": "evidence.txt"
       }
     },
-    "solution": "touch clue.txt && git add clue.txt"
+    "solution": "touch evidence.txt && git add evidence.txt"
   },
   "styles": [
     {

@@ -18,7 +18,7 @@
         "value": "PASS"
       }
     },
-    "solution": "FROM openjdk:17\nCOPY app.jar /app/\nWORKDIR /app\nCMD [\"java\", \"-jar\", \"app.jar\"]"
+    "solution": "FROM eclipse-temurin:21\nRUN javac -version\nCMD [\"java\", \"App\"]"
   },
   "styles": [
     {

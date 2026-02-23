@@ -9,7 +9,7 @@
   },
   "challenge": {
     "task": "Connect to the database and list all available tables to understand the data structure.",
-    "hint": "Start with SELECT and think about which table holds employee data.",
+    "hint": "In SQLite, a special dot-command lists all tables. It starts with a period.",
     "check_logic": {
       "validation_command": "SELECT COUNT(*) FROM sqlite_master WHERE type='table';",
       "expected_result": {
@@ -17,7 +17,7 @@
         "value": "4"
       }
     },
-    "solution": "SELECT * FROM employees;"
+    "solution": ".tables"
   },
   "styles": [
     {

@@ -20,7 +20,8 @@
         "type": "exact_match",
         "value": "PASS"
       }
-    }
+    },
+    "solution": "{\"model\": \"moonshot-v1-8k\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a customer support assistant for TechCorp. Be professional and helpful. Only answer questions about our products.\"}, {\"role\": \"user\", \"content\": \"How do I reset my password?\"}], \"temperature\": 0.3}"
   },
   "styles": [
     {

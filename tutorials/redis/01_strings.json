@@ -9,7 +9,7 @@
   },
   "challenge": {
     "task": "A new person of interest, `user456`, just came online. Mark their status as 'online' but make sure the lead goes cold (expires) in exactly 2 minutes (120 seconds).",
-    "hint": "You need two commands: one to store and one to retrieve. Think SET and GET.",
+    "hint": "SETEX lets you set a key with an expiry in one command. The syntax is SETEX key seconds value.",
     "check_logic": {
       "validation_command": "TTL online:user456",
       "expected_result": {
@@ -17,7 +17,7 @@
         "value": 110
       }
     },
-    "solution": "SET greeting \"Hello, World!\"\nGET greeting"
+    "solution": "SETEX online:user456 120 online"
   },
   "styles": [
     {

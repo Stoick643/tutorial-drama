@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showCompletionMessage() {
         const completionDiv = document.createElement('div');
         completionDiv.className = 'completion-message';
-        completionDiv.innerHTML = '✅ Lesson completed! Well done, detective.';
+        completionDiv.innerHTML = '✅ Lesson completed! Well done!';
         completionDiv.style.cssText = `
             position: fixed;
             top: 20px;

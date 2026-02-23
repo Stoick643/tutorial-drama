@@ -102,6 +102,21 @@
 - Subprocess grader: workspace with same sample files
 - Translations: Slovenian + Serbian Cyrillic for all 8 lessons
 
+### Feb 2026 Evaluation Fixes
+- Extracted shared grading logic into `app/grader.py` — eliminated ~60 lines of duplication between `docker_manager.py` and `subprocess_manager.py`
+- Fixed Starlette `TemplateResponse` deprecation (21 warnings) — new API: `TemplateResponse(request, name, context)`
+- Fixed rate limiter memory leak — added periodic cleanup of stale IPs (every 5 min)
+- Fixed silent error swallowing in `get_tutorial_menu()` — now logs warnings
+- Added `logging` module to `main.py`
+- Fixed hardcoded "detective" in completion message → generic "Well done!"
+- Fixed copyright year: 2024 → 2026
+- Fixed 14 solution-task mismatches across Redis, SQL, Git, and Docker lessons
+- Fixed 4 hint mismatches (redis/01, sql/00, docker/00, docker/03)
+- Added solutions to LLM lessons 01-05 (previously had none)
+- Added grading unit tests (`tests/test_grader.py`) — all 6 validation types covered
+- Added JSON structure tests for all 35 lessons across all 6 topics (`tests/test_lesson_structure.py`)
+- Test count: 55 → 389 passing
+
 ---
 
 ## Deployment
@@ -136,23 +151,6 @@ fly deploy --dockerfile Dockerfile.flyio
 
 ## Next Up
 
-### Lesson Numbering Fix
-- Current: "Module 1 - Scene 0" → confusing (0-indexed, "module" implies more, "scene" is unclear)
-- New: **"Lesson 1 of 8"** — 1-indexed, clear, no jargon
-- Template-only change, affects all topics
-- Internal JSON fields (`module`/`scene`) stay unchanged
-
-### Progressive Hint System
-- Current: "hint" field contains the full solution — not helpful for learning
-- New 3-step flow:
-  1. 💡 **Hint** — conceptual nudge ("Think about which command creates directories...")
-  2. 🔓 **Show Solution** — confirmation: "Do you surrender? 🏳️" (Yes / No)
-  3. Full solution revealed
-- Requires:
-  - New `"solution"` field in lesson JSON (alongside existing `"hint"`)
-  - UI changes in `tutorial_template.html` + `interactive.js`
-  - Update all 35 lessons across all topics (split hint from solution)
-
 ### Lesson Content Polish
 - Bash lesson 00: simplify challenge to just `mkdir camp` (no `&&` for beginners)
 - Bash lesson 01: more flavor on command names (cat, touch, echo), explain `>` operator
@@ -164,6 +162,12 @@ fly deploy --dockerfile Dockerfile.flyio
 - Buttons: Check Answer, Hint, Show Solution, Previous, Next
 - Headers: "Lesson X of Y", homepage text, feature descriptions
 - Not priority — prep structure for it when implementing hint system
+
+### Code Quality (Deferred from Feb 2026 Evaluation)
+- **Extract `lesson_loader.py` from `main.py`** — Move JSON loading, i18n merging, and style selection into a dedicated module. Currently `main.py` is ~230 lines which is manageable, but would benefit from separation if it grows further.
+- **Move inline JS/CSS to external files** — `tutorial_template.html` has ~30 lines of inline hint system JS. `interactive.js` and `progress.js` inject CSS via `document.createElement('style')`. Move to `styles.css` and dedicated JS files.
+- **Dynamic homepage generation** — Generate topic cards from `tutorials/` directory instead of hardcoded HTML in `index.html`. Low priority — only needed when adding topics frequently.
+- **Docker manager input sanitization** — `subprocess_manager.py` has thorough input sanitization; `docker_manager.py` has none. Docker containers provide isolation, but defense-in-depth could be added carefully (avoiding blocking legitimate learning commands like SQL DROP).
 
 ---
 

@@ -10,9 +10,11 @@ import shutil
 from pathlib import Path
 
 try:
-    from . import grader_schemas as schemas
+    from app import grader_schemas as schemas
+    from app.grader import evaluate
 except ImportError:
     import grader_schemas as schemas
+    from grader import evaluate
 
 TIMEOUT_SECONDS = 10
 
@@ -403,73 +405,8 @@ class SubprocessManager:
             if check_logic.validation_command:
                 _, validation_output = self._execute(language, check_logic.validation_command)
 
-            # 4. Grade the result
-            is_correct = False
-            feedback = "Grading logic not fully implemented."
-
-            if check_logic.expected_result.type == "exact_match":
-                if validation_output == str(check_logic.expected_result.value):
-                    is_correct = True
-                    feedback = "Correct!"
-                else:
-                    feedback = f"Incorrect. Expected a result of '{check_logic.expected_result.value}' but got '{validation_output}'."
-
-            elif check_logic.expected_result.type == "user_output_exact_match":
-                expected = str(check_logic.expected_result.value).strip()
-                actual = output.strip()
-                if actual == expected:
-                    is_correct = True
-                    feedback = "Correct!"
-                else:
-                    feedback = f"Expected output:\n{expected}\n\nYour output:\n{actual}"
-
-            elif check_logic.expected_result.type == "user_output_contains":
-                expected_substring = str(check_logic.expected_result.value)
-                if expected_substring in output:
-                    is_correct = True
-                    feedback = "Correct!"
-                else:
-                    feedback = f"Your output should contain '{expected_substring}'"
-
-            elif check_logic.expected_result.type == "user_output_contains_all":
-                expected_values = check_logic.expected_result.value
-                if not isinstance(expected_values, list):
-                    expected_values = [expected_values]
-                missing = [str(val) for val in expected_values if str(val) not in output]
-                if not missing:
-                    is_correct = True
-                    feedback = "Correct!"
-                else:
-                    feedback = f"Your output is missing: {', '.join(missing)}"
-
-            elif check_logic.expected_result.type == "integer_greater_than":
-                try:
-                    actual_int = int(validation_output)
-                    threshold = int(check_logic.expected_result.value)
-                    if actual_int > threshold:
-                        is_correct = True
-                        feedback = "Correct!"
-                    else:
-                        feedback = f"Expected value greater than {threshold}, got {actual_int}."
-                except ValueError:
-                    feedback = f"Expected a number but got '{validation_output}'."
-
-            elif check_logic.expected_result.type == "set_contains":
-                expected_member = str(check_logic.expected_result.value)
-                if expected_member in validation_output:
-                    is_correct = True
-                    feedback = "Correct!"
-                else:
-                    feedback = f"Expected result to contain '{expected_member}'."
-
-            else:
-                feedback = f"Unknown validation type: '{check_logic.expected_result.type}'"
-
-            return schemas.GradeResult(
-                output=output,
-                is_correct=is_correct,
-                feedback_message=feedback,
-            )
+            # 4. Grade the result using the shared grading logic
+            return evaluate(check_logic, output, validation_output)
         finally:
             self._reset_state(language)
 

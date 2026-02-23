@@ -174,13 +174,12 @@ class TestHintSystemUI:
 class TestBackwardCompatibility:
     """Test that lessons without solution field still work."""
 
-    def test_llm_lessons_render_without_solution(self):
-        """LLM lessons have no solution — should still render hint button."""
+    def test_llm_lessons_render_with_solution(self):
+        """LLM lessons have hint and solution — should render both buttons."""
         from main import app
         from fastapi.testclient import TestClient
         with TestClient(app) as client:
             response = client.get("/tutorial/llm/01_tokenization")
             assert response.status_code == 200
             assert 'id="hint-button"' in response.text
-            # Should NOT have solution button element
-            assert 'id="solution-button"' not in response.text
+            assert 'id="solution-button"' in response.text

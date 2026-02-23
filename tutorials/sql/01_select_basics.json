@@ -17,7 +17,7 @@
         "value": "15"
       }
     },
-    "solution": "SELECT name, department FROM employees;"
+    "solution": "SELECT first_name, last_name FROM employees;"
   },
   "styles": [
     {

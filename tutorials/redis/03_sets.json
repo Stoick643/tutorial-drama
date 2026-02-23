@@ -17,7 +17,7 @@
         "value": "murphy"
       }
     },
-    "solution": "SADD suspects \"Alice\" \"Bob\" \"Charlie\"\nSMEMBERS suspects"
+    "solution": "SADD known_associates:alpha murphy valdez chen\nSADD known_associates:bravo murphy torres kim\nSINTER known_associates:alpha known_associates:bravo"
   },
   "styles": [
     {

@@ -20,7 +20,8 @@
         "type": "user_output_contains",
         "value": "similarity"
       }
-    }
+    },
+    "solution": "list\n0 3"
   },
   "styles": [
     {

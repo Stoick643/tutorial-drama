@@ -11,16 +11,19 @@ import os
 import time
 from dotenv import load_dotenv
 from pathlib import Path
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Grader backend: "docker" (default for local dev) or "subprocess" (for fly.io)
 GRADER_MODE = os.getenv("GRADER_MODE", "docker")
 
 try:
-    from . import grader_schemas
+    from app import grader_schemas
     if GRADER_MODE == "subprocess":
-        from .subprocess_manager import manager as container_manager
+        from app.subprocess_manager import manager as container_manager
     else:
-        from .docker_manager import manager as container_manager
+        from app.docker_manager import manager as container_manager
 except ImportError:
     import grader_schemas
     if GRADER_MODE == "subprocess":
@@ -68,11 +71,25 @@ if os.getenv("DEV_MODE"):
 RATE_LIMIT_MAX = 30          # max requests
 RATE_LIMIT_WINDOW = 60       # per 60 seconds
 _rate_limit_store = defaultdict(list)  # {ip: [timestamp, ...]}
+_rate_limit_last_cleanup = time.time()
+_RATE_LIMIT_CLEANUP_INTERVAL = 300  # clean stale IPs every 5 minutes
 
 def check_rate_limit(ip: str) -> bool:
     """Returns True if request is allowed, False if rate limited."""
+    global _rate_limit_last_cleanup
     now = time.time()
-    # Clean old entries
+
+    # Periodic cleanup: remove IPs with no recent requests
+    if now - _rate_limit_last_cleanup > _RATE_LIMIT_CLEANUP_INTERVAL:
+        stale_ips = [
+            k for k, timestamps in _rate_limit_store.items()
+            if all(now - t >= RATE_LIMIT_WINDOW for t in timestamps)
+        ]
+        for k in stale_ips:
+            del _rate_limit_store[k]
+        _rate_limit_last_cleanup = now
+
+    # Clean old entries for this IP
     _rate_limit_store[ip] = [t for t in _rate_limit_store[ip] if now - t < RATE_LIMIT_WINDOW]
     if len(_rate_limit_store[ip]) >= RATE_LIMIT_MAX:
         return False
@@ -97,7 +114,7 @@ async def health_check():
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 @app.get("/tutorial/{topic}", response_class=HTMLResponse)
 async def get_tutorial_menu(request: Request, topic: str):
@@ -150,13 +167,14 @@ async def get_tutorial_menu(request: Request, topic: str):
             if not lessons or len(lessons) == 1:
                 tutorial_name = lesson_data.get("tutorial", topic.title())
 
-        except (json.JSONDecodeError, Exception):
+        except (json.JSONDecodeError, Exception) as e:
+            logger.warning(f"Failed to load lesson file {json_file}: {e}")
             continue
 
     return templates.TemplateResponse(
+        request,
         "tutorial_menu.html",
         {
-            "request": request,
             "topic": topic,
             "tutorial_name": tutorial_name,
             "description": description,
@@ -232,9 +250,9 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
             selected_style = lesson_data["styles"][0]
 
         return templates.TemplateResponse(
+            request,
             "tutorial_template.html",
             {
-                "request": request,
                 "tutorial": lesson_data.get("tutorial", ""),
                 "module": lesson_data.get("module", 1),
                 "scene": lesson_data.get("scene", 1),

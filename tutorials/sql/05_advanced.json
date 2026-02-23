@@ -17,7 +17,7 @@
         "value": "5"
       }
     },
-    "solution": "SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);"
+    "solution": "SELECT e.first_name, e.last_name, p.name AS project_name FROM employees e INNER JOIN employee_projects ep ON e.id = ep.employee_id INNER JOIN projects p ON ep.project_id = p.id WHERE p.department_id = 1;"
   },
   "styles": [
     {

@@ -21,7 +21,7 @@
         "value": "Initial report"
       }
     },
-    "solution": "git add . && git commit -m \"Add initial files\""
+    "solution": "touch report.txt && git add report.txt && git commit -m \"Initial report\""
   },
   "styles": [
     {

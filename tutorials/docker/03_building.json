@@ -10,7 +10,7 @@
   "challenge": {
     "multiline": true,
     "task": "Write a Dockerfile for our Java app: start FROM eclipse-temurin:21, set WORKDIR to /app, COPY App.java into the container, RUN javac App.java to compile it, EXPOSE port 8080, and set CMD to run 'java App'.",
-    "hint": "Build turns a Dockerfile into an image. Don't forget the tag and the build context.",
+    "hint": "A Dockerfile is a recipe: start with a base image (FROM), set up the workspace (WORKDIR), bring in your code (COPY), compile it (RUN), and tell Docker how to start it (CMD).",
     "check_logic": {
       "validation_command": "validate-dockerfile /tmp/user_input FROM,WORKDIR,COPY,RUN,EXPOSE,CMD",
       "expected_result": {
@@ -18,7 +18,7 @@
         "value": "PASS"
       }
     },
-    "solution": "docker build -t myapp:latest ."
+    "solution": "FROM eclipse-temurin:21\nWORKDIR /app\nCOPY App.java .\nRUN javac App.java\nEXPOSE 8080\nCMD [\"java\", \"App\"]"
   },
   "styles": [
     {

@@ -20,7 +20,8 @@
         "type": "user_output_contains",
         "value": "Total tokens:"
       }
-    }
+    },
+    "solution": "The quick brown fox jumps over the lazy dog"
   },
   "styles": [
     {
