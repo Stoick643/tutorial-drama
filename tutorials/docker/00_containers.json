@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Check that Docker is installed by running the version command.",
-    "hint": "Type 'docker --version' to see the installed Docker version.",
+    "hint": "Think about which docker command shows you running containers.",
     "check_logic": {
       "validation_command": null,
       "expected_result": {
         "type": "user_output_contains",
         "value": "Docker version"
       }
-    }
+    },
+    "solution": "docker ps"
   },
   "styles": [
     {

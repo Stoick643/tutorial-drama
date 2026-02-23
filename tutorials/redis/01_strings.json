@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "A new person of interest, `user456`, just came online. Mark their status as 'online' but make sure the lead goes cold (expires) in exactly 2 minutes (120 seconds).",
-    "hint": "You need the command that sets a key with an expiry time, all in one clean operation.",
+    "hint": "You need two commands: one to store and one to retrieve. Think SET and GET.",
     "check_logic": {
       "validation_command": "TTL online:user456",
       "expected_result": {
         "type": "integer_greater_than",
         "value": 110
       }
-    }
+    },
+    "solution": "SET greeting \"Hello, World!\"\nGET greeting"
   },
   "styles": [
     {

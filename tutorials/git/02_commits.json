@@ -9,7 +9,7 @@
   },
   "challenge": {
     "task": "Create a file called 'report.txt', stage it, and commit it with the message 'Initial report'.",
-    "hint": "Use echo to create the file, git add to stage it, then git commit -m to commit with a message.",
+    "hint": "Stage your changes first, then commit with a descriptive message.",
     "check_logic": {
       "setup_commands": [
         "git config user.email 'test@test.com'",
@@ -20,7 +20,8 @@
         "type": "user_output_contains",
         "value": "Initial report"
       }
-    }
+    },
+    "solution": "git add . && git commit -m \"Add initial files\""
   },
   "styles": [
     {

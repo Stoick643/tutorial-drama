@@ -117,6 +117,18 @@ header {
     font-size: 0.95em;
 }
 
+.concept-text {
+    line-height: 1.8;
+}
+
+.concept-text p {
+    margin-bottom: 8px;
+}
+
+.concept-text p:last-child {
+    margin-bottom: 0;
+}
+
 .dialogue-container {
     margin: 20px 0;
 }
@@ -207,6 +219,100 @@ header {
     margin-bottom: 20px;
     font-size: 0.93em;
     color: var(--text-primary);
+}
+
+/* ===== PROGRESSIVE HINT SYSTEM ===== */
+
+.hint-system {
+    margin-bottom: 20px;
+}
+
+.hint-button,
+.solution-button {
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.93em;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 8px;
+}
+
+.hint-button:hover { border-color: var(--warning); background: var(--warning-light); }
+.solution-button:hover { border-color: var(--error); background: var(--error-light); }
+
+.hint-content {
+    background: var(--warning-light);
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--warning);
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 0.93em;
+    color: var(--text-primary);
+}
+
+.surrender-prompt {
+    background: var(--bg-tertiary);
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.surrender-prompt p {
+    font-size: 1.05em;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.surrender-yes,
+.surrender-no {
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    border: none;
+    font-size: 0.93em;
+    cursor: pointer;
+    margin: 0 6px;
+    transition: all 0.2s;
+}
+
+.surrender-yes {
+    background: var(--error);
+    color: white;
+}
+.surrender-yes:hover { background: var(--error); opacity: 0.85; }
+
+.surrender-no {
+    background: var(--success);
+    color: white;
+}
+.surrender-no:hover { background: var(--success); opacity: 0.85; }
+
+.solution-content {
+    background: var(--error-light);
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--error);
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.solution-content pre {
+    background: var(--console-bg);
+    color: var(--console-text);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    margin-top: 8px;
+    overflow-x: auto;
+    font-size: 0.9em;
+}
+
+.solution-content code {
+    font-family: var(--font-mono);
 }
 
 /* ===== INTERACTIVE CONSOLE ===== */

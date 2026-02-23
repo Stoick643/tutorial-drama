@@ -10,9 +10,11 @@
   "challenge": {
     "multiline": true,
     "task": "Write a complete API request JSON and see the real response. Include 'model' (moonshot-v1-8k), 'messages' with at least a 'user' message, and 'max_tokens'. This will make a REAL call to the Moonshot LLM!",
-    "hint": "Write valid JSON with model, messages array, and max_tokens. The API key is handled automatically. Try asking something interesting!",
+    "hint": "Look at the curl example — you need the right endpoint, headers, and JSON body structure.",
     "check_logic": {
-      "setup_commands": ["echo echo > /tmp/llm_mode"],
+      "setup_commands": [
+        "echo echo > /tmp/llm_mode"
+      ],
       "validation_command": "call-llm-json /tmp/user_input",
       "expected_result": {
         "type": "user_output_contains",

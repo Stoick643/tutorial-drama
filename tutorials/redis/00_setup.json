@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Connect to Redis and verify it's running by sending a PING command.",
-    "hint": "Use the PING command to check if Redis is alive.",
+    "hint": "What single command checks if Redis is alive?",
     "check_logic": {
       "validation_command": "PING",
       "expected_result": {
         "type": "exact_match",
         "value": "PONG"
       }
-    }
+    },
+    "solution": "PING"
   },
   "styles": [
     {

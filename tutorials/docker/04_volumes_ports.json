@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Run an nginx container in detached mode (-d) with port 8080 mapped to container port 80.",
-    "hint": "Use 'docker run -d -p 8080:80 nginx' — the -d flag runs it in the background.",
+    "hint": "The -p flag maps ports: your_port:container_port. The -d flag runs in background.",
     "check_logic": {
       "validation_command": null,
       "expected_result": {
         "type": "user_output_contains",
         "value": "nginx"
       }
-    }
+    },
+    "solution": "docker run -d -p 8080:80 nginx"
   },
   "styles": [
     {

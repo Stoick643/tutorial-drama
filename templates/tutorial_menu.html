@@ -64,7 +64,7 @@
                     {% for lesson in lessons %}
                     <div class="lesson-card">
                         <div class="lesson-header">
-                            <div class="lesson-number">{{ lesson.module }}.{{ lesson.scene }}</div>
+                            <div class="lesson-number">{{ loop.index }}</div>
                             <h4 class="lesson-title">{{ lesson.title }}</h4>
                         </div>
                         <div class="lesson-content">

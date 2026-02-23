@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Find all employees working on projects in the Engineering department (department_id = 1). Join employees, employee_projects, and projects tables to see the complete picture.",
-    "hint": "Chain multiple INNER JOINs to connect all three tables through their relationships.",
+    "hint": "Subqueries go inside parentheses and run first. Use them in WHERE clauses.",
     "check_logic": {
       "validation_command": "SELECT COUNT(DISTINCT e.id) FROM employees e INNER JOIN employee_projects ep ON e.id = ep.employee_id INNER JOIN projects p ON ep.project_id = p.id WHERE p.department_id = 1;",
       "expected_result": {
         "type": "exact_match",
         "value": "5"
       }
-    }
+    },
+    "solution": "SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);"
   },
   "styles": [
     {

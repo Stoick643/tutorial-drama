@@ -10,9 +10,11 @@
   "challenge": {
     "multiline": true,
     "task": "Build an enhanced prompt that a real company chatbot would use. Create a JSON request with: (1) a 'system' message that includes a persona AND the following context: 'TechCorp Refund Policy: Standard accounts get 30-day refund. Premium accounts get 90-day refund with full feature credit. Enterprise accounts have custom terms.' (2) a 'user' message asking about refunds. Include 'model', 'temperature', and 'max_tokens'.",
-    "hint": "The system message should contain BOTH the persona instructions (e.g., 'You are a customer support assistant') AND the context document. The user message is just the question. Use low temperature (0.3) for factual answers.",
+    "hint": "RAG combines retrieval (finding relevant docs) with generation (LLM answering based on them).",
     "check_logic": {
-      "setup_commands": ["echo echo > /tmp/llm_mode"],
+      "setup_commands": [
+        "echo echo > /tmp/llm_mode"
+      ],
       "validation_command": "validate-api-request /tmp/user_input basic,roles,params,context:refund",
       "expected_result": {
         "type": "exact_match",

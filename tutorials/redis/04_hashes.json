@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Create a comprehensive profile for suspect_delta with age 28, height 5'7\", occupation lawyer, and last_seen courthouse. Then retrieve just their occupation.",
-    "hint": "Use HSET to store multiple fields at once, then HGET to retrieve a specific field.",
+    "hint": "Hashes are like objects with fields. Think about HSET for setting fields.",
     "check_logic": {
       "validation_command": "HGET suspect:delta occupation",
       "expected_result": {
         "type": "exact_match",
         "value": "lawyer"
       }
-    }
+    },
+    "solution": "HSET suspect:1 name \"Alice\" age 30 status \"wanted\"\nHGETALL suspect:1"
   },
   "styles": [
     {

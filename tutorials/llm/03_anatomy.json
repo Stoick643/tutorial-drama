@@ -10,9 +10,11 @@
   "challenge": {
     "multiline": true,
     "task": "Build a complete API request JSON. Include: 'model' (use 'moonshot-v1-8k'), 'messages' array with a 'system' role (give it a persona) and a 'user' role (ask a question), 'temperature' (pick a value 0-2), and 'max_tokens' (pick a limit).",
-    "hint": "Start with { and include all four fields. The messages array needs objects with 'role' and 'content'. System sets the AI's behavior, user is your question. Temperature 0.7 is a good default.",
+    "hint": "Think about the layers a prompt passes through: tokenization, embedding, attention, output.",
     "check_logic": {
-      "setup_commands": ["echo echo > /tmp/llm_mode"],
+      "setup_commands": [
+        "echo echo > /tmp/llm_mode"
+      ],
       "validation_command": "validate-api-request /tmp/user_input basic,roles,params",
       "expected_result": {
         "type": "exact_match",

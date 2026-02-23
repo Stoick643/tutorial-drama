@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Build associate networks for suspects alpha and bravo. Alpha knows murphy, valdez, and chen. Bravo knows murphy, torres, and kim. Find their common connections.",
-    "hint": "Use SADD to build each suspect's network, then SINTER to find who they both know.",
+    "hint": "Sets store unique members. Which command adds to a set?",
     "check_logic": {
       "validation_command": "SINTER known_associates:alpha known_associates:bravo",
       "expected_result": {
         "type": "set_contains",
         "value": "murphy"
       }
-    }
+    },
+    "solution": "SADD suspects \"Alice\" \"Bob\" \"Charlie\"\nSMEMBERS suspects"
   },
   "styles": [
     {

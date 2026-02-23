@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Connect employees to their department names. Join the employees table with the departments table to see which department each employee belongs to.",
-    "hint": "Use INNER JOIN with ON to link employees.department_id to departments.id.",
+    "hint": "JOIN connects two tables on a shared column. Think about which column links them.",
     "check_logic": {
       "validation_command": "SELECT COUNT(*) FROM employees INNER JOIN departments ON employees.department_id = departments.id;",
       "expected_result": {
         "type": "exact_match",
         "value": "15"
       }
-    }
+    },
+    "solution": "SELECT employees.name, departments.name FROM employees JOIN departments ON employees.department_id = departments.id;"
   },
   "styles": [
     {

@@ -9,7 +9,7 @@
   },
   "challenge": {
     "task": "Create a new file called 'evidence.txt' and stage it for commit using git add.",
-    "hint": "First create the file with 'echo', then use 'git add' to stage it.",
+    "hint": "First create the file, then use git add to stage it.",
     "check_logic": {
       "setup_commands": [
         "git config user.email 'test@test.com'",
@@ -20,7 +20,8 @@
         "type": "user_output_contains",
         "value": "evidence.txt"
       }
-    }
+    },
+    "solution": "touch clue.txt && git add clue.txt"
   },
   "styles": [
     {

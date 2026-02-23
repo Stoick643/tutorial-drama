@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Run the classic 'hello-world' container to verify Docker is working end-to-end.",
-    "hint": "Type 'docker run hello-world' — Docker will pull the image and run it.",
+    "hint": "The run command starts a container. Add flags for background mode.",
     "check_logic": {
       "validation_command": null,
       "expected_result": {
         "type": "user_output_contains",
         "value": "Hello from Docker!"
       }
-    }
+    },
+    "solution": "docker run -d nginx"
   },
   "styles": [
     {

@@ -10,14 +10,15 @@
   "challenge": {
     "multiline": true,
     "task": "Write a Dockerfile that starts FROM eclipse-temurin:21, RUNs 'javac -version' to verify the compiler, and sets CMD to run 'java App'. Write each instruction on a new line.",
-    "hint": "You need three lines: FROM, RUN, and CMD. The CMD should use exec form: CMD [\"java\", \"App\"]",
+    "hint": "A Dockerfile starts with FROM (base image) and uses COPY to add files.",
     "check_logic": {
       "validation_command": "validate-dockerfile /tmp/user_input FROM,RUN,CMD",
       "expected_result": {
         "type": "exact_match",
         "value": "PASS"
       }
-    }
+    },
+    "solution": "FROM openjdk:17\nCOPY app.jar /app/\nWORKDIR /app\nCMD [\"java\", \"-jar\", \"app.jar\"]"
   },
   "styles": [
     {

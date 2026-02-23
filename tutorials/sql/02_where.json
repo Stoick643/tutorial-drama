@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Find all employees in department_id 1 (Engineering) who earn more than 80000. These are your high-value suspects.",
-    "hint": "Use WHERE with AND to combine multiple conditions.",
+    "hint": "Add a condition after WHERE to filter rows by department.",
     "check_logic": {
       "validation_command": "SELECT COUNT(*) FROM employees WHERE department_id = 1 AND salary > 80000;",
       "expected_result": {
         "type": "exact_match",
         "value": "4"
       }
-    }
+    },
+    "solution": "SELECT * FROM employees WHERE department = 'Engineering';"
   },
   "styles": [
     {

@@ -197,7 +197,7 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
                 if "technical_concept" in trans:
                     lesson_data["technical_concept"] = trans["technical_concept"]
                 if "challenge" in trans:
-                    for key in ("task", "hint"):
+                    for key in ("task", "hint", "solution"):
                         if key in trans["challenge"]:
                             lesson_data["challenge"][key] = trans["challenge"][key]
                 # Merge translated styles (keyed by style name)
@@ -238,6 +238,8 @@ async def get_tutorial(request: Request, topic: str, lesson: str):
                 "tutorial": lesson_data.get("tutorial", ""),
                 "module": lesson_data.get("module", 1),
                 "scene": lesson_data.get("scene", 1),
+                "lesson_number": current_index + 1,
+                "total_lessons": len(lesson_files),
                 "title": selected_style.get("title", "") if selected_style else "",
                 "dialogue": selected_style.get("dialogue", []) if selected_style else [],
                 "code_example": lesson_data.get("code_example", {}),

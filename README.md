@@ -1,6 +1,6 @@
 # Tutorial Drama — Narrative Learning Engine
 
-A web-based interactive learning platform that teaches technical subjects through story-driven tutorials. Instead of dry documentation, learners experience technical concepts through narrative dialogues — Detective Noir, Sci-Fi, Fairy Tales, Romance, and more.
+A web-based interactive learning platform that teaches technical subjects through story-driven tutorials. Instead of dry documentation, learners experience technical concepts through narrative dialogues — Detective Noir, Sci-Fi, Fairy Tales, Survival Adventure, and more.
 
 **Live:** [tutorial-drama.fly.dev](https://tutorial-drama.fly.dev)
 
@@ -13,6 +13,7 @@ A web-based interactive learning platform that teaches technical subjects throug
 | Git | 4 | Version control: status, staging, commits, branches | Noir, Sci-Fi |
 | Docker | 6 | Containers: Dockerfiles, images, volumes, Compose | Fairy Tale, Romance |
 | LLM | 6 | AI internals: tokens, embeddings, API calls | Sci-Fi, Office Comedy |
+| Bash | 8 | Shell: navigation, files, grep, pipes, xargs, sed/awk, scripting | Survival Adventure, Heist/Spy |
 
 Available in 3 languages: English, Slovenščina, Српски.
 
@@ -31,7 +32,7 @@ python app/main.py
 # Visit http://127.0.0.1:8000
 ```
 
-On startup, the app warms Docker container pools (3 containers × 5 topics = 15 containers).
+On startup, the app warms Docker container pools (3 containers × 6 topics = 18 containers).
 
 ## Architecture
 
@@ -55,6 +56,7 @@ On startup, the app warms Docker container pools (3 containers × 5 topics = 15 
 | Git | `grader-image-git` | Real git in initialized repo |
 | Docker | `grader-image-docker` | Mock docker CLI + Dockerfile/Compose validators |
 | LLM | `grader-image-llm` | Real tokenizer + API calls to Moonshot |
+| Bash | `grader-image-bash` | Real bash + coreutils in Alpine with sample files |
 
 **fly.io** uses subprocess calls — same tools installed directly in the image. Toggle via `GRADER_MODE` env var (`docker` or `subprocess`).
 
@@ -76,20 +78,23 @@ tutorial-drama/
 │   ├── tutorial_menu.html     # Topic lesson selector
 │   └── tutorial_template.html # Lesson viewer (style-agnostic)
 ├── tutorials/                 # Content-as-code (JSON)
-│   ├── redis/                 # 5 lessons (00-04)
-│   ├── sql/                   # 6 lessons (00-05)
-│   ├── git/                   # 4 lessons (00-03)
-│   ├── docker/                # 6 lessons (00-05)
-│   └── llm/                   # 6 lessons (00-05)
+│   ├── redis/                 # 5 lessons
+│   ├── sql/                   # 6 lessons
+│   ├── git/                   # 4 lessons
+│   ├── docker/                # 6 lessons
+│   ├── llm/                   # 6 lessons
+│   └── bash/                  # 8 lessons
 ├── translations/              # i18n translation files
-│   ├── sl/                    # Slovenian (54 files)
-│   └── sr-cyrl/               # Serbian Cyrillic (54 files... wait, no)
+│   ├── sl/                    # Slovenian (35 lessons)
+│   └── sr-cyrl/               # Serbian Cyrillic (35 lessons)
 ├── docker/                    # Grader Docker images (local dev)
 │   ├── redis/Dockerfile
 │   ├── sql/Dockerfile + company.db
 │   ├── git/Dockerfile
 │   ├── docker/Dockerfile + mock CLI + validators
-│   └── llm/Dockerfile + Python scripts
+│   ├── llm/Dockerfile + Python scripts
+│   └── bash/Dockerfile
+├── tests/                     # Pytest test suite
 ├── docs/                      # Detailed curriculum designs
 ├── Dockerfile.flyio           # All-in-one image for fly.io
 ├── fly.toml                   # fly.io configuration
@@ -102,12 +107,13 @@ tutorial-drama/
 
 Each lesson file contains:
 - **tutorial** — Tutorial name (e.g., "Redis Basics")
-- **module/scene** — Lesson numbering
+- **module/scene** — Lesson numbering (internal, displayed as "Lesson N of M")
 - **technical_concept** — Plain explanation of what's being taught
 - **code_example** — Example code (`language` + `code`)
 - **challenge** — Interactive task
   - **task** — What the user needs to do
-  - **hint** — Optional hint
+  - **hint** — Conceptual nudge (not the answer)
+  - **solution** — Full solution (revealed on request)
   - **multiline** — If true, shows textarea instead of single-line input
   - **mode** — `"chat"` for conversational lessons (no grading)
   - **check_logic** — Validation rules for grader

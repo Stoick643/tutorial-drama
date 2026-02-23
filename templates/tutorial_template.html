@@ -17,8 +17,7 @@
                     {{ title }}
                 </div>
                 <div class="lesson-info">
-                    <span class="module">Module {{ module }}</span>
-                    <span class="scene">Scene {{ scene }}</span>
+                    <span class="lesson-number-display">Lesson {{ lesson_number }} of {{ total_lessons }}</span>
                     {% if available_styles and available_styles|length > 1 %}
                     <div class="style-selector">
                         <label for="style-select">Style:</label>
@@ -42,7 +41,8 @@
                 <h2 class="scene-title">{{ title }}</h2>
 
                 <div class="technical-concept">
-                    <p><strong>Concept:</strong> {{ technical_concept }}</p>
+                    <p><strong>Concept:</strong></p>
+                    <div class="concept-text">{{ technical_concept | replace('\n\n', '</p><p>') | replace('\n', '<br>') | safe }}</div>
                 </div>
 
                 <div class="dialogue-container">
@@ -69,9 +69,27 @@
                     <p>{{ challenge.task }}</p>
                 </div>
 
-                {% if challenge.hint %}
-                <div class="challenge-hint">
-                    <p><strong>Hint:</strong> {{ challenge.hint }}</p>
+                {% if challenge.hint or challenge.solution %}
+                <div class="hint-system">
+                    {% if challenge.hint %}
+                    <button id="hint-button" class="hint-button" onclick="showHint()">💡 Hint</button>
+                    <div id="hint-content" class="hint-content" style="display: none;">
+                        <p>{{ challenge.hint }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if challenge.solution %}
+                    <button id="solution-button" class="solution-button" style="display: none;" onclick="showSurrenderPrompt()">🔓 Show Solution</button>
+                    <div id="surrender-prompt" class="surrender-prompt" style="display: none;">
+                        <p>Do you surrender? 🏳️</p>
+                        <button class="surrender-yes" onclick="showSolution()">Yes, show me</button>
+                        <button class="surrender-no" onclick="hideSurrenderPrompt()">No, let me try again</button>
+                    </div>
+                    <div id="solution-content" class="solution-content" style="display: none;">
+                        <p><strong>Solution:</strong></p>
+                        <pre><code>{{ challenge.solution }}</code></pre>
+                    </div>
+                    {% endif %}
                 </div>
                 {% endif %}
 
@@ -133,6 +151,26 @@
                 window.location.replace(url);
             }
         })();
+    </script>
+    <script>
+        function showHint() {
+            document.getElementById('hint-content').style.display = 'block';
+            document.getElementById('hint-button').style.display = 'none';
+            var solBtn = document.getElementById('solution-button');
+            if (solBtn) solBtn.style.display = 'inline-block';
+        }
+        function showSurrenderPrompt() {
+            document.getElementById('surrender-prompt').style.display = 'block';
+            document.getElementById('solution-button').style.display = 'none';
+        }
+        function hideSurrenderPrompt() {
+            document.getElementById('surrender-prompt').style.display = 'none';
+            document.getElementById('solution-button').style.display = 'inline-block';
+        }
+        function showSolution() {
+            document.getElementById('surrender-prompt').style.display = 'none';
+            document.getElementById('solution-content').style.display = 'block';
+        }
     </script>
     <script src="/static/interactive.js?v={{ js_version }}"></script>
 </body>

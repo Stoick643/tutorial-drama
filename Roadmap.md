@@ -1,6 +1,6 @@
 # Tutorial Drama — Roadmap
 
-## Current State: 5 Topics Live, 1 Planned
+## Current State: 6 Topics Live
 
 ### Topics & Styles
 
@@ -11,23 +11,25 @@
 | Git | 4 (00-03) | Detective Noir, Sci-Fi | ✅ Complete |
 | Docker | 6 (00-05) | Fairy Tale, Romance | ✅ Complete |
 | LLM | 6 (00-05) | Sci-Fi, Office Comedy | ✅ Complete |
-| Bash/Linux | TBD | TBD | ⏳ Planned |
+| Bash | 8 (00-07) | Survival Adventure, Heist/Spy | ✅ Complete |
 
 ### Platform Features
 
 | Feature | Status |
 |---------|--------|
 | FastAPI + Jinja2 UI | ✅ |
-| Docker-based grading | ✅ |
+| Docker-based grading (local) | ✅ |
+| Subprocess-based grading (fly.io) | ✅ |
 | Interactive console (single-line + multi-line) | ✅ |
 | Chat mode (Send button, no grading) | ✅ |
 | Multiple narrative styles per lesson | ✅ |
 | Prev/Next lesson navigation | ✅ |
 | Progress tracking (localStorage) | ✅ |
-| i18n (translation support) | ✅ Complete (Slovenian + Serbian Cyrillic, all topics) |
+| i18n: Slovenian + Serbian Cyrillic (all 35 lessons) | ✅ |
 | Real LLM API integration (Moonshot) | ✅ |
-| User accounts + persistent progress | ⏳ Planned |
-| Deployment to fly.io | ✅ Live at tutorial-drama.fly.dev |
+| Light warm theme UI | ✅ |
+| Deployment to fly.io | ✅ |
+| CI/CD: GitHub Actions → fly deploy | ✅ |
 
 ---
 
@@ -72,21 +74,16 @@
 - Translation architecture: separate files in `translations/{lang}/{topic}/`
 - Only translatable strings overridden, grading logic untouched
 - Language selector dropdown on lesson pages (English, Slovenščina, Српски)
-- 54 translation files: all 5 topics × 2 languages (sl, sr-cyrl)
-- Slovenian: all 27 lessons translated (detective_noir + sci_fi / fairy_tale + flirting / office_comedy)
-- Serbian Cyrillic: all 27 lessons translated, full Cyrillic script including character names
+- Slovenian: all 35 lessons translated
+- Serbian Cyrillic: all 35 lessons translated, full Cyrillic script including character names
 
----
-
-## Next Up
-
-### UI Theme Redesign ✅
+### UI Theme Redesign
 - Light warm theme replacing dark noir (#f8f7f4 background, white cards)
 - Facebook blue accent (#1877F2) instead of red
 - Sans-serif body font, monospace only for code/console
 - Dark console blocks (Catppuccin-inspired) inside light page
 
-### Subprocess Refactor ✅
+### Subprocess Refactor
 - `app/subprocess_manager.py` — same interface as `docker_manager.py`
 - Tools installed directly: redis-cli, sqlite3, git, python + libs
 - `subprocess.run()` with timeouts instead of `docker exec`
@@ -94,12 +91,26 @@
 - State reset between requests (FLUSHALL, copy fresh DB, git reset)
 - Toggle via env var: `GRADER_MODE=subprocess` vs `GRADER_MODE=docker` (default)
 
-### Deployment to fly.io ✅
+### Phase 2g: Bash Tutorial
+- 8 lessons: navigation, files, grep/find, pipes, xargs, sed/awk, toolbelt, scripting
+- Two narrative styles: Survival Adventure + Heist/Spy
+- Real bash execution in Alpine container
+- Pipe and xargs as centerpiece (lessons 03-04)
+- Lesson 06: chat mode for trickier commands (chmod, curl, history, alias, top)
+- Lesson 07: write a complete bash script (multiline)
+- Docker grader: `grader-image-bash` with pre-populated sample files
+- Subprocess grader: workspace with same sample files
+- Translations: Slovenian + Serbian Cyrillic for all 8 lessons
+
+---
+
+## Deployment
+
 Single fly.io app deployed from this monorepo:
 
 **Architecture:**
 - **One app: `tutorial-drama`** — FastAPI + all grading tools in one image
-- `Dockerfile.flyio` installs redis-server, redis-cli, sqlite3, git, python + libs
+- `Dockerfile.flyio` installs redis-server, redis-cli, sqlite3, git, bash, python + libs
 - `GRADER_MODE=subprocess` — no Docker-in-Docker needed
 - CI/CD: GitHub Actions auto-deploys on push to master
 - Cost: ~$0/mo (pennies)
@@ -121,27 +132,53 @@ fly deploy --dockerfile Dockerfile.flyio
 - Zero code changes, but requires Docker + nginx + certbot setup
 - Fallback if fly.io approach hits limitations
 
-### Bash/Linux Tutorial
-- Real shell commands in Alpine container
-- Topics: navigation, file ops, pipes, grep, permissions, scripting
-- Curriculum TBD
+---
 
-**Detailed design:** `docs/bash-curriculum.md` (to be created)
+## Next Up
+
+### Lesson Numbering Fix
+- Current: "Module 1 - Scene 0" → confusing (0-indexed, "module" implies more, "scene" is unclear)
+- New: **"Lesson 1 of 8"** — 1-indexed, clear, no jargon
+- Template-only change, affects all topics
+- Internal JSON fields (`module`/`scene`) stay unchanged
+
+### Progressive Hint System
+- Current: "hint" field contains the full solution — not helpful for learning
+- New 3-step flow:
+  1. 💡 **Hint** — conceptual nudge ("Think about which command creates directories...")
+  2. 🔓 **Show Solution** — confirmation: "Do you surrender? 🏳️" (Yes / No)
+  3. Full solution revealed
+- Requires:
+  - New `"solution"` field in lesson JSON (alongside existing `"hint"`)
+  - UI changes in `tutorial_template.html` + `interactive.js`
+  - Update all 35 lessons across all topics (split hint from solution)
+
+### Lesson Content Polish
+- Bash lesson 00: simplify challenge to just `mkdir camp` (no `&&` for beginners)
+- Bash lesson 01: more flavor on command names (cat, touch, echo), explain `>` operator
+- Review all bash lessons for beginner-friendliness
+- Ensure challenges match difficulty progression
+
+### UI String Translations
+- Currently only lesson content is translated, UI chrome is English-only
+- Buttons: Check Answer, Hint, Show Solution, Previous, Next
+- Headers: "Lesson X of Y", homepage text, feature descriptions
+- Not priority — prep structure for it when implementing hint system
 
 ---
 
 ## Future / Phase 3
 
-### Remaining i18n Work
-- Translate UI strings (buttons, headers, homepage)
-- Additional languages if needed
-
-### More Narrative Styles
-- Shakespearean Drama (for more topics)
-- Additional styles per existing topics
+### More Content
+- Additional narrative styles (Shakespearean for more topics)
+- More styles per existing topics
+- Additional topics TBD
 
 ### Platform Features
 - User accounts and authentication
 - Persistent progress tracking (replace localStorage with server-side DB)
 - Accessibility improvements (ARIA labels, keyboard navigation, color contrast)
-- Tests for subprocess_manager.py
+
+### Additional Languages
+- UI string translation infrastructure
+- More languages if demand exists

@@ -9,7 +9,7 @@
   },
   "challenge": {
     "task": "Create a new branch called 'investigation' and switch to it.",
-    "hint": "Use 'git branch' to create the branch, then 'git checkout' to switch to it. Or use 'git checkout -b' to do both at once.",
+    "hint": "Create a branch with git branch, then switch to it with git checkout (or combine both).",
     "check_logic": {
       "setup_commands": [
         "git config user.email 'test@test.com'",
@@ -20,7 +20,8 @@
         "type": "exact_match",
         "value": "investigation"
       }
-    }
+    },
+    "solution": "git checkout -b investigation"
   },
   "styles": [
     {

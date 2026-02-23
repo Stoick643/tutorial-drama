@@ -10,14 +10,15 @@
   "challenge": {
     "multiline": true,
     "task": "Write a docker-compose.yml with two services: 'web' using the nginx image with port 8080:80, and 'db' using the ibmcom/db2 image with environment variables DB2INST1_PASSWORD set to 'secret' and LICENSE set to 'accept'.",
-    "hint": "Start with 'services:', then define 'web' and 'db' as sub-keys. Each needs 'image:'. Web needs 'ports:', db needs 'environment:' with two variables.",
+    "hint": "Compose files use YAML. Define services, their images, and how they connect.",
     "check_logic": {
       "validation_command": "validate-compose /tmp/user_input services,service:web,service:db,image:web,image:db,ports:web,environment:db",
       "expected_result": {
         "type": "exact_match",
         "value": "PASS"
       }
-    }
+    },
+    "solution": "version: '3'\nservices:\n  web:\n    image: nginx\n    ports:\n      - \"8080:80\"\n  db:\n    image: postgres\n    environment:\n      POSTGRES_PASSWORD: secret"
   },
   "styles": [
     {

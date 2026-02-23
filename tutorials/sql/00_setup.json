@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Connect to the database and list all available tables to understand the data structure.",
-    "hint": "Query the sqlite_master table to see what tables exist in this database.",
+    "hint": "Start with SELECT and think about which table holds employee data.",
     "check_logic": {
       "validation_command": "SELECT COUNT(*) FROM sqlite_master WHERE type='table';",
       "expected_result": {
         "type": "exact_match",
         "value": "4"
       }
-    }
+    },
+    "solution": "SELECT * FROM employees;"
   },
   "styles": [
     {

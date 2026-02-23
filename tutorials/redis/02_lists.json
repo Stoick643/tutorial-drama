@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Three suspects just walked in: `suspect_alpha`, `suspect_bravo`, and `suspect_charlie`. Add them to the interrogation queue in that order (alpha first, charlie last), then bring the first suspect in for questioning.",
-    "hint": "Use RPUSH to add suspects to the end of the queue, then LPOP to bring the first one out.",
+    "hint": "Think about which command adds items to the left side of a list.",
     "check_logic": {
       "validation_command": "LLEN interrogation:queue",
       "expected_result": {
         "type": "exact_match",
         "value": "2"
       }
-    }
+    },
+    "solution": "LPUSH clues \"fingerprint\" \"weapon\" \"motive\"\nLRANGE clues 0 -1"
   },
   "styles": [
     {

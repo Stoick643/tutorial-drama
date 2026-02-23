@@ -11,9 +11,11 @@
     "mode": "chat",
     "multiline": true,
     "task": "Ask the LLM anything. Type a question and see a real AI respond. This is a live connection to a real language model.",
-    "hint": "Type any question — 'What is quantum computing?', 'Explain Docker in one sentence', 'Write a haiku about Java'. Anything goes!",
+    "hint": "Just type any question — this is a live connection to a real AI model.",
     "check_logic": {
-      "setup_commands": ["echo call-llm > /tmp/llm_mode"],
+      "setup_commands": [
+        "echo call-llm > /tmp/llm_mode"
+      ],
       "validation_command": null,
       "expected_result": {
         "type": "user_output_contains",

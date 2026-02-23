@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Retrieve a list of all employee names (first_name and last_name) from the employees table to begin your investigation.",
-    "hint": "Use SELECT with column names separated by commas.",
+    "hint": "You only need specific columns, not all of them.",
     "check_logic": {
       "validation_command": "SELECT COUNT(*) FROM employees;",
       "expected_result": {
         "type": "exact_match",
         "value": "15"
       }
-    }
+    },
+    "solution": "SELECT name, department FROM employees;"
   },
   "styles": [
     {

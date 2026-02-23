@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Check the status of your Git repository to see what's being tracked.",
-    "hint": "Use 'git status' to see the current state of your repository.",
+    "hint": "Which command shows the current state of your repository?",
     "check_logic": {
       "validation_command": "git status",
       "expected_result": {
         "type": "user_output_contains",
         "value": "On branch"
       }
-    }
+    },
+    "solution": "git status"
   },
   "styles": [
     {

@@ -10,9 +10,11 @@
   "challenge": {
     "multiline": true,
     "task": "Compare two sentences by entering their numbers (e.g., '0 3'). Type 'list' first to see all available sentences, then pick two and see how similar the LLM thinks they are.",
-    "hint": "Try comparing sentences from the same topic (e.g., 0 and 1 — both about cats) vs different topics (e.g., 0 and 11 — cats vs finance). Watch the similarity score change!",
+    "hint": "Try pairs of sentences — similar meanings should have high cosine similarity scores.",
     "check_logic": {
-      "setup_commands": ["echo similarity > /tmp/llm_mode"],
+      "setup_commands": [
+        "echo similarity > /tmp/llm_mode"
+      ],
       "validation_command": null,
       "expected_result": {
         "type": "user_output_contains",

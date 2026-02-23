@@ -9,14 +9,15 @@
   },
   "challenge": {
     "task": "Calculate the total number of employees in each department. Use COUNT and GROUP BY to see how staff are distributed across the company.",
-    "hint": "Use COUNT(*) with GROUP BY department_id to count employees per department.",
+    "hint": "GROUP BY groups rows, and aggregate functions like COUNT or AVG summarize them.",
     "check_logic": {
       "validation_command": "SELECT COUNT(*) FROM (SELECT department_id, COUNT(*) FROM employees GROUP BY department_id);",
       "expected_result": {
         "type": "exact_match",
         "value": "4"
       }
-    }
+    },
+    "solution": "SELECT department, COUNT(*) FROM employees GROUP BY department;"
   },
   "styles": [
     {

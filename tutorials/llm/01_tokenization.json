@@ -10,9 +10,11 @@
   "challenge": {
     "multiline": true,
     "task": "Type any text and see how the tokenizer breaks it into tokens. Try different things: a simple sentence, a long word like 'internationalization', or even some code like 'print(\"hello\")'.",
-    "hint": "Try comparing short common words (fewer tokens) with long technical words (more tokens). Notice how spaces are handled!",
+    "hint": "Type a sentence and see how the tokenizer breaks it into pieces. Longer words get split more.",
     "check_logic": {
-      "setup_commands": ["echo tokenize > /tmp/llm_mode"],
+      "setup_commands": [
+        "echo tokenize > /tmp/llm_mode"
+      ],
       "validation_command": null,
       "expected_result": {
         "type": "user_output_contains",
