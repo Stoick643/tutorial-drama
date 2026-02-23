@@ -1,0 +1,100 @@
+{
+  "tutorial": "Bash Basics",
+  "module": 1,
+  "scene": 0,
+  "technical_concept": "The terminal is your window into the file system.\n\npwd — shows where you are (Print Working Directory).\nls — lists files and folders. Add -la for hidden files and details.\ncd — changes directory. cd .. goes up, cd ~ goes home.\nmkdir — creates new directories.",
+  "code_example": {
+    "language": "bash",
+    "code": "pwd\n# /home/user\n\nls -la\n# drwxr-xr-x  2 user user 4096 Jan 1 00:00 documents\n# -rw-r--r--  1 user user  123 Jan 1 00:00 notes.txt\n\ncd documents\nmkdir projects"
+  },
+  "challenge": {
+    "task": "Create a directory called 'camp'.",
+    "hint": "Which command creates a new directory?",
+    "check_logic": {
+      "validation_command": "ls -d camp 2>/dev/null",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "camp"
+      }
+    },
+    "solution": "mkdir camp"
+  },
+  "styles": [
+    {
+      "name": "survival",
+      "title": "Waking Up in the Wilderness",
+      "dialogue": [
+        {
+          "character": "Narrator",
+          "line": "You open your eyes. Pine trees tower above you. The air smells like rain and earth. Your backpack is gone, your phone is dead — but there's a terminal glowing softly on a rock beside you."
+        },
+        {
+          "character": "Terminal",
+          "line": "SYSTEM ONLINE. Welcome, survivor. I am your only connection to the outside world. Through me, you can navigate, build, and survive."
+        },
+        {
+          "character": "You",
+          "line": "Where... where am I?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Type 'pwd' — Print Working Directory. It will tell you exactly where you are in this wilderness."
+        },
+        {
+          "character": "You",
+          "line": "Okay... /wilderness/clearing. That's... not very reassuring."
+        },
+        {
+          "character": "Terminal",
+          "line": "Now type 'ls' to look around. It lists everything in your current location — files, directories, resources. Add '-la' to see hidden items and details. Knowledge is survival."
+        },
+        {
+          "character": "You",
+          "line": "I see some files... and a 'forest' directory. How do I go there?"
+        },
+        {
+          "character": "Terminal",
+          "line": "'cd forest' moves you into it. 'cd ..' brings you back. Think of directories as trails — you walk in, you walk out. And 'mkdir' creates a new shelter — a new directory. First things first: set up camp."
+        }
+      ]
+    },
+    {
+      "name": "heist",
+      "title": "The Briefing Room",
+      "dialogue": [
+        {
+          "character": "Narrator",
+          "line": "A dimly lit room. A single laptop on a steel table. You sit down. A voice crackles through the earpiece."
+        },
+        {
+          "character": "Handler",
+          "line": "Welcome to the team, rookie. Codename: Ghost. I'm your handler. Everything we do goes through the terminal. No GUI, no traces."
+        },
+        {
+          "character": "Ghost",
+          "line": "I'm in. What's the first move?"
+        },
+        {
+          "character": "Handler",
+          "line": "Rule one: always know where you are. Type 'pwd' — Print Working Directory. If you don't know your position, you're already compromised."
+        },
+        {
+          "character": "Ghost",
+          "line": "Got it. /ops/staging. And I need to see what's here?"
+        },
+        {
+          "character": "Handler",
+          "line": "'ls' — list everything. Use 'ls -la' for the full intel: hidden files, permissions, timestamps. In this business, the hidden stuff matters most."
+        },
+        {
+          "character": "Ghost",
+          "line": "I see directories: vault, comms, extraction. How do I move?"
+        },
+        {
+          "character": "Handler",
+          "line": "'cd vault' gets you in. 'cd ..' pulls you out. And 'mkdir' creates a new drop point — a directory for stashing files. Set up a staging area. We're going to need it."
+        }
+      ]
+    }
+  ]
+}

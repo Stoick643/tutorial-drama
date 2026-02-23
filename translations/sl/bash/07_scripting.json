@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Bash",
+  "technical_concept": "Bash skripta je datoteka, ki vsebuje zaporedje ukazov. Začne se z '#!/bin/bash' (shebang), ki sistemu pove, naj uporabi bash. Spremenljivke shranjujejo vrednosti: IME=\"svet\". 'read' pridobi vnos od uporabnika. 'echo' izpiše izhod. Skripte kombinirajo vse, kar ste se naučili — operacije z datotekami, cevi, pogoje — v programe za večkratno uporabo. Shranite kot .sh, naredite izvršljivo s 'chmod +x' in zaženite z './skripta.sh'.",
+  "challenge": {
+    "task": "Napišite bash skripto, ki: 1) Ustvari imenik z imenom 'mysite', 2) Ustvari 'index.html' in 'style.css' notri, 3) Zapiše '<h1>Hello World</h1>' v index.html, 4) Izpiše vsebino mysite/, 5) Na koncu izpiše 'Done!'. Ne pozabite na #!/bin/bash shebang!",
+    "hint": "Začnite z #!/bin/bash, nato uporabite mkdir, cd, echo '...' > datoteka, touch, ls in echo Done!"
+  },
+  "styles": {
+    "survival": {
+      "title": "Priročnik za preživetje",
+      "dialogue": [
+        {"character": "Terminal", "line": "Obvladate posamezna orodja — navigacijo, datoteke, iskanje, cevi, obdelavo besedila. Sedaj je čas, da jih kombinirate v nekaj trajnega: skripto. Priročnik za preživetje, ki ga lahko zaženete znova in znova."},
+        {"character": "Vi", "line": "Skripta? Kot programiranje?"},
+        {"character": "Terminal", "line": "Najpreprostejša vrsta. Bash skripta je le besedilna datoteka z ukazi, eden na vrstico. Začnite z '#!/bin/bash' — to je shebang. Sistemu pove: 'ta datoteka govori bash.' Po tem se vsaka vrstica izvede po vrsti, ravno kot bi tipkali ukaze enega za drugim."},
+        {"character": "Vi", "line": "Si lahko zapomni stvari? Kot ime?"},
+        {"character": "Terminal", "line": "Spremenljivke. 'IME=\"bazni tabor\"' shrani vrednost. '$IME' jo prikliče. 'read ODGOVOR' počaka na vaš vnos. Zgradite lahko interaktivna orodja — skripto, ki vas vpraša, kaj potrebujete, in to zgradi za vas."},
+        {"character": "Vi", "line": "Torej bi lahko avtomatiziral postavitev tabora vsakič?"},
+        {"character": "Terminal", "line": "Točno. Ena skripta, ki ustvari imenike, generira datoteke, zapiše vsebino — celotna postavitev tabora z enim ukazom. Vsak velik preživeli avtomatizira ponavljajoča se opravila. Napišite skripto, ki zgradi majhno strukturo spletne strani. Dokažite, da znate avtomatizirati preživetje."}
+      ]
+    },
+    "heist": {
+      "title": "Glavni načrt",
+      "dialogue": [
+        {"character": "Vodja", "line": "To je to, Duh. Zadnja lekcija. Vse, kar ste se naučili — navigacija, rokovanje z datotekami, izvidništvo, cevi, xargs, obdelava besedila — vse se združi v skripti. Glavni načrt."},
+        {"character": "Duh", "line": "Skripta poveže vse skupaj?"},
+        {"character": "Vodja", "line": "Bash skripta je vaš operativni priročnik. Začne se z '#!/bin/bash' — glava kodnega imena. Po tem je vsaka vrstica korak v načrtu. Izvedejo se po vrsti, od vrha do dna. Brez ročnega posredovanja."},
+        {"character": "Duh", "line": "Spremenljivke?"},
+        {"character": "Vodja", "line": "'TARCA=\"trezor\"' — shrani ime tarče. '$TARCA' jo prikliče kjerkoli v skripti. 'read VNOS' se ustavi in počaka na vašo odločitev. Skripte lahko naredite interaktivne — načrt se prilagodi razmeram na terenu."},
+        {"character": "Duh", "line": "Torej načrt napišem enkrat in ga izvedem z enim ukazom?"},
+        {"character": "Vodja", "line": "To je razlika med amaterjem in profesionalcem. Amaterji tipkajo ukaze enega za drugim. Profesionalci napišejo celotno operacijo v skripto. Napišite mi skripto, ki postavi spletni projekt — imenik, datoteke, vsebino, potrditev. Pokažite mi, da znate načrtovati čisto operacijo od začetka do konca."}
+      ]
+    }
+  }
+}

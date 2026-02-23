@@ -90,9 +90,16 @@ def sanitize_input(language: str, code: str) -> tuple[bool, str]:
     stripped = code.strip()
 
     # Check dangerous patterns (all topics except specific exceptions)
+    # Bash topic allows more commands since it's teaching shell usage
+    BASH_ALLOWED_PATTERNS = {
+        r'\brm\s+-rf', r'\bchmod\b', r'\bcat\s+/\b',
+    }
     for pattern in DANGEROUS_PATTERNS:
         # Allow curl for LLM topic only
         if pattern == r'\bcurl\b' and language == 'llm':
+            continue
+        # Allow certain patterns for bash topic
+        if language == 'bash' and pattern in BASH_ALLOWED_PATTERNS:
             continue
         if re.search(pattern, stripped, re.IGNORECASE):
             return False, "Command not allowed for security reasons."
@@ -114,6 +121,11 @@ def sanitize_input(language: str, code: str) -> tuple[bool, str]:
         for part in parts:
             if not any(part.startswith(prefix) for prefix in GIT_ALLOWED_PREFIXES):
                 return False, f"Command not allowed. Use git, touch, echo, cat, or ls."
+
+    elif language == "bash":
+        # Allow common bash commands but check dangerous patterns (already checked above)
+        # For scripts (multiline), the dangerous patterns check is sufficient
+        pass
 
     # Docker and LLM: content input (Dockerfiles, JSON, text) is always safe
     # since it's saved to a file, not executed as shell commands.
@@ -139,6 +151,7 @@ class SubprocessManager:
         self._sql_db_path = "/tmp/grader-company.db"
         self._sql_db_source = str(BASE_DIR / "docker" / "sql" / "company.db")
         self._tmp_input = "/tmp/grader-user-input"
+        self._bash_workspace = "/tmp/grader-bash-workspace"
 
     async def startup(self):
         """Start background services (e.g., redis-server)."""
@@ -160,6 +173,9 @@ class SubprocessManager:
 
         # Copy SQL database
         self._reset_sql_db()
+
+        # Initialize bash workspace
+        self._init_bash_workspace()
 
         print("Subprocess manager ready.")
 
@@ -186,6 +202,45 @@ class SubprocessManager:
             shutil.copy2(self._sql_db_source, self._sql_db_path)
         else:
             print(f"  Warning: SQL database not found at {self._sql_db_source}")
+
+    def _init_bash_workspace(self):
+        """Create bash workspace with sample files for lessons."""
+        ws = self._bash_workspace
+        if os.path.exists(ws):
+            shutil.rmtree(ws)
+        os.makedirs(os.path.join(ws, "subdir"), exist_ok=True)
+        os.makedirs(os.path.join(ws, "logs"), exist_ok=True)
+
+        # server.log for grep lessons (lesson 02)
+        with open(os.path.join(ws, "server.log"), "w") as f:
+            f.write("2024-01-15 10:23:01 error connection refused from 192.168.1.50\n")
+            f.write("2024-01-15 10:23:15 info server started on port 8080\n")
+            f.write("2024-01-15 10:24:02 warning disk space low\n")
+            f.write("2024-01-15 10:25:33 ERROR timeout waiting for response\n")
+            f.write("2024-01-15 10:26:01 info request processed successfully\n")
+            f.write("2024-01-15 10:27:45 error connection reset by peer\n")
+            f.write("2024-01-15 10:28:00 info health check passed\n")
+
+        # access.log for pipe lessons (lesson 03) - 5 unique lines after sort|uniq
+        with open(os.path.join(ws, "access.log"), "w") as f:
+            f.write("192.168.1.10 GET /index.html 200\n")
+            f.write("10.0.0.5 GET /about.html 200\n")
+            f.write("192.168.1.10 GET /index.html 200\n")
+            f.write("10.0.0.5 POST /api/data 201\n")
+            f.write("192.168.1.20 GET /style.css 200\n")
+            f.write("10.0.0.5 GET /about.html 200\n")
+            f.write("192.168.1.30 GET /contact.html 404\n")
+            f.write("192.168.1.40 GET /login.html 200\n")
+            f.write("192.168.1.30 GET /contact.html 404\n")
+
+        # .tmp files for xargs lesson (lesson 04)
+        for name in ["junk1.tmp", "junk2.tmp"]:
+            Path(os.path.join(ws, name)).touch()
+        Path(os.path.join(ws, "subdir", "junk3.tmp")).touch()
+
+    def _reset_bash_workspace(self):
+        """Reset bash workspace to original state."""
+        self._init_bash_workspace()
 
     def _run_cmd(self, cmd, cwd=None, input_data=None, timeout=TIMEOUT_SECONDS):
         """Run a command and return (exit_code, output)."""
@@ -276,6 +331,19 @@ class SubprocessManager:
                 timeout=30
             )
 
+    def _execute_bash(self, code: str):
+        """Execute bash commands in the bash workspace."""
+        stripped = code.strip()
+        if stripped.startswith("#!/bin/bash") or '\n' in stripped:
+            # Multi-line script — save to file and execute
+            script_path = "/tmp/grader-bash-script.sh"
+            with open(script_path, "w") as f:
+                f.write(code)
+            return self._run_cmd(["bash", script_path], cwd=self._bash_workspace)
+        else:
+            # Single command — execute directly
+            return self._run_cmd(["sh", "-c", code], cwd=self._bash_workspace)
+
     def _execute(self, language: str, code: str):
         """Route execution to the right handler."""
         if language == "redis":
@@ -288,6 +356,8 @@ class SubprocessManager:
             return self._execute_docker(code)
         elif language == "llm":
             return self._execute_llm(code)
+        elif language == "bash":
+            return self._execute_bash(code)
         else:
             return 1, f"Unsupported language: {language}"
 
@@ -302,6 +372,8 @@ class SubprocessManager:
         elif language in ("docker", "llm"):
             if os.path.exists(self._tmp_input):
                 os.remove(self._tmp_input)
+        elif language == "bash":
+            self._reset_bash_workspace()
 
     async def execute_code_in_container(
         self, language: str, user_code: str, check_logic: schemas.CheckLogic

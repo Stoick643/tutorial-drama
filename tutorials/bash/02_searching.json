@@ -1,0 +1,110 @@
+{
+  "tutorial": "Bash Basics",
+  "module": 1,
+  "scene": 2,
+  "technical_concept": "grep — searches for text patterns inside files. Usage: grep \"pattern\" file.txt. Flags: -i (case-insensitive), -r (recursive through directories), -n (show line numbers). The name stands for Global Regular Expression Print. There's a hacker saying: 'You can't grep dead trees' — meaning digital text is searchable, but paper isn't. That's your superpower.\n\nfind — locates files by name, size, or type across directories. Usage: find . -name \"*.txt\" finds all .txt files from the current directory down.",
+  "code_example": {
+    "language": "bash",
+    "code": "grep \"error\" server.log\n# Line 42: error: connection refused\n# Line 89: error: timeout\n\ngrep -n \"warning\" server.log\n# 15:warning: disk space low\n\nfind . -name \"*.log\"\n# ./logs/server.log\n# ./logs/access.log"
+  },
+  "challenge": {
+    "task": "Search the file 'server.log' for all lines containing 'ERROR' (case-insensitive).",
+    "hint": "grep searches inside files. Add a flag to ignore uppercase vs lowercase.",
+    "check_logic": {
+      "expected_result": {
+        "type": "user_output_contains_all",
+        "value": [
+          "error",
+          "connection"
+        ]
+      }
+    },
+    "solution": "grep -i \"ERROR\" server.log"
+  },
+  "styles": [
+    {
+      "name": "survival",
+      "title": "Tracking Signs",
+      "dialogue": [
+        {
+          "character": "Terminal",
+          "line": "You've made camp, gathered resources. Now you need to learn to track — find things in the wilderness. 'grep' is your tracker. It hunts for text patterns inside files."
+        },
+        {
+          "character": "You",
+          "line": "Like searching for footprints?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Exactly. 'grep \"water\" notes.txt' finds every line mentioning water. Add '-i' and it ignores case — 'Water', 'WATER', 'water' all match. Add '-n' to see line numbers, like GPS coordinates for each find."
+        },
+        {
+          "character": "You",
+          "line": "What if I don't know which file to look in?"
+        },
+        {
+          "character": "Terminal",
+          "line": "That's where 'find' comes in. It's your aerial scout. 'find . -name \"*.txt\"' searches from here downward for anything ending in .txt. The dot means 'start from where I'm standing.' It searches every trail, every subdirectory."
+        },
+        {
+          "character": "You",
+          "line": "So grep looks inside files, and find looks for files themselves?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Now you're thinking like a survivor. There's an old saying: 'You can't grep dead trees.' It means you can search digital text instantly — but paper? You'd have to read every page by hand. That's the advantage of the terminal."
+        },
+        {
+          "character": "You",
+          "line": "Dead trees... meaning paper. I get it."
+        },
+        {
+          "character": "Terminal",
+          "line": "There's a server log in this area — something left behind by whoever was here before. Search it for errors. It might tell us what went wrong."
+        }
+      ]
+    },
+    {
+      "name": "heist",
+      "title": "Reconnaissance",
+      "dialogue": [
+        {
+          "character": "Handler",
+          "line": "Phase two: recon. Before any operation, you need intelligence. 'grep' is your surveillance tool — it scans files for specific patterns."
+        },
+        {
+          "character": "Ghost",
+          "line": "Like wiretapping?"
+        },
+        {
+          "character": "Handler",
+          "line": "Better. 'grep \"password\" database.txt' finds every line containing 'password'. The '-i' flag ignores case — catches 'Password', 'PASSWORD', everything. '-n' gives you line numbers for precise extraction. '-r' goes recursive — scans entire directory trees."
+        },
+        {
+          "character": "Ghost",
+          "line": "What if I need to find a specific file but don't know where it is?"
+        },
+        {
+          "character": "Handler",
+          "line": "'find' is your floor plan. 'find . -name \"*.log\"' maps out every log file from your current position. It searches every room, every closet, every subdirectory. Combined with grep, you can find any piece of intel in any file anywhere."
+        },
+        {
+          "character": "Ghost",
+          "line": "Find the file, grep the contents. Got it."
+        },
+        {
+          "character": "Handler",
+          "line": "There's a reason hackers say 'You can't grep dead trees.' Paper files? You'd need a team of analysts. Digital files? One grep command and you've got every match in milliseconds. That's why we work in terminals, not filing cabinets."
+        },
+        {
+          "character": "Ghost",
+          "line": "I'll remember that."
+        },
+        {
+          "character": "Handler",
+          "line": "There's a server log in the target's system. Something went wrong on their end — find the errors. That's our way in."
+        }
+      ]
+    }
+  ]
+}

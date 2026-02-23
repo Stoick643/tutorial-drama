@@ -1,0 +1,108 @@
+{
+  "tutorial": "Bash Basics",
+  "module": 1,
+  "scene": 6,
+  "technical_concept": "chmod — changes file permissions. chmod +x script.sh makes a file executable.\ncurl — transfers data from URLs. Great for testing APIs and downloading files.\nwget — downloads files directly to disk.\nhistory — shows your recent commands. Use !42 to re-run command #42.\nalias — creates shortcuts: alias ll=\"ls -la\" lets you type ll instead.\ntop — shows running processes and resource usage, like a task manager.",
+  "code_example": {
+    "language": "bash",
+    "code": "chmod +x deploy.sh     # Make script executable\n./deploy.sh             # Run it\n\ncurl https://api.example.com/data\nwget https://example.com/file.zip\n\nhistory                 # Show recent commands\n!42                     # Re-run command #42\n\nalias gs='git status'   # Create shortcut\nalias ll='ls -la'       # Another shortcut\n\ntop                     # Live process viewer (q to quit)"
+  },
+  "challenge": {
+    "mode": "chat",
+    "task": "This is a discussion lesson — no grading. Tell me: which of these tools (chmod, curl, wget, history, alias, top) do you think you'd use most in your daily work, and why?",
+    "hint": "There's no wrong answer! Think about what you do most in your daily work.",
+    "check_logic": {
+      "validation_command": null,
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": ""
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "survival",
+      "title": "The Survival Toolkit",
+      "dialogue": [
+        {
+          "character": "Terminal",
+          "line": "You've built shelter, gathered resources, learned to track and filter. Now let's fill your utility belt with the remaining tools. These are the ones you'll reach for in specific situations."
+        },
+        {
+          "character": "You",
+          "line": "Hit me."
+        },
+        {
+          "character": "Terminal",
+          "line": "'chmod' controls permissions — who can read, write, or execute a file. 'chmod +x script.sh' makes a script runnable. Without it, the system won't let you execute your own tools. It's like sharpening a blade before use."
+        },
+        {
+          "character": "You",
+          "line": "What about getting things from outside?"
+        },
+        {
+          "character": "Terminal",
+          "line": "'curl' fetches data from URLs — APIs, web pages, files. It's your long-range communication tool. 'wget' is simpler — point it at a URL, it downloads the file. Think of curl as a radio and wget as a supply drop."
+        },
+        {
+          "character": "You",
+          "line": "And the productivity tools?"
+        },
+        {
+          "character": "Terminal",
+          "line": "'history' shows every command you've typed — your field journal. 'alias' creates shortcuts for long commands — 'alias fire=\"echo building fire\"' means less typing. And 'top' is your watchtower — it shows all running processes, CPU usage, memory. Your situational awareness dashboard."
+        },
+        {
+          "character": "You",
+          "line": "So which of these would be most useful day to day?"
+        },
+        {
+          "character": "Terminal",
+          "line": "That depends on your mission. A scripter lives by chmod. An API developer breathes curl. A power user swears by aliases. What would YOU reach for most?"
+        }
+      ]
+    },
+    {
+      "name": "heist",
+      "title": "The Gadget Case",
+      "dialogue": [
+        {
+          "character": "Handler",
+          "line": "Final briefing on your remaining gadgets, Ghost. These are specialist tools — each one has a specific use case."
+        },
+        {
+          "character": "Ghost",
+          "line": "Let's go through them."
+        },
+        {
+          "character": "Handler",
+          "line": "'chmod' — permission control. 'chmod +x script.sh' arms a script for execution. Without it, your custom tools are just text files. Every operative needs to make their scripts executable."
+        },
+        {
+          "character": "Ghost",
+          "line": "Communication tools?"
+        },
+        {
+          "character": "Handler",
+          "line": "'curl' — your encrypted comms channel. It talks to web APIs, downloads data, sends requests with custom headers. Perfect for C2 communication. 'wget' is the simpler cousin — point and download. Good for grabbing files from drop servers."
+        },
+        {
+          "character": "Ghost",
+          "line": "What about operational security?"
+        },
+        {
+          "character": "Handler",
+          "line": "'history' logs every command you've typed — useful for retracing steps, dangerous if left behind. 'alias' creates cover names for commands — 'alias scan=\"nmap -sV\"' means your keystrokes look innocent. And 'top' is your surveillance feed — shows every running process. Know what's running and you'll never be surprised."
+        },
+        {
+          "character": "Ghost",
+          "line": "Good arsenal. Which ones are mission-critical?"
+        },
+        {
+          "character": "Handler",
+          "line": "Depends on the operation. Every heist is different. What tools would you prioritize for your kind of work?"
+        }
+      ]
+    }
+  ]
+}

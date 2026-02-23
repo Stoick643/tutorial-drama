@@ -1,0 +1,94 @@
+{
+  "tutorial": "Bash Basics",
+  "module": 1,
+  "scene": 5,
+  "technical_concept": "sed (Stream Editor) — performs text substitution on a stream.\nsed \"s/old/new/\" replaces the first occurrence per line. Add g for all: sed \"s/old/new/g\".\n\nawk — processes columnar data. It splits each line into fields ($1, $2, etc.) by whitespace.\nawk \"{print $1}\" prints the first column.\n\nTogether with pipes, sed and awk let you transform any text data on the fly.",
+  "code_example": {
+    "language": "bash",
+    "code": "# sed: search and replace\necho \"Hello World\" | sed 's/World/Bash/'\n# Hello Bash\n\n# sed on a file\ncat prices.csv | sed 's/USD/EUR/g'\n\n# awk: extract columns\nls -l | awk '{print $5, $9}'\n# 4096 documents\n# 123 notes.txt"
+  },
+  "challenge": {
+    "task": "Use awk to extract only the IP addresses (first column) from 'access.log', then pipe through sort and uniq -c to count requests per IP.",
+    "hint": "awk splits lines into columns. $1 is the first column (IP address).",
+    "check_logic": {
+      "expected_result": {
+        "type": "user_output_contains_all",
+        "value": [
+          "192.168",
+          "10.0"
+        ]
+      }
+    },
+    "solution": "awk '{print $1}' access.log | sort | uniq -c"
+  },
+  "styles": [
+    {
+      "name": "survival",
+      "title": "Field Surgery on Text",
+      "dialogue": [
+        {
+          "character": "Terminal",
+          "line": "You can find data, filter it, sort it. But sometimes you need to change it — perform surgery. Meet 'sed', the Stream Editor. It operates on text as it flows through."
+        },
+        {
+          "character": "You",
+          "line": "Surgery?"
+        },
+        {
+          "character": "Terminal",
+          "line": "'echo \"dirty water\" | sed \"s/dirty/clean/\"' — the 's' means substitute. It finds 'dirty' and replaces it with 'clean'. The text passes through the pipe, sed operates, clean result comes out. Like purifying water."
+        },
+        {
+          "character": "You",
+          "line": "What about data in columns? Like a table?"
+        },
+        {
+          "character": "Terminal",
+          "line": "That's 'awk' — your field specialist. It sees every line as columns separated by spaces. $1 is the first column, $2 the second, and so on. 'awk \"{print $1}\"' extracts just the first column from every line."
+        },
+        {
+          "character": "You",
+          "line": "So if I have a log file with timestamps, IPs, and messages..."
+        },
+        {
+          "character": "Terminal",
+          "line": "'awk \"{print $1}\"' grabs just the timestamps. Pipe that through sort and uniq -c, and you know exactly when things happened and how often. There's an access log from the old outpost. Extract the IPs and count which ones connected most."
+        }
+      ]
+    },
+    {
+      "name": "heist",
+      "title": "Document Forgery",
+      "dialogue": [
+        {
+          "character": "Handler",
+          "line": "Two more tools for your kit, Ghost. 'sed' — the forger. It rewrites text in transit. 'awk' — the analyst. It dissects structured data column by column."
+        },
+        {
+          "character": "Ghost",
+          "line": "Show me sed."
+        },
+        {
+          "character": "Handler",
+          "line": "'echo \"Agent Smith\" | sed \"s/Smith/Ghost/\"' — sed intercepts the stream and swaps 'Smith' for 'Ghost'. The 's' stands for substitute. Add 'g' at the end to replace every occurrence on a line, not just the first."
+        },
+        {
+          "character": "Ghost",
+          "line": "And awk?"
+        },
+        {
+          "character": "Handler",
+          "line": "awk treats every line like a spreadsheet row. $1 is column one, $2 is column two. 'ls -l | awk \"{print $5, $9}\"' extracts file sizes and names — just the intel you need, nothing extra."
+        },
+        {
+          "character": "Ghost",
+          "line": "So I can pull specific fields from any structured data?"
+        },
+        {
+          "character": "Handler",
+          "line": "Combined with pipes, you can build full analysis chains: extract, filter, transform, count. We've got an access log from the target. Extract the IP addresses, sort them, count the connections. Find out who's been accessing their system most."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove Bash",
+  "technical_concept": "'chmod' spreminja dovoljenja datotek — 'chmod +x skripta.sh' naredi datoteko izvršljivo. 'curl' prenaša podatke iz URL-jev — odličen za testiranje API-jev in prenašanje datotek. 'wget' neposredno prenese datoteke. 'history' pokaže vaše nedavne ukaze — uporabite '!42' za ponovni zagon ukaza #42. 'alias' ustvari bližnjice — 'alias ll=\"ls -la\"' vam omogoča vtipkati 'll' namesto. 'top' prikaže tekoče procese in porabo virov kot upravitelj opravil.",
+  "challenge": {
+    "task": "To je diskusijska lekcija — brez ocenjevanja. Povejte mi: katero od teh orodij (chmod, curl, wget, history, alias, top) mislite, da bi največ uporabljali pri vsakdanjem delu, in zakaj?",
+    "hint": "Ni napačnega odgovora! Pomislite, kaj počnete največ — skriptanje (chmod), delo z API-ji (curl), prenosi (wget), produktivnost (alias, history) ali nadzor (top)."
+  },
+  "styles": {
+    "survival": {
+      "title": "Komplet orodij za preživetje",
+      "dialogue": [
+        {"character": "Terminal", "line": "Zgradili ste zavetišče, zbrali vire, se naučili slediti in filtrirati. Sedaj napolnimo vaš pas z orodji s preostalimi pripomočki. To so tisti, po katerih boste posegli v specifičnih situacijah."},
+        {"character": "Vi", "line": "Kar naprej."},
+        {"character": "Terminal", "line": "'chmod' nadzira dovoljenja — kdo lahko bere, piše ali izvaja datoteko. 'chmod +x skripta.sh' naredi skripto zagnljivo. Brez tega sistem ne bo dovolil izvajanja vaših lastnih orodij. Kot brušenje rezila pred uporabo."},
+        {"character": "Vi", "line": "Kaj pa pridobivanje stvari od zunaj?"},
+        {"character": "Terminal", "line": "'curl' pridobi podatke iz URL-jev — API-je, spletne strani, datoteke. Je vaše orodje za komunikacijo na dolge razdalje. 'wget' je preprostejši — usmerite ga na URL, prenese datoteko. Mislite na curl kot na radio in wget kot na dostavo zalog."},
+        {"character": "Vi", "line": "In orodja za produktivnost?"},
+        {"character": "Terminal", "line": "'history' pokaže vsak ukaz, ki ste ga vtipkali — vaš terenski dnevnik. 'alias' ustvari bližnjice za dolge ukaze — 'alias ogenj=\"echo gradnja ognja\"' pomeni manj tipkanja. In 'top' je vaš stražni stolp — prikaže vse tekoče procese, porabo CPE-ja, pomnilnik. Vaša nadzorna plošča za situacijsko zavedanje."},
+        {"character": "Vi", "line": "Katero od teh bi bilo najbolj uporabno za vsakodnevno delo?"},
+        {"character": "Terminal", "line": "To je odvisno od vaše misije. Skriptar živi po chmod. Razvijalec API-jev diha curl. Napredni uporabnik prisega na aliase. Po čem bi VI najpogosteje posegli?"}
+      ]
+    },
+    "heist": {
+      "title": "Kovček z napravami",
+      "dialogue": [
+        {"character": "Vodja", "line": "Zadnje informiranje o preostalih napravah, Duh. To so specialistična orodja — vsako ima specifičen primer uporabe."},
+        {"character": "Duh", "line": "Pojdimo skozi njih."},
+        {"character": "Vodja", "line": "'chmod' — nadzor dovoljenj. 'chmod +x skripta.sh' aktivira skripto za izvajanje. Brez tega so vaša orodja po meri le besedilne datoteke. Vsak operativec mora narediti svoje skripte izvršljive."},
+        {"character": "Duh", "line": "Komunikacijska orodja?"},
+        {"character": "Vodja", "line": "'curl' — vaš šifrirani komunikacijski kanal. Govori s spletnimi API-ji, prenaša podatke, pošilja zahteve s prilagojenimi glavami. Odličen za komunikacijo z ukaznim centrom. 'wget' je preprostejši bratranec — usmeri in prenesi. Dober za grabljenje datotek s strežnikov za odlaganje."},
+        {"character": "Duh", "line": "Kaj pa operativna varnost?"},
+        {"character": "Vodja", "line": "'history' beleži vsak ukaz, ki ste ga vtipkali — uporabno za sledenje korakom, nevarno če ostane za vami. 'alias' ustvari kovna imena za ukaze — 'alias sken=\"nmap -sV\"' pomeni, da vaši pritiski tipk izgledajo nedolžno. In 'top' je vaš nadzorni vir — prikaže vsak tekoči proces. Vedite, kaj teče, in nikoli ne boste presenečeni."},
+        {"character": "Duh", "line": "Dober arzenal. Kateri so ključni za misijo?"},
+        {"character": "Vodja", "line": "Odvisno od operacije. Vsak rop je drugačen. Katera orodja bi vi dali v ospredje za vaše delo?"}
+      ]
+    }
+  }
+}

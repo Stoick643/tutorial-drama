@@ -1,0 +1,95 @@
+{
+  "tutorial": "Bash Basics",
+  "module": 1,
+  "scene": 4,
+  "technical_concept": "xargs — the bridge between finding things and acting on them. It takes a list from stdin and passes each item as an argument to another command.\n\nExample: find . -name \"*.tmp\" | xargs rm — finds all .tmp files and deletes them in one sweep. Without xargs, you'd have to delete them one by one.\n\nPower pipeline: cat log.txt | grep \"ERROR\" | awk \"{print $1}\" | sort | uniq -c — reads a log, filters errors, extracts the first column, sorts, and counts occurrences.",
+  "code_example": {
+    "language": "bash",
+    "code": "# xargs turns a list into arguments\necho \"file1.txt file2.txt\" | xargs cat\n\n# Find and delete all .tmp files\nfind . -name \"*.tmp\" | xargs rm\n\n# Power pipeline: count error types\ncat server.log | grep \"error\" | awk '{print $2}' | sort | uniq -c\n#   2 connection\n#   1 timeout"
+  },
+  "challenge": {
+    "task": "Use find and xargs to delete all files ending in '.tmp' from the current directory tree, then verify with 'find . -name \"*.tmp\"' (should output nothing).",
+    "hint": "find locates files, but can't delete them alone. xargs bridges the gap.",
+    "check_logic": {
+      "setup_commands": [
+        "mkdir -p subdir && touch junk1.tmp junk2.tmp subdir/junk3.tmp"
+      ],
+      "validation_command": "find . -name '*.tmp'",
+      "expected_result": {
+        "type": "exact_match",
+        "value": ""
+      }
+    },
+    "solution": "find . -name \"*.tmp\" | xargs rm"
+  },
+  "styles": [
+    {
+      "name": "survival",
+      "title": "The Cleanup Crew",
+      "dialogue": [
+        {
+          "character": "Terminal",
+          "line": "You've learned to build pipelines — each command does its job and passes the result. But what if you need to take action on a whole list of things at once? That's where 'xargs' comes in."
+        },
+        {
+          "character": "You",
+          "line": "Action? Like what?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Imagine you found 50 dead branches scattered across your camp — files ending in .tmp. 'find . -name \"*.tmp\"' finds them all. But find only lists them. It doesn't do anything. You need someone to haul them away."
+        },
+        {
+          "character": "You",
+          "line": "And xargs is the hauler?"
+        },
+        {
+          "character": "Terminal",
+          "line": "The best hauler. 'find . -name \"*.tmp\" | xargs rm' — find takes the list, the pipe passes it, and xargs feeds each item to 'rm'. Fifty files, one command. No manual labor."
+        },
+        {
+          "character": "You",
+          "line": "So xargs turns a list into arguments for another command?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Exactly. It's the bridge between 'finding' and 'doing'. And it scales — whether it's 5 files or 5,000. Now combine this with everything you know: find, grep, sort, uniq, xargs. You can build pipelines that search, filter, transform, and act. Clean up the camp — there are .tmp files scattered everywhere."
+        }
+      ]
+    },
+    {
+      "name": "heist",
+      "title": "The Crew Coordinator",
+      "dialogue": [
+        {
+          "character": "Handler",
+          "line": "Listen carefully, Ghost. This is the most important tool in your kit: 'xargs'. It's your crew coordinator. You give it a list of targets, and it dispatches operatives to handle each one."
+        },
+        {
+          "character": "Ghost",
+          "line": "Give me an example."
+        },
+        {
+          "character": "Handler",
+          "line": "'find . -name \"*.tmp\" | xargs rm' — find scouts all the .tmp files. The pipe passes the list to xargs. xargs hands each file to 'rm' for elimination. Fifty targets, one coordinated strike."
+        },
+        {
+          "character": "Ghost",
+          "line": "So xargs bridges the gap between reconnaissance and action?"
+        },
+        {
+          "character": "Handler",
+          "line": "That's exactly right. Without xargs, 'find' just gives you a list. With xargs, that list becomes a hit list. It works with any command — rm, cat, grep, anything. It's the difference between knowing where the targets are and actually taking them out."
+        },
+        {
+          "character": "Ghost",
+          "line": "And the power pipeline you mentioned?"
+        },
+        {
+          "character": "Handler",
+          "line": "'cat log.txt | grep ERROR | awk \"{print $1}\" | sort | uniq -c' — read the logs, filter the errors, extract the timestamps, sort them, count the repeats. Full intel analysis in one line. Now clean up — there are .tmp files all over the target's system. Evidence that needs to disappear."
+        }
+      ]
+    }
+  ]
+}

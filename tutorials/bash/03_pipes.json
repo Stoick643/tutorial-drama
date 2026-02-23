@@ -1,0 +1,91 @@
+{
+  "tutorial": "Bash Basics",
+  "module": 1,
+  "scene": 3,
+  "technical_concept": "The pipe | is the most powerful concept in bash. It takes the output of one command and feeds it as input to the next. Unlike ; (which just runs commands in sequence), | connects them — data flows through.\n\nhead -n N — shows the first N lines.\ntail -n N — shows the last N lines.\nsort — sorts lines alphabetically or numerically (-n).\nuniq — removes adjacent duplicate lines (always sort first).\nwc -l — counts lines.",
+  "code_example": {
+    "language": "bash",
+    "code": "# Pipe: command1 | command2 | command3\n\ncat names.txt | sort\n# Alice\n# Bob\n# Charlie\n\ncat names.txt | sort | uniq\n# removes duplicates\n\ncat server.log | grep \"error\" | wc -l\n# 3  (counts error lines)"
+  },
+  "challenge": {
+    "task": "Use a pipeline to read 'access.log', sort the lines, remove duplicates, and count how many unique lines remain. Your output should be just a number.",
+    "hint": "You learned ';' chains commands in sequence. The pipe '|' is different — it feeds output forward. How many stages does this pipeline need?",
+    "check_logic": {
+      "expected_result": {
+        "type": "user_output_contains",
+        "value": "6"
+      }
+    },
+    "solution": "cat access.log | sort | uniq | wc -l"
+  },
+  "styles": [
+    {
+      "name": "survival",
+      "title": "Building a Water Filter",
+      "dialogue": [
+        {
+          "character": "Terminal",
+          "line": "You've learned to find things. Now learn to transform them. In the wilderness, raw water needs filtering — each stage removes something. Bash pipelines work the same way."
+        },
+        {
+          "character": "You",
+          "line": "Pipelines? Is that like the semicolon from before?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Similar but different. Semicolon ';' just runs commands in sequence — they don't talk to each other. The pipe '|' is smarter: it takes the output of one command and feeds it as input to the next. Like water flowing through a series of filters. 'cat data.txt | sort | uniq' — read the data, sort it, remove duplicates. Three stages, one clean result."
+        },
+        {
+          "character": "You",
+          "line": "So each command does one thing, and the pipe chains them together?"
+        },
+        {
+          "character": "Terminal",
+          "line": "That's the Unix philosophy — small tools that do one thing well, connected by pipes. 'head -n 5' takes the first 5 lines. 'tail -n 3' takes the last 3. 'sort' orders everything. 'uniq' removes duplicates. 'wc -l' counts lines."
+        },
+        {
+          "character": "You",
+          "line": "Like building a survival tool from smaller parts."
+        },
+        {
+          "character": "Terminal",
+          "line": "Exactly. There's an access log from the old outpost — it has repeated entries. Filter it: read it, sort it, remove duplicates, count what's left. How many unique signals were received?"
+        }
+      ]
+    },
+    {
+      "name": "heist",
+      "title": "The Pipeline",
+      "dialogue": [
+        {
+          "character": "Handler",
+          "line": "This is where it gets real, Ghost. The pipe — symbol '|' — is the backbone of every operation. It chains commands together. Output of one becomes input of the next."
+        },
+        {
+          "character": "Ghost",
+          "line": "How is that different from the semicolon we used before?"
+        },
+        {
+          "character": "Handler",
+          "line": "Semicolon runs commands back to back — they don't communicate. The pipe connects them: output of one becomes input of the next. Like a relay team passing intel. 'cat intel.txt | sort | uniq' — read the raw data, sort it, strip duplicates. Three operatives, one clean pipeline. Each does their job and passes the result forward."
+        },
+        {
+          "character": "Ghost",
+          "line": "What other operatives do I have?"
+        },
+        {
+          "character": "Handler",
+          "line": "'head -n 10' grabs the first 10 lines — the top of the stack. 'tail -n 5' grabs the last 5 — the most recent intel. 'sort' puts everything in order. 'uniq' eliminates redundant chatter. 'wc -l' gives you a headcount."
+        },
+        {
+          "character": "Ghost",
+          "line": "Small, specialized, chained together. I like it."
+        },
+        {
+          "character": "Handler",
+          "line": "We intercepted an access log from the target's system. It's full of noise — repeated entries, duplicate transmissions. Clean it up: sort it, deduplicate, count the unique entries. How many real connections were there?"
+        }
+      ]
+    }
+  ]
+}

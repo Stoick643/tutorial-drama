@@ -15,7 +15,8 @@ GRADER_IMAGES = {
     "sql": "grader-image-sql",
     "git": "grader-image-git",
     "docker": "grader-image-docker",
-    "llm": "grader-image-llm"
+    "llm": "grader-image-llm",
+    "bash": "grader-image-bash"
 }
 POOL_SIZE = 3 # Number of warm containers to keep per language
 
@@ -110,6 +111,9 @@ class ContainerManager:
         elif language == "llm":
             # Clean up user input and mode files
             container.exec_run("sh -c \"rm -f /tmp/user_input /tmp/llm_mode\"")
+        elif language == "bash":
+            # Reset workspace to original state
+            container.exec_run("sh -c \"cd /workspace && rm -rf camp mysite /workspace/subdir/* && touch /workspace/junk1.tmp /workspace/junk2.tmp /workspace/subdir/junk3.tmp && rm -f signal.txt backup.txt\"")
 
     def _build_command(self, language: str, code: str) -> str:
         """Build language-specific execution command.
@@ -157,6 +161,15 @@ class ContainerManager:
                 # User input (question, text, JSON) — save to file, run dispatcher
                 encoded = base64.b64encode(code.encode()).decode()
                 return f"sh -c \"echo '{encoded}' | base64 -d > /tmp/user_input && cd /scripts && python llm_dispatch.py\""
+        elif language == "bash":
+            stripped = code.strip()
+            if stripped.startswith("#!/bin/bash") or '\n' in stripped:
+                # Multi-line script — base64 encode, save to file, execute
+                encoded = base64.b64encode(code.encode()).decode()
+                return f"sh -c \"echo '{encoded}' | base64 -d > /tmp/user_script.sh && chmod +x /tmp/user_script.sh && cd /workspace && bash /tmp/user_script.sh\""
+            else:
+                # Single command — execute directly in workspace
+                return f"sh -c \"cd /workspace && {code}\""
         else:
             raise ValueError(f"Unsupported language: {language}")
 

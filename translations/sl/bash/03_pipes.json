@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Bash",
+  "technical_concept": "Cev | je najmočnejši koncept v bashu. Vzame izhod enega ukaza in ga posreduje kot vhod naslednjemu. Za razliko od ; (ki samo zažene ukaze zaporedoma), | jih poveže — podatki tečejo skozi.\n\nhead -n N — pokaže prvih N vrstic.\ntail -n N — pokaže zadnjih N vrstic.\nsort — razvrsti vrstice abecedno ali številsko (-n).\nuniq — odstrani sosednje podvojene vrstice (vedno najprej razvrstite).\nwc -l — prešteje vrstice.",
+  "challenge": {
+    "task": "Uporabite cevovod za branje 'access.log', razvrstitev vrstic, odstranitev podvojitev in štetje preostalih unikatnih vrstic. Vaš izhod naj bo samo število.",
+    "hint": "Poznate ; za zaporedno izvajanje. Cev | je drugačna — posreduje izhod naprej. Koliko stopenj potrebuje ta cevovod?"
+  },
+  "styles": {
+    "survival": {
+      "title": "Gradnja vodnega filtra",
+      "dialogue": [
+        {"character": "Terminal", "line": "Naučili ste se iskati stvari. Sedaj se naučite jih preoblikovati. V divjini surova voda potrebuje filtriranje — vsaka stopnja odstrani nekaj. Bash cevovodi delujejo enako."},
+        {"character": "Vi", "line": "Cevovodi?"},
+        {"character": "Terminal", "line": "Simbol cevi '|' poveže ukaze. Izhod enega steče v vhod naslednjega. Kot voda skozi niz filtrov. 'cat podatki.txt | sort | uniq' — preberi podatke, razvrsti jih, odstrani podvojitve. Tri stopnje, en čist rezultat."},
+        {"character": "Vi", "line": "Torej vsak ukaz naredi eno stvar, cev pa jih poveže skupaj?"},
+        {"character": "Terminal", "line": "To je Unix filozofija — majhna orodja, ki naredijo eno stvar dobro, povezana s cevmi. 'head -n 5' vzame prvih 5 vrstic. 'tail -n 3' vzame zadnje 3. 'sort' vse razvrsti. 'uniq' odstrani podvojitve. 'wc -l' prešteje vrstice."},
+        {"character": "Vi", "line": "Kot gradnja orodja za preživetje iz manjših delov."},
+        {"character": "Terminal", "line": "Točno. V stari postojanki je dnevnik dostopov — ima ponavljajoče se vnose. Filtrirajte ga: preberite, razvrstite, odstranite podvojitve, preštejte, kaj ostane. Koliko unikatnih signalov je bilo sprejetih?"}
+      ]
+    },
+    "heist": {
+      "title": "Cevovod",
+      "dialogue": [
+        {"character": "Vodja", "line": "Tu postane resno, Duh. Cev — simbol '|' — je hrbtenica vsake operacije. Verižji ukaze skupaj. Izhod enega postane vhod naslednjega."},
+        {"character": "Duh", "line": "Kot štafetna ekipa, ki predaja podatke?"},
+        {"character": "Vodja", "line": "Točno. 'cat podatki.txt | sort | uniq' — preberi surove podatke, razvrsti jih, odstrani podvojitve. Trije operativci, en čist cevovod. Vsak opravi svoje delo in posreduje rezultat naprej."},
+        {"character": "Duh", "line": "Kakšne druge operativce imam?"},
+        {"character": "Vodja", "line": "'head -n 10' zgrabi prvih 10 vrstic — vrh kupa. 'tail -n 5' zgrabi zadnjih 5 — najnovejše podatke. 'sort' vse postavi v red. 'uniq' odstrani odvečno brbljanje. 'wc -l' vam da štetje."},
+        {"character": "Duh", "line": "Majhni, specializirani, veriženi skupaj. Mi je všeč."},
+        {"character": "Vodja", "line": "Prestregli smo dnevnik dostopov iz sistema tarče. Poln je šuma — ponavljajoči se vnosi, podvojene transmisije. Očistite ga: razvrstite, odstranite podvojitve, preštejte unikatne vnose. Koliko pravih povezav je bilo?"}
+      ]
+    }
+  }
+}

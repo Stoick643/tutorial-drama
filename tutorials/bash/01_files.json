@@ -1,0 +1,108 @@
+{
+  "tutorial": "Bash Basics",
+  "module": 1,
+  "scene": 1,
+  "technical_concept": "touch — creates empty files. You're literally touching a file into existence.\necho — prints text to the screen.\n> — the redirect operator. echo \"hello\" > file.txt pours text into a file (replacing what was there).\ncat — short for concatenate. Spills a file's contents onto your screen.\ncp — copies files: cp source dest.\nmv — moves or renames files: mv old new.\nrm — deletes files permanently. No recycle bin. Once gone, it's gone forever.\n\nBonus: use ; to chain commands on one line — echo hi > a.txt; cp a.txt b.txt does both in sequence.",
+  "code_example": {
+    "language": "bash",
+    "code": "touch notes.txt\necho \"Hello World\" > notes.txt\ncat notes.txt\n# Hello World\n\ncp notes.txt backup.txt\nmv backup.txt archive.txt\nrm notes.txt"
+  },
+  "challenge": {
+    "task": "Create a file called 'signal.txt' with the text 'SOS' inside it, then make a copy called 'backup.txt'.",
+    "hint": "You need two steps: write text into a file, then copy it. Use ';' to chain commands on one line.",
+    "check_logic": {
+      "validation_command": "cat signal.txt && cat backup.txt",
+      "expected_result": {
+        "type": "exact_match",
+        "value": "SOS\nSOS"
+      }
+    },
+    "solution": "echo \"SOS\" > signal.txt; cp signal.txt backup.txt"
+  },
+  "styles": [
+    {
+      "name": "survival",
+      "title": "Gathering Resources",
+      "dialogue": [
+        {
+          "character": "Terminal",
+          "line": "Good — you've set up camp. Now you need supplies. In this world, files are your resources. 'touch' creates an empty one — you're literally touching a file into existence, like conjuring a blank notebook from thin air."
+        },
+        {
+          "character": "You",
+          "line": "So 'touch water.txt' creates a file called water.txt? What good is an empty notebook?"
+        },
+        {
+          "character": "Terminal",
+          "line": "You fill it with 'echo'. 'echo \"fresh spring\"' prints text to the screen. But the magic is the '>' operator — it redirects that text INTO a file. 'echo \"fresh spring\" > water.txt' pours your words into water.txt. Think of '>' as an arrow pointing where the text should go."
+        },
+        {
+          "character": "You",
+          "line": "And how do I read it back?"
+        },
+        {
+          "character": "Terminal",
+          "line": "'cat water.txt' — short for 'concatenate', but think of it as the file coughing up its contents onto your screen. Quick and dirty, no editor needed. Now the critical part: 'cp' duplicates resources. 'cp water.txt reserve.txt' — instant backup. 'mv' moves or renames. And 'rm'..."
+        },
+        {
+          "character": "You",
+          "line": "Let me guess — remove?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Permanently. No recycling bin out here in the wilderness. Once something is gone, it's gone. Like fire consuming paper. Always make backups before deleting."
+        },
+        {
+          "character": "You",
+          "line": "What if I need to do two things in a row?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Use a semicolon — ';'. It chains commands on one line: 'echo hello > note.txt; cat note.txt' creates the file and reads it back, one after the other. Think of ';' as saying 'do this, then do that.' Now — create a signal file with 'SOS' inside and back it up. We might need to call for help."
+        }
+      ]
+    },
+    {
+      "name": "heist",
+      "title": "Dead Drops and Cover Tracks",
+      "dialogue": [
+        {
+          "character": "Handler",
+          "line": "Alright Ghost, time to learn file craft. In the field, you need to create files, read them, copy them, and — most importantly — destroy them without a trace."
+        },
+        {
+          "character": "Ghost",
+          "line": "How do I create a file?"
+        },
+        {
+          "character": "Handler",
+          "line": "'touch' — you touch a file into existence. Empty, clean, untraceable. Like placing a blank envelope at a dead drop. But an empty file is useless. 'echo \"message\"' prints text, and '>' redirects it into a file. 'echo \"coordinates\" > drop.txt' — now your envelope has intel inside."
+        },
+        {
+          "character": "Ghost",
+          "line": "So '>' is the redirect — it points where the output goes?"
+        },
+        {
+          "character": "Handler",
+          "line": "Exactly. Without '>', echo just prints to screen. With '>', it writes to a file. Now for reading: 'cat file.txt' — short for concatenate, but think of it as forcing the file to confess its contents. Quick, silent, no editor trail."
+        },
+        {
+          "character": "Ghost",
+          "line": "Copy, move, delete?"
+        },
+        {
+          "character": "Handler",
+          "line": "'cp' duplicates — 'cp original.txt copy.txt'. 'mv' relocates or renames — perfect for covering tracks. And 'rm' — remove. Gone. No recycle bin, no forensic recovery. In our line of work, that's a feature, not a bug. But always duplicate before you destroy — a good operative never loses the only copy."
+        },
+        {
+          "character": "Ghost",
+          "line": "What if I need to do two things in one move?"
+        },
+        {
+          "character": "Handler",
+          "line": "Semicolon — ';'. It chains commands: 'echo intel > file.txt; cp file.txt backup.txt'. First one runs, then the next. No hesitation. Now — create a signal file with 'SOS' inside and back it up. We might need that intel later."
+        }
+      ]
+    }
+  ]
+}

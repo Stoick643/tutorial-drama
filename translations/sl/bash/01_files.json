@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Bash",
+  "technical_concept": "touch — ustvari prazne datoteke. Dobesedno dotaknete datoteko v obstoj.\necho — izpiše besedilo na zaslon.\n> — operator preusmeritve. echo \"zdravo\" > datoteka.txt vlije besedilo v datoteko (zamenja kar koli je bilo notri).\ncat — okrajšava za concatenate. Razlije vsebino datoteke na vaš zaslon.\ncp — kopira datoteke: cp vir cilj.\nmv — premakne ali preimenuje datoteke: mv staro novo.\nrm — trajno izbriše datoteke. Ni koša za smeti. Ko je izbrisano, je za vedno.\n\nBonus: uporabite ; za veriženje ukazov v eni vrstici — echo hi > a.txt; cp a.txt b.txt izvede oboje zaporedoma.",
+  "challenge": {
+    "task": "Ustvarite datoteko z imenom 'signal.txt' z besedilom 'SOS' notri, nato naredite kopijo z imenom 'backup.txt'.",
+    "hint": "Potrebujete dva koraka: zapišite besedilo v datoteko, nato jo kopirajte. Uporabite ';' za veriženje ukazov v eni vrstici."
+  },
+  "styles": {
+    "survival": {
+      "title": "Zbiranje virov",
+      "dialogue": [
+        {"character": "Terminal", "line": "Dobro — tabor ste postavili. Sedaj potrebujete zaloge. V tem svetu so datoteke vaši viri. 'touch' ustvari prazno datoteko, kot da bi našli prazen zvezek."},
+        {"character": "Vi", "line": "Torej 'touch voda.txt' ustvari datoteko z imenom voda.txt? Kakšna korist je od prazne datoteke?"},
+        {"character": "Terminal", "line": "Napolnite jo. 'echo \"sveži izvir\" > voda.txt' zapiše besedilo vanjo. Simbol '>' vlije vaše besede v datoteko. Nato 'cat voda.txt' prebere nazaj — kot preverjanje zalog."},
+        {"character": "Vi", "line": "Cat? Kot mačka?"},
+        {"character": "Terminal", "line": "Okrajšava za 'concatenate' — razlije vsebino datoteke na vaš zaslon. Sedaj pa ključni del: 'cp' podvoji vire. 'cp voda.txt rezerva.txt' — sedaj imate varnostno kopijo. 'mv' premakne ali preimenuje. In 'rm'..."},
+        {"character": "Vi", "line": "Naj uganem — odstrani?"},
+        {"character": "Terminal", "line": "Trajno. Tu v divjini ni koša za smeti. Ko je nekaj izginilo, je izginilo. Kot ogenj, ki požre papir. Vedno naredite varnostne kopije pred brisanjem. Sedaj — ustvarite signalno datoteko in jo varnostno kopirajte. Morda bomo morali poklicati na pomoč."}
+      ]
+    },
+    "heist": {
+      "title": "Mrtve točke in brisanje sledi",
+      "dialogue": [
+        {"character": "Vodja", "line": "V redu, Duh, čas za učenje rokovanja z datotekami. Na terenu morate ustvarjati datoteke, jih brati, kopirati in — najpomembneje — uničiti brez sledi."},
+        {"character": "Duh", "line": "Kako ustvarim datoteko?"},
+        {"character": "Vodja", "line": "'touch' ustvari prazno datoteko — mrtvo točko. 'echo \"sporočilo\" > datoteka.txt' zapiše obveščevalne podatke vanjo. Operator '>' je vaše pero. Mislite na to kot na puščanje šifriranega sporočila."},
+        {"character": "Duh", "line": "In branje?"},
+        {"character": "Vodja", "line": "'cat datoteka.txt' — izpiše vsebino na zaslon. Hitro, tiho, brez urejevalnika. Za kopiranje podatkov: 'cp original.txt kopija.txt'. Za premeščanje: 'mv datoteka.txt nova_lokacija.txt'. Deluje tudi za preimenovanje — odlično za brisanje sledi."},
+        {"character": "Duh", "line": "Kaj pa uničenje dokazov?"},
+        {"character": "Vodja", "line": "'rm' — odstrani. Izginilo. Brez koša za smeti, brez forenzične obnovitve. V naši branži je to prednost, ne napaka. Toda vedno podvojite pred uničenjem — dober operativec nikoli ne izgubi edine kopije. Ustvarite signalno datoteko in jo varnostno kopirajte. Te podatke bomo morda še potrebovali."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Bash",
+  "technical_concept": "grep — išče besedilne vzorce znotraj datotek. Uporaba: grep \"vzorec\" datoteka.txt. Zastavice: -i (brez razlikovanja velikih/malih črk), -r (rekurzivno po imenikih), -n (številke vrstic). Ime pomeni Global Regular Expression Print. Med hekerji pravijo: 'You can't grep dead trees' — kar pomeni, da je digitalno besedilo iskalno, papir pa ne. To je vaša prednost.\n\nfind — poišče datoteke po imenu, velikosti ali tipu skozi imenike. Uporaba: find . -name \"*.txt\" najde vse .txt datoteke od trenutnega imenika navzdol.",
+  "challenge": {
+    "task": "Poiščite v datoteki 'server.log' vse vrstice, ki vsebujejo 'ERROR' (brez razlikovanja velikih/malih črk).",
+    "hint": "Uporabite 'grep -i \"ERROR\" server.log' — zastavica -i naredi iskanje neobčutljivo na velikost črk."
+  },
+  "styles": {
+    "survival": {
+      "title": "Sledenje znakom",
+      "dialogue": [
+        {"character": "Terminal", "line": "Postavili ste tabor, zbrali vire. Sedaj se morate naučiti slediti — iskati stvari v divjini. 'grep' je vaš sledilec. Lovi besedilne vzorce znotraj datotek."},
+        {"character": "Vi", "line": "Kot iskanje odtisov?"},
+        {"character": "Terminal", "line": "Točno. 'grep \"voda\" zapiski.txt' najde vsako vrstico, ki omenja vodo. Dodajte '-i' in ignorira velikost črk — 'Voda', 'VODA', 'voda' vse ustrezajo. Dodajte '-n' za številke vrstic, kot GPS koordinate za vsak zadetek."},
+        {"character": "Vi", "line": "Kaj pa če ne vem, v kateri datoteki iskati?"},
+        {"character": "Terminal", "line": "Tu pride na vrsto 'find'. Je vaš zračni izvidnik. 'find . -name \"*.txt\"' išče od tu navzdol za karkoli, kar se konča z .txt. Pika pomeni 'začni, kjer stojim.' Preišče vsako pot, vsak podimenik."},
+        {"character": "Vi", "line": "Torej grep gleda znotraj datotek, find pa išče same datoteke?"},
+        {"character": "Terminal", "line": "Sedaj razmišljate kot preživeli. V tem območju je dnevniška datoteka strežnika — nekaj, kar je pustil kdorkoli je bil tu pred vami. Poiščite napake. Morda nam bo povedala, kaj je šlo narobe."}
+      ]
+    },
+    "heist": {
+      "title": "Izvidništvo",
+      "dialogue": [
+        {"character": "Vodja", "line": "Druga faza: izvidništvo. Pred vsako operacijo potrebujete obveščevalne podatke. 'grep' je vaše nadzorno orodje — pregleda datoteke za specifične vzorce."},
+        {"character": "Duh", "line": "Kot prisluškovanje?"},
+        {"character": "Vodja", "line": "Bolje. 'grep \"geslo\" baza.txt' najde vsako vrstico, ki vsebuje 'geslo'. Zastavica '-i' ignorira velikost — ujame 'Geslo', 'GESLO', vse. '-n' vam da številke vrstic za natančno ekstrakcijo. '-r' gre rekurzivno — pregleda celotna drevesa imenikov."},
+        {"character": "Duh", "line": "Kaj če moram najti specifično datoteko, pa ne vem, kje je?"},
+        {"character": "Vodja", "line": "'find' je vaš tloris. 'find . -name \"*.log\"' zmapira vsako dnevniško datoteko iz vašega trenutnega položaja. Preišče vsako sobo, vsako omaro, vsak podimenik. Kombiniran z grep lahko najdete karkoli v kateri koli datoteki kjerkoli."},
+        {"character": "Duh", "line": "Najdi datoteko, grep vsebino. Razumem."},
+        {"character": "Vodja", "line": "V sistemu tarče je dnevnik strežnika. Nekaj je šlo narobe na njihovi strani — poiščite napake. To je naša pot notri."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "tutorial": "Bash Basics",
+  "module": 1,
+  "scene": 7,
+  "technical_concept": "A bash script is a file containing a sequence of commands, one per line.\n\n#!/bin/bash — the shebang. First line of every script. Tells the system to use bash.\nVariables — store values: NAME=\"world\". Retrieve with $NAME.\nread — gets input from the user.\necho — prints output.\n\nScripts combine everything you've learned — file ops, pipes, text processing — into reusable programs. Save as .sh, make executable with chmod +x, run with ./script.sh.",
+  "code_example": {
+    "language": "bash",
+    "code": "#!/bin/bash\n\n# Ask the user for a project name\necho \"Enter project name:\"\nread PROJ_NAME\n\n# Create the directory and enter it\nmkdir $PROJ_NAME\ncd $PROJ_NAME\n\n# Create files\ntouch index.html style.css\necho \"<h1>Hello from $PROJ_NAME</h1>\" > index.html\n\n# List the result to show it worked\necho \"Project $PROJ_NAME created successfully!\"\nls -F"
+  },
+  "challenge": {
+    "task": "Write a bash script that: 1) Creates a directory called 'mysite', 2) Creates 'index.html' and 'style.css' inside it, 3) Writes '<h1>Hello World</h1>' into index.html, 4) Lists the contents of mysite/, 5) Prints 'Done!' when finished. Don't forget the #!/bin/bash shebang!",
+    "hint": "Start with #!/bin/bash, then use mkdir, cd into it, create files with touch and echo, list with ls.",
+    "multiline": true,
+    "check_logic": {
+      "expected_result": {
+        "type": "user_output_contains_all",
+        "value": [
+          "index.html",
+          "style.css",
+          "Done!"
+        ]
+      }
+    },
+    "solution": "#!/bin/bash\nmkdir mysite\ncd mysite\ntouch index.html style.css\necho \"<h1>Hello World</h1>\" > index.html\nls\necho \"Done!\""
+  },
+  "styles": [
+    {
+      "name": "survival",
+      "title": "The Survival Manual",
+      "dialogue": [
+        {
+          "character": "Terminal",
+          "line": "You've mastered individual tools — navigation, files, search, pipes, text processing. Now it's time to combine them into something permanent: a script. A survival manual you can run again and again."
+        },
+        {
+          "character": "You",
+          "line": "A script? Like programming?"
+        },
+        {
+          "character": "Terminal",
+          "line": "The simplest kind. A bash script is just a text file with commands, one per line. Start with '#!/bin/bash' — that's the shebang. It tells the system: 'this file speaks bash.' After that, every line runs in order, just like typing commands one by one."
+        },
+        {
+          "character": "You",
+          "line": "Can it remember things? Like a name?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Variables. 'NAME=\"base camp\"' stores a value. '$NAME' retrieves it. 'read ANSWER' waits for your input. You can build interactive tools — a script that asks what you need and builds it for you."
+        },
+        {
+          "character": "You",
+          "line": "So I could automate setting up camp every time?"
+        },
+        {
+          "character": "Terminal",
+          "line": "Exactly. One script that creates directories, generates files, writes content — your entire camp setup in one command. Every great survivor automates the repetitive tasks. Write a script that builds a small website structure. Prove you can automate survival."
+        }
+      ]
+    },
+    {
+      "name": "heist",
+      "title": "The Masterplan",
+      "dialogue": [
+        {
+          "character": "Handler",
+          "line": "This is it, Ghost. The final lesson. Everything you've learned — navigation, file craft, recon, pipes, xargs, text processing — it all comes together in a script. The masterplan."
+        },
+        {
+          "character": "Ghost",
+          "line": "A script ties it all together?"
+        },
+        {
+          "character": "Handler",
+          "line": "A bash script is your operation playbook. It starts with '#!/bin/bash' — the codename header. After that, every line is a step in the plan. They execute in sequence, top to bottom. No manual intervention needed."
+        },
+        {
+          "character": "Ghost",
+          "line": "Variables?"
+        },
+        {
+          "character": "Handler",
+          "line": "'TARGET=\"vault\"' — stores the target name. '$TARGET' recalls it anywhere in the script. 'read INPUT' pauses and waits for your decision. You can make scripts interactive — the plan adapts to conditions on the ground."
+        },
+        {
+          "character": "Ghost",
+          "line": "So I write the plan once and execute it with one command?"
+        },
+        {
+          "character": "Handler",
+          "line": "That's the difference between an amateur and a professional. Amateurs type commands one by one. Professionals script the entire operation. Write me a script that sets up a web project — directory, files, content, confirmation. Show me you can plan a clean operation from start to finish."
+        }
+      ]
+    }
+  ]
+}

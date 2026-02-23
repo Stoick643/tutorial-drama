@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Bash",
+  "technical_concept": "'sed' (Stream Editor) izvaja zamenjavo besedila na toku podatkov. 'sed \"s/staro/novo/\"' zamenja prvo pojavitev na vrstico. Dodajte 'g' za vse: 'sed \"s/staro/novo/g\"'. 'awk' obdeluje stolpčne podatke — vsako vrstico razdeli na polja ($1, $2 itd.) po presledkih. 'awk \"{print $1}\"' izpiše prvi stolpec. Skupaj s cevmi vam sed in awk omogočata preoblikovanje katerih koli besedilnih podatkov sproti.",
+  "challenge": {
+    "task": "Uporabite awk za izvleček samo IP naslovov (prvi stolpec) iz 'access.log', nato pošljite skozi sort in uniq -c za štetje zahtevkov po IP-ju.",
+    "hint": "Uporabite 'awk '{print $1}' access.log | sort | uniq -c'"
+  },
+  "styles": {
+    "survival": {
+      "title": "Terenska operacija na besedilu",
+      "dialogue": [
+        {"character": "Terminal", "line": "Znate najti podatke, jih filtrirati, razvrstiti. Toda včasih jih morate spremeniti — izvesti operacijo. Spoznajte 'sed', urejevalnik tokov. Operira na besedilu, ko teče skozi."},
+        {"character": "Vi", "line": "Operacija?"},
+        {"character": "Terminal", "line": "'echo \"umazana voda\" | sed \"s/umazana/čista/\"' — 's' pomeni zamenjaj. Najde 'umazana' in zamenja s 'čista'. Besedilo steče skozi cev, sed operira, čist rezultat pride ven. Kot čiščenje vode."},
+        {"character": "Vi", "line": "Kaj pa podatki v stolpcih? Kot tabela?"},
+        {"character": "Terminal", "line": "To je 'awk' — vaš terenski specialist. Vsako vrstico vidi kot stolpce, ločene s presledki. $1 je prvi stolpec, $2 drugi in tako naprej. 'awk \"{print $1}\"' izvleče samo prvi stolpec iz vsake vrstice."},
+        {"character": "Vi", "line": "Torej če imam dnevniško datoteko s časovnimi žigi, IP naslovi in sporočili..."},
+        {"character": "Terminal", "line": "'awk \"{print $1}\"' zgrabi samo časovne žige. Pošljite to skozi sort in uniq -c in natančno veste, kdaj so se stvari zgodile in kako pogosto. V stari postojanki je dnevnik dostopov. Izvlecite IP naslove in preštejte, kateri so se najpogosteje povezali."}
+      ]
+    },
+    "heist": {
+      "title": "Ponarejanje dokumentov",
+      "dialogue": [
+        {"character": "Vodja", "line": "Še dve orodji za vašo opremo, Duh. 'sed' — ponarejevalec. Prepisuje besedilo v tranzitu. 'awk' — analitik. Secira strukturirane podatke stolpec za stolpcem."},
+        {"character": "Duh", "line": "Pokažite mi sed."},
+        {"character": "Vodja", "line": "'echo \"Agent Smith\" | sed \"s/Smith/Duh/\"' — sed prestreže tok in zamenja 'Smith' z 'Duh'. 's' pomeni zamenjaj. Dodajte 'g' na konec za zamenjavo vsake pojavitve v vrstici, ne samo prve."},
+        {"character": "Duh", "line": "In awk?"},
+        {"character": "Vodja", "line": "awk obravnava vsako vrstico kot vrstico preglednice. $1 je stolpec ena, $2 je stolpec dva. 'ls -l | awk \"{print $5, $9}\"' izvleče velikosti datotek in imena — samo podatke, ki jih potrebujete, nič odvečnega."},
+        {"character": "Duh", "line": "Torej lahko izvlečem specifična polja iz katerih koli strukturiranih podatkov?"},
+        {"character": "Vodja", "line": "Kombiniran s cevmi lahko zgradite polne analitične verige: izvlecite, filtrirajte, preoblikujte, preštejte. Imamo dnevnik dostopov iz tarče. Izvlecite IP naslove, razvrstite jih, preštejte povezave. Ugotovite, kdo je najpogosteje dostopal do njihovega sistema."}
+      ]
+    }
+  }
+}

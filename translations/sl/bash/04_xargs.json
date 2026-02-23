@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Bash",
+  "technical_concept": "'xargs' je most med iskanjem stvari in ukrepanjem. Vzame seznam elementov iz stdin in jih posreduje kot argumente drugemu ukazu. 'find . -name \"*.tmp\" | xargs rm' najde vse .tmp datoteke in jih izbriše v enem zamahu. Brez xargs bi jih morali brisati eno po eno. Močan cevovod: 'cat log.txt | grep \"ERROR\" | awk \"{print $1}\" | sort | uniq -c' — prebere dnevnik, filtrira napake, izvleče prvi stolpec, razvrsti in prešteje pojavitve.",
+  "challenge": {
+    "task": "Uporabite find in xargs za brisanje vseh datotek, ki se končajo z '.tmp', iz trenutnega drevesa imenikov, nato preverite z 'find . -name \"*.tmp\"' (ne sme vrniti ničesar).",
+    "hint": "Uporabite 'find . -name \"*.tmp\" | xargs rm && find . -name \"*.tmp\"'"
+  },
+  "styles": {
+    "survival": {
+      "title": "Ekipa za čiščenje",
+      "dialogue": [
+        {"character": "Terminal", "line": "Naučili ste se graditi cevovode — vsak ukaz opravi svoje delo in posreduje rezultat. Toda kaj, če morate ukrepati na celotnem seznamu stvari naenkrat? Tu pride na vrsto 'xargs'."},
+        {"character": "Vi", "line": "Ukrepati? Kot kaj?"},
+        {"character": "Terminal", "line": "Predstavljajte si, da ste našli 50 suhih vej, razpršenih po taboru — datoteke, ki se končajo z .tmp. 'find . -name \"*.tmp\"' jih vse najde. Toda find jih samo izpiše. Ne naredi ničesar. Potrebujete nekoga, ki jih bo odpeljal."},
+        {"character": "Vi", "line": "In xargs je prevoznik?"},
+        {"character": "Terminal", "line": "Najboljši prevoznik. 'find . -name \"*.tmp\" | xargs rm' — find vzame seznam, cev ga posreduje, in xargs vsakega preda 'rm'. Petdeset datotek, en ukaz. Brez ročnega dela."},
+        {"character": "Vi", "line": "Torej xargs pretvori seznam v argumente za drug ukaz?"},
+        {"character": "Terminal", "line": "Točno. Je most med 'iskanjem' in 'delovanjem'. In je skalabilen — bodisi 5 datotek ali 5.000. Sedaj kombinirajte to z vsem, kar znate: find, grep, sort, uniq, xargs. Zgradite lahko cevovode, ki iščejo, filtrirajo, preoblikujejo in ukrepajo. Očistite tabor — povsod so razpršene .tmp datoteke."}
+      ]
+    },
+    "heist": {
+      "title": "Koordinator ekipe",
+      "dialogue": [
+        {"character": "Vodja", "line": "Pozorno poslušajte, Duh. To je najpomembnejše orodje v vaši opremi: 'xargs'. Je vaš koordinator ekipe. Date mu seznam tarč in on razpošlje operativce, da se ukvarjajo z vsako posebej."},
+        {"character": "Duh", "line": "Dajte mi primer."},
+        {"character": "Vodja", "line": "'find . -name \"*.tmp\" | xargs rm' — find izsledi vse .tmp datoteke. Cev posreduje seznam xargs-u. xargs preda vsako datoteko 'rm' za odstranitev. Petdeset tarč, en koordiniran udarec."},
+        {"character": "Duh", "line": "Torej xargs premosti vrzel med izvidništvom in akcijo?"},
+        {"character": "Vodja", "line": "Točno tako. Brez xargs vam 'find' samo da seznam. Z xargs ta seznam postane seznam tarč. Deluje s katerim koli ukazom — rm, cat, grep, karkoli. To je razlika med vedeti, kje so tarče, in dejansko ukrepati."},
+        {"character": "Duh", "line": "In močan cevovod, ki ste ga omenili?"},
+        {"character": "Vodja", "line": "'cat log.txt | grep ERROR | awk \"{print $1}\" | sort | uniq -c' — preberi dnevnike, filtriraj napake, izvleci časovne žige, razvrsti jih, preštej ponovitve. Polna analiza obveščevalnih podatkov v eni vrstici. Sedaj očistite — v sistemu tarče so povsod .tmp datoteke. Dokazi, ki morajo izginiti."}
+      ]
+    }
+  }
+}
