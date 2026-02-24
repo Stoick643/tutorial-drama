@@ -1,0 +1,40 @@
+{
+  "tutorial": "Osnove LLM-a",
+  "technical_concept": "Svaki poziv LLM API-ju je JSON zahtjev s: 'model' (koji LLM koristiti), 'messages' (popis uloga/sadržaj parova — system definira ponašanje, user daje upit), 'max_tokens' (ograničenje duljine odgovora), i 'temperature' (kreativnost: 0.0 = deterministički, 1.0 = kreativniji).",
+  "challenge": {
+    "task": "Izgradite potpuni JSON zahtjev za API. Uključite: 'model' (koristite 'kimi-k2.5'), polje 'messages' s ulogom 'system' (dajte AI osobnost) i ulogom 'user' (vaše pitanje), 'max_tokens' (100) i 'temperature' (0.7).",
+    "hint": "Počnite s { i uključite sva četiri polja. Polje messages treba objekte s 'role' i 'content'."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Komunikacijski protokol",
+      "dialogue": [
+        {"character": "Znanstvena časnica Chen", "line": "Zapovjedniče, dekodirala sam ARIA-in komunikacijski protokol. Svaka poruka ima specifičnu strukturu."},
+        {"character": "Zapovjednik Vega", "line": "Pokažite mi."},
+        {"character": "Znanstvena časnica Chen", "line": "Svaka transmisija je JSON objekt. 'model' kaže koji AI mozak koristiti. 'messages' su popis poruka — svaka s ulogom i sadržajem."},
+        {"character": "Zapovjednik Vega", "line": "Uloge?"},
+        {"character": "Znanstvena časnica Chen", "line": "'system' definira ARIA-inu osobnost — njezine direktive. 'user' je naš upit. I 'assistant' su njezini prethodni odgovori u razgovoru."},
+        {"character": "Zapovjednik Vega", "line": "Što je s 'temperature'?"},
+        {"character": "Znanstvena časnica Chen", "line": "Kontrolira kreativnost. 0.0 znači precizna, deterministička — isti upit, isti odgovor. 1.0 znači kreativnija, više iznenađenja. 0.7 je dobar balans."},
+        {"character": "Zapovjednik Vega", "line": "I 'max_tokens' ograničava duljinu odgovora?"},
+        {"character": "Znanstvena časnica Chen", "line": "Točno. Bez ograničenja ARIA bi mogla pričati zauvijek. Izgradite pravi API zahtjev — ovo je jezik koji AI govori."},
+        {"character": "Zapovjednik Vega", "line": "Razumijem protokol. Da sastavim transmisiju."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Čitanje Alexovog priručnika",
+      "dialogue": [
+        {"character": "Sam (stariji developer)", "line": "Okej, ako ćemo koristiti Alexa u kôdu, moramo znati kako s njim razgovarati. Nije slobodni tekst — to je strukturirani JSON."},
+        {"character": "Šef", "line": "JSON? Kao API?"},
+        {"character": "Sam (stariji developer)", "line": "Točno kao API. Šaljete JSON zahtjev: 'model' kaže koji AI mozak, 'messages' je popis poruka s ulogama — 'system' za upute, 'user' za pitanja."},
+        {"character": "Šef", "line": "Što radi systemska poruka?"},
+        {"character": "Sam (stariji developer)", "line": "Daje Alexu osobnost. 'Ti si ljubazan asistent korisničke podrške' vs 'Ti si pirat koji govori samo u metaforama'. Ozbiljno, to radi."},
+        {"character": "Šef", "line": "A temperature?"},
+        {"character": "Sam (stariji developer)", "line": "Gumb za kreativnost. 0 = robotski precizan, isti odgovor svaki put. 1 = kreativniji, nepredvidiviji. 0.7 je sweet spot za većinu stvari."},
+        {"character": "Šef", "line": "I max_tokens je koliko može pričati?"},
+        {"character": "Sam (stariji developer)", "line": "Da. Bez toga Alex piše romane. Postavite na 100 za kratke odgovore. Pokušajte sastaviti zahtjev — ovo je Alexov pravi API."},
+        {"character": "Šef", "line": "Razumijem. Da izgradim prvi API poziv."}
+      ]
+    }
+  }
+}

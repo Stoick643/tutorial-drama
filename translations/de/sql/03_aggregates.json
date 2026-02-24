@@ -1,0 +1,38 @@
+{
+  "tutorial": "SQL Grundlagen",
+  "technical_concept": "Verwendung von Aggregatfunktionen (COUNT, SUM, AVG, MAX, MIN) und GROUP BY zur Datenanalyse.",
+  "challenge": {
+    "task": "Berechnen Sie die Gesamtzahl der Mitarbeiter in jeder Abteilung. Verwenden Sie COUNT und GROUP BY, um die Personalverteilung zu sehen.",
+    "hint": "Verwenden Sie COUNT(*) mit GROUP BY department_id zum Zählen der Mitarbeiter pro Abteilung."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Das Zahlenspiel",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Ich brauche keine einzelnen Namen mehr. Ich brauche Muster. Wie viele Leute sind in jeder Abteilung? Wohin fließt das Geld?"},
+        {"character": "Datenbank", "line": "Sie brauchen Aggregatfunktionen, Herr Detektiv. COUNT, SUM, AVG, MAX, MIN — die verarbeiten die Zahlen für Sie."},
+        {"character": "Detektiv Indecks", "line": "Zeigen Sie mir, wie viele Mitarbeiter in jeder Abteilung sind."},
+        {"character": "Datenbank", "line": "`SELECT department_id, COUNT(*) FROM employees GROUP BY department_id`. GROUP BY sortiert die Mitarbeiter nach Abteilung, COUNT zählt sie."},
+        {"character": "Detektiv Indecks", "line": "Was ist mit Durchschnittsgehältern? Ich muss wissen, ob eine Abteilung verdächtig gut bezahlt wird."},
+        {"character": "Datenbank", "line": "`SELECT department_id, AVG(salary) FROM employees GROUP BY department_id`. AVG berechnet den Durchschnitt für jede Gruppe."},
+        {"character": "Detektiv Indecks", "line": "Kann ich das höchste Gehalt in jeder Abteilung sehen?"},
+        {"character": "Datenbank", "line": "`SELECT department_id, MAX(salary) FROM employees GROUP BY department_id`. MAX findet den Spitzenwert für jede Gruppe."},
+        {"character": "Detektiv Indecks", "line": "Zeit zu sehen, wo die Zahlen nicht zusammenpassen."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Statistische Datenanalyse",
+      "dialogue": [
+        {"character": "Ingenieur", "line": "NEXUS, ich brauche Belegschaftsstatistiken. Wie viel Personal in jeder Abteilung? Wie sind die Vergütungsniveaus?"},
+        {"character": "NEXUS", "line": "Das erfordert Aggregatfunktionen, Ingenieur. COUNT, SUM, AVG, MAX und MIN führen Berechnungen über gesamte Datensätze durch."},
+        {"character": "Ingenieur", "line": "Zeigen Sie mir die Personalzahlen nach Abteilung."},
+        {"character": "NEXUS", "line": "SELECT department_id, COUNT(*) FROM employees GROUP BY department_id. Die GROUP-BY-Klausel kategorisiert Datensätze vor der Aggregation."},
+        {"character": "Ingenieur", "line": "Ich brauche durchschnittliche Vergütungsniveaus nach Abteilung."},
+        {"character": "NEXUS", "line": "SELECT department_id, AVG(salary) FROM employees GROUP BY department_id. AVG berechnet das arithmetische Mittel für jede Gruppe."},
+        {"character": "Ingenieur", "line": "Gesamte Gehaltskosten nach Abteilung?"},
+        {"character": "NEXUS", "line": "SELECT department_id, SUM(salary) FROM employees GROUP BY department_id. SUM addiert alle Werte in der Gruppe."},
+        {"character": "Ingenieur", "line": "Ausgezeichnet. Generieren wir diese Abteilungsstatistiken."}
+      ]
+    }
+  }
+}

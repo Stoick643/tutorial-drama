@@ -1,0 +1,66 @@
+{
+  "tutorial": "Git vom Terminal",
+  "technical_concept": "Ein Branch ist keine Kopie Ihres Codes. Er ist eine kleine Datei, die einen einzigen 40-Zeichen-Hash enthält, der auf einen Commit zeigt. Branch-Erstellung ist sofort, weil Git nichts kopiert — es schreibt nur einen neuen Zeiger. HEAD ist ein weiterer Zeiger, der Git sagt, auf welchem Branch Sie sich gerade befinden. Mergen bringt Commits eines Branches in einen anderen — wechseln Sie immer zuerst zum Ziel-Branch.",
+  "challenge": {
+    "task": "Erstellen Sie einen neuen Branch 'feature', wechseln Sie dorthin, erstellen Sie eine Datei 'feature.txt', stagen und committen Sie mit der Nachricht 'Add feature', wechseln Sie dann zurück zu main und mergen Sie den feature-Branch.",
+    "hint": "Verwenden Sie 'git switch -c feature' zum Erstellen und Wechseln, dann den üblichen add/commit-Zyklus, dann 'git switch main' und 'git merge feature'.",
+    "solution": "git switch -c feature && echo 'new feature' > feature.txt && git add feature.txt && git commit -m 'Add feature' && git switch main && git merge feature"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Die Natur des Branchens",
+      "dialogue": [
+        {"character": "Sokrates", "line": "Sag mir — wenn du in deinem Desktop-Tool einen Branch erstellst, was glaubst du, passiert?"},
+        {"character": "Schüler", "line": "Git macht eine Kopie all meiner Dateien auf dem neuen Branch, oder?"},
+        {"character": "Sokrates", "line": "Eine vernünftige Annahme. Und wie lange dauert es?"},
+        {"character": "Schüler", "line": "Sofort. Selbst bei großen Projekten."},
+        {"character": "Sokrates", "line": "Sofort! Und doch sagst du, Git kopiert alle deine Dateien? Sag mir — wenn ich dich bitten würde, tausend Dateien zu kopieren, wäre das sofort?"},
+        {"character": "Schüler", "line": "Nein, das würde dauern. Also... kopiert Git die Dateien nicht?"},
+        {"character": "Sokrates", "line": "Tut es nicht. Ein Branch ist eine kleine Datei — vierzig Zeichen lang — die einen Commit-Hash enthält. Nicht mehr. Wenn du 'einen Branch erstellst', schreibt Git eine kleine Datei. Deshalb ist es sofort."},
+        {"character": "Schüler", "line": "Nur ein Zeiger? Was ist dann HEAD?"},
+        {"character": "Sokrates", "line": "Noch ein Zeiger! HEAD zeigt auf den Branch, auf dem du dich gerade befindest. Wenn du Branches wechselst, ändert sich nur HEAD — er zeigt auf eine andere Branch-Datei. Studiere das Diagramm: Zeiger bis ganz nach unten."},
+        {"character": "Schüler", "line": "Und Mergen?"},
+        {"character": "Sokrates", "line": "Beim Mergen nimmt Git Commits von einem Branch und webt sie in einen anderen ein. Aber hier ist der entscheidende Punkt — du musst zuerst auf dem Branch stehen, der die Arbeit empfangen wird. Wechsle zu main, dann merge feature hinein."},
+        {"character": "Schüler", "line": "Also gehe ich immer zuerst zum Ziel, dann merge ich die Quelle hinein?"},
+        {"character": "Sokrates", "line": "Genau so. Und nach dem Merge hat der feature-Branch seinen Zweck erfüllt. Lösche ihn. Eine saubere Werkstatt ist ein klarer Verstand. Nun — erstelle einen Branch, erledige etwas Arbeit, kehre zurück und merge. Der gesamte Zyklus."}
+      ]
+    },
+    "zen": {
+      "title": "Der Finger, der auf den Mond zeigt",
+      "dialogue": [
+        {"character": "Meister", "line": "Was ist ein Branch?"},
+        {"character": "Schüler", "line": "Eine Kopie des Codes, damit ich arbeiten kann, ohne Dinge kaputtzumachen."},
+        {"character": "Meister", "line": "Du beschreibst, was er tut, nicht was er ist. Ein Branch ist kein Baum. Er ist ein Finger, der auf den Mond zeigt."},
+        {"character": "Schüler", "line": "Ich verstehe nicht."},
+        {"character": "Meister", "line": "Ein Branch ist ein Zeiger — vierzig Zeichen, geschrieben in eine kleine Datei. Er zeigt auf einen Commit, nicht mehr. Git kopiert nichts, wenn du einen Branch erstellst. Es schreibt eine Zeile."},
+        {"character": "Schüler", "line": "Deshalb ist es sofort?"},
+        {"character": "Meister", "line": "Du beginnst zu sehen. Und HEAD — weißt du, was HEAD ist?"},
+        {"character": "Schüler", "line": "Der aktuelle Commit?"},
+        {"character": "Meister", "line": "Nah dran. HEAD ist ein Zeiger auf einen Branch, der ein Zeiger auf einen Commit ist. Finger zeigt auf Finger zeigt auf Mond. 'git switch' bewegt einfach, wohin HEAD zeigt."},
+        {"character": "Schüler", "line": "Und Mergen verbindet zwei Branches?"},
+        {"character": "Meister", "line": "Ja, aber mit Absicht. Stehe zuerst dort, wohin der Fluss fließen soll — wechsle zum empfangenden Branch. Dann lade den anderen Strom ein. 'git merge' vereinigt die Ströme."},
+        {"character": "Schüler", "line": "Was passiert mit dem feature-Branch danach?"},
+        {"character": "Meister", "line": "Er hat seine Arbeit getan. Lass ihn los. 'git branch -d' entfernt den Zeiger. Die Commits bleiben — sie sind jetzt Teil der Geschichte von main. Nun geh: erstelle, verzweige, arbeite, kehre zurück, merge. Spüre den Zyklus."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Branches sind praktisch kostenlos",
+      "dialogue": [
+        {"character": "Alex", "line": "Okay, Branching. In GitHub Desktop habe ich nur 'New Branch' geklickt und es schien alles zu kopieren. Macht das Terminal dasselbe?"},
+        {"character": "Sam", "line": "Hier ist der Trick — GitHub Desktop hat auch nichts kopiert. Es hat es dir nur nicht gesagt."},
+        {"character": "Alex", "line": "Was meinst du?"},
+        {"character": "Sam", "line": "Ein Branch ist eine kleine Datei. Vierzig Zeichen. Ein Zeiger auf einen Commit. Wenn du 'einen Branch erstellst', schreibt Git eine kleine Datei. Deshalb ist es sofort, selbst bei riesigen Projekten."},
+        {"character": "Alex", "line": "Echt? Also keine Kopie meines Codes?"},
+        {"character": "Sam", "line": "Keine. Deine Dateien bleiben genau dort, wo sie sind. Der Branch sagt nur 'ich zeige auf diesen Commit.' Und HEAD — das ist ein weiterer Zeiger, der sagt 'ich bin gerade auf diesem Branch.'"},
+        {"character": "Alex", "line": "Okay, wie erstelle ich tatsächlich einen vom Terminal?"},
+        {"character": "Sam", "line": "'git switch -c feature' — erstellt den Branch und wechselt in einem Schritt dorthin. Das wirst du 90% der Zeit benutzen."},
+        {"character": "Alex", "line": "Und wenn ich mit dem Feature fertig bin?"},
+        {"character": "Sam", "line": "Wechsle zurück zu main mit 'git switch main', dann 'git merge feature'. Wichtig: Gehe immer zuerst zum Branch, in den du mergen willst. Dann ziehe den anderen hinein."},
+        {"character": "Alex", "line": "Als ob man... am Ziel steht und sagt 'komm her'?"},
+        {"character": "Sam", "line": "Genau. Und nach dem Merge lösche den Branch mit 'git branch -d feature'. Halte Ordnung. Tote Branches überall sind der Weg, wie Repos zum Chaos werden."},
+        {"character": "Alex", "line": "Okay, lass mich das Ganze versuchen — branchen, committen, zurückmergen."},
+        {"character": "Sam", "line": "Nur zu. Der gesamte Lebenszyklus."}
+      ]
+    }
+  }
+}

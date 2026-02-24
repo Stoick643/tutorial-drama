@@ -1,0 +1,34 @@
+{
+  "tutorial": "Docker Grundlagen",
+  "technical_concept": "Der Befehl 'docker run' erstellt und startet einen Container aus einem Image. Wenn das Image nicht lokal verfügbar ist, lädt Docker es automatisch vom Docker Hub herunter.",
+  "challenge": {
+    "task": "Starten Sie den klassischen 'hello-world' Container, um zu überprüfen, dass Docker von Ende zu Ende funktioniert.",
+    "hint": "Geben Sie 'docker run hello-world' ein — Docker lädt das Image herunter und startet es."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Beschwörung des ersten Wesens",
+      "dialogue": [
+        {"character": "Der alte Zauberer Dockerus", "line": "Jetzt da wir wissen, dass unsere Werkzeuge funktionieren, ist es Zeit, dein erstes Wesen zu beschwören! Der Zauberspruch ist 'docker run'."},
+        {"character": "Lehrling", "line": "Welches Wesen soll ich beschwören, Meister?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Beginne mit dem einfachsten — 'hello-world'. Ein kleiner freundlicher Geist, der erscheint, eine Nachricht bringt und verschwindet."},
+        {"character": "Lehrling", "line": "Was, wenn ich keinen Bauplan für dieses Wesen habe?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Das ist das Schöne! Docker fliegt zur Großen Bibliothek — sie heißt Docker Hub — und holt den Bauplan für dich. Ohne Aufwand!"},
+        {"character": "Lehrling", "line": "Also kann ich einen ganzen Webserver beschwören, ohne ihn selbst zu bauen?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Natürlich! 'docker run nginx' gibt dir einen Webserver. 'docker run postgres' gibt dir eine Datenbank. Eine ganze Welt von Wesen steht dir zur Verfügung!"}
+      ]
+    },
+    "flirting": {
+      "title": "Das erste Date",
+      "dialogue": [
+        {"character": "Docker", "line": "Also... bereit für unser erstes richtiges Date? Ich habe etwas Besonderes vorbereitet. Gib 'docker run hello-world' ein."},
+        {"character": "Du", "line": "Was ist hello-world? Für ein erstes Date klingt das ziemlich basic."},
+        {"character": "Docker", "line": "Vertrau mir. Das ist ein Klassiker. Schnell, einfach und zeigt dir, dass zwischen uns alles funktioniert. Wie ein erster Kaffee."},
+        {"character": "Du", "line": "Und wenn ich dieses hello-world Ding nicht habe?"},
+        {"character": "Docker", "line": "Keine Sorge, ich hole es für dich. Ich kenne einen Laden — Docker Hub. Wie ein App-Store, nur für Container."},
+        {"character": "Du", "line": "Du sagst mir also, dass ich eine voll funktionsfähige Datenbank mit einem Befehl bekomme?"},
+        {"character": "Docker", "line": "Jetzt verstehst du's. Aber lass uns nicht überstürzen. Erst das erste Date. Starte hello-world für mich."}
+      ]
+    }
+  }
+}

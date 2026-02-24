@@ -1,0 +1,36 @@
+{
+  "tutorial": "Osnove Basha",
+  "technical_concept": "Terminal je vaš prozor u datotečni sustav.\n\npwd — pokazuje gdje ste (Print Working Directory).\nls — ispisuje datoteke i mape. Dodajte -la za skrivene datoteke i detalje.\ncd — mijenja direktorij. cd .. ide gore, cd ~ ide kući.\nmkdir — kreira nove direktorije.",
+  "challenge": {
+    "task": "Kreirajte direktorij nazvan 'camp'.",
+    "hint": "Koja naredba kreira novi direktorij?"
+  },
+  "styles": {
+    "survival": {
+      "title": "Buđenje u divljini",
+      "dialogue": [
+        {"character": "Pripovjedač", "line": "Otvarate oči. Iznad vas se uzdižu borovi. Zrak miriše na kišu i zemlju. Vaš ruksak je nestao, telefon je mrtav — ali na stijeni pored vas svijetli terminal."},
+        {"character": "Terminal", "line": "SUSTAV AKTIVAN. Dobrodošli, preživjeli. Ja sam vaša jedina veza s vanjskim svijetom. Kroz mene možete navigirati, graditi i preživjeti."},
+        {"character": "Vi", "line": "Gdje... gdje sam?"},
+        {"character": "Terminal", "line": "Upišite 'pwd' — Print Working Directory. Reći će vam točno gdje ste u ovoj divljini."},
+        {"character": "Vi", "line": "U redu... /divljina/proplanak. To... nije baš utješno."},
+        {"character": "Terminal", "line": "Sada upišite 'ls' da se rozgledate. Ispisuje sve na vašoj trenutnoj lokaciji — datoteke, direktorije, resurse. Dodajte '-la' za skrivene predmete i detalje. Znanje je preživljavanje."},
+        {"character": "Vi", "line": "Vidim neke datoteke... i direktorij 'šuma'. Kako idem tamo?"},
+        {"character": "Terminal", "line": "'cd šuma' vas premješta unutra. 'cd ..' vas vraća natrag. Razmišljajte o direktorijima kao o stazama — ulazite, izlazite. I 'mkdir' kreira novo sklonište — novi direktorij. Prvo: postavite kamp."}
+      ]
+    },
+    "heist": {
+      "title": "Soba za informiranje",
+      "dialogue": [
+        {"character": "Pripovjedač", "line": "Slabo osvijetljena soba. Jedan jedini laptop na čeličnom stolu. Sjedate. Glas škripne kroz slušalicu."},
+        {"character": "Voditelj", "line": "Dobrodošli u tim, novače. Kodno ime: Duh. Ja sam vaš voditelj. Sve što radimo ide kroz terminal. Bez grafičkog sučelja, bez tragova."},
+        {"character": "Duh", "line": "Unutra sam. Koji je prvi korak?"},
+        {"character": "Voditelj", "line": "Pravilo jedan: uvijek znaj gdje si. Upiši 'pwd' — Print Working Directory. Ako ne poznaješ svoju poziciju, već si kompromitiran."},
+        {"character": "Duh", "line": "Razumijem. /operacije/priprema. I moram vidjeti što je tu?"},
+        {"character": "Voditelj", "line": "'ls' — ispiši sve. Koristi 'ls -la' za pune informacije: skrivene datoteke, dozvole, vremenske oznake. U ovom poslu skriveno je najvažnije."},
+        {"character": "Duh", "line": "Vidim direktorije: trezor, komunikacije, ekstrakcija. Kako se premještam?"},
+        {"character": "Voditelj", "line": "'cd trezor' te spušta unutra. 'cd ..' te vuče van. I 'mkdir' kreira novo odlagalište — direktorij za skrivanje datoteka. Postavi pripremno područje. Trebat će nam."}
+      ]
+    }
+  }
+}

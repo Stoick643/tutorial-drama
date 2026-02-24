@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Redisa",
+  "technical_concept": "Korištenje hasheva (Hashes) za pohranjivanje strukturiranih podataka s više polja naredbama HSET, HGET, HGETALL i HDEL.",
+  "challenge": {
+    "task": "Kreirajte cjelovit profil za suspect_delta sa starošću 28, visinom 5'7\", zanimanjem 'teacher' i statusom 'wanted'. Zatim dohvatite samo njihovo zanimanje.",
+    "hint": "Koristite HSET za pohranjivanje više polja odjednom, zatim HGET za dohvaćanje pojedinog polja."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Profil osumnjičenika",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Imam novog osumnjičenika — delta. Trebam cjelovit profil. Starost, visina, zanimanje, status. Sve na jednom mjestu."},
+        {"character": "REDIS", "line": "Za to su tu hashevi, detektive. Zamislite kartotečni karton s poljima. Jedna osoba, više podataka — sve pod jednim ključem."},
+        {"character": "Detektiv Indecks", "line": "Kako se razlikuje od običnih nizova?"},
+        {"character": "REDIS", "line": "S nizovima bi trebali zaseban ključ za svaki podatak: suspect_delta:age, suspect_delta:height... S hashom je sve pod 'suspect_delta' s poljima unutra. HSET suspect_delta age 28 height 5'7\" — jedna jedina naredba."},
+        {"character": "Detektiv Indecks", "line": "A ako trebam samo jedan podatak?"},
+        {"character": "REDIS", "line": "HGET suspect_delta occupation — vraća samo zanimanje. HGETALL vraća sve. HDEL uklanja pojedino polje. Kao čitanje jednog stupca iz kartoteke umjesto cijelog lista."},
+        {"character": "Detektiv Indecks", "line": "Učinkovito. Sastavimo taj profil."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Sustav osobnih evidencija",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Inženjeru, moramo kreirati strukturirani zapis za novog člana posade. Više podatkovnih polja pod jednom identifikacijom."},
+        {"character": "Inženir", "line": "Kao baza podataka osoblja? Ime, čin, specijalizacija, status — sve na jednom mjestu?"},
+        {"character": "NEXUS", "line": "Točno. Redis hashevi su dizajnirani za to. HSET pohranjuje više polja pod jedan ključ. Zamislite strukturirani zapis umjesto običnog teksta."},
+        {"character": "Inženir", "line": "Kako upitam pojedino polje?"},
+        {"character": "NEXUS", "line": "HGET vraća jedno polje. HGETALL vraća cijeli zapis. HDEL uklanja pojedino polje. Učinkovito i organizirano."},
+        {"character": "Inženir", "line": "Kreirajmo taj osobni zapis."},
+        {"character": "NEXUS", "line": "Spreman za podatke, inženjeru."}
+      ]
+    }
+  }
+}

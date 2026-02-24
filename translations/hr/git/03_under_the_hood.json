@@ -1,0 +1,63 @@
+{
+  "tutorial": "Git iz terminala",
+  "technical_concept": "Mapa .git je cijela Gitova baza podataka. HEAD je tekstualna datoteka koja pokazuje na vašu trenutnu granu. Svaka grana je datoteka u .git/refs/heads/ koja sadrži 40-znakovni hash commita. Mapa objects/ pohranjuje svaku verziju svake datoteke koja je ikad commitana. Izbrišite .git i sva povijest nestaje — vaše datoteke ostaju, ali Git je nestao. Datoteka .gitignore kaže Gitu koje datoteke nikad ne treba pratiti: artefakti gradnje, postavke IDE-a, tajne, dnevnici.",
+  "challenge": {
+    "task": "Pogledajte u Gitove mozgove: pročitajte sadržaj datoteke HEAD s 'cat .git/HEAD' da vidite na kojoj ste grani.",
+    "hint": "HEAD je samo tekstualna datoteka unutar mape .git. Razmislite koja osnovna Linux naredba čita sadržaj datoteke.",
+    "solution": "cat .git/HEAD"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Iza zavjese",
+      "dialogue": [
+        {"character": "Sokrat", "line": "Govorili smo o granama, commitima i četiri područja. Ali cijelo to vrijeme sam te molio da mi vjeruješ. Sada provjerimo. Gdje misliš da Git pohranjuje sve?"},
+        {"character": "Učenik", "line": "Negdje na mom računalu? U bazi podataka?"},
+        {"character": "Sokrat", "line": "U skrivenoj mapi nazvanoj .git koja sjedi točno unutar tvog projekta. Bez oblačne usluge, bez pozadinskog procesa. Samo datoteke u mapi. Želiš li pogledati unutra?"},
+        {"character": "Učenik", "line": "Mogu jednostavno... otvoriti?"},
+        {"character": "Sokrat", "line": "Naravno! Nema nikakve magije. HEAD je tekstualna datoteka — otvori je i vidjet ćeš na kojoj si grani. Svaka grana u refs/heads/ je datoteka koja sadrži 40-znakovni hash. Mapa objects/ pohranjuje svaku verziju svake datoteke koja je ikad commitana."},
+        {"character": "Učenik", "line": "Dakle kad smo rekli 'grana je samo pokazivač'..."},
+        {"character": "Sokrat", "line": "Mislili smo to doslovno. Datoteka s hashom unutra. Izbriši tu datoteku i grana je nestala. Izbriši cijelu mapu .git i sva povijest nestaje — iako tvoje radne datoteke ostaju."},
+        {"character": "Učenik", "line": "To je istovremeno elegantno i zastrašujuće."},
+        {"character": "Sokrat", "line": "Zato trebamo i .gitignore — datoteku koja kaže Gitu što nikad ne treba pratiti. Artefakti gradnje, postavke IDE-a, dnevničke datoteke i prije svega tajne. .env datoteka commitana na GitHub vidljiva je svakome tko može vidjeti repozitorij."},
+        {"character": "Učenik", "line": "Trebam li kreirati .gitignore prije prvog commita?"},
+        {"character": "Sokrat", "line": "Uvijek. Naknadno ignoriranje datoteke koja je već praćena zahtijeva dodatni rad — 'git rm --cached'. Prevencija je čišća od lijeka. Sada — pročitajte datoteku HEAD sami. Pogledajte vlastitim očima ono što vam GUI nikad nije pokazao."}
+      ]
+    },
+    "zen": {
+      "title": "Otvaranje kutije",
+      "dialogue": [
+        {"character": "Majstor", "line": "Koristio si alat bez da si ikad pogledao unutra. Danas otvaramo kutiju."},
+        {"character": "Učenik", "line": "Koju kutiju?"},
+        {"character": "Majstor", "line": "Mapu .git. To je cijeli Gitov svijet. Skrivena mapa unutar tvog projekta koja sadrži svaki commit, svaku granu, svaki komadić povijesti koji si ikad kreirao."},
+        {"character": "Učenik", "line": "Rekli su mi da se te mape nikad ne dotičem."},
+        {"character": "Majstor", "line": "Nikad je ne mijenjaj nepromišljeno. Ali čitanje — tako dolazi razumijevanje. HEAD je tekstualna datoteka. Otvori je. Kaže na kojoj si grani. Ništa više."},
+        {"character": "Učenik", "line": "A same grane?"},
+        {"character": "Majstor", "line": "Datoteke u refs/heads/. Svaka sadrži četrdeset znakova — hash commita. Rekao si da su se grane činile misterioznima. Sada vidiš: one su najjednostavnija stvar u Gitu."},
+        {"character": "Učenik", "line": "Što je s mapom objects?"},
+        {"character": "Majstor", "line": "Svaka verzija svake datoteke, pohranjena po sadržajnom hashu. Zato je Git pouzdan — isti sadržaj uvijek proizvodi isti hash, na bilo kojem uređaju, u bilo koje vrijeme. Istina kroz matematiku."},
+        {"character": "Učenik", "line": "A .gitignore?"},
+        {"character": "Majstor", "line": "Sve ne pripada povijesti. Artefakti gradnje su privremeni. Postavke IDE-a su osobne. Tajne su opasne. Datoteka .gitignore imenuje što treba ostati vani. Kreiraj je prije prvog commita — ukloniti nešto što je već praćeno je kao pokušati poništiti zvono."},
+        {"character": "Učenik", "line": "Želim pogledati unutra."},
+        {"character": "Majstor", "line": "Onda pogledaj. Pročitaj HEAD. Pogledaj istinu zapisanu tamo u običnom tekstu."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Otvorimo poklopac",
+      "dialogue": [
+        {"character": "Sam", "line": "Okej, Git naredbe koristiš već par dana. Želiš li vidjeti nešto cool?"},
+        {"character": "Alex", "line": "Uvijek."},
+        {"character": "Sam", "line": "Poznaješ mapu .git u korijenu svog projekta? Onu za koju svi kažu 'ne diraj'?"},
+        {"character": "Alex", "line": "Da, nikad je nisam otvorio."},
+        {"character": "Sam", "line": "Otvorimo je. To su samo datoteke. HEAD je tekstualna datoteka — doslovno sadrži ime tvoje trenutne grane. To je sve. Bez magije."},
+        {"character": "Alex", "line": "Čekaj, ozbiljno? Samo tekstualna datoteka?"},
+        {"character": "Sam", "line": "Da. I grane? Datoteke u .git/refs/heads/. Svaka sadrži 40-znakovni hash koji pokazuje na commit. Sjećaš se kad sam rekao da su grane samo pokazivači? Mislio sam DOSLOVNO samo pokazivači. Datoteka s hashom."},
+        {"character": "Alex", "line": "To je... puno jednostavnije nego sam očekivao."},
+        {"character": "Sam", "line": "To je cijela Gitova fora — ispod poklopca je elegantan. Mapa objects pohranjuje svaku verziju svake datoteke, indeksiranu po sadržajnom hashu. Isti sadržaj uvijek daje isti hash. Zato je Git pouzdan između uređaja."},
+        {"character": "Alex", "line": "Što s .gitignore? Uvijek zaboravim to postaviti."},
+        {"character": "Sam", "line": "Pro savjet: kreiraj .gitignore PRIJE prvog commita. Stavi unutra artefakte gradnje, IDE datoteke, .env datoteke — sve što ne pripada u repo. Ako zaboraviš i commitaš tajnu, ona je u povijesti zauvijek. Morao bi prepisati povijest da je ukloniš."},
+        {"character": "Alex", "line": "Da, jednom sam commitao .env datoteku s API ključevima. Moj voditelj tima NIJE bio sretan."},
+        {"character": "Sam", "line": "Ha, svi smo bili tamo. gitignore.io ima gotove predloške za svaki jezik i IDE. Zapamti si to. Sada — idi pročitaj datoteku HEAD sam. Pogledaj što je zapravo unutra."}
+      ]
+    }
+  }
+}

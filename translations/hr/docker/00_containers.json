@@ -1,0 +1,30 @@
+{
+  "tutorial": "Osnove Dockera",
+  "technical_concept": "Docker je alat koji pakira aplikacije u kontejnere — lagana, prenosiva okruženja koja rade isto svugdje.",
+  "challenge": {
+    "task": "Provjerite da je Docker instaliran pokretanjem naredbe za verziju.",
+    "hint": "Upišite 'docker --version' za prikaz instalirane verzije Dockera."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Čarobnjakova kontejnerska čarolija",
+      "dialogue": [
+        {"character": "Stari čarobnjak Dockerus", "line": "Dođi, mladi šegrt. Sjedni kod vatre. Danas ću te naučiti najmoćniju čaroliju u cijeloj zemlji: kontejnerizaciju!"},
+        {"character": "Šegrt", "line": "Kontejnerizacija? To zvuči... komplicirano, majstore."},
+        {"character": "Stari čarobnjak Dockerus", "line": "Nimalo! Razmisli ovako. Kad pekar želi podijeliti recept, ne šalje cijelu kuhinju. Umjesto toga zapiše recept koji bilo tko može slijediti — u bilo kojoj kuhinji."},
+        {"character": "Šegrt", "line": "Dakle Docker je kao... čarobna knjiga recepata?"},
+        {"character": "Stari čarobnjak Dockerus", "line": "Točno! Tri koraka, dijete. Prvo napišeš Čarobni svitak — to je tvoj Dockerfile. Zatim iz njega izgradiš Artefakt — to je tvoja slika. I konačno, iz artefakta prizoveš Biće — to je tvoj kontejner."}
+      ]
+    },
+    "flirting": {
+      "title": "Povuci desno za kontejnere",
+      "dialogue": [
+        {"character": "Docker", "line": "Hej, ti. Da, ti — koji pokrećeš 'Radi na mom računalu' već treći put ovaj tjedan. Vrijeme da porazgovaramo."},
+        {"character": "Ti", "line": "Docker? Čula sam o tebi. Svi kažu da si izvanredan."},
+        {"character": "Docker", "line": "Prilično sam dobar, da. Pomažem ti pakirati tvoju aplikaciju tako da radi svugdje — na tvom laptopu, u oblaku, na Raspberryu, bilo gdje."},
+        {"character": "Ti", "line": "Dakle ti si kao... putna torba za kôd?"},
+        {"character": "Docker", "line": "Sviđa mi se ta analogija. Samo provjeri da sam instaliran i idemo dalje. Upiši 'docker --version' i ako odgovorim, službeno smo par."}
+      ]
+    }
+  }
+}

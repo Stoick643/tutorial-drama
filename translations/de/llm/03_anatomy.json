@@ -1,0 +1,40 @@
+{
+  "tutorial": "LLM Grundlagen",
+  "technical_concept": "Jeder LLM-API-Aufruf ist eine JSON-Anfrage mit: 'model' (welches LLM verwenden), 'messages' (Liste von Rolle/Inhalt-Paaren — system definiert Verhalten, user stellt die Frage), 'max_tokens' (Antwortlängenlimit) und 'temperature' (Kreativität: 0.0 = deterministisch, 1.0 = kreativer).",
+  "challenge": {
+    "task": "Erstellen Sie eine vollständige JSON-API-Anfrage. Beinhalten Sie: 'model' (verwenden Sie 'kimi-k2.5'), ein 'messages'-Feld mit einer 'system'-Rolle (geben Sie der KI eine Persönlichkeit) und einer 'user'-Rolle (Ihre Frage), 'max_tokens' (100) und 'temperature' (0.7).",
+    "hint": "Beginnen Sie mit { und beinhalten Sie alle vier Felder. Das messages-Feld braucht Objekte mit 'role' und 'content'."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Das Kommunikationsprotokoll",
+      "dialogue": [
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Commander, ich habe ARIAs Kommunikationsprotokoll entschlüsselt. Jede Nachricht hat eine spezifische Struktur."},
+        {"character": "Commander Vega", "line": "Zeigen Sie mir."},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Jede Übertragung ist ein JSON-Objekt. 'model' sagt, welches KI-Gehirn verwendet wird. 'messages' ist eine Liste von Nachrichten — jede mit einer Rolle und Inhalt."},
+        {"character": "Commander Vega", "line": "Rollen?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "'system' definiert ARIAs Persönlichkeit — ihre Direktiven. 'user' ist unsere Anfrage. Und 'assistant' sind ihre vorherigen Antworten im Gespräch."},
+        {"character": "Commander Vega", "line": "Was ist mit 'temperature'?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Steuert die Kreativität. 0.0 bedeutet präzise, deterministisch — gleiche Anfrage, gleiche Antwort. 1.0 bedeutet kreativer, mehr Überraschungen. 0.7 ist eine gute Balance."},
+        {"character": "Commander Vega", "line": "Und 'max_tokens' begrenzt die Antwortlänge?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Genau. Ohne Begrenzung könnte ARIA endlos reden. Erstellen Sie eine echte API-Anfrage — das ist die Sprache, die KI spricht."},
+        {"character": "Commander Vega", "line": "Ich verstehe das Protokoll. Lassen Sie mich eine Übertragung zusammenstellen."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Alex' Handbuch lesen",
+      "dialogue": [
+        {"character": "Sam (Senior-Entwickler)", "line": "Okay, wenn wir Alex im Code nutzen wollen, müssen wir wissen, wie man mit ihm spricht. Kein Freitext — das ist strukturiertes JSON."},
+        {"character": "Chef", "line": "JSON? Wie eine API?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Genau wie eine API. Sie senden eine JSON-Anfrage: 'model' sagt welches KI-Gehirn, 'messages' ist eine Liste von Nachrichten mit Rollen — 'system' für Anweisungen, 'user' für Fragen."},
+        {"character": "Chef", "line": "Was macht die System-Nachricht?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Gibt Alex eine Persönlichkeit. 'Du bist ein freundlicher Kundenservice-Assistent' vs. 'Du bist ein Pirat, der nur in Metaphern spricht.' Im Ernst, das funktioniert."},
+        {"character": "Chef", "line": "Und temperature?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Der Kreativitätsregler. 0 = roboterhaft präzise, jedes Mal die gleiche Antwort. 1 = kreativer, unberechenbarer. 0.7 ist der Sweet Spot für die meisten Dinge."},
+        {"character": "Chef", "line": "Und max_tokens ist, wie viel er reden darf?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Ja. Ohne das schreibt Alex Romane. Setzen Sie es auf 100 für kurze Antworten. Versuchen Sie, eine Anfrage zu erstellen — das ist Alex' echte API."},
+        {"character": "Chef", "line": "Verstanden. Lassen Sie mich den ersten API-Aufruf bauen."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "tutorial": "Redis Grundlagen",
+  "technical_concept": "Verwendung von Mengen (Sets) zur Speicherung einzigartiger Sammlungen und zur Schnittmengenbildung mit den Befehlen SADD, SREM, SMEMBERS und SINTER.",
+  "challenge": {
+    "task": "Erstellen Sie Kontaktnetzwerke für die Verdächtigen Alpha und Bravo. Alpha kennt Murphy, Valdez und Chen. Bravo kennt Murphy, Jackson und Chen. Finden Sie die gemeinsamen Kontakte.",
+    "hint": "Verwenden Sie SADD zum Aufbau des Netzwerks jedes Verdächtigen, dann SINTER zur Ermittlung der gemeinsamen Bekanntschaften."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Das Beziehungsnetz",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Ich habe zwei Verdächtige. Ich muss wissen — wen kennen beide? Wo überschneiden sich ihre Kreise?"},
+        {"character": "REDIS", "line": "Dafür gibt es Mengen, Herr Detektiv. Eine Menge ist eine Sammlung, in der jedes Element einzigartig ist. SADD fügt ein Mitglied hinzu. Keine Duplikate — existiert es bereits, wird es einfach ignoriert."},
+        {"character": "Detektiv Indecks", "line": "Also baue ich für jeden Verdächtigen ein separates Kontaktnetzwerk auf?"},
+        {"character": "REDIS", "line": "Genau. SADD contacts:alpha murphy valdez chen. SADD contacts:bravo murphy jackson chen. Dann SINTER contacts:alpha contacts:bravo — und Sie erhalten die Namen, die in BEIDEN Mengen vorkommen."},
+        {"character": "Detektiv Indecks", "line": "Schnittmenge. Gemeinsame Kontakte. Das sind meine Hauptverdächtigen."},
+        {"character": "REDIS", "line": "Ganz richtig. SMEMBERS zeigt Ihnen die gesamte Menge. SINTER findet die Überschneidungen. Wie ein Venn-Diagramm, nur schneller."},
+        {"character": "Detektiv Indecks", "line": "Zeit, diese Netzwerke aufzubauen und die Verbindungen zu finden."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Zugangsnetzwerk-Analyse",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Ingenieur, zwei unautorisierte Zugriffe wurden erkannt. Wir müssen ihre Zugriffsmuster analysieren und Überschneidungen finden."},
+        {"character": "Ingenieur", "line": "Ich muss wissen, auf welche Systeme beide zugegriffen haben. Die Schnittmenge."},
+        {"character": "NEXUS", "line": "Redis-Mengen sind genau dafür konzipiert. SADD fügt Elemente in eine Menge ein — automatisch einzigartig. Dann findet SINTER die Elemente, die in beiden Mengen vorkommen."},
+        {"character": "Ingenieur", "line": "Also baue ich für jeden Benutzer eine Zugriffsmenge auf?"},
+        {"character": "NEXUS", "line": "Genau. SMEMBERS zeigt alle Mitglieder einer Menge. SINTER berechnet die Schnittmenge in Millisekunden, unabhängig von der Größe."},
+        {"character": "Ingenieur", "line": "Effiziente Analyse. Bauen wir diese Zugriffsmengen auf."},
+        {"character": "NEXUS", "line": "Bereit für Daten, Ingenieur."}
+      ]
+    }
+  }
+}

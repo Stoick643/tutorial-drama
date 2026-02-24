@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove Dockera",
+  "technical_concept": "U lekciji 02 smo napisali FROM, RUN, CMD — ali kako vaš kôd dolazi U sliku? To je COPY. I kamo ide? To je WORKDIR. I kako svijet zna gdje vas naći? To je EXPOSE.",
+  "challenge": {
+    "task": "Napišite Dockerfile za našu Java aplikaciju: počnite FROM eclipse-temurin:21, postavite WORKDIR na /app, COPY App.java u kontejner, RUN javac za kompajliranje, EXPOSE port 8080 i CMD za pokretanje.",
+    "hint": "Šest linija: FROM, WORKDIR, COPY, RUN, EXPOSE, CMD. Koristite 'COPY App.java .' (s točkom!) za kopiranje u WORKDIR."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Umjetnost slojevitih čarolija",
+      "dialogue": [
+        {"character": "Stari čarobnjak Dockerus", "line": "Tvoj prvi čarobni svitak bio je jednostavan ali moćan. Sada te učim naprednu umjetnost — slojevite čarolije!"},
+        {"character": "Šegrt", "line": "Slojevite čarolije? Zvuči komplicirano."},
+        {"character": "Stari čarobnjak Dockerus", "line": "Razmisli da gradiš toranj. Svaka uputa dodaje kat. WORKDIR postavlja u kojoj sobi radiš. COPY donosi tvoje čarobne sastojke unutra."},
+        {"character": "Šegrt", "line": "A EXPOSE?"},
+        {"character": "Stari čarobnjak Dockerus", "line": "EXPOSE otvara prozor u tvom tornju — kaže svijetu 'moje biće sluša ovdje na ovim vratima'. Ne otvara stvarno, samo dokumentira namjeru."},
+        {"character": "Šegrt", "line": "Ali majstore — u prethodnoj lekciji smo napisali FROM i RUN i CMD... ali nikad nismo stvarno stavili svoj kôd u kontejner!"},
+        {"character": "Stari čarobnjak Dockerus", "line": "Odlično pitanje! Upravo to radi COPY. 'COPY App.java .' uzima tvoj svitak iz vanjskog svijeta i stavlja ga u WORKDIR kontejnera."},
+        {"character": "Šegrt", "line": "Dakle cijeli recept je: odaberi temelj, postavi sobu, kopiraj izvorni kôd, kompajliraj i otvori prozor?"},
+        {"character": "Stari čarobnjak Dockerus", "line": "Točno! I evo tajne — svaka uputa kreira čarobni sloj koji Docker pamti. Ako se sloj ne promijeni, preskače ga!"}
+      ]
+    },
+    "flirting": {
+      "title": "Bolje upoznavanje",
+      "dialogue": [
+        {"character": "Docker", "line": "Naš prvi Dockerfile bio je lijep, ali idemo dublje. Vrijeme da izgradimo nešto stvarno zajedno."},
+        {"character": "Ti", "line": "Spreman sam. Što je novo?"},
+        {"character": "Docker", "line": "WORKDIR — to je odabir našeg stana. 'WORKDIR /app' kaže 'ovdje sada živimo.' Sve nakon toga se događa u toj mapi."},
+        {"character": "Ti", "line": "A COPY?"},
+        {"character": "Docker", "line": "COPY je selidba tvojih stvari. Sjećaš se naše Java aplikacije? 'COPY App.java .' donosi tvoj izvorni kôd u stan."},
+        {"character": "Ti", "line": "A EXPOSE?"},
+        {"character": "Docker", "line": "To je dijeljenje naše adrese. 'EXPOSE 8080' — 'dostupni smo na portu 8080.' Otvorena vrata za posjetitelje."},
+        {"character": "Ti", "line": "Dakle cjelokupna slika je: odaberi osnovu, postavi stan, preseli kôd, kompajliraj, otvori vrata i pokreni?"},
+        {"character": "Docker", "line": "Gledaj te kako sve sastavljaš! I evo profesionalnog savjeta — svaka uputa je sloj koji Docker kešira. Stabilne stvari prvo!"}
+      ]
+    }
+  }
+}

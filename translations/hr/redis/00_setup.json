@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Redisa",
+  "technical_concept": "Uvod u Redis i priprema detektivskog alata.",
+  "challenge": {
+    "task": "Povežite se s Redisom i provjerite radi li, tako da pošaljete naredbu PING.",
+    "hint": "Koristite naredbu PING da provjerite je li Redis aktivan."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Podatkovni detektiv",
+      "dialogue": [
+        {"character": "Pripovedovalec", "line": "Kiša je udarala po prozorima stare uredske zgrade u 42. ulici. Unutra je lik sjedio pognut nad svijetlećim terminalom."},
+        {"character": "Detektiv Indecks", "line": "Još jedna noć, još jedan slučaj. Grad nikad ne spava, a ni podaci."},
+        {"character": "REDIS", "line": "Dobra večer, detektive. Očekivao sam vas. Ime mi je REDIS — Remote Dictionary Server. Ja sam vaš novi partner na ovom području."},
+        {"character": "Detektiv Indecks", "line": "Partner? Ja radim sam."},
+        {"character": "REDIS", "line": "Više ne. Podatkovni zločini u ovom gradu postaju sve složeniji. Trebate nekoga tko može brzo pohraniti dokaze, još brže ih pronaći i nikad ne zaboraviti trag. Tu dolazim ja."},
+        {"character": "Detektiv Indecks", "line": "Dokaži. Pokaži mi da si živ i spreman."},
+        {"character": "REDIS", "line": "Jednostavno. Pošaljite mi PING, a ja ću vam vratiti PONG. Tako uspostavljamo povjerenje u ovom poslu."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Inicijalizacija sustava",
+      "dialogue": [
+        {"character": "Postajni UI", "line": "Dobrodošli na Orbitalnu postaju Nexus-7. Ja sam NEXUS, centralni UI pomoćnik vaše postaje."},
+        {"character": "Inženir", "line": "NEXUS, izvješće o stanju. Moram provjeriti rade li svi sustavi."},
+        {"character": "NEXUS", "line": "Naravno, inženjeru. Koristim brzi podatkovni sustav nazvan REDIS — Remote Dictionary Server. Upravlja svim podacima postaje s milisekundnim vremenima odziva."},
+        {"character": "Inženir", "line": "REDIS? Nikad čuo. Kako znam da ispravno radi?"},
+        {"character": "NEXUS", "line": "Najjednostavnija dijagnostika je protokol rukovanja. Pošaljite mi naredbu PING i odgovorit ću s PONG. To potvrđuje da je podatkovna jezgra aktivna i odzivna."},
+        {"character": "Inženir", "line": "U redu, NEXUS. Provjerimo je li ovaj sustav spreman za rad."},
+        {"character": "NEXUS", "line": "Čekam vašu naredbu, inženjeru."}
+      ]
+    }
+  }
+}

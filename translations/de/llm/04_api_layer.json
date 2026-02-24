@@ -1,0 +1,36 @@
+{
+  "tutorial": "LLM Grundlagen",
+  "technical_concept": "Die gleiche JSON-Anfrage funktioniert überall — curl, Java HttpClient, Python requests, JavaScript fetch. Das ist ein OpenAI-kompatibles Format, das die meisten LLM-Anbieter verwenden. Die Antwort enthält den generierten Text in choices[0].message.content, plus Token-Verbrauchsstatistiken.",
+  "challenge": {
+    "task": "Schreiben Sie eine vollständige JSON-API-Anfrage und sehen Sie eine echte Antwort. Beinhalten Sie 'model' (kimi-k2.5), 'messages' mit mindestens einer system- und einer user-Nachricht, und 'max_tokens'.",
+    "hint": "Schreiben Sie gültiges JSON mit model, messages-Liste und max_tokens. Der API-Schlüssel wird automatisch verwaltet."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Live-Verbindung",
+      "dialogue": [
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Commander, bisher haben wir ARIAs Protokoll theoretisch studiert. Heute senden wir ein echtes Signal und warten auf Antwort."},
+        {"character": "Commander Vega", "line": "Live-Kommunikation? Welche Risiken?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Minimal. Wir senden dasselbe JSON-Format, das wir schon studiert haben. Aber diesmal — antwortet ARIA wirklich."},
+        {"character": "Commander Vega", "line": "Wie sieht eine Antwort aus?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "ARIA gibt JSON mit einem 'choices'-Feld zurück — jede Auswahl enthält eine Nachricht mit Rolle 'assistant' und Inhalt. Plus Verbrauchsstatistiken: wie viele Token wir verbraucht haben."},
+        {"character": "Commander Vega", "line": "Und dasselbe Protokoll funktioniert mit jedem KI-System?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Ja! OpenAI, Anthropic, lokale Modelle — alle verwenden dasselbe JSON-Format. Lernen Sie ein Protokoll, sprechen Sie mit jeder Intelligenz."},
+        {"character": "Commander Vega", "line": "Senden wir das Signal. Ich will ARIAs Antwort live sehen."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Der echte API-Aufruf",
+      "dialogue": [
+        {"character": "Sam (Senior-Entwickler)", "line": "Okay Chef, genug Theorie. Heute senden wir Alex einen echten API-Aufruf und schauen wie er antwortet."},
+        {"character": "Chef", "line": "Live-Aufruf? Was, wenn etwas schiefgeht?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Das ist ein HTTP-Request, kein Raketenstart. Wir senden JSON, er gibt JSON zurück. Gleiches Format, das wir geübt haben."},
+        {"character": "Chef", "line": "Wie sieht eine Antwort aus?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "JSON mit einem 'choices'-Feld. Darin ist Alex' Antwort als 'assistant'-Nachricht. Plus wie viele Token es gekostet hat — für die Rechnung."},
+        {"character": "Chef", "line": "Und das funktioniert mit jedem KI-Anbieter?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Ja! OpenAI, Anthropic, lokale Modelle — alle sprechen dasselbe JSON. Lernen Sie das Format einmal, nutzen Sie es überall. Senden Sie eine Anfrage und sehen Sie eine echte Antwort."},
+        {"character": "Chef", "line": "In Ordnung, ich sende meinen ersten echten API-Aufruf."}
+      ]
+    }
+  }
+}

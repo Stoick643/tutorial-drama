@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove SQL-a",
+  "technical_concept": "Korištenje klauzule WHERE za filtriranje rezultata upita na temelju uvjeta.",
+  "challenge": {
+    "task": "Pronađite sve zaposlenike u odjelu department_id 1 (Engineering) koji zarađuju više od 80000. To su vaši visoko vrijedni osumnjičenici.",
+    "hint": "Koristite WHERE s AND za kombiniranje više uvjeta."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Praćenje novca",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Dojava kaže da pogledam Engineering. Netko u tom odjelu zarađuje mnogo novca. Moram suziti popis."},
+        {"character": "Podatkovna baza", "line": "Engineering je department_id 1. Filtrirat ćete tablicu employees da pokaže samo one s visokim plaćama u tom odjelu."},
+        {"character": "Detektiv Indecks", "line": "Kako to suzim? Ne želim cijeli popis, samo velike zarađivače."},
+        {"character": "Podatkovna baza", "line": "Za to je WHERE, detektive. Dodajte uvjete: `SELECT first_name, last_name, salary FROM employees WHERE salary > 80000`. To prikazuje samo one koji zarađuju iznad 80000."},
+        {"character": "Detektiv Indecks", "line": "Ali trebam ih specifično iz Engineeringa. Kako dodam taj filtar?"},
+        {"character": "Podatkovna baza", "line": "Koristite AND za kombiniranje uvjeta: `WHERE department_id = 1 AND salary > 80000`. Oba uvjeta moraju biti ispunjena."},
+        {"character": "Detektiv Indecks", "line": "Što s OR? Što ako želim više odjela?"},
+        {"character": "Podatkovna baza", "line": "OR znači da vrijedi bilo koji uvjet: `WHERE department_id = 1 OR department_id = 2`. Prikazuje zaposlenike iz oba odjela."},
+        {"character": "Detektiv Indecks", "line": "Odlično. Filtrirajmo taj popis i pronađimo osumnjičenike."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Uvjetno filtriranje podataka",
+      "dialogue": [
+        {"character": "Inženir", "line": "NEXUS, trebam kadrovske podatke samo za odjel Engineering. Specifično one s visokim kompenzacijama."},
+        {"character": "NEXUS", "line": "To zahtijeva uvjetno filtriranje, inženjeru. Klauzula WHERE ograničava rezultate na temelju određenih kriterija."},
+        {"character": "Inženir", "line": "Kako odredim prag plaće?"},
+        {"character": "NEXUS", "line": "Koristite usporedni operator: SELECT first_name, last_name, salary FROM employees WHERE salary > 80000. Vraća samo zapise koji premašuju prag."},
+        {"character": "Inženir", "line": "Moram također ograničiti po odjelu. Kako kombiniram filtre?"},
+        {"character": "NEXUS", "line": "Koristite operator AND za više uvjeta: WHERE department_id = 1 AND salary > 80000. Oba uvjeta moraju biti ispunjena."},
+        {"character": "Inženir", "line": "Što ako trebam bilo koji od više uvjeta?"},
+        {"character": "NEXUS", "line": "Operator OR vraća retke koji zadovoljavaju bilo koji uvjet: WHERE department_id = 1 OR department_id = 2."},
+        {"character": "Inženir", "line": "Jasno. Izvršimo filtrirani upit."}
+      ]
+    }
+  }
+}

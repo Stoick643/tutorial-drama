@@ -1,0 +1,34 @@
+{
+  "tutorial": "Bash Grundlagen",
+  "technical_concept": "Ein Bash-Skript ist eine Datei mit einer Folge von Befehlen, einer pro Zeile.\n\n#!/bin/bash — der Shebang. Erste Zeile jedes Skripts. Sagt dem System, dass es Bash verwenden soll.\nVariablen — speichern Werte: NAME=\"world\". Abrufen mit $NAME.\nread — empfängt Benutzereingaben.\necho — gibt Ausgabe aus.\n\nSkripte kombinieren alles was Sie gelernt haben — Dateioperationen, Pipes, Textverarbeitung — in wiederverwendbare Programme. Speichern als .sh, ausführbar machen mit chmod +x, ausführen mit ./script.sh.",
+  "challenge": {
+    "task": "Schreiben Sie ein Bash-Skript das: 1) Ein Verzeichnis namens 'mysite' erstellt, 2) 'index.html' und 'style.css' darin erstellt, 3) Die Dateiliste ausgibt, 4) 'Done!' ausgibt.",
+    "hint": "Beginnen Sie mit #!/bin/bash, dann verwenden Sie mkdir, cd, echo '...' > datei, touch, ls und echo Done!"
+  },
+  "styles": {
+    "survival": {
+      "title": "Das Überlebenshandbuch",
+      "dialogue": [
+        {"character": "Terminal", "line": "Sie haben einzelne Befehle gelernt. Jetzt kombinieren Sie sie in einem Skript — einem wiederverwendbaren Überlebensplan."},
+        {"character": "Du", "line": "Wie alle Schritte aufschreiben, damit ich mich nicht jedes Mal erinnern muss?"},
+        {"character": "Terminal", "line": "Genau. Jedes Skript beginnt mit #!/bin/bash. Dann schreiben Sie Befehle, einen pro Zeile. Variablen speichern Werte. read empfängt Eingaben."},
+        {"character": "Du", "line": "Kann ich Pipes und alles andere verwenden, was ich gelernt habe?"},
+        {"character": "Terminal", "line": "Alles. Schreiben Sie ein Handbuch das eine Website baut: Verzeichnis erstellen, Dateien hinzufügen, Ergebnis ausgeben."},
+        {"character": "Du", "line": "Mein erstes echtes Programm!"},
+        {"character": "Terminal", "line": "Ihr erstes Bash-Programm. Schreiben Sie es im Textfeld unten — mehrere Zeilen, wie ein echter Skript-Editor."}
+      ]
+    },
+    "heist": {
+      "title": "Automatisierte Operation",
+      "dialogue": [
+        {"character": "Handler", "line": "Ghost, echte Operative tippen keine Befehle einzeln ein. Sie schreiben Skripte — automatisierte Operationen die mit einem Klick laufen."},
+        {"character": "Ghost", "line": "Wie ein Missionsplan in Code?"},
+        {"character": "Handler", "line": "Genau. #!/bin/bash oben, dann Ihre Befehle der Reihe nach. Variablen für dynamische Werte, read für Eingabe, echo für Ausgabe."},
+        {"character": "Ghost", "line": "Was soll ich automatisieren?"},
+        {"character": "Handler", "line": "Website-Aufbau — Verzeichnisstruktur erstellen, Dateien generieren, Ergebnis bestätigen. Schreiben Sie die komplette Operation."},
+        {"character": "Ghost", "line": "Bereit. Ich schreibe das Skript."},
+        {"character": "Handler", "line": "Verwenden Sie das Textfeld unten. Mehrere Zeilen — echte Operative schreiben saubere, lesbare Skripte."}
+      ]
+    }
+  }
+}

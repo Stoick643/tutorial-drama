@@ -1,0 +1,36 @@
+{
+  "tutorial": "Osnove LLM-a",
+  "technical_concept": "Isti JSON zahtjev radi svugdje — curl, Java HttpClient, Python requests, JavaScript fetch. To je OpenAI-kompatibilan format koji koristi većina LLM providera. Odgovor sadrži generirani tekst u choices[0].message.content, plus statistiku korištenja tokena.",
+  "challenge": {
+    "task": "Napišite potpuni JSON zahtjev za API i pogledajte pravi odgovor. Uključite 'model' (kimi-k2.5), 'messages' s barem jednom system i jednom user porukom, i 'max_tokens'.",
+    "hint": "Napišite valjani JSON s model, messages popisom i max_tokens. API ključ se upravlja automatski."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Živa veza",
+      "dialogue": [
+        {"character": "Znanstvena časnica Chen", "line": "Zapovjedniče, do sada smo proučavali ARIA-in protokol u teoriji. Danas šaljemo pravi signal i čekamo odgovor."},
+        {"character": "Zapovjednik Vega", "line": "Živa komunikacija? Koji su rizici?"},
+        {"character": "Znanstvena časnica Chen", "line": "Minimalni. Šaljemo isti JSON format koji smo već proučavali. Ali ovaj put — ARIA stvarno odgovara."},
+        {"character": "Zapovjednik Vega", "line": "Kako izgleda odgovor?"},
+        {"character": "Znanstvena časnica Chen", "line": "ARIA vraća JSON s poljem 'choices' — svaki izbor sadrži poruku s ulogom 'assistant' i sadržajem. Plus statistiku korištenja: koliko tokena smo potrošili."},
+        {"character": "Zapovjednik Vega", "line": "I isti protokol radi s bilo kojim AI sustavom?"},
+        {"character": "Znanstvena časnica Chen", "line": "Da! OpenAI, Anthropic, lokalni modeli — svi koriste isti JSON format. Naučite jedan protokol, razgovarajte s bilo kojom inteligencijom."},
+        {"character": "Zapovjednik Vega", "line": "Pošaljimo signal. Želim vidjeti ARIA-in odgovor uživo."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Pravi API poziv",
+      "dialogue": [
+        {"character": "Sam (stariji developer)", "line": "Okej šefe, dovoljno teorije. Danas šaljemo Alexu pravi API poziv i gledamo kako odgovara."},
+        {"character": "Šef", "line": "Živi poziv? Što ako nešto pođe krivo?"},
+        {"character": "Sam (stariji developer)", "line": "To je HTTP zahtjev, ne lansiranje rakete. Šaljemo JSON, vraća JSON. Isti format koji smo vježbali."},
+        {"character": "Šef", "line": "Kako izgleda odgovor?"},
+        {"character": "Sam (stariji developer)", "line": "JSON s poljem 'choices'. Unutra je Alexov odgovor kao 'assistant' poruka. Plus koliko tokena je koštalo — za račun."},
+        {"character": "Šef", "line": "I ovo radi s bilo kojim AI providerom?"},
+        {"character": "Sam (stariji developer)", "line": "Da! OpenAI, Anthropic, lokalni modeli — svi pričaju isti JSON. Naučite format jednom, koristite svugdje. Pošaljite zahtjev i pogledajte pravi odgovor."},
+        {"character": "Šef", "line": "U redu, šaljem prvi pravi API poziv."}
+      ]
+    }
+  }
+}

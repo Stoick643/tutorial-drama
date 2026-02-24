@@ -1,0 +1,34 @@
+{
+  "tutorial": "Redis Grundlagen",
+  "technical_concept": "Verwendung von Hashes zur Speicherung strukturierter Daten mit mehreren Feldern mittels der Befehle HSET, HGET, HGETALL und HDEL.",
+  "challenge": {
+    "task": "Erstellen Sie ein vollständiges Profil für suspect_delta mit Alter 28, Größe 5'7\", Beruf 'teacher' und Status 'wanted'. Rufen Sie dann nur den Beruf ab.",
+    "hint": "Verwenden Sie HSET um mehrere Felder gleichzeitig zu speichern, dann HGET um ein einzelnes Feld abzurufen."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Das Verdächtigenprofil",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Ich habe einen neuen Verdächtigen — Delta. Ich brauche ein vollständiges Profil. Alter, Größe, Beruf, Status. Alles an einem Ort."},
+        {"character": "REDIS", "line": "Dafür gibt es Hashes, Herr Detektiv. Stellen Sie sich eine Karteikarte mit Feldern vor. Eine Person, mehrere Daten — alles unter einem Schlüssel."},
+        {"character": "Detektiv Indecks", "line": "Wie unterscheidet sich das von normalen Strings?"},
+        {"character": "REDIS", "line": "Mit Strings bräuchten Sie einen separaten Schlüssel für jedes Datum: suspect_delta:age, suspect_delta:height... Mit einem Hash ist alles unter 'suspect_delta' mit Feldern darin. HSET suspect_delta age 28 height 5'7\" — ein einziger Befehl."},
+        {"character": "Detektiv Indecks", "line": "Und wenn ich nur ein Datum brauche?"},
+        {"character": "REDIS", "line": "HGET suspect_delta occupation — gibt nur den Beruf zurück. HGETALL gibt alles zurück. HDEL entfernt ein einzelnes Feld. Wie das Lesen einer Spalte aus der Kartei statt des ganzen Blattes."},
+        {"character": "Detektiv Indecks", "line": "Effizient. Stellen wir dieses Profil zusammen."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Personalaktensystem",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Ingenieur, wir müssen einen strukturierten Datensatz für ein neues Besatzungsmitglied anlegen. Mehrere Datenfelder unter einer Identifikation."},
+        {"character": "Ingenieur", "line": "Wie eine Personaldatenbank? Name, Rang, Spezialisierung, Status — alles an einem Ort?"},
+        {"character": "NEXUS", "line": "Genau. Redis-Hashes sind dafür konzipiert. HSET speichert mehrere Felder unter einem Schlüssel. Denken Sie an einen strukturierten Datensatz statt an einfachen Text."},
+        {"character": "Ingenieur", "line": "Wie frage ich ein einzelnes Feld ab?"},
+        {"character": "NEXUS", "line": "HGET gibt ein Feld zurück. HGETALL gibt den gesamten Datensatz zurück. HDEL entfernt ein einzelnes Feld. Effizient und organisiert."},
+        {"character": "Ingenieur", "line": "Legen wir diesen Personaldatensatz an."},
+        {"character": "NEXUS", "line": "Bereit für Daten, Ingenieur."}
+      ]
+    }
+  }
+}

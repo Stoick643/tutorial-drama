@@ -1,0 +1,34 @@
+{
+  "tutorial": "Bash Grundlagen",
+  "technical_concept": "Die Pipe | ist das mächtigste Konzept in Bash. Sie nimmt die Ausgabe eines Befehls und leitet sie als Eingabe zum nächsten weiter. Anders als ; (das Befehle nur nacheinander ausführt), verbindet | sie — Daten fließen hindurch.\n\nhead -n N — zeigt die ersten N Zeilen.\ntail -n N — zeigt die letzten N Zeilen.\nsort — sortiert Zeilen alphabetisch oder numerisch (-n).\nuniq — entfernt benachbarte Duplikate (immer zuerst sortieren).\nwc -l — zählt Zeilen.",
+  "challenge": {
+    "task": "Verwenden Sie eine Pipeline zum Lesen von 'access.log', Sortieren der Zeilen, Entfernen von Duplikaten und Zählen, wie viele einzigartige Zeilen übrig bleiben.",
+    "hint": "Sie kennen ; für sequenzielle Ausführung. Die Pipe | ist anders — sie leitet Ausgabe weiter. Wie viele Stufen braucht diese Pipeline?"
+  },
+  "styles": {
+    "survival": {
+      "title": "Einen Wasserfilter bauen",
+      "dialogue": [
+        {"character": "Terminal", "line": "Sie haben gelernt, Dinge zu finden. Jetzt lernen Sie, sie zu transformieren. In der Wildnis braucht Rohwasser Filterung — jede Stufe entfernt etwas. Bash-Pipelines funktionieren genauso."},
+        {"character": "Du", "line": "Pipelines? Ist das wie das Semikolon von vorhin?"},
+        {"character": "Terminal", "line": "Ähnlich aber anders. Semikolon ';' führt Befehle nacheinander aus — sie kommunizieren nicht. Die Pipe '|' ist schlauer: sie nimmt die Ausgabe eines Befehls und leitet sie als Eingabe zum nächsten. Wie Wasser durch eine Reihe von Filtern."},
+        {"character": "Du", "line": "Also macht jeder Befehl eine Sache, und die Pipe verkettet sie?"},
+        {"character": "Terminal", "line": "Das ist die Unix-Philosophie — kleine Werkzeuge, die eine Sache gut machen, verbunden durch Pipes."},
+        {"character": "Du", "line": "Wie ein Überlebenswerkzeug aus kleineren Teilen bauen."},
+        {"character": "Terminal", "line": "Genau. Hier ist ein Zugriffslog mit wiederholten Einträgen. Filtern Sie es: lesen, sortieren, Duplikate entfernen, zählen was übrig bleibt."}
+      ]
+    },
+    "heist": {
+      "title": "Die Pipeline",
+      "dialogue": [
+        {"character": "Handler", "line": "Jetzt wird es ernst, Ghost. Die Pipe — Symbol '|' — ist das Rückgrat jeder Operation."},
+        {"character": "Ghost", "line": "Wie unterscheidet sich das vom Semikolon?"},
+        {"character": "Handler", "line": "Semikolon führt Befehle nacheinander aus — sie kommunizieren nicht. Die Pipe verbindet sie: Ausgabe des einen wird Eingabe des nächsten. Wie ein Staffelteam, das Intel weitergibt."},
+        {"character": "Ghost", "line": "Welche anderen Operatoren habe ich?"},
+        {"character": "Handler", "line": "'head', 'tail', 'sort', 'uniq', 'wc -l'. Kleine Werkzeuge, zusammen mächtig."},
+        {"character": "Ghost", "line": "Verstanden — jeder macht seinen Job und gibt das Ergebnis weiter."},
+        {"character": "Handler", "line": "Das Zugriffslog des Ziels hat wiederholte Einträge. Filtern Sie: lesen, sortieren, bereinigen, zählen."}
+      ]
+    }
+  }
+}

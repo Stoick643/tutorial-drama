@@ -1,0 +1,38 @@
+{
+  "tutorial": "SQL Grundlagen",
+  "technical_concept": "Verwendung der WHERE-Klausel zum Filtern von Abfrageergebnissen basierend auf Bedingungen.",
+  "challenge": {
+    "task": "Finden Sie alle Mitarbeiter in Abteilung department_id 1 (Engineering), die mehr als 80000 verdienen. Das sind Ihre hochwertigen Verdächtigen.",
+    "hint": "Verwenden Sie WHERE mit AND zum Kombinieren mehrerer Bedingungen."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Der Spur des Geldes folgen",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Der Hinweis sagt, ich soll mir Engineering ansehen. Jemand in dieser Abteilung verdient viel Geld. Ich muss die Liste eingrenzen."},
+        {"character": "Datenbank", "line": "Engineering ist department_id 1. Sie filtern die Tabelle employees, um nur die mit hohen Gehältern in dieser Abteilung anzuzeigen."},
+        {"character": "Detektiv Indecks", "line": "Wie grenze ich das ein? Ich will nicht die ganze Liste, nur die Großverdiener."},
+        {"character": "Datenbank", "line": "Dafür gibt es WHERE, Herr Detektiv. Fügen Sie Bedingungen hinzu: `SELECT first_name, last_name, salary FROM employees WHERE salary > 80000`. Das zeigt nur die über 80000."},
+        {"character": "Detektiv Indecks", "line": "Aber ich brauche sie speziell aus Engineering. Wie füge ich diesen Filter hinzu?"},
+        {"character": "Datenbank", "line": "Verwenden Sie AND zum Kombinieren: `WHERE department_id = 1 AND salary > 80000`. Beide Bedingungen müssen erfüllt sein."},
+        {"character": "Detektiv Indecks", "line": "Was ist mit OR? Was, wenn ich mehrere Abteilungen will?"},
+        {"character": "Datenbank", "line": "OR bedeutet, dass jede Bedingung gilt: `WHERE department_id = 1 OR department_id = 2`. Zeigt Mitarbeiter aus beiden Abteilungen."},
+        {"character": "Detektiv Indecks", "line": "Ausgezeichnet. Filtern wir diese Liste und finden die Verdächtigen."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Bedingtes Datenfiltern",
+      "dialogue": [
+        {"character": "Ingenieur", "line": "NEXUS, ich brauche Personaldaten nur für die Abteilung Engineering. Speziell die mit hohen Vergütungen."},
+        {"character": "NEXUS", "line": "Das erfordert bedingte Filterung, Ingenieur. Die WHERE-Klausel schränkt Ergebnisse basierend auf bestimmten Kriterien ein."},
+        {"character": "Ingenieur", "line": "Wie lege ich eine Gehaltsschwelle fest?"},
+        {"character": "NEXUS", "line": "Verwenden Sie den Vergleichsoperator: SELECT first_name, last_name, salary FROM employees WHERE salary > 80000. Gibt nur Datensätze über der Schwelle zurück."},
+        {"character": "Ingenieur", "line": "Ich muss auch nach Abteilung einschränken. Wie kombiniere ich Filter?"},
+        {"character": "NEXUS", "line": "Verwenden Sie den AND-Operator für mehrere Bedingungen: WHERE department_id = 1 AND salary > 80000. Beide Bedingungen müssen erfüllt sein."},
+        {"character": "Ingenieur", "line": "Was, wenn ich eine von mehreren Bedingungen brauche?"},
+        {"character": "NEXUS", "line": "Der OR-Operator gibt Zeilen zurück, die eine beliebige Bedingung erfüllen: WHERE department_id = 1 OR department_id = 2."},
+        {"character": "Ingenieur", "line": "Klar. Führen wir die gefilterte Abfrage aus."}
+      ]
+    }
+  }
+}

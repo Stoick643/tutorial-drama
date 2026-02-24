@@ -1,0 +1,36 @@
+{
+  "tutorial": "LLM Grundlagen",
+  "technical_concept": "Nach der Tokenisierung wird jedes Token in ein Embedding umgewandelt — einen Vektor (Liste von Zahlen), der seine Bedeutung erfasst. Ähnliche Konzepte haben ähnliche Vektoren. Kosinus-Ähnlichkeit misst, wie ähnlich zwei Vektoren sind (1.0 = identisch, 0.0 = unverwandt).",
+  "challenge": {
+    "task": "Vergleichen Sie zwei Sätze durch Eingabe ihrer Nummern (z.B. '0 3'). Geben Sie zuerst 'list' ein, um alle verfügbaren Sätze zu sehen, dann probieren Sie verschiedene Kombinationen.",
+    "hint": "Versuchen Sie, Sätze zum gleichen Thema zu vergleichen (z.B. 0 und 1 — beide über Katzen) mit verschiedenen Themen (z.B. 0 und 4)."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Karten der Bedeutung",
+      "dialogue": [
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Commander, ich habe etwas Faszinierendes darüber entdeckt, wie ARIA Bedeutung versteht. Sie verwendet keine Wörterbücher — sie verwendet Geometrie."},
+        {"character": "Commander Vega", "line": "Geometrie? Erklären Sie."},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Jedes Token wird in eine Liste von Zahlen umgewandelt — einen Vektor. Das sind wie Koordinaten in einem Bedeutungsraum. Ähnliche Wörter landen nahe beieinander."},
+        {"character": "Commander Vega", "line": "Also wären 'König' und 'Königin' nahe beieinander?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Genau! Und 'Katze' und 'Kätzchen' nahe beieinander. Aber 'Katze' und 'Quantenphysik' weit entfernt. Kosinus-Ähnlichkeit misst diese Distanz — 1.0 bedeutet identisch, 0.0 bedeutet unverwandt."},
+        {"character": "Commander Vega", "line": "Deshalb kann ARIA Synonyme und Kontext verstehen — sie hat Bedeutung in Mathematik überführt."},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Genau so. Sehen Sie sich die Vergleiche selbst an — geben Sie zwei Satznummern ein und Sie sehen, wie ähnlich sie sind."},
+        {"character": "Commander Vega", "line": "Faszinierend. Schauen wir uns diese Bedeutungskarten an."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Alex' Raumzauber",
+      "dialogue": [
+        {"character": "Sam (Senior-Entwickler)", "line": "Okay, das ist der verrückteste Teil. Alex versteht Wörter nicht — er wandelt sie in Zahlenlisten um. Wie Koordinaten in einem Bedeutungsraum."},
+        {"character": "Chef", "line": "Zahlenlisten? Wie hilft das?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Weil ähnliche Dinge ähnliche Zahlen bekommen. 'Glücklich' und 'froh' sind nahe beieinander. 'Glücklich' und 'Datenbank' sind weit entfernt. Alex misst buchstäblich die Distanz zwischen Konzepten."},
+        {"character": "Chef", "line": "Deshalb versteht er Synonyme? Er sucht nicht nach exakten Treffern, sondern nach Nähe in diesem Raum?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Volltreffer. Und das Maß heißt Kosinus-Ähnlichkeit. 1.0 bedeutet identisch, 0.0 bedeutet unverwandt. So funktioniert Suche, so funktionieren Empfehlungen, so versteht Alex Kontext."},
+        {"character": "Chef", "line": "Kann ich das sehen?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Ja! Vergleichen Sie zwei Sätze und sehen Sie, wie ähnlich Alex sie einschätzt."},
+        {"character": "Chef", "line": "Das fange ich an zu verstehen. Schauen wir mal."}
+      ]
+    }
+  }
+}

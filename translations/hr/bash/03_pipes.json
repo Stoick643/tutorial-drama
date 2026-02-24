@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Basha",
+  "technical_concept": "Cijev | je najmoćniji koncept u bashu. Uzima izlaz jedne naredbe i prosljeđuje ga kao ulaz sljedećoj. Za razliku od ; (koja samo pokreće naredbe po redu), | ih povezuje — podaci teku kroz.\n\nhead -n N — pokazuje prvih N redova.\ntail -n N — pokazuje zadnjih N redova.\nsort — sortira redove abecedno ili numerički (-n).\nuniq — uklanja susjedne duplikate (uvijek prvo sortirajte).\nwc -l — broji redove.",
+  "challenge": {
+    "task": "Koristite cjevovod za čitanje 'access.log', sortiranje redova, uklanjanje duplikata i brojanje koliko jedinstvenih redova ostaje. Vaš izlaz bi trebao biti samo broj.",
+    "hint": "Znate ; za pokretanje po redu. Cijev | je drugačija — prosljeđuje izlaz dalje. Koliko faza treba ovom cjevovodu?"
+  },
+  "styles": {
+    "survival": {
+      "title": "Izgradnja vodnog filtra",
+      "dialogue": [
+        {"character": "Terminal", "line": "Naučili ste pronalaziti stvari. Sada naučite transformirati ih. U divljini sirova voda treba filtriranje — svaka faza uklanja nešto. Bash cjevovodi rade na isti način."},
+        {"character": "Vi", "line": "Cjevovodi? Je li to kao točka-zarez od prije?"},
+        {"character": "Terminal", "line": "Slično ali različito. Točka-zarez ';' samo pokreće naredbe po redu — ne komuniciraju međusobno. Cijev '|' je pametnija: uzima izlaz jedne naredbe i prosljeđuje ga kao ulaz sljedećoj. Kao voda koja teče kroz niz filtera."},
+        {"character": "Vi", "line": "Dakle svaka naredba radi jednu stvar, a cijev ih ulančava zajedno?"},
+        {"character": "Terminal", "line": "To je Unix filozofija — mali alati koji rade jednu stvar dobro, povezani cijevima. 'head -n 5' uzima prvih 5 redova. 'tail -n 3' uzima zadnja 3. 'sort' sve uređuje. 'uniq' uklanja duplikate. 'wc -l' broji redove."},
+        {"character": "Vi", "line": "Kao izgradnja alata za preživljavanje od manjih dijelova."},
+        {"character": "Terminal", "line": "Točno. Ovdje je pristupni dnevnik iz stare ispostave — ima ponovljene zapise. Filtrirajte ga: pročitajte, sortirajte, uklonite duplikate, prebrojite što ostaje."}
+      ]
+    },
+    "heist": {
+      "title": "Cjevovod",
+      "dialogue": [
+        {"character": "Voditelj", "line": "Ovdje postaje ozbiljno, Duhu. Cijev — simbol '|' — okosnica je svake operacije. Ulančava naredbe zajedno."},
+        {"character": "Duh", "line": "Kako se to razlikuje od točke-zareza koju smo koristili prije?"},
+        {"character": "Voditelj", "line": "Točka-zarez pokreće naredbe jednu za drugom — ne komuniciraju. Cijev ih povezuje: izlaz jedne postaje ulaz sljedeće. Kao štafetni tim koji prosljeđuje obavještajne podatke."},
+        {"character": "Duh", "line": "Koje ostale operativce imam?"},
+        {"character": "Voditelj", "line": "'head -n 5' uzima prvih 5 redova. 'tail -n 3' uzima zadnja 3. 'sort' uređuje sve. 'uniq' uklanja duplikate. 'wc -l' broji redove. Mali alati, moćni zajedno."},
+        {"character": "Duh", "line": "Razumijem — svaki radi svoj posao i prosljeđuje rezultat."},
+        {"character": "Voditelj", "line": "Pristupni dnevnik mete ima ponovljene zapise. Filtrirajte: pročitajte, sortirajte, očistite, prebrojite. Koliko jedinstvenih signala je primljeno?"}
+      ]
+    }
+  }
+}

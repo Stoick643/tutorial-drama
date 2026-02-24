@@ -1,0 +1,34 @@
+{
+  "tutorial": "SQL Grundlagen",
+  "technical_concept": "Kombinieren mehrerer JOINs und Aggregatfunktionen für komplexe Abfragen.",
+  "challenge": {
+    "task": "Finden Sie alle Mitarbeiter, die an Projekten in der Abteilung Engineering (department_id = 1) arbeiten. Verbinden Sie die Tabellen employees, employee_projects und projects.",
+    "hint": "Verketten Sie mehrere INNER JOINs, um alle drei Tabellen über ihre Beziehungen zu verbinden."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Das Gesamtbild",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Ich muss wissen, welche Ingenieure an Engineering-Projekten arbeiten. Das bedeutet, drei Tabellen gleichzeitig zu verbinden."},
+        {"character": "Datenbank", "line": "Jetzt denken Sie wie ein Profi, Herr Detektiv. Sie brauchen eine Kette von JOINs — employees über employee_projects zu projects."},
+        {"character": "Detektiv Indecks", "line": "Erklären Sie mir das Schritt für Schritt."},
+        {"character": "Datenbank", "line": "Beginnen Sie mit employees. Verbinden Sie mit employee_projects über employee_id. Dann verbinden Sie employee_projects mit projects über project_id. Jede Verknüpfung fügt eine Informationsebene hinzu."},
+        {"character": "Detektiv Indecks", "line": "Und ich filtere nach Engineering-Projekten?"},
+        {"character": "Datenbank", "line": "Fügen Sie WHERE p.department_id = 1 am Ende hinzu. Jetzt sehen Sie nur die Engineering-Projektzuweisungen."},
+        {"character": "Detektiv Indecks", "line": "Das ist das letzte Puzzlestück. Sehen wir, wer wirklich in Engineering involviert ist."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Multi-Tabellen-Korrelation",
+      "dialogue": [
+        {"character": "Ingenieur", "line": "NEXUS, ich brauche die Personalzuweisungen für alle Projekte der Abteilung Engineering. Das erfordert Daten aus drei Tabellen."},
+        {"character": "NEXUS", "line": "Bestätigt, Ingenieur. Diese Operation erfordert eine Kette mehrerer JOIN-Operationen zum Durchlaufen der Tabellenbeziehungen."},
+        {"character": "Ingenieur", "line": "Erklären Sie die Abfragestruktur."},
+        {"character": "NEXUS", "line": "Beginnen Sie mit der Tabelle employees. Verbinden Sie mit employee_projects über employee_id. Dann verbinden Sie mit projects über project_id. Jeder JOIN erweitert den Datensatz."},
+        {"character": "Ingenieur", "line": "Wie beschränke ich die Ergebnisse nur auf Engineering-Projekte?"},
+        {"character": "NEXUS", "line": "Verwenden Sie die WHERE-Klausel zur Filterung nach Abteilung: WHERE p.department_id = 1. Das beschränkt die Ergebnisse auf Engineering-Projektzuweisungen."},
+        {"character": "Ingenieur", "line": "Abfragestruktur bestätigt. Führe Multi-Tabellen-Korrelation aus."}
+      ]
+    }
+  }
+}

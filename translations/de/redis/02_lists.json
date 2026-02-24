@@ -1,0 +1,34 @@
+{
+  "tutorial": "Redis Grundlagen",
+  "technical_concept": "Verwendung von Listen zur Verwaltung geordneter Sammlungen mit den Befehlen LPUSH, RPUSH, LPOP und RPOP für Warteschlangen und Arrays.",
+  "challenge": {
+    "task": "Drei Verdächtige sind gerade eingetroffen: `suspect_alpha`, `suspect_bravo` und `suspect_charlie`. Fügen Sie sie in die Verhörwarteschlange ein und rufen Sie dann den Ersten zum Verhör auf.",
+    "hint": "Verwenden Sie RPUSH, um die Verdächtigen ans Ende der Warteschlange zu stellen, dann LPOP, um den Ersten zum Verhör aufzurufen."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Die Verhörwarteschlange",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Ich habe drei Verdächtige im Warteraum. Ich brauche ein System — wer zuerst kam, wird zuerst verhört."},
+        {"character": "REDIS", "line": "Dafür gibt es Listen, Herr Detektiv. Stellen Sie sich eine Warteschlange vor. RPUSH fügt jemanden am Ende hinzu. LPUSH setzt ihn an den Anfang — für Prioritätsfälle."},
+        {"character": "Detektiv Indecks", "line": "Und wenn ich bereit für ein Verhör bin?"},
+        {"character": "REDIS", "line": "LPOP nimmt den Ersten aus der Schlange. RPOP nimmt den Letzten. Wie eine Schlange beim Bäcker — wer zuerst kommt, wird zuerst bedient. Oder umgekehrt, wenn Sie einen Grund haben."},
+        {"character": "Detektiv Indecks", "line": "Ordentliches System. Kein Durcheinander, kein Vordrängeln."},
+        {"character": "REDIS", "line": "Genau. Und mit LRANGE können Sie jederzeit die gesamte Schlange einsehen, ohne jemanden zu entfernen. Wie ein Blick durch den Einwegspiegel."},
+        {"character": "Detektiv Indecks", "line": "Richten wir diese Verhörwarteschlange ein."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Prioritätswarteschlange für Verarbeitung",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Ingenieur, drei Diagnoseprozesse warten auf Ausführung. Wir benötigen eine geordnete Warteschlange."},
+        {"character": "Ingenieur", "line": "Ich muss sie der Reihe nach verarbeiten. First In, First Out."},
+        {"character": "NEXUS", "line": "Redis-Listen sind dafür ideal. RPUSH fügt zur Warteschlange hinzu, LPOP nimmt den Nächsten zur Verarbeitung. Perfekte FIFO-Struktur — First In, First Out."},
+        {"character": "Ingenieur", "line": "Was, wenn ich einen dringenden Prozess an den Anfang schieben muss?"},
+        {"character": "NEXUS", "line": "Verwenden Sie LPUSH — fügt am Anfang statt am Ende ein. Prioritätsprozesse gehen vor. LRANGE zeigt Ihnen jederzeit die gesamte Warteschlange."},
+        {"character": "Ingenieur", "line": "Flexibel. Richten wir die Warteschlange ein und beginnen mit der Verarbeitung."},
+        {"character": "NEXUS", "line": "Ich erwarte Ihre Befehle, Ingenieur."}
+      ]
+    }
+  }
+}

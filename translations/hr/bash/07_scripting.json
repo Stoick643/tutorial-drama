@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Basha",
+  "technical_concept": "Bash skripta je datoteka koja sadrži niz naredbi, jedna po redu.\n\n#!/bin/bash — shebang. Prva linija svake skripte. Kaže sustavu da koristi bash.\nVarijable — pohranjuju vrijednosti: NAME=\"world\". Dohvaćajte s $NAME.\nread — dobiva unos od korisnika.\necho — ispisuje izlaz.\n\nSkripte kombiniraju sve što ste naučili — datotečne operacije, cijevi, obradu teksta — u višekratno upotrebljive programe. Spremite kao .sh, učinite izvršivim s chmod +x, pokrenite s ./skripta.sh.",
+  "challenge": {
+    "task": "Napišite bash skriptu koja: 1) Kreira direktorij nazvan 'mysite', 2) Kreira 'index.html' i 'style.css' unutra, 3) Ispisuje popis datoteka, 4) Ispisuje 'Done!'.",
+    "hint": "Počnite s #!/bin/bash, zatim koristite mkdir, cd, echo '...' > datoteka, touch, ls i echo Done!"
+  },
+  "styles": {
+    "survival": {
+      "title": "Priručnik za preživljavanje",
+      "dialogue": [
+        {"character": "Terminal", "line": "Naučili ste pojedinačne naredbe. Sada ih kombinirajte u skriptu — višekratno upotrebljiv plan preživljavanja."},
+        {"character": "Vi", "line": "Kao zapisivanje svih koraka da ne moram pamtiti svaki put?"},
+        {"character": "Terminal", "line": "Točno. Svaka skripta počinje s #!/bin/bash — to kaže sustavu 'ovo je bash skripta.' Zatim pišete naredbe, jednu po redu. Varijable pohranjuju vrijednosti. read dobiva unos."},
+        {"character": "Vi", "line": "Mogu li koristiti cijevi i sve ostalo što sam naučio?"},
+        {"character": "Terminal", "line": "Sve. Datotečne operacije, pretraživanje, cijevi, obradu teksta — sve ide u skriptu. Napišite priručnik koji gradi web stranicu: kreira direktorij, dodaje datoteke, ispisuje rezultat."},
+        {"character": "Vi", "line": "Moj prvi pravi program!"},
+        {"character": "Terminal", "line": "Vaš prvi bash program. I sigurno ne zadnji. Napišite ga u tekstualnom polju ispod — više redova, kao pravi skriptni editor."}
+      ]
+    },
+    "heist": {
+      "title": "Automatizirana operacija",
+      "dialogue": [
+        {"character": "Voditelj", "line": "Duhu, pravi operativci ne tipkaju naredbe jednu po jednu. Pišu skripte — automatizirane operacije koje se pokreću jednim klikom."},
+        {"character": "Duh", "line": "Kao plan misije u kôdu?"},
+        {"character": "Voditelj", "line": "Točno. #!/bin/bash na vrhu, zatim vaše naredbe po redu. Varijable za dinamičke vrijednosti, read za ulaz, echo za izlaz. Sve što ste naučili, automatizirano."},
+        {"character": "Duh", "line": "Što trebam automatizirati?"},
+        {"character": "Voditelj", "line": "Postavljanje web stranice — kreirajte strukturu direktorija, generirajte datoteke, potvrdite rezultat. Napišite kompletnu operaciju."},
+        {"character": "Duh", "line": "Spreman sam. Pišem skriptu."},
+        {"character": "Voditelj", "line": "Koristite tekstualno polje ispod. Više redova — pravi operativci pišu čiste, čitljive skripte."}
+      ]
+    }
+  }
+}

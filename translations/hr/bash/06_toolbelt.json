@@ -1,0 +1,30 @@
+{
+  "tutorial": "Osnove Basha",
+  "technical_concept": "chmod — mijenja dozvole datoteka. chmod +x skripta.sh čini datoteku izvršivom.\ncurl — prenosi podatke s URL-ova. Odlično za testiranje API-ja i preuzimanje datoteka.\nwget — preuzima datoteke izravno na disk.\nhistory — pokazuje vaše nedavne naredbe. Koristite !42 za ponovno pokretanje naredbe #42.\nalias — kreira prečice: alias ll=\"ls -la\" omogućuje da upišete ll umjesto.\ntop — pokazuje pokrenute procese i korištenje resursa, poput upravitelja zadataka.",
+  "challenge": {
+    "task": "Ovo je diskusijska lekcija — bez ocjenjivanja. Recite mi: koji od ovih alata (chmod, curl, wget, history, alias, top) mislite da ćete najčešće koristiti?",
+    "hint": "Nema krivog odgovora! Razmislite što radite najčešće — skriptanje (chmod), rad s API-jima (curl), preuzimanje (wget), pronalaženje starih naredbi (history), prečice (alias) ili praćenje procesa (top)."
+  },
+  "styles": {
+    "survival": {
+      "title": "Kutija za alat preživljavanja",
+      "dialogue": [
+        {"character": "Terminal", "line": "Naučili ste osnove i napredne alate. Vrijeme za opremanje kutije za alat — naredbe koje se ne uklapaju u jednu kategoriju ali su apsolutno ključne."},
+        {"character": "Vi", "line": "Pokažite mi što imam."},
+        {"character": "Terminal", "line": "'chmod +x' čini skripte izvršivima — kao oštrenje noža. 'curl' i 'wget' dohvaćaju resurse s mreže. 'history' pokazuje vaše prethodne naredbe. 'alias' kreira prečice. 'top' pokazuje što se pokreće."},
+        {"character": "Vi", "line": "Koji je najkorisniji u divljini?"},
+        {"character": "Terminal", "line": "Ovisi o vašoj situaciji. Što mislite da ćete najčešće trebati?"}
+      ]
+    },
+    "heist": {
+      "title": "Skrivena oprema",
+      "dialogue": [
+        {"character": "Voditelj", "line": "Svaki operativac treba skrivenu opremu — alate koji ne spadaju u jednu kategoriju ali su neophodni na terenu."},
+        {"character": "Duh", "line": "Što imam na raspolaganju?"},
+        {"character": "Voditelj", "line": "'chmod' kontrolira dozvole. 'curl' i 'wget' dohvaćaju podatke s mreže. 'history' pokazuje vaše tragove. 'alias' kreira kodna imena za naredbe. 'top' pokazuje aktivne procese — poput pregleda sigurnosnih kamera."},
+        {"character": "Duh", "line": "Koji alat biste Vi najčešće koristili?"},
+        {"character": "Voditelj", "line": "To je pitanje za vas, Duhu. Koji alat odgovara vašem stilu?"}
+      ]
+    }
+  }
+}

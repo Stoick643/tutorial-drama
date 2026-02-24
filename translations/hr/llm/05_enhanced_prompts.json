@@ -1,0 +1,39 @@
+{
+  "tutorial": "Osnove LLM-a",
+  "technical_concept": "Produkcijski AI sustavi ne šalju vaše sirovo pitanje LLM-u. Poboljšavaju ga: sistemski upit postavlja osobnost i pravila, RAG (Retrieval-Augmented Generation) dodaje relevantne podatke iz baza podataka, a šablone strukturiraju sve u optimalan format.",
+  "challenge": {
+    "task": "Izgradite poboljšani upit kakav bi koristio pravi chatbot tvrtke. Kreirajte JSON zahtjev s: (1) 'system' porukom koja definira osobnost asistenta I uključuje kontekstualne podatke, (2) 'user' porukom s pitanjem korisnika, (3) primjerenim 'max_tokens' i 'temperature'.",
+    "hint": "Sistemska poruka treba sadržavati OBOJE — upute za osobnost (npr. 'Vi ste asistent korisničke podrške') I kontekstualne podatke (npr. 'Trenutni plan korisnika: Premium')."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Pojačavanje signala",
+      "dialogue": [
+        {"character": "Znanstvena časnica Chen", "line": "Zapovjedniče, naši sirovi upiti ARIA-i funkcioniraju, ali profesionalni sustavi rade nešto pametnije. Poboljšavaju upit prije slanja."},
+        {"character": "Zapovjednik Vega", "line": "Poboljšavaju kako?"},
+        {"character": "Znanstvena časnica Chen", "line": "Tri sloja. Prvo: sistemski upit — stalne upute koje oblikuju ARIA-ino ponašanje. 'Ti si navigacijski časnik s pristupom kartama zvjezdanih sustava.'"},
+        {"character": "Zapovjednik Vega", "line": "Dakle dajemo joj ulogu i alate."},
+        {"character": "Znanstvena časnica Chen", "line": "Točno. Drugo: RAG — Retrieval-Augmented Generation. Prije nego ARIA odgovori, pretražujemo naše baze podataka za relevantne informacije i ubacujemo ih u upit."},
+        {"character": "Zapovjednik Vega", "line": "Dakle ARIA ne mora sve znati napamet — dajemo joj reference?"},
+        {"character": "Znanstvena časnica Chen", "line": "Upravo tako! I treće: šablone strukturiraju sve u optimalan format. Profesionalni AI sustavi nikad ne šalju sirovi tekst."},
+        {"character": "Zapovjednik Vega", "line": "Pokažite mi. Izgradite pojačani signal — s ulogom, kontekstom i pitanjem."},
+        {"character": "Znanstvena časnica Chen", "line": "Kreirajte JSON s bogatom sistemskom porukom. Ovo je kako pravi AI sustavi rade."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Od pripravnika do profesionalca",
+      "dialogue": [
+        {"character": "Sam (stariji developer)", "line": "Okej, šefe. Sve do sada su bile demo verzije. U produkciji nikad ne šaljete sirovo pitanje AI-u."},
+        {"character": "Šef", "line": "Zašto ne? Alex odgovara sasvim dobro."},
+        {"character": "Sam (stariji developer)", "line": "Jer u produkciji Alex treba znati TKO je, koja su PRAVILA i koje PODATKE ima na raspolaganju. Sve to ide u sistemsku poruku."},
+        {"character": "Šef", "line": "Poput davanje Alexu opisa posla?"},
+        {"character": "Sam (stariji developer)", "line": "Točno! 'Ti si asistent podrške za TechCorp. Naš proizvod košta 29.99 mjesečno. Ne obećavaj popuste.' Sada Alex ima kontekst."},
+        {"character": "Šef", "line": "A RAG? To sam čuo na konferencijama."},
+        {"character": "Sam (stariji developer)", "line": "Retrieval-Augmented Generation. Prije nego Alex odgovori, pretražujemo bazu podataka za relevantne informacije i ubacujemo ih u upit. Alex ne mora sve pamtiti — dajemo mu referentne materijale."},
+        {"character": "Šef", "line": "To je kako chatbotovi znaju specifičnosti o mom računu?"},
+        {"character": "Sam (stariji developer)", "line": "Pogodak! Izgradite pravi produkcijski upit — s ulogom, kontekstom i pitanjem korisnika."},
+        {"character": "Šef", "line": "Od pripravnika do profesionalca. Da sastavim zahtjev."}
+      ]
+    }
+  }
+}

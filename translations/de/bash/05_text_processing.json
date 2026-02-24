@@ -1,0 +1,30 @@
+{
+  "tutorial": "Bash Grundlagen",
+  "technical_concept": "sed (Stream Editor) — führt Textersetzung auf einem Datenstrom aus.\nsed \"s/alt/neu/\" ersetzt das erste Vorkommen pro Zeile. Fügen Sie g für alle hinzu: sed \"s/alt/neu/g\".\n\nawk — verarbeitet spaltenförmige Daten. Teilt jede Zeile in Felder ($1, $2, etc.) nach Leerzeichen.\nawk \"{print $1}\" gibt die erste Spalte aus.\n\nZusammen mit Pipes ermöglichen sed und awk die Transformation beliebiger Textdaten im Fluss.",
+  "challenge": {
+    "task": "Verwenden Sie awk zum Extrahieren nur der IP-Adressen (erste Spalte) aus 'access.log', dann leiten Sie durch sort und uniq -c zum Zählen der Häufigkeit.",
+    "hint": "awk '{print $1}' extrahiert die erste Spalte. Leiten Sie weiter an sort | uniq -c zum Zählen."
+  },
+  "styles": {
+    "survival": {
+      "title": "Rohstoffe verarbeiten",
+      "dialogue": [
+        {"character": "Terminal", "line": "Sie finden und filtern. Jetzt lernen Sie zu transformieren. 'sed' ist Ihr Stream-Editor — ändert Text im Fluss. 'awk' teilt Zeilen in Spalten und extrahiert was Sie brauchen."},
+        {"character": "Du", "line": "Wie Rohstoffe in nützliche Ressourcen verarbeiten?"},
+        {"character": "Terminal", "line": "Genau. sed ersetzt Text, awk extrahiert Spalten. Kombinieren Sie mit Pipes für mächtige Transformationen."},
+        {"character": "Du", "line": "Verstanden — sed ändert Inhalt, awk extrahiert Spalten."},
+        {"character": "Terminal", "line": "Das Zugriffslog enthält IP-Adressen. Extrahieren Sie sie und zählen Sie die Häufigkeit."}
+      ]
+    },
+    "heist": {
+      "title": "Geheimdienstanalyse",
+      "dialogue": [
+        {"character": "Handler", "line": "Rohdaten sind nutzlos. Sie müssen sie verarbeiten. 'sed' ersetzt Text im Fluss. 'awk' zerlegt Zeilen in Felder und extrahiert was Sie brauchen."},
+        {"character": "Ghost", "line": "Wie funktioniert awk?"},
+        {"character": "Handler", "line": "Teilt jede Zeile in Spalten. $1 ist die erste, $2 die zweite. Kombinieren Sie mit sort | uniq -c für Häufigkeitsanalyse."},
+        {"character": "Ghost", "line": "Verstanden — awk zum Extrahieren, sed zum Transformieren."},
+        {"character": "Handler", "line": "Das Zugriffslog des Ziels enthält IP-Adressen. Extrahieren und zählen Sie — welche Adresse taucht am häufigsten auf?"}
+      ]
+    }
+  }
+}

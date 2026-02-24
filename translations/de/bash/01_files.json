@@ -1,0 +1,34 @@
+{
+  "tutorial": "Bash Grundlagen",
+  "technical_concept": "touch — erstellt leere Dateien. Sie berühren buchstäblich eine Datei ins Dasein.\necho — gibt Text auf dem Bildschirm aus.\n> — der Umleitungsoperator. echo \"hallo\" > datei.txt gießt Text in eine Datei (ersetzt was drin war).\ncat — kurz für concatenate. Kippt den Inhalt einer Datei auf Ihren Bildschirm.\ncp — kopiert Dateien: cp quelle ziel.\nmv — verschiebt oder benennt Dateien um: mv alt neu.\nrm — löscht Dateien dauerhaft. Kein Papierkorb. Einmal gelöscht, für immer weg.\n\nBonus: Verwenden Sie ; zum Verketten von Befehlen in einer Zeile — echo hi > a.txt; cp a.txt b.txt führt beides nacheinander aus.",
+  "challenge": {
+    "task": "Erstellen Sie eine Datei namens 'signal.txt' mit dem Text 'SOS' darin, dann machen Sie eine Kopie namens 'backup.txt'.",
+    "hint": "Sie brauchen zwei Schritte: Text in eine Datei schreiben, dann kopieren. Verwenden Sie ';' zum Verketten von Befehlen in einer Zeile."
+  },
+  "styles": {
+    "survival": {
+      "title": "Ressourcen sammeln",
+      "dialogue": [
+        {"character": "Terminal", "line": "Gut — Sie haben ein Lager aufgeschlagen. Jetzt brauchen Sie Vorräte. In dieser Welt sind Dateien Ihre Ressourcen. 'touch' erstellt eine leere — Sie berühren buchstäblich eine Datei ins Dasein."},
+        {"character": "Du", "line": "Also erstellt 'touch water.txt' eine Datei namens water.txt? Was nützt ein leeres Notizbuch?"},
+        {"character": "Terminal", "line": "Sie füllen es mit 'echo'. 'echo \"frische Quelle\"' gibt Text aus. Aber die Magie ist der '>' Operator — er leitet Text IN eine Datei um. Denken Sie an '>' als Pfeil, der zeigt, wohin der Text gehen soll."},
+        {"character": "Du", "line": "Und wie lese ich es zurück?"},
+        {"character": "Terminal", "line": "'cat water.txt' — kurz für 'concatenate'. Schnell und direkt, kein Editor nötig. 'cp' dupliziert Ressourcen. 'mv' verschiebt oder benennt um. Und 'rm' — dauerhaft gelöscht."},
+        {"character": "Du", "line": "Was, wenn ich zwei Dinge hintereinander machen muss?"},
+        {"character": "Terminal", "line": "Verwenden Sie ein Semikolon — ';'. Es verkettet Befehle: 'echo hello > note.txt; cat note.txt' erstellt die Datei und liest sie zurück. Jetzt — erstellen Sie eine Signaldatei mit 'SOS' darin und sichern Sie sie."}
+      ]
+    },
+    "heist": {
+      "title": "Tote Briefkästen und Spuren verwischen",
+      "dialogue": [
+        {"character": "Handler", "line": "In Ordnung Ghost, Zeit für Dateihandwerk. Im Feld müssen Sie Dateien erstellen, lesen, kopieren und — am wichtigsten — ohne Spur vernichten."},
+        {"character": "Ghost", "line": "Wie erstelle ich eine Datei?"},
+        {"character": "Handler", "line": "'touch' — berühren Sie eine Datei ins Dasein. Leer, sauber. 'echo \"Nachricht\"' gibt Text aus, und '>' leitet ihn in eine Datei um."},
+        {"character": "Ghost", "line": "Also ist '>' die Umleitung?"},
+        {"character": "Handler", "line": "Genau. 'cat' liest. 'cp' dupliziert. 'mv' verschiebt. Und 'rm' — weg. Kein Papierkorb, keine forensische Wiederherstellung."},
+        {"character": "Ghost", "line": "Was, wenn ich zwei Dinge in einem Zug machen muss?"},
+        {"character": "Handler", "line": "Semikolon — ';'. Verkettet Befehle: 'echo intel > file.txt; cp file.txt backup.txt'. Erstellen Sie eine Signaldatei mit 'SOS' darin und sichern Sie sie."}
+      ]
+    }
+  }
+}

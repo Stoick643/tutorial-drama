@@ -1,0 +1,64 @@
+{
+  "tutorial": "Git iz terminala",
+  "technical_concept": "git log prikazuje vašu povijest commitova — dodajte --oneline --graph --all za vizualno stablo svih grana. git diff pokazuje što se promijenilo (Radni direktorij naspram Pripremnog, ili --staged za Pripremno naspram zadnjeg commita). Poništavanje se preslikava na 4 područja: 'git restore' odbacuje promjene Radnog direktorija, 'git restore --staged' uklanja iz pripreme, 'git reset' poništava lokalne commite, a 'git revert' sigurno poništava objavljene commite kreiranjem novog ispravnog commita.",
+  "challenge": {
+    "task": "Napravljen je loš commit. Koristite 'git revert HEAD' da ga sigurno poništite, zatim provjerite da dnevnik prikazuje poništavanje.",
+    "hint": "git revert kreira novi commit koji poništava prethodni. Koristite --no-edit da prihvatite zadanu poruku.",
+    "solution": "git revert HEAD --no-edit && git log --oneline"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Umjetnost poništavanja",
+      "dialogue": [
+        {"character": "Sokrat", "line": "Već mnogo puta si commitao i pushao. Ali reci mi — jesi li ikad morao poništiti commit?"},
+        {"character": "Učenik", "line": "Da! I bilo je strašno. Nikad nisam znao koju naredbu koristiti."},
+        {"character": "Sokrat", "line": "Jer nisi imao kartu. Sjećaš li se naših četiri područja? Svaka naredba za poništavanje cilja na određeno područje. Ako znaš koje područje želiš vratiti, naredba se otkriva sama."},
+        {"character": "Učenik", "line": "Dakle ako sam promijenio datoteku ali je još nisam pripremio?"},
+        {"character": "Sokrat", "line": "Tada je šteta u Radnom direktoriju. 'git restore' odbacuje te promjene. A ako si datoteku već pripremio?"},
+        {"character": "Učenik", "line": "'git restore --staged', da je premjestim natrag iz Pripreme?"},
+        {"character": "Sokrat", "line": "Brzo učiš. A ako si već commitao?"},
+        {"character": "Učenik", "line": "Tu sam se uvijek gubio."},
+        {"character": "Sokrat", "line": "Dva puta. Ako je commit samo lokalan — nikad objavljen — možeš prepisati povijest s 'git reset'. Soft zadržava tvoje promjene pripremljene. Mixed ih vraća u Radni direktorij. Hard... briše sve."},
+        {"character": "Učenik", "line": "A ako sam već pushao?"},
+        {"character": "Sokrat", "line": "Tada ne smiješ prepisivati povijest — tvoji suigrači su je već primili. Umjesto toga 'git revert' kreira novi commit koji popravlja štetu. Greška ostaje u povijesti, ali njeni učinci su poništeni. Pošteno i sigurno."},
+        {"character": "Učenik", "line": "Dakle revert je za zajednički rad, reset za lokalne greške?"},
+        {"character": "Sokrat", "line": "Sada imaš cjelokupnu sliku. Ali prvo — pogledajmo i povijest. 'git log --oneline --graph --all' ti pokazuje cijelo stablo tvog repozitorija. I 'git diff' pokazuje točno što se promijenilo. Znaj gdje si prije nego pokušaš poništiti. Sada — loš commit te čeka. Popravi ga sigurno."}
+      ]
+    },
+    "zen": {
+      "title": "Lomljenje i popravljanje",
+      "dialogue": [
+        {"character": "Majstor", "line": "Učenik koji nikad ne napravi grešku, nikad ne nauči oporavak. Reci mi — što te kod Gita najviše plaši?"},
+        {"character": "Učenik", "line": "Poništavanje stvari. Uvijek me strah da ću izgubiti svoj rad."},
+        {"character": "Majstor", "line": "Razuman strah, rođen iz nerazumijevanja. U Gitu samo jedna naredba stvarno može uništiti rad: 'git reset --hard'. Sve ostalo je obnovljivo. Zapamti ovo i tvoj strah će utihnuti."},
+        {"character": "Učenik", "line": "Ali toliko naredbi za poništavanje ima. Kako odaberem?"},
+        {"character": "Majstor", "line": "Vrati se na četiri područja. Gdje je promjena koju želiš poništiti? U Radnom direktoriju — koristi 'git restore'. U Pripremnom područja — 'git restore --staged'. U lokalnom commitu — 'git reset'. Već podijeljeno s drugima — 'git revert'."},
+        {"character": "Učenik", "line": "Koja je razlika između reset i revert?"},
+        {"character": "Majstor", "line": "Reset briše commit kao da se nikad nije dogodio. Revert kreira novi commit koji poništava stari. Oboje popravljaju problem. Ali reset prepisuje povijest — ako su drugi tu povijest već primili, stvaraš zbrku."},
+        {"character": "Učenik", "line": "Dakle revert je poštovan izbor."},
+        {"character": "Majstor", "line": "Za dijeljene grane, da. Kaže: napravio sam grešku i evo popravka. Povijest je poštena. Prije nego poništiš, uvijek prvo pogledaj. 'git log --oneline --graph --all' otkriva cijeli oblik tvoje povijesti. 'git diff' pokazuje točno što se promijenilo."},
+        {"character": "Učenik", "line": "Pogledaj prije nego postupim."},
+        {"character": "Majstor", "line": "Uvijek. Loš commit je napravljen u tvom repozitoriju. Već je dio povijesti. Poništi ga s poštovanjem — kreiraj revert i promatraj rezultat."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Ups, kako ovo poništim",
+      "dialogue": [
+        {"character": "Alex", "line": "Sam, mislim da sam upravo commitao nešto pokvareno. Kako to poništim?"},
+        {"character": "Sam", "line": "Bez panike. Prvo — jesi li pushao?"},
+        {"character": "Alex", "line": "Ne, još ne."},
+        {"character": "Sam", "line": "Dobro. Tada imaš opcije. Ali prije nego išta poništimo — pogledajmo što se dogodilo. Pokreni 'git log --oneline'. To pokazuje povijest commitova, jedna linija po commitu."},
+        {"character": "Alex", "line": "O lijepo, vidim sve svoje commite. Tamo je loš na vrhu."},
+        {"character": "Sam", "line": "Sada evo stvari s poništavanjima u Gitu — postoji nekih pet različitih naredbi i svi se zbune. Trik je: razmisli na koje od četiri područja želiš poništiti."},
+        {"character": "Alex", "line": "Četiri područja iz prve lekcije?"},
+        {"character": "Sam", "line": "Točno. Promijenio datoteku ali je još nisi pripremio? 'git restore'. Već pripremio? 'git restore --staged'. Već commitao ali nisi pushao? 'git reset'. Već pushao? 'git revert'."},
+        {"character": "Alex", "line": "Koja je razlika između reset i revert?"},
+        {"character": "Sam", "line": "Reset prepisuje povijest — commit nestaje kao da se nikad nije dogodio. To je u redu lokalno. Ali ako si već pushao, tvoji kolege imaju taj commit. Ne možeš ga samo izbrisati s njihovih uređaja. Zato 'git revert' kreira NOVI commit koji poništava stari. Povijest ostaje poštena."},
+        {"character": "Alex", "line": "Razumijem. Revert za dijeljene stvari, reset za lokalne."},
+        {"character": "Sam", "line": "Točno. I jedno upozorenje — 'git reset --hard' je nuklearna opcija. Briše commit I tvoje promjene. Gotovo. Sve ostalo je obnovljivo, ali --hard znači --hard."},
+        {"character": "Alex", "line": "Shvaćam. Izbjegavaj nuklearni gumb."},
+        {"character": "Sam", "line": "Za sada vježbajmo siguran put. U tvom repozitoriju je loš commit — poništi ga i provjeri dnevnik da se uvjeriš da je uspjelo."}
+      ]
+    }
+  }
+}

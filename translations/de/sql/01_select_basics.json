@@ -1,0 +1,38 @@
+{
+  "tutorial": "SQL Grundlagen",
+  "technical_concept": "Verwendung von SELECT zum Abrufen bestimmter Spalten aus einer Tabelle.",
+  "challenge": {
+    "task": "Rufen Sie eine Liste aller Mitarbeiternamen (first_name und last_name) aus der Tabelle employees ab.",
+    "hint": "Verwenden Sie SELECT mit durch Kommas getrennten Spaltennamen."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Die Mitarbeiterliste",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Ich brauche Namen. Jeden Verdächtigen, jeden Zeugen, jeden der in dieser Firma arbeitet. Geben Sie mir eine Liste."},
+        {"character": "Datenbank", "line": "Die Tabelle employees hat alles, Herr Detektiv. Namen, E-Mails, Gehälter, Einstellungsdaten, Abteilungen. Was genau brauchen Sie?"},
+        {"character": "Detektiv Indecks", "line": "Fürs Erste nur die Grundlagen. Vorname, Nachname. Ich brauche noch nicht die vollständige Akte."},
+        {"character": "Datenbank", "line": "Dafür gibt es SELECT. Geben Sie genau an, welche Spalten Sie möchten: `SELECT first_name, last_name FROM employees`. Nicht mehr, nicht weniger."},
+        {"character": "Detektiv Indecks", "line": "Was, wenn ich auch ihre E-Mails sehen will?"},
+        {"character": "Datenbank", "line": "Fügen Sie sie der Liste hinzu: `SELECT first_name, last_name, email FROM employees`. Spalten mit Kommas trennen — das ist alles."},
+        {"character": "Detektiv Indecks", "line": "Und wenn ich alles will?"},
+        {"character": "Datenbank", "line": "Verwenden Sie den Stern: `SELECT * FROM employees` gibt jede Spalte zurück. Aber Vorsicht — bei einer echten Ermittlung nehmen Sie nur, was Sie brauchen."},
+        {"character": "Detektiv Indecks", "line": "Klug. Ziehen wir diese Namen und sehen, mit wem wir es zu tun haben."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Personalabfrage-Protokoll",
+      "dialogue": [
+        {"character": "Ingenieur", "line": "NEXUS, ich brauche eine vollständige Besatzungsliste. Namen aller auf der Station."},
+        {"character": "NEXUS", "line": "Die Tabelle employees enthält alle Personaldatensätze, Ingenieur. Welche spezifischen Daten benötigen Sie?"},
+        {"character": "Ingenieur", "line": "Fürs Erste nur Namen — Vor- und Nachname. Ich brauche noch nicht ihre vollständigen Profile."},
+        {"character": "NEXUS", "line": "Verwenden Sie die SELECT-Anweisung zur Spaltenangabe: SELECT first_name, last_name FROM employees. Ruft genau die angeforderten Daten ab."},
+        {"character": "Ingenieur", "line": "Was, wenn ich auch Kommunikationsadressen brauche?"},
+        {"character": "NEXUS", "line": "Erweitern Sie die Spaltenliste: SELECT first_name, last_name, email FROM employees. Spalten mit Kommas trennen für weitere Datenfelder."},
+        {"character": "Ingenieur", "line": "Kann ich alle verfügbaren Felder auf einmal abrufen?"},
+        {"character": "NEXUS", "line": "Bestätigt. SELECT * FROM employees gibt alle Spalten zurück. Allerdings ist selektives Abfragen effizienter für die Datenverarbeitung."},
+        {"character": "Ingenieur", "line": "Verstanden. Führen wir eine gezielte Abfrage für die Personalnamen durch."}
+      ]
+    }
+  }
+}

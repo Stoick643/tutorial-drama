@@ -1,0 +1,66 @@
+{
+  "tutorial": "Git iz terminala",
+  "technical_concept": "Grana nije kopija vašeg koda. To je mala datoteka koja sadrži jedan jedini 40-znakovni hash koji pokazuje na commit. Kreiranje grane je trenutno jer Git ne kopira ništa — samo zapiše novi pokazivač. HEAD je još jedan pokazivač koji kaže Gitu na kojoj ste grani trenutno. Spajanje donosi commite jedne grane u drugu — uvijek prvo prebacite na ciljnu granu.",
+  "challenge": {
+    "task": "Kreirajte novu granu 'feature', prebacite se na nju, kreirajte datoteku 'feature.txt', pripremite je i commitajte s porukom 'Add feature', zatim se vratite na main i spojite granu feature.",
+    "hint": "Koristite 'git switch -c feature' za kreiranje i prebacivanje, zatim uobičajeni ciklus add/commit, zatim 'git switch main' i 'git merge feature'.",
+    "solution": "git switch -c feature && echo 'new feature' > feature.txt && git add feature.txt && git commit -m 'Add feature' && git switch main && git merge feature"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Priroda grananja",
+      "dialogue": [
+        {"character": "Sokrat", "line": "Reci mi — kad kreiraš granu u svom desktop alatu, što misliš da se dogodi?"},
+        {"character": "Učenik", "line": "Git napravi kopiju svih mojih datoteka na novoj grani, zar ne?"},
+        {"character": "Sokrat", "line": "Razumno uvjerenje. I koliko vremena traje?"},
+        {"character": "Učenik", "line": "Trenutno. Čak i kod velikih projekata."},
+        {"character": "Sokrat", "line": "Trenutno! I ipak kažeš da Git kopira sve tvoje datoteke? Reci mi — kad bih te zamolio da kopiraš tisuću datoteka, bi li to bilo trenutno?"},
+        {"character": "Učenik", "line": "Ne, to bi trajalo. Dakle... Git ne kopira datoteke?"},
+        {"character": "Sokrat", "line": "Ne kopira. Grana je mala datoteka — četrdeset znakova duga — koja sadrži hash commita. Ništa više. Kad 'kreiraš granu', Git zapiše jednu malu datoteku. Zato je trenutno."},
+        {"character": "Učenik", "line": "Samo pokazivač? A što je HEAD?"},
+        {"character": "Sokrat", "line": "Još jedan pokazivač! HEAD pokazuje na granu na kojoj si trenutno. Kad prebacuješ grane, mijenja se samo HEAD — pokazuje na drugu datoteku grane. Prouči dijagram: pokazivači sve do dna."},
+        {"character": "Učenik", "line": "A spajanje?"},
+        {"character": "Sokrat", "line": "Kad spajaš, Git uzima commite iz jedne grane i upliće ih u drugu. Ali evo ključne stvari — prvo moraš stajati na grani koja će primiti rad. Prebaci se na main, zatim spoji feature u nju."},
+        {"character": "Učenik", "line": "Dakle uvijek idem prvo na cilj, zatim spajam izvor u nju?"},
+        {"character": "Sokrat", "line": "Upravo tako. I nakon spajanja grana feature je obavila svoje. Izbriši je. Čista radionica je bistar um. Sada — kreiraj granu, odradi nešto, vrati se i spoji. Cijeli ciklus."}
+      ]
+    },
+    "zen": {
+      "title": "Prst koji pokazuje na mjesec",
+      "dialogue": [
+        {"character": "Majstor", "line": "Što je grana?"},
+        {"character": "Učenik", "line": "Kopija koda kako bih mogao raditi bez da pokvarim stvari."},
+        {"character": "Majstor", "line": "Opisuješ što čini, ne što je. Grana nije stablo. To je prst koji pokazuje na mjesec."},
+        {"character": "Učenik", "line": "Ne razumijem."},
+        {"character": "Majstor", "line": "Grana je pokazivač — četrdeset znakova zapisanih u maloj datoteci. Pokazuje na commit, ništa više. Git ne kopira ništa kad kreiraš granu. Zapiše jednu liniju."},
+        {"character": "Učenik", "line": "Zato je trenutno?"},
+        {"character": "Majstor", "line": "Počinješ vidjeti. A HEAD — znaš li što je HEAD?"},
+        {"character": "Učenik", "line": "Trenutni commit?"},
+        {"character": "Majstor", "line": "Blizu. HEAD je pokazivač na granu, koja je pokazivač na commit. Prst koji pokazuje na prst koji pokazuje na mjesec. 'git switch' jednostavno premješta kamo HEAD pokazuje."},
+        {"character": "Učenik", "line": "A spajanje spaja dvije grane?"},
+        {"character": "Majstor", "line": "Da, ali s namjerom. Prvo stani tamo kamo želiš da rijeka teče — prebaci se na primajuću granu. Zatim pozovi drugi tok u nju. 'git merge' spaja tokove."},
+        {"character": "Učenik", "line": "Što se dogodi s feature granom nakon toga?"},
+        {"character": "Majstor", "line": "Obavila je svoj posao. Pusti je. 'git branch -d' uklanja pokazivač. Commiti ostaju — sada su dio povijesti maina. Sada idi: kreiraj, granaj, radi, vrati se, spoji. Osjeti ciklus."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Grane su praktički besplatne",
+      "dialogue": [
+        {"character": "Alex", "line": "Okej, grananje. U GitHub Desktopu sam samo kliknuo 'New Branch' i čini mi se da je sve kopiralo. Radi li terminal istu stvar?"},
+        {"character": "Sam", "line": "Evo finte — GitHub Desktop također nije ništa kopirao. Samo ti nije rekao."},
+        {"character": "Alex", "line": "Što misliš?"},
+        {"character": "Sam", "line": "Grana je mala datoteka. Četrdeset znakova. Pokazivač je na commit. Kad 'kreiraš granu', Git zapiše jednu malu datoteku. Zato je trenutno čak i kod ogromnih projekata."},
+        {"character": "Alex", "line": "Ozbiljno? Dakle nema kopije mog koda?"},
+        {"character": "Sam", "line": "Nikakve. Tvoje datoteke ostaju točno tamo gdje jesu. Grana samo kaže 'ja pokazujem na ovaj commit.' A HEAD — to je još jedan pokazivač koji kaže 'trenutno sam na ovoj grani.'"},
+        {"character": "Alex", "line": "Okej, kako zapravo kreiram jednu iz terminala?"},
+        {"character": "Sam", "line": "'git switch -c feature' — kreira granu i prebacuje na nju u jednom koraku. To ćeš koristiti 90% vremena."},
+        {"character": "Alex", "line": "A kad završim s featureom?"},
+        {"character": "Sam", "line": "Prebaci se natrag na main s 'git switch main', zatim 'git merge feature'. Važno: uvijek idi prvo na granu u koju želiš spojiti. Zatim povuci drugu u nju."},
+        {"character": "Alex", "line": "Kao da... stojiš na cilju i kažeš 'dođi ovamo'?"},
+        {"character": "Sam", "line": "Točno. I nakon spajanja izbriši granu s 'git branch -d feature'. Drži red. Mrtve grane posvuda su način kako repozitoriji postaju nered."},
+        {"character": "Alex", "line": "U redu, da pokušam cijelu stvar — granaj, commitaj, spoji natrag."},
+        {"character": "Sam", "line": "Samo naprijed. Cijeli životni ciklus."}
+      ]
+    }
+  }
+}

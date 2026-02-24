@@ -1,0 +1,36 @@
+{
+  "tutorial": "Osnove Basha",
+  "technical_concept": "touch — kreira prazne datoteke. Doslovno dodirujete datoteku u postojanje.\necho — ispisuje tekst na ekran.\n> — operator preusmjeravanja. echo \"zdravo\" > datoteka.txt ulijeva tekst u datoteku (zamjenjuje što je bilo unutra).\ncat — skraćenica za concatenate. Prosipa sadržaj datoteke na vaš ekran.\ncp — kopira datoteke: cp izvor odredište.\nmv — premješta ili preimenuje datoteke: mv staro novo.\nrm — trajno briše datoteke. Nema koša za otpatke. Jednom obrisano, zauvijek obrisano.\n\nBonus: koristite ; za ulančavanje naredbi u jednom redu — echo hi > a.txt; cp a.txt b.txt izvršava oboje po redu.",
+  "challenge": {
+    "task": "Kreirajte datoteku nazvanu 'signal.txt' s tekstom 'SOS' unutra, zatim napravite kopiju nazvanu 'backup.txt'.",
+    "hint": "Trebate dva koraka: upišite tekst u datoteku, zatim je kopirajte. Koristite ';' za ulančavanje naredbi u jednom redu."
+  },
+  "styles": {
+    "survival": {
+      "title": "Prikupljanje resursa",
+      "dialogue": [
+        {"character": "Terminal", "line": "Dobro — postavili ste kamp. Sada trebate zalihe. U ovom svijetu datoteke su vaši resursi. 'touch' kreira praznu — doslovno dodirujete datoteku u postojanje, kao da prizivate prazan notes iz ničega."},
+        {"character": "Vi", "line": "Dakle 'touch water.txt' kreira datoteku nazvanu water.txt? Čemu služi prazan notes?"},
+        {"character": "Terminal", "line": "Punite ga s 'echo'. 'echo \"svježi izvor\"' ispisuje tekst na ekran. Ali magija je operator '>' — preusmjerava taj tekst U datoteku. 'echo \"svježi izvor\" > water.txt' ulijeva vaše riječi u water.txt. Razmišljajte o '>' kao o strelici koja pokazuje kamo tekst treba ići."},
+        {"character": "Vi", "line": "A kako to pročitam natrag?"},
+        {"character": "Terminal", "line": "'cat water.txt' — skraćenica za 'concatenate', ali razmišljajte o tome kao da datoteka iskašljava svoj sadržaj na vaš ekran. Brzo i prljavo, bez editora. Sada kritični dio: 'cp' duplicira resurse. 'mv' premješta ili preimenuje. I 'rm'..."},
+        {"character": "Vi", "line": "Da pogodim — remove?"},
+        {"character": "Terminal", "line": "Trajno. Nema koša za otpatke tu u divljini. Jednom kad je nešto nestalo, nestalo je. Uvijek napravite sigurnosne kopije prije brisanja."},
+        {"character": "Vi", "line": "Što ako trebam napraviti dvije stvari u nizu?"},
+        {"character": "Terminal", "line": "Koristite točku-zarez — ';'. Ulančava naredbe u jednom redu: 'echo hello > note.txt; cat note.txt' kreira datoteku i čita je natrag, jednu za drugom. Razmišljajte o ';' kao o tome da kažete 'napravi ovo, zatim napravi ono.' Sada — kreirajte signal datoteku s 'SOS' unutra i napravite sigurnosnu kopiju. Možda ćemo morati pozvati pomoć."}
+      ]
+    },
+    "heist": {
+      "title": "Tajni paketi i brisanje tragova",
+      "dialogue": [
+        {"character": "Voditelj", "line": "U redu Duhu, vrijeme da naučiš datotečni zanat. Na terenu moraš kreirati datoteke, čitati ih, kopirati ih i — najvažnije — uništavati ih bez traga."},
+        {"character": "Duh", "line": "Kako kreiram datoteku?"},
+        {"character": "Voditelj", "line": "'touch' — dodirneš datoteku u postojanje. Prazna, čista, bez traga. 'echo \"poruka\"' ispisuje tekst, a '>' ga preusmjerava u datoteku. 'echo \"koordinate\" > drop.txt' — sada tvoja omotnica ima obavještajne podatke unutra."},
+        {"character": "Duh", "line": "Dakle '>' je preusmjeravanje — pokazuje kamo izlaz ide?"},
+        {"character": "Voditelj", "line": "Točno. Bez '>' echo samo ispisuje na ekran. S '>' piše u datoteku. Za čitanje: 'cat file.txt'. 'cp' duplicira. 'mv' relocira ili preimenuje. I 'rm' — remove. Nestalo. Bez koša, bez forenzičkog oporavka."},
+        {"character": "Duh", "line": "Što ako trebam napraviti dvije stvari u jednom potezu?"},
+        {"character": "Voditelj", "line": "Točka-zarez — ';'. Ulančava naredbe: 'echo intel > file.txt; cp file.txt backup.txt'. Prva se pokrene, zatim sljedeća. Bez oklijevanja. Sada — kreiraj signal datoteku s 'SOS' unutra i napravi sigurnosnu kopiju. Možda će nam trebati ti obavještajni podaci kasnije."}
+      ]
+    }
+  }
+}

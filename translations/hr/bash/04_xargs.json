@@ -1,0 +1,30 @@
+{
+  "tutorial": "Osnove Basha",
+  "technical_concept": "xargs — most između pronalaženja stvari i djelovanja na njima. Uzima popis iz stdina i prosljeđuje svaku stavku kao argument drugoj naredbi.\n\nPrimjer: find . -name \"*.tmp\" | xargs rm — pronalazi sve .tmp datoteke i briše ih u jednom potezu. Bez xargs morali biste ih brisati jednu po jednu.\n\nMoćni cjevovod: cat log.txt | grep \"ERROR\" | awk \"{print $1}\" | sort | uniq -c — čita dnevnik, filtrira greške, izvlači prvi stupac, sortira i broji pojavljivanja.",
+  "challenge": {
+    "task": "Koristite find i xargs za brisanje svih datoteka koje završavaju na '.tmp' iz trenutnog stabla direktorija.",
+    "hint": "Spojite find s xargs: find pronalazi datoteke, xargs ih prosljeđuje naredbi rm."
+  },
+  "styles": {
+    "survival": {
+      "title": "Čišćenje kampa",
+      "dialogue": [
+        {"character": "Terminal", "line": "Cjevovodi transformiraju podatke. Ali što kad trebate djelovati na popis stavki? Tu dolazi xargs — uzima ulaz i pretvara ga u argumente za drugu naredbu."},
+        {"character": "Vi", "line": "Kao obrada čitavog popisa odjednom?"},
+        {"character": "Terminal", "line": "Točno. 'find . -name \"*.tmp\" | xargs rm' — pronalazi sve privremene datoteke i briše ih u jednom potezu. Bez xargs morali biste brisati svaku zasebno."},
+        {"character": "Vi", "line": "Find pronalazi, xargs djeluje. Sjajan timski rad."},
+        {"character": "Terminal", "line": "Očistite kamp — obrišite sve privremene datoteke."}
+      ]
+    },
+    "heist": {
+      "title": "Brisanje tragova",
+      "dialogue": [
+        {"character": "Voditelj", "line": "Duhu, nakon svake operacije brišeš tragove. xargs je tvoj alat za čišćenje — uzima popis meta i izvršava naredbu na svakoj."},
+        {"character": "Duh", "line": "Kao automatsko brisanje?"},
+        {"character": "Voditelj", "line": "'find . -name \"*.tmp\" | xargs rm' — pronalazi svaku privremenu datoteku i briše je. Jedan cjevovod, čist teren."},
+        {"character": "Duh", "line": "Pronađi i uništi. Razumijem."},
+        {"character": "Voditelj", "line": "Privremene datoteke su svugdje u sustavu mete. Očisti ih — sve .tmp datoteke moraju nestati."}
+      ]
+    }
+  }
+}

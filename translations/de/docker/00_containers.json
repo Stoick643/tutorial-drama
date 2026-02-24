@@ -1,0 +1,30 @@
+{
+  "tutorial": "Docker Grundlagen",
+  "technical_concept": "Docker ist ein Werkzeug, das Anwendungen in Container verpackt — leichtgewichtige, portable Umgebungen, die überall gleich funktionieren.",
+  "challenge": {
+    "task": "Überprüfen Sie, dass Docker installiert ist, indem Sie den Versionsbefehl ausführen.",
+    "hint": "Geben Sie 'docker --version' ein, um die installierte Docker-Version anzuzeigen."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Der Container-Zauber des Zauberers",
+      "dialogue": [
+        {"character": "Der alte Zauberer Dockerus", "line": "Komm, junger Lehrling. Setz dich ans Feuer. Heute lehre ich dich den mächtigsten Zauber im ganzen Land: Containerisierung!"},
+        {"character": "Lehrling", "line": "Containerisierung? Das klingt... kompliziert, Meister."},
+        {"character": "Der alte Zauberer Dockerus", "line": "Überhaupt nicht! Denk mal so. Wenn ein Bäcker ein Rezept teilen will, schickt er nicht die ganze Küche. Stattdessen schreibt er ein Rezept auf, dem jeder folgen kann — in jeder Küche."},
+        {"character": "Lehrling", "line": "Also ist Docker wie... ein magisches Rezeptbuch?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Genau! Drei Schritte, Kind. Zuerst schreibst du eine Magische Schriftrolle — das ist dein Dockerfile. Dann baust du daraus ein Artefakt — das ist dein Image. Und schließlich beschwörst du aus dem Artefakt ein Wesen — das ist dein Container."}
+      ]
+    },
+    "flirting": {
+      "title": "Nach rechts wischen für Container",
+      "dialogue": [
+        {"character": "Docker", "line": "Hey, du. Ja, du — der schon zum dritten Mal diese Woche 'Läuft auf meinem Rechner' sagt. Zeit, dass wir reden."},
+        {"character": "Du", "line": "Docker? Ich habe von dir gehört. Alle sagen, du bist großartig."},
+        {"character": "Docker", "line": "Ich bin ziemlich gut, ja. Ich helfe dir, deine Anwendung so zu verpacken, dass sie überall läuft — auf deinem Laptop, in der Cloud, auf dem Raspberry Pi, überall."},
+        {"character": "Du", "line": "Also bist du wie... ein Reisekoffer für Code?"},
+        {"character": "Docker", "line": "Mir gefällt die Analogie. Überprüf einfach, dass ich installiert bin, und dann geht's los. Gib 'docker --version' ein, und wenn ich antworte, sind wir offiziell ein Paar."}
+      ]
+    }
+  }
+}

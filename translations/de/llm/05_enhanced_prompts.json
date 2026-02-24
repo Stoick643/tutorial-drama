@@ -1,0 +1,39 @@
+{
+  "tutorial": "LLM Grundlagen",
+  "technical_concept": "Produktive KI-Systeme senden Ihre rohe Frage nicht direkt an das LLM. Sie verbessern sie: Der System-Prompt setzt Persönlichkeit und Regeln, RAG (Retrieval-Augmented Generation) fügt relevante Daten aus Datenbanken hinzu, und Templates strukturieren alles in ein optimales Format.",
+  "challenge": {
+    "task": "Erstellen Sie einen verbesserten Prompt, wie ihn ein echter Firmen-Chatbot verwenden würde. Erstellen Sie eine JSON-Anfrage mit: (1) einer 'system'-Nachricht, die die Assistenten-Persönlichkeit definiert UND Kontextdaten enthält, (2) einer 'user'-Nachricht mit der Kundenfrage, (3) angemessenen 'max_tokens' und 'temperature'.",
+    "hint": "Die System-Nachricht sollte BEIDES enthalten — Persönlichkeitsanweisungen (z.B. 'Sie sind ein Kundensupport-Assistent') UND Kontextdaten (z.B. 'Aktueller Plan des Benutzers: Premium')."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Signalverstärkung",
+      "dialogue": [
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Commander, unsere rohen Anfragen an ARIA funktionieren, aber professionelle Systeme machen etwas Klügeres. Sie verbessern den Prompt vor dem Senden."},
+        {"character": "Commander Vega", "line": "Verbessern wie?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Drei Schichten. Erstens: System-Prompt — permanente Anweisungen, die ARIAs Verhalten formen. 'Du bist ein Navigationsoffizier mit Zugang zu Sternenkarten.'"},
+        {"character": "Commander Vega", "line": "Also geben wir ihr eine Rolle und Werkzeuge."},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Genau. Zweitens: RAG — Retrieval-Augmented Generation. Bevor ARIA antwortet, durchsuchen wir unsere Datenbanken nach relevanten Informationen und fügen sie in den Prompt ein."},
+        {"character": "Commander Vega", "line": "Also muss ARIA nicht alles auswendig wissen — wir geben ihr Referenzmaterial?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Genau so! Und drittens: Templates strukturieren alles in ein optimales Format. Professionelle KI-Systeme senden nie Rohtext."},
+        {"character": "Commander Vega", "line": "Zeigen Sie mir. Erstellen Sie ein verstärktes Signal — mit Rolle, Kontext und Frage."},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Erstellen Sie JSON mit einer reichhaltigen System-Nachricht. So funktionieren echte KI-Systeme."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Vom Praktikanten zum Profi",
+      "dialogue": [
+        {"character": "Sam (Senior-Entwickler)", "line": "Okay, Chef. Alles bis jetzt waren Demos. In Produktion sendet man nie die rohe Frage an die KI."},
+        {"character": "Chef", "line": "Warum nicht? Alex antwortet ganz gut."},
+        {"character": "Sam (Senior-Entwickler)", "line": "Weil Alex in Produktion wissen muss WER er ist, was die REGELN sind und welche DATEN er zur Verfügung hat. Das alles kommt in die System-Nachricht."},
+        {"character": "Chef", "line": "Wie eine Stellenbeschreibung für Alex?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Genau! 'Du bist ein Support-Assistent für TechCorp. Unser Produkt kostet 29,99 monatlich. Verspreche keine Rabatte.' Jetzt hat Alex Kontext."},
+        {"character": "Chef", "line": "Und RAG? Das habe ich auf Konferenzen gehört."},
+        {"character": "Sam (Senior-Entwickler)", "line": "Retrieval-Augmented Generation. Bevor Alex antwortet, durchsuchen wir die Datenbank nach relevanten Informationen und fügen sie in den Prompt ein. Alex muss nicht alles auswendig wissen — wir geben ihm Referenzmaterial."},
+        {"character": "Chef", "line": "So wissen Chatbots Einzelheiten über mein Konto?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Volltreffer! Erstellen Sie einen echten Produktions-Prompt — mit Rolle, Kontext und Kundenfrage."},
+        {"character": "Chef", "line": "Vom Praktikanten zum Profi. Lassen Sie mich die Anfrage zusammenstellen."}
+      ]
+    }
+  }
+}

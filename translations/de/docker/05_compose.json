@@ -1,0 +1,38 @@
+{
+  "tutorial": "Docker Grundlagen",
+  "technical_concept": "Docker Compose ermöglicht es Ihnen, Multi-Container-Anwendungen in einer einzigen YAML-Datei zu definieren und auszuführen. Statt mehrere 'docker run'-Befehle auszuführen, beschreiben Sie alles in docker-compose.yml.",
+  "challenge": {
+    "task": "Schreiben Sie eine docker-compose.yml mit zwei Diensten: 'web' mit dem nginx-Image mit Port-Mapping 8080:80 und 'db' mit dem ibmcom/db2-Image.",
+    "hint": "Beginnen Sie mit 'services:', dann definieren Sie 'web' und 'db' als Unterschlüssel. Jeder braucht 'image:'. Web braucht 'ports:'."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Eine Familie von Wesen zusammenstellen",
+      "dialogue": [
+        {"character": "Der alte Zauberer Dockerus", "line": "Du hast gelernt, einzelne Wesen zu beschwören. Aber echte Abenteuer brauchen eine FAMILIE — mehrere Wesen, die zusammenarbeiten!"},
+        {"character": "Lehrling", "line": "Wie ein Webserver-Wesen und ein DB2-Datenbank-Wesen, die zusammen kämpfen?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Genau! Aber eins nach dem anderen zu beschwören ist langweilig und fehleranfällig. Deshalb haben die alten Zauberer 'docker-compose.yml' erschaffen — die Große Schriftrolle."},
+        {"character": "Lehrling", "line": "Eine Schriftrolle, sie alle zu beschwören?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Fürwahr! In dieser Schriftrolle ist jedes Wesen ein 'Dienst' mit eigenem Abschnitt. Du bestimmst Image, Ports, Volumes — alles."},
+        {"character": "Lehrling", "line": "Und können sie miteinander sprechen?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Ja! Docker Compose erzeugt ein magisches Netzwerk, in dem sich Wesen über ihren Namen finden. 'docker compose up' und alle Wesen erwachen gleichzeitig!"},
+        {"character": "Lehrling", "line": "So funktionieren echte Anwendungen in der realen Welt, oder?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Natürlich. Jede Geschäftsanwendung — Webserver, DB2-Datenbank, vielleicht ein Cache — alles zusammen in einer Schriftrolle."}
+      ]
+    },
+    "flirting": {
+      "title": "Zusammenleben (wirklich)",
+      "dialogue": [
+        {"character": "Docker", "line": "Also wir sehen uns schon eine Weile. Einzelne Container, Port-Mapping, Volumes. Zeit für den nächsten Schritt — zusammenleben."},
+        {"character": "Du", "line": "Du meinst... Docker Compose?"},
+        {"character": "Docker", "line": "Du liest voraus! Ja. Docker Compose ist, wenn mehrere Container ein gemeinsames Leben in einer YAML-Datei teilen."},
+        {"character": "Du", "line": "Wie ein Webserver und eine DB2-Datenbank, die sich eine Wohnung teilen?"},
+        {"character": "Docker", "line": "Genau. Der Webserver verwaltet die Eingangstür (Ports), DB2 bewahrt alle Daten auf (Volumes) und sie finden sich automatisch über das Netzwerk."},
+        {"character": "Du", "line": "Das ist... eigentlich süß. Sie haben ihr eigenes kleines Netzwerk untereinander?"},
+        {"character": "Docker", "line": "Compose erstellt es automatisch. Keine peinlichen Vorstellungen. Und das Beste? 'docker compose up' — ein Befehl für alles."},
+        {"character": "Du", "line": "Ein Befehl für alles. Ich bin überzeugt."},
+        {"character": "Docker", "line": "Dann schreib unseren ersten gemeinsamen Haushalt. Webserver und DB2-Datenbank. Unser kleines digitales Zuhause."}
+      ]
+    }
+  }
+}

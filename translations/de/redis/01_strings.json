@@ -1,0 +1,34 @@
+{
+  "tutorial": "Redis Grundlagen",
+  "technical_concept": "Verwendung von Strings für grundlegende Schlüssel-Wert-Speicherung mit den Befehlen SET, GET und SETEX für automatischen Ablauf.",
+  "challenge": {
+    "task": "Eine neue Zielperson, `user456`, ist gerade online gegangen. Setzen Sie ihren Status auf 'online', aber sorgen Sie dafür, dass die Spur nach genau 2 Minuten (120 Sekunden) erlischt.",
+    "hint": "Sie benötigen einen Befehl, der einen Schlüssel mit Ablaufzeit in einer einzigen Operation setzt."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Die vergängliche Spur",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Indecks."},
+        {"character": "REDIS", "line": "Ich habe eine neue Spur für Sie, Herr Detektiv. Eine verdächtige Gestalt, `user789`. Wir müssen sie verfolgen, aber nur solange sie aktiv ist. Wir können keine Ressourcen verschwenden, wenn sie verschwindet."},
+        {"character": "Detektiv Indecks", "line": "Also brauche ich eine Möglichkeit, ihr eine vorübergehende Markierung zu geben. Welches Werkzeug?"},
+        {"character": "REDIS", "line": "Das einfachste Werkzeug. Ein grundlegendes Schlüssel-Wert-Paar. Geben Sie mir einen Schlüssel wie `online:user789` und einen Wert wie 'active'. Mein Befehl `SET` erledigt das. Wenn Sie den Status überprüfen wollen, fragen Sie mich mit `GET online:user789`."},
+        {"character": "Detektiv Indecks", "line": "Aber Sie sagten vorübergehend. Was, wenn ich vergesse, die Markierung zu entfernen? Die Spur erlischt, aber meine Tafel zeigt immer noch, dass sie aktiv ist. Schlampige Arbeit."},
+        {"character": "REDIS", "line": "Deshalb verwenden Sie nicht `SET`. Verwenden Sie `SETEX` — SET mit Ablauf. Geben Sie mir den Schlüssel, die Anzahl Sekunden und den Wert. Zum Beispiel: `SETEX online:user789 300 \"active\"`. In 5 Minuten (300 Sekunden) verschwindet dieser Eintrag. Keine losen Enden."},
+        {"character": "Detektiv Indecks", "line": "Sauber. Gefällt mir. Testen wir es."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Zeitgesteuerte Datenmarker",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Ingenieur, eingehende Übertragung. Besatzungsmitglied mit Kennung CR-789 hat sich gerade am Hauptterminal angemeldet."},
+        {"character": "Ingenieur", "line": "Ich muss ihren Status verfolgen, aber nur solange sie aktiv verbunden sind. Ich kann keinen Speicher für veraltete Sitzungsdaten verschwenden."},
+        {"character": "NEXUS", "line": "Verstanden. Wir verwenden Schlüssel-Wert-Paare zur effizienten Verfolgung. Ich speichere den Schlüssel als 'session:CR-789' mit dem Wert 'active'. Zur späteren Überprüfung fragen Sie einfach mit GET ab."},
+        {"character": "Ingenieur", "line": "Aber was, wenn sie sich abmelden? Ich kann nicht jeden Sitzungsmarker manuell bereinigen."},
+        {"character": "NEXUS", "line": "Deshalb verwenden wir SETEX — SET mit Ablauf. Bestimmen Sie den Schlüssel, die Dauer in Sekunden und den Wert. Beispiel: SETEX session:CR-789 300 'active'. Nach 300 Sekunden werden die Daten automatisch gelöscht. Kein Wartungsaufwand."},
+        {"character": "Ingenieur", "line": "Effizient. Gefällt mir. Testen wir dieses automatische Bereinigungssystem."},
+        {"character": "NEXUS", "line": "Bereit für Ihren Befehl, Ingenieur."}
+      ]
+    }
+  }
+}

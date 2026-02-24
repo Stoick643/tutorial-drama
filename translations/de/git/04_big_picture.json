@@ -1,0 +1,64 @@
+{
+  "tutorial": "Git vom Terminal",
+  "technical_concept": "GitHub ist einfach eine gehostete Kopie Ihres .git-Ordners mit einer Weboberfläche darüber. Pull Requests, Issues und Code-Review sind GitHub-Features — das Git darunter ist identisch mit dem, was Sie lokal machen. CI/CD (Continuous Integration/Delivery) verbindet Automatisierung mit Ihren Pushes: Pushen Sie auf main, die Pipeline führt Tests aus und deployt automatisch. Wenn eine Pipeline verbunden ist, hat jeder 'git push' reale Konsequenzen — deshalb sind saubere Git-Gewohnheiten wichtig.",
+  "challenge": {
+    "task": "Dies ist freie Erkundung. Geben Sie einen beliebigen Git-Befehl ein, den Sie gelernt haben — probieren Sie 'git log --oneline --graph --all', 'cat .git/HEAD', 'git status', 'git branch', oder stellen Sie Fragen zu diesem Leitfaden.",
+    "hint": "Probieren Sie Befehle aus jeder Lektion. Dies ist Ihre Sandbox zum freien Experimentieren.",
+    "solution": "git log --oneline --graph --all"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Jenseits deines Geräts",
+      "dialogue": [
+        {"character": "Sokrates", "line": "Wir haben die vier Bereiche erkundet, Branches, Rückgängigmachungen und den .git-Ordner. Aber bisher war alles lokal. Wenn du pushst — wohin geht es?"},
+        {"character": "Schüler", "line": "Zu GitHub."},
+        {"character": "Sokrates", "line": "Und was ist GitHub, im Sinne dessen, was wir gelernt haben?"},
+        {"character": "Schüler", "line": "Eine remote... Kopie meines .git-Ordners?"},
+        {"character": "Sokrates", "line": "Genau so! GitHub speichert dieselben Objekte, dieselben Referenzen, dieselbe Geschichte. Alles andere — Pull Requests, Issues, die Weboberfläche — das sind GitHubs Extras. Das Git darunter ist identisch mit dem auf deinem Gerät."},
+        {"character": "Schüler", "line": "Also ist 'origin' nur ein Name für dieses Remote?"},
+        {"character": "Sokrates", "line": "Eine Konvention, nicht mehr. Jetzt — hier wird es folgenreich. Viele Teams verbinden Automatisierung mit ihren Repos. Wenn du auf main pushst, erkennt eine Pipeline die Änderung, führt Tests aus und deployt den Code. Automatisch."},
+        {"character": "Schüler", "line": "Also könnte mein 'git push' in Produktion deployen?"},
+        {"character": "Sokrates", "line": "Kann und tut es oft. Das nennt sich CI/CD — Continuous Integration, Continuous Delivery. Es bedeutet, dass jeder Push reale Konsequenzen hat. Eine schlampige Commit-Nachricht wird zum Rätsel im Deployment-Log. Ein kaputter Test blockiert das ganze Team."},
+        {"character": "Schüler", "line": "Deshalb kümmern sich Leute so sehr um saubere Commits und gute Nachrichten."},
+        {"character": "Sokrates", "line": "Jetzt verstehst du das Gesamtbild. Kleine, fokussierte Commits. Aussagekräftige Nachrichten. Feature-Branches zur Arbeitsisolierung. Stabiler main. Das sind keine pedantischen Regeln — es sind praktische Notwendigkeiten, wenn Automatisierung im Spiel ist."},
+        {"character": "Schüler", "line": "Ich habe das Gefühl, dass ich Git jetzt wirklich verstehe."},
+        {"character": "Sokrates", "line": "Du hattest das Wissen schon immer — du brauchtest nur die richtigen Fragen. Geh — erkunde frei. Probiere jeden Befehl, den du gelernt hast. Das Terminal gehört dir."}
+      ]
+    },
+    "zen": {
+      "title": "Der Fluss erreicht das Meer",
+      "dialogue": [
+        {"character": "Meister", "line": "Alles was wir geübt haben, war auf deinem Gerät. Ein Fluss, der im Kreis fließt. Heute erreicht er das Meer."},
+        {"character": "Schüler", "line": "Das Remote — GitHub."},
+        {"character": "Meister", "line": "Ja. Und was ist GitHub, jetzt wo du .git verstehst?"},
+        {"character": "Schüler", "line": "Noch eine Kopie desselben .git-Ordners, gehostet auf einem Server."},
+        {"character": "Meister", "line": "Gut. Pull Requests, Issues, die Weboberfläche — das ist der Hafen, gebaut um das Meer. Aber das Wasser selbst ist dasselbe Git, das du bereits kennst."},
+        {"character": "Schüler", "line": "Was passiert, wenn ich pushe?"},
+        {"character": "Meister", "line": "Das hängt davon ab, was zuhört. Viele Teams verbinden eine Pipeline mit ihrem Repository. Push auf main löst eine Kette aus: Tests laufen, das Projekt wird gebaut, und wenn alles in Ordnung ist, wird der Code deployt. Automatisch. Dein 'git push' wird zum Deployment."},
+        {"character": "Schüler", "line": "Das ist mächtig. Und erschreckend."},
+        {"character": "Meister", "line": "Deshalb ist Disziplin wichtig. Schreibe klare Commit-Nachrichten — sie erscheinen in Deployment-Logs. Halte main stabil. Verwende Feature-Branches. Mache kleine, fokussierte Commits, die leicht zu verstehen und leicht rückgängig zu machen sind."},
+        {"character": "Schüler", "line": "Das sind nicht nur Stilpräferenzen."},
+        {"character": "Meister", "line": "Es sind Konsequenzen des Systems. Wenn dein Push ein Deployment auslöst, wird Sauberkeit zum Überleben. Diesen Weg hast du begonnen, ohne erklären zu können, was ein Branch ist. Jetzt weißt du, dass es eine Vierzig-Zeichen-Datei ist. Du kennst die vier Bereiche. Du weißt, wie man mit Zuversicht rückgängig macht."},
+        {"character": "Schüler", "line": "Git ist wieder einfach."},
+        {"character": "Meister", "line": "Wie ich versprochen habe. Geh jetzt — nutze diesen Raum frei. Probiere jeden Befehl. Das Terminal ist kein Geheimnis mehr."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Push auf main, Deploy in Produktion",
+      "dialogue": [
+        {"character": "Alex", "line": "Also alles, was wir gemacht haben, war lokal. Wann kommt GitHub ins Spiel?"},
+        {"character": "Sam", "line": "GitHub ist nur ein Remote — eine gehostete Kopie deines .git-Ordners mit einer schicken Weboberfläche obendrauf. Wenn du pushst, gehen deine Commits dorthin. Pull Requests, Issues, Code-Review — das ist alles GitHubs Schicht. Der Git-Teil ist identisch."},
+        {"character": "Alex", "line": "Was ist mit 'origin'? Das sehe ich überall."},
+        {"character": "Sam", "line": "Nur ein Name. Wenn du ein Repo klonst, benennt Git die Quelle automatisch 'origin'. Konvention. Du könntest es in 'banane' umbenennen und es würde immer noch funktionieren."},
+        {"character": "Alex", "line": "Ha. Okay, und CI/CD? Mein Team redet ständig von Pipelines."},
+        {"character": "Sam", "line": "Einfaches Konzept: Du pushst auf main, GitHub erkennt es, führt automatisch ein Skript aus. Dieses Skript führt deine Tests aus, baut das Projekt, und wenn alles klappt — deployt. Dein 'git push' bringt buchstäblich Code in Produktion."},
+        {"character": "Alex", "line": "Das ist großartig und erschreckend."},
+        {"character": "Sam", "line": "Was genau der Grund ist, warum all diese Git-Gewohnheiten wichtig sind. Kleine Commits, klare Nachrichten, Feature-Branches. Wenn etwas in Produktion kaputtgeht, musst du das Log lesen und herausfinden, welcher Commit es war. 'Sachen repariert' hilft nicht. 'Login-Validierung für leere E-Mails repariert' hilft."},
+        {"character": "Alex", "line": "Ich fange an zu verstehen, warum mein Teamleiter so streng mit Commit-Nachrichten ist."},
+        {"character": "Sam", "line": "Es geht nicht um Ordentlichkeit — es geht darum, um 2 Uhr morgens debuggen zu können, wenn Produktion ausgefallen ist. Gute Git-Hygiene ist einfach nur dafür sorgen, dass dein zukünftiges Ich dir dankbar sein wird."},
+        {"character": "Alex", "line": "Dieses ganze Tutorial... ich glaube, ich verstehe Git jetzt wirklich. Wie, wirklich."},
+        {"character": "Sam", "line": "Du hast es schon immer gekannt — du hast es nur nicht durch das GUI gesehen. Jetzt hast du das mentale Modell. Geh und spiel im Terminal, probiere jeden Befehl. Mach Sachen kaputt. So lernt man."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "tutorial": "Osnove LLM-a",
+  "technical_concept": "Nakon tokenizacije svaki token se pretvara u ugrađivanje (embedding) — vektor (popis brojeva) koji obuhvaća njegovo značenje. Slični koncepti imaju slične vektore. Kosinusna sličnost mjeri koliko su dva vektora slična (1.0 = identični, 0.0 = nepovezani).",
+  "challenge": {
+    "task": "Usporedite dvije rečenice unosom njihovih brojeva (npr. '0 3'). Prvo upišite 'list' za prikaz svih dostupnih rečenica, zatim pokušajte različite kombinacije.",
+    "hint": "Pokušajte usporediti rečenice s istom temom (npr. 0 i 1 — obje o mačkama) s različitim temama (npr. 0 i 4)."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Mape značenja",
+      "dialogue": [
+        {"character": "Znanstvena časnica Chen", "line": "Zapovjedniče, otkrila sam nešto fascinantno o tome kako ARIA razumije značenje. Ne koristi rječnike — koristi geometriju."},
+        {"character": "Zapovjednik Vega", "line": "Geometriju? Objasnite."},
+        {"character": "Znanstvena časnica Chen", "line": "Svaki token se pretvara u popis brojeva — vektor. To je poput koordinata u prostoru značenja. Slične riječi završavaju blizu jedna drugoj."},
+        {"character": "Zapovjednik Vega", "line": "Dakle 'kralj' i 'kraljica' bi bili blizu?"},
+        {"character": "Znanstvena časnica Chen", "line": "Točno! I 'mačka' i 'mačić' blizu. Ali 'mačka' i 'kvantna fizika' daleko. Kosinusna sličnost mjeri tu udaljenost — 1.0 znači identično, 0.0 znači nepovezano."},
+        {"character": "Zapovjednik Vega", "line": "Zato ARIA može razumjeti sinonime i kontekst — mapirala je značenje u matematiku."},
+        {"character": "Znanstvena časnica Chen", "line": "Upravo tako. Pogledajte usporedbe sami — unesite dva broja rečenica i vidjet ćete koliko su slične."},
+        {"character": "Zapovjednik Vega", "line": "Fascinantno. Pogledajmo te mape značenja."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Alexov prostorni čarolija",
+      "dialogue": [
+        {"character": "Sam (stariji developer)", "line": "Okej, ovo je najluđi dio. Alex ne razumije riječi — pretvara ih u popise brojeva. Poput koordinata u prostoru značenja."},
+        {"character": "Šef", "line": "Popise brojeva? Kako to pomaže?"},
+        {"character": "Sam (stariji developer)", "line": "Jer slične stvari dobivaju slične brojeve. 'Sretna' i 'radosna' su blizu. 'Sretna' i 'podatkovna baza' su daleko. Alex doslovno mjeri udaljenost između koncepata."},
+        {"character": "Šef", "line": "Zato razumije sinonime? Ne traži točna poklapanja, traži bliskost u ovom prostoru?"},
+        {"character": "Sam (stariji developer)", "line": "Pogodak. I mjera se zove kosinusna sličnost. 1.0 znači identično, 0.0 znači nepovezano. Ovo je kako pretraživanje funkcionira, kako preporuke rade, kako Alex razumije kontekst."},
+        {"character": "Šef", "line": "Mogu li to vidjeti?"},
+        {"character": "Sam (stariji developer)", "line": "Da! Usporedite dvije rečenice i pogledajte koliko ih Alex smatra sličnima."},
+        {"character": "Šef", "line": "Ovo počinjem razumjeti. Pogledajmo."}
+      ]
+    }
+  }
+}

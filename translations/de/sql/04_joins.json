@@ -1,0 +1,34 @@
+{
+  "tutorial": "SQL Grundlagen",
+  "technical_concept": "Verwendung von INNER JOIN zum Kombinieren von Daten aus mehreren verknüpften Tabellen.",
+  "challenge": {
+    "task": "Verknüpfen Sie Mitarbeiter mit ihren Abteilungsnamen. Verbinden Sie die Tabelle employees mit der Tabelle departments, um zu sehen, wer wo arbeitet.",
+    "hint": "Verwenden Sie INNER JOIN mit ON zur Verknüpfung von employees.department_id mit departments.id."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Die Punkte verbinden",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Ich habe Mitarbeiternamen und Abteilungs-IDs, aber die IDs sagen mir nichts. Ich brauche die tatsächlichen Abteilungsnamen."},
+        {"character": "Datenbank", "line": "Diese Informationen befinden sich in zwei getrennten Tabellen, Herr Detektiv. Mitarbeiter in einer, Abteilungsdaten in der anderen. Sie brauchen einen JOIN — eine Verknüpfung."},
+        {"character": "Detektiv Indecks", "line": "Verknüpfung? Wie funktioniert das?"},
+        {"character": "Datenbank", "line": "INNER JOIN verbindet Tabellen über einen gemeinsamen Schlüssel. Hier stimmt `employees.department_id` mit `departments.id` überein. Das Ergebnis zeigt den Mitarbeiternamen ZUSAMMEN mit dem Abteilungsnamen."},
+        {"character": "Detektiv Indecks", "line": "Also ist das wie ein Abgleich von Akten? Eine Akte hat die Namen, die andere die Abteilungsdaten, und man verbindet sie?"},
+        {"character": "Datenbank", "line": "Genau. INNER JOIN zeigt nur Zeilen, bei denen eine Übereinstimmung in beiden Tabellen existiert. Hat ein Mitarbeiter keine Abteilung, erscheint er nicht."},
+        {"character": "Detektiv Indecks", "line": "Verstanden. Verbinden wir diese Tabellen und sehen das Gesamtbild."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Relationale Datenverknüpfung",
+      "dialogue": [
+        {"character": "Ingenieur", "line": "NEXUS, ich habe Personaldatensätze mit Abteilungs-IDs, aber ich brauche die tatsächlichen Abteilungsnamen neben den Personalnamen."},
+        {"character": "NEXUS", "line": "Das ist eine relationale Datenstruktur, Ingenieur. Abteilungsinformationen befinden sich in einer separaten Tabelle. Zum Kombinieren benötigen Sie eine JOIN-Operation."},
+        {"character": "Ingenieur", "line": "Erklären Sie den Verknüpfungsmechanismus."},
+        {"character": "NEXUS", "line": "INNER JOIN kombiniert Zeilen aus zwei Tabellen, bei denen eine bestimmte Bedingung erfüllt ist. Beispiel: SELECT e.first_name, d.name FROM employees e INNER JOIN departments d ON e.department_id = d.id."},
+        {"character": "Ingenieur", "line": "Also ist das wie das Zusammenführen zweier Datensätze auf Basis eines gemeinsamen Identifikators?"},
+        {"character": "NEXUS", "line": "Genau. INNER JOIN gibt nur Zeilen mit übereinstimmenden Werten in beiden Tabellen zurück. Nicht übereinstimmende Datensätze werden ausgeschlossen."},
+        {"character": "Ingenieur", "line": "Verstanden. Führen wir die Verknüpfungsoperation aus."}
+      ]
+    }
+  }
+}

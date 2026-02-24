@@ -1,0 +1,36 @@
+{
+  "tutorial": "Osnove Dockera",
+  "technical_concept": "Kontejneri su prolazni — kad se zaustave, njihovi podaci su izgubljeni. Volumeni (-v) čuvaju podatke izvan kontejnera. Mapiranje portova (-p) izlaže usluge hostu.",
+  "challenge": {
+    "task": "Pokrenite nginx kontejner u odvojenom načinu (-d) s mapiranjem porta 8080 na port kontejnera 80.",
+    "hint": "Koristite 'docker run -d -p 8080:80 nginx' — zastavica -d ga pokreće u pozadini."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Riznice i prozori tornja",
+      "dialogue": [
+        {"character": "Stari čarobnjak Dockerus", "line": "Nešto moraš razumjeti, šegrte. Kad prizvano biće nestane, nestaje SVE u njemu. Svaki podatak, svaka datoteka — puf!"},
+        {"character": "Šegrt", "line": "Sve? Svi podaci? To je strašno!"},
+        {"character": "Stari čarobnjak Dockerus", "line": "Doista — osim ako mu daš Riznicu! Volumen je čarobna škrinja koja postoji izvan bića. '-v db2data:/database' znači 'prikvači škrinju nazvanu db2data na bićevu mapu /database'."},
+        {"character": "Šegrt", "line": "Dakle sljedeće biće može otvoriti istu škrinju i naći sve zapise baze podataka?"},
+        {"character": "Stari čarobnjak Dockerus", "line": "Točno! I zatim su tu Prozori tornja — mapiranje portova! '-p 8080:80' znači 'izgradi most od tvojih dvorskih vrata 8080 do bićevog prozora 80'."},
+        {"character": "Šegrt", "line": "Most iz mog svijeta u bićev svijet?"},
+        {"character": "Stari čarobnjak Dockerus", "line": "Da! Sada prizovi nginx biće s mostom — odvojeno, da radi u pozadini dok ti nastavljaš studij."},
+        {"character": "Šegrt", "line": "Riznice za podatke, mostovi za veze. Obožavam ovu čaroliju!"}
+      ]
+    },
+    "flirting": {
+      "title": "Zajednički život",
+      "dialogue": [
+        {"character": "Docker", "line": "Okej, važan razgovor o vezi. Kontejneri su... privremeni. Kad se zaustave, sve unutra nestaje."},
+        {"character": "Ti", "line": "Dakle svaki put kad restartiram, svi moji podaci nestaju? To je razlog za prekid."},
+        {"character": "Docker", "line": "Zato imamo volumene! Razmisli o tome kao o zajedničkom skladišnom prostoru. '-v db2data:/database' znači 'čuvamo podatke zajedno, čak i kad me nema doma'."},
+        {"character": "Ti", "line": "Okej, to je zapravo lijepo. Što s portovima?"},
+        {"character": "Docker", "line": "Portovi su način kako puštamo vanjski svijet unutra. '-p 8080:80' znači 'moj stan ima vrata 80, ali posjetitelji dolaze kroz 8080'."},
+        {"character": "Ti", "line": "Dakle mogao bih pokrenuti web poslužitelj i stvarno ga posjetiti u pregledniku?"},
+        {"character": "Docker", "line": "Točno! localhost:8080 i bum — spojen si. Zastavica -d znači da radim tiho u pozadini."},
+        {"character": "Ti", "line": "U redu, pokušajmo. Nginx, odvojeno, mapiranje portova."}
+      ]
+    }
+  }
+}

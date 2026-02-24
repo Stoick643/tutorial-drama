@@ -1,0 +1,30 @@
+{
+  "tutorial": "Bash Grundlagen",
+  "technical_concept": "xargs — die Brücke zwischen Finden und Handeln. Es nimmt eine Liste aus stdin und übergibt jedes Element als Argument an einen anderen Befehl.\n\nBeispiel: find . -name \"*.tmp\" | xargs rm — findet alle .tmp-Dateien und löscht sie in einem Durchgang.\n\nPower-Pipeline: cat log.txt | grep \"ERROR\" | awk \"{print $1}\" | sort | uniq -c — liest ein Log, filtert Fehler, extrahiert die erste Spalte, sortiert und zählt Vorkommen.",
+  "challenge": {
+    "task": "Verwenden Sie find und xargs zum Löschen aller Dateien die auf '.tmp' enden im aktuellen Verzeichnisbaum.",
+    "hint": "Verbinden Sie find mit xargs: find findet die Dateien, xargs übergibt sie an rm."
+  },
+  "styles": {
+    "survival": {
+      "title": "Das Lager aufräumen",
+      "dialogue": [
+        {"character": "Terminal", "line": "Pipelines transformieren Daten. Aber was, wenn Sie auf eine Liste von Elementen einwirken müssen? xargs nimmt Eingabe und verwandelt sie in Argumente für einen anderen Befehl."},
+        {"character": "Du", "line": "Wie eine ganze Liste auf einmal verarbeiten?"},
+        {"character": "Terminal", "line": "Genau. 'find . -name \"*.tmp\" | xargs rm' — findet alle temporären Dateien und löscht sie in einem Durchgang."},
+        {"character": "Du", "line": "Find findet, xargs handelt. Großartige Teamarbeit."},
+        {"character": "Terminal", "line": "Räumen Sie das Lager auf — löschen Sie alle temporären Dateien."}
+      ]
+    },
+    "heist": {
+      "title": "Spuren verwischen",
+      "dialogue": [
+        {"character": "Handler", "line": "Ghost, nach jeder Operation verwischen Sie Spuren. xargs ist Ihr Aufräumwerkzeug — es nimmt eine Zielliste und führt einen Befehl auf jedem aus."},
+        {"character": "Ghost", "line": "Wie automatisches Löschen?"},
+        {"character": "Handler", "line": "'find . -name \"*.tmp\" | xargs rm' — findet jede temporäre Datei und löscht sie. Eine Pipeline, sauberes Terrain."},
+        {"character": "Ghost", "line": "Finden und zerstören. Verstanden."},
+        {"character": "Handler", "line": "Temporäre Dateien sind überall im Zielsystem. Bereinigen Sie sie — alle .tmp-Dateien müssen verschwinden."}
+      ]
+    }
+  }
+}

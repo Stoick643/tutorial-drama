@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove SQL-a",
+  "technical_concept": "Uvod u SQL i istraživanje strukture baze podataka.",
+  "challenge": {
+    "task": "Povežite se s bazom podataka i ispišite sve dostupne tablice kako biste razumjeli strukturu podataka.",
+    "hint": "Upitajte tablicu sqlite_master da vidite koje tablice postoje u ovoj bazi podataka."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Korporativni spisi",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Još jedna kasna noć. Još jedan slučaj. Ovaj put radi se o korporativnoj prijevari u TechCorpu. Vrijeme da zaronim u zapise."},
+        {"character": "Podatkovna baza", "line": "Dobrodošli, detektive. Ja sam baza podataka tvrtke — SQLite. Čuvam sve zapise: zaposlenike, odjele, projekte i zaduženja."},
+        {"character": "Detektiv Indecks", "line": "SQLite, ha? Još nisam radio s tobom. Kako znam što imaš?"},
+        {"character": "Podatkovna baza", "line": "Jednostavno. Svaka baza podataka ima glavni katalog. Upitajte `sqlite_master` sa SELECT name, type FROM sqlite_master WHERE type='table' — i dobit ćete popis svih tablica."},
+        {"character": "Detektiv Indecks", "line": "Dakle tablice su kao kartotečni ormari? Svaka čuva različite vrste zapisa?"},
+        {"character": "Podatkovna baza", "line": "Točno. Ova baza ima četiri tablice: departments, employees, projects i employee_projects. Svaka priča drugi dio priče."},
+        {"character": "Detektiv Indecks", "line": "U redu, pogledajmo s čime imamo posla. Pokaži mi te tablice."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Pristup podatkovnom sustavu",
+      "dialogue": [
+        {"character": "Inženir", "line": "NEXUS, trebam pristup kadrovskoj bazi podataka postaje. Kakav sustav koristimo?"},
+        {"character": "NEXUS", "line": "Baza podataka postaje radi na SQLiteu, inženjeru. Sadrži sve kadrovske, odjelne, projektne i zaduženjske zapise."},
+        {"character": "Inženir", "line": "Kako vidim koje su podatkovne strukture dostupne?"},
+        {"character": "NEXUS", "line": "Svaka SQLite baza održava sustavni katalog nazvan sqlite_master. Izvršite: SELECT name, type FROM sqlite_master WHERE type='table' za popis svih podatkovnih entiteta."},
+        {"character": "Inženir", "line": "Tablice su primarni spremnici za pohranu podataka?"},
+        {"character": "NEXUS", "line": "Ispravno. Svaka tablica predstavlja zasebnu vrstu entiteta. Ova baza sadrži četiri tablice: departments, employees, projects i employee_projects."},
+        {"character": "Inženir", "line": "Razumljeno. Provjerimo cjelovitost baze ispisom tablica."}
+      ]
+    }
+  }
+}

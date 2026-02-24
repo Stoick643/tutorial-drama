@@ -1,0 +1,30 @@
+{
+  "tutorial": "Osnove Basha",
+  "technical_concept": "sed (Stream Editor) — izvršava zamjenu teksta na toku podataka.\nsed \"s/staro/novo/\" zamjenjuje prvo pojavljivanje po redu. Dodajte g za sve: sed \"s/staro/novo/g\".\n\nawk — obrađuje stupcaste podatke. Dijeli svaki red na polja ($1, $2, itd.) po razmacima.\nawk \"{print $1}\" ispisuje prvi stupac.\n\nZajedno s cijevima, sed i awk vam omogućuju transformaciju bilo kojih tekstualnih podataka u hodu.",
+  "challenge": {
+    "task": "Koristite awk za izvlačenje samo IP adresa (prvi stupac) iz 'access.log', zatim pošaljite kroz sort i uniq -c za brojanje koliko puta se svaka pojavljuje.",
+    "hint": "awk '{print $1}' izvlači prvi stupac. Prosljedite u sort | uniq -c za brojanje."
+  },
+  "styles": {
+    "survival": {
+      "title": "Obrada sirovina",
+      "dialogue": [
+        {"character": "Terminal", "line": "Pronalazite i filtrirate. Sada naučite transformirati. 'sed' je vaš strujni editor — mijenja tekst u hodu. 'awk' dijeli redove u stupce i izvlači što trebate."},
+        {"character": "Vi", "line": "Poput prerade sirovina u upotrebljive resurse?"},
+        {"character": "Terminal", "line": "Točno. sed \"s/staro/novo/g\" zamjenjuje svako pojavljivanje. awk \"{print $1}\" izvlači prvi stupac — poput uzimanja samo IP adresa iz dnevnika. Kombinirajte s cijevima za moćne transformacije."},
+        {"character": "Vi", "line": "Razumijem — sed mijenja sadržaj, awk izvlači stupce."},
+        {"character": "Terminal", "line": "Pristupni dnevnik sadrži IP adrese s brojevima posjeta. Izvucite IP adrese i prebrojite koliko puta se svaka pojavljuje."}
+      ]
+    },
+    "heist": {
+      "title": "Analiza obavještajnih podataka",
+      "dialogue": [
+        {"character": "Voditelj", "line": "Sirovi podaci su beskorisni. Trebate ih preraditi. 'sed' zamjenjuje tekst u hodu. 'awk' rastavlja redove u polja i izvlači ono što trebate."},
+        {"character": "Duh", "line": "Kako awk radi?"},
+        {"character": "Voditelj", "line": "Dijeli svaki red na stupce. $1 je prvi, $2 drugi. awk \"{print $1}\" izvlači prvi stupac iz svakog reda. Kombinirajte sa sort | uniq -c za analizu frekvencije."},
+        {"character": "Duh", "line": "Razumijem — awk za ekstrakciju, sed za transformaciju."},
+        {"character": "Voditelj", "line": "Pristupni dnevnik mete sadrži IP adrese. Izvucite ih i prebrojite — koja adresa se pojavljuje najčešće?"}
+      ]
+    }
+  }
+}

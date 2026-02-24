@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Dockera",
+  "technical_concept": "Naredba 'docker run' kreira i pokreće kontejner iz slike. Ako slika nije lokalno dostupna, Docker je automatski preuzima s Docker Huba.",
+  "challenge": {
+    "task": "Pokrenite klasični 'hello-world' kontejner da provjerite radi li Docker od kraja do kraja.",
+    "hint": "Upišite 'docker run hello-world' — Docker će preuzeti sliku i pokrenuti je."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Prizivanje prvog bića",
+      "dialogue": [
+        {"character": "Stari čarobnjak Dockerus", "line": "Sada kad znamo da naši alati rade, vrijeme je da prizoveš svoje prvo biće! Čarolija je 'docker run'."},
+        {"character": "Šegrt", "line": "Koje biće da prizovem, majstore?"},
+        {"character": "Stari čarobnjak Dockerus", "line": "Počni s najjednostavnijim — 'hello-world'. Malen prijateljski duh koji se pojavi, donese poruku i nestane."},
+        {"character": "Šegrt", "line": "Što ako nemam nacrt za to biće?"},
+        {"character": "Stari čarobnjak Dockerus", "line": "To je ljepota! Docker će odletjeti u Veliku Knjižnicu — zove se Docker Hub — i donijeti nacrt za tebe. Bez napora!"},
+        {"character": "Šegrt", "line": "Dakle mogu prizovati cijeli web poslužitelj bez da ga sam gradim?"},
+        {"character": "Stari čarobnjak Dockerus", "line": "Naravno! 'docker run nginx' ti daje web poslužitelj. 'docker run postgres' ti daje bazu podataka. Cijeli svijet bića ti je na raspolaganju!"}
+      ]
+    },
+    "flirting": {
+      "title": "Prvi spoj",
+      "dialogue": [
+        {"character": "Docker", "line": "Dakle... spreman za naš prvi pravi spoj? Imam nešto posebno pripremljeno. Upiši 'docker run hello-world'."},
+        {"character": "Ti", "line": "Što je hello-world? Za prvi spoj zvuči prilično osnovno."},
+        {"character": "Docker", "line": "Vjeruj mi. To je klasik. Brzo, jednostavno i kaže ti da između nas sve funkcionira. Kao prva kavica."},
+        {"character": "Ti", "line": "A ako nemam tu hello-world stvar?"},
+        {"character": "Docker", "line": "Bez brige, donijet ću je umjesto tebe. Poznajem jedno mjesto — Docker Hub. Kao trgovina aplikacijama, samo za kontejnere."},
+        {"character": "Ti", "line": "Dakle kažeš mi da dobijem potpuno funkcionalnu bazu podataka s jednom naredbom?"},
+        {"character": "Docker", "line": "Sada kužiš. Ali ne žurimo. Prvo prvi spoj. Pokreni hello-world za mene."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "tutorial": "Docker Grundlagen",
+  "technical_concept": "Container sind vergänglich — wenn sie stoppen, sind ihre Daten verloren. Volumes (-v) bewahren Daten außerhalb des Containers. Port-Mapping (-p) macht Dienste für den Host zugänglich.",
+  "challenge": {
+    "task": "Starten Sie einen nginx-Container im detached-Modus (-d) mit Port-Mapping von 8080 auf Container-Port 80.",
+    "hint": "Verwenden Sie 'docker run -d -p 8080:80 nginx' — das -d-Flag startet ihn im Hintergrund."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Schatzkammern und Turmfenster",
+      "dialogue": [
+        {"character": "Der alte Zauberer Dockerus", "line": "Etwas musst du verstehen, Lehrling. Wenn ein beschworenes Wesen verschwindet, verschwindet ALLES in ihm. Jedes Datum, jede Datei — puff!"},
+        {"character": "Lehrling", "line": "Alles? Alle Daten? Das ist schrecklich!"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Stimmt — außer du gibst ihm eine Schatzkammer! Ein Volume ist eine magische Truhe, die außerhalb des Wesens existiert. '-v db2data:/database' bedeutet 'befestige eine Truhe namens db2data an den /database-Ordner des Wesens'."},
+        {"character": "Lehrling", "line": "Also kann das nächste Wesen dieselbe Truhe öffnen und alle Datenbankeinträge finden?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Genau! Und dann gibt es die Turmfenster — Port-Mapping! '-p 8080:80' bedeutet 'baue eine Brücke von deinem Burgtor 8080 zum Fenster 80 des Wesens'."},
+        {"character": "Lehrling", "line": "Eine Brücke von meiner Welt in die Welt des Wesens?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Ja! Jetzt beschwöre ein nginx-Wesen mit einer Brücke — detached, damit es im Hintergrund läuft, während du weiter studierst."},
+        {"character": "Lehrling", "line": "Schatzkammern für Daten, Brücken für Verbindungen. Ich liebe diese Magie!"}
+      ]
+    },
+    "flirting": {
+      "title": "Zusammenleben",
+      "dialogue": [
+        {"character": "Docker", "line": "Okay, wichtiges Beziehungsgespräch. Container sind... vergänglich. Wenn sie stoppen, verschwindet alles drin."},
+        {"character": "Du", "line": "Also jedes Mal wenn ich neustarte, verschwinden alle meine Daten? Das ist ein Trennungsgrund."},
+        {"character": "Docker", "line": "Deshalb haben wir Volumes! Stell dir das wie gemeinsamen Stauraum vor. '-v db2data:/database' bedeutet 'wir bewahren Daten zusammen auf, auch wenn ich nicht da bin'."},
+        {"character": "Du", "line": "Okay, das ist eigentlich süß. Was ist mit Ports?"},
+        {"character": "Docker", "line": "Ports sind der Weg, wie wir die Außenwelt hereinlassen. '-p 8080:80' bedeutet 'meine Wohnung hat die Tür 80, aber Besucher kommen durch 8080'."},
+        {"character": "Du", "line": "Also könnte ich einen Webserver starten und ihn tatsächlich im Browser besuchen?"},
+        {"character": "Docker", "line": "Genau! localhost:8080 und zack — du bist verbunden. Das -d-Flag bedeutet, ich laufe still im Hintergrund."},
+        {"character": "Du", "line": "Okay, versuchen wir's. Nginx, detached, Port-Mapping."}
+      ]
+    }
+  }
+}

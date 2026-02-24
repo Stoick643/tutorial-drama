@@ -1,0 +1,30 @@
+{
+  "tutorial": "Bash Grundlagen",
+  "technical_concept": "chmod — ändert Dateiberechtigungen. chmod +x script.sh macht eine Datei ausführbar.\ncurl — überträgt Daten von URLs. Großartig zum Testen von APIs und Herunterladen von Dateien.\nwget — lädt Dateien direkt auf die Festplatte.\nhistory — zeigt Ihre letzten Befehle. Verwenden Sie !42 zum erneuten Ausführen von Befehl #42.\nalias — erstellt Abkürzungen: alias ll=\"ls -la\" lässt Sie ll statt eingeben.\ntop — zeigt laufende Prozesse und Ressourcennutzung, wie ein Task-Manager.",
+  "challenge": {
+    "task": "Dies ist eine Diskussionslektion — keine Bewertung. Sagen Sie mir: welches dieser Werkzeuge (chmod, curl, wget, history, alias, top) glauben Sie, werden Sie am häufigsten verwenden?",
+    "hint": "Es gibt keine falsche Antwort! Überlegen Sie, was Sie am meisten tun — Skripting (chmod), API-Arbeit (curl), Downloads (wget), alte Befehle finden (history), Abkürzungen (alias) oder Prozessüberwachung (top)."
+  },
+  "styles": {
+    "survival": {
+      "title": "Der Überlebenswerkzeugkasten",
+      "dialogue": [
+        {"character": "Terminal", "line": "Sie haben die Grundlagen und fortgeschrittene Werkzeuge gelernt. Zeit, den Werkzeugkasten zu bestücken — Befehle die in keine einzelne Kategorie passen, aber absolut essentiell sind."},
+        {"character": "Du", "line": "Zeigen Sie mir, was ich habe."},
+        {"character": "Terminal", "line": "'chmod +x' macht Skripte ausführbar. 'curl' und 'wget' holen Ressourcen aus dem Netz. 'history' zeigt Ihre vorherigen Befehle. 'alias' erstellt Abkürzungen. 'top' zeigt was läuft."},
+        {"character": "Du", "line": "Welches ist am nützlichsten in der Wildnis?"},
+        {"character": "Terminal", "line": "Kommt auf Ihre Situation an. Was glauben Sie, brauchen Sie am häufigsten?"}
+      ]
+    },
+    "heist": {
+      "title": "Versteckte Ausrüstung",
+      "dialogue": [
+        {"character": "Handler", "line": "Jeder Operativ braucht versteckte Ausrüstung — Werkzeuge die in keine Kategorie passen, aber im Feld unverzichtbar sind."},
+        {"character": "Ghost", "line": "Was habe ich zur Verfügung?"},
+        {"character": "Handler", "line": "'chmod' kontrolliert Berechtigungen. 'curl' und 'wget' holen Daten aus dem Netz. 'history' zeigt Ihre Spuren. 'alias' erstellt Codenamen für Befehle. 'top' zeigt aktive Prozesse."},
+        {"character": "Ghost", "line": "Welches Werkzeug würden Sie am häufigsten verwenden?"},
+        {"character": "Handler", "line": "Das ist eine Frage für Sie, Ghost. Welches Werkzeug passt zu Ihrem Stil?"}
+      ]
+    }
+  }
+}

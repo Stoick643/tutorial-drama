@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove Basha",
+  "technical_concept": "grep — pretražuje tekstualne obrasce unutar datoteka. Uporaba: grep \"obrazac\" datoteka.txt. Zastavice: -i (bez razlikovanja velikih/malih slova), -r (rekurzivno kroz direktorije), -n (brojevi redova). Ime znači Global Regular Expression Print. Među hakerima postoji izreka: 'You can't grep dead trees' — znači da se digitalni tekst može pretražiti trenutno, a papir ne. To je vaša prednost.\n\nfind — locira datoteke po imenu, veličini ili tipu kroz direktorije. Uporaba: find . -name \"*.txt\" pronalazi sve .txt datoteke od trenutnog direktorija naniže.",
+  "challenge": {
+    "task": "Pretražite datoteku 'server.log' za sve redove koji sadrže 'ERROR' (bez razlikovanja velikih/malih slova).",
+    "hint": "grep pretražuje unutar datoteka. Dodajte zastavicu za ignoriranje velikih/malih slova."
+  },
+  "styles": {
+    "survival": {
+      "title": "Praćenje znakova",
+      "dialogue": [
+        {"character": "Terminal", "line": "Postavili ste kamp, prikupili resurse. Sada morate naučiti pratiti — pronalaziti stvari u divljini. 'grep' je vaš tragač. Lovi tekstualne obrasce unutar datoteka."},
+        {"character": "Vi", "line": "Kao traženje otisaka?"},
+        {"character": "Terminal", "line": "Točno. 'grep \"voda\" bilješke.txt' pronalazi svaki red koji spominje vodu. Dodajte '-i' i ignorira veličinu slova. Dodajte '-n' za brojeve redova."},
+        {"character": "Vi", "line": "Što ako ne znam u kojoj datoteci tražiti?"},
+        {"character": "Terminal", "line": "Tu dolazi 'find'. 'find . -name \"*.txt\"' pretražuje od ovdje naniže za bilo čime što završava na .txt."},
+        {"character": "Vi", "line": "Dakle grep gleda unutar datoteka, a find traži same datoteke?"},
+        {"character": "Terminal", "line": "Sada razmišljate kao preživjeli. Postoji stara izreka: 'You can't grep dead trees.' Znači da digitalni tekst možete pretražiti trenutno — ali papir? Morali biste čitati svaku stranicu ručno."},
+        {"character": "Vi", "line": "Mrtva stabla... znači papir. Kužim."},
+        {"character": "Terminal", "line": "Ovdje je dnevnik poslužitelja — nešto ostavljeno od onog tko je bio ovdje prije. Pretražite ga za greškama. Možda nam kaže što je pošlo krivo."}
+      ]
+    },
+    "heist": {
+      "title": "Izviđanje",
+      "dialogue": [
+        {"character": "Voditelj", "line": "Faza dva: izviđanje. Prije bilo koje operacije trebate obavještajne podatke. 'grep' je vaš alat za nadzor."},
+        {"character": "Duh", "line": "Kao prisluškivanje?"},
+        {"character": "Voditelj", "line": "Bolje. 'grep \"lozinka\" baza.txt' pronalazi svaki red koji sadrži 'lozinka'. '-i' ignorira veličinu slova. '-n' daje brojeve redova. '-r' ide rekurzivno."},
+        {"character": "Duh", "line": "Što ako trebam pronaći specifičnu datoteku ali ne znam gdje je?"},
+        {"character": "Voditelj", "line": "'find' je vaš tlocrt. 'find . -name \"*.log\"' mapira svaku log datoteku od vaše trenutne pozicije."},
+        {"character": "Duh", "line": "Pronađi datoteku, grepaj sadržaj. Razumijem."},
+        {"character": "Voditelj", "line": "Postoji razlog zašto hakeri kažu 'You can't grep dead trees.' Papirnate datoteke? Trebali biste tim analitičara. Digitalne datoteke? Jedna grep naredba i imate svako poklapanje u milisekundama."},
+        {"character": "Duh", "line": "Zapamtit ću to."},
+        {"character": "Voditelj", "line": "U sustavu mete je dnevnik poslužitelja. Nešto je pošlo krivo na njihovoj strani — pronađite greške. To je naš put unutra."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "tutorial": "Bash Grundlagen",
+  "technical_concept": "Das Terminal ist Ihr Fenster ins Dateisystem.\n\npwd — zeigt wo Sie sind (Print Working Directory).\nls — listet Dateien und Ordner auf. Fügen Sie -la für versteckte Dateien und Details hinzu.\ncd — wechselt das Verzeichnis. cd .. geht hoch, cd ~ geht nach Hause.\nmkdir — erstellt neue Verzeichnisse.",
+  "challenge": {
+    "task": "Erstellen Sie ein Verzeichnis namens 'camp'.",
+    "hint": "Welcher Befehl erstellt ein neues Verzeichnis?"
+  },
+  "styles": {
+    "survival": {
+      "title": "Erwachen in der Wildnis",
+      "dialogue": [
+        {"character": "Erzähler", "line": "Sie öffnen die Augen. Kiefern ragen über Ihnen auf. Die Luft riecht nach Regen und Erde. Ihr Rucksack ist verschwunden, das Telefon ist tot — aber auf einem Felsen neben Ihnen leuchtet ein Terminal."},
+        {"character": "Terminal", "line": "SYSTEM AKTIV. Willkommen, Überlebender. Ich bin Ihre einzige Verbindung zur Außenwelt. Durch mich können Sie navigieren, bauen und überleben."},
+        {"character": "Du", "line": "Wo... wo bin ich?"},
+        {"character": "Terminal", "line": "Geben Sie 'pwd' ein — Print Working Directory. Es sagt Ihnen genau, wo Sie in dieser Wildnis sind."},
+        {"character": "Du", "line": "Okay... /wildnis/lichtung. Das ist... nicht gerade beruhigend."},
+        {"character": "Terminal", "line": "Jetzt geben Sie 'ls' ein, um sich umzusehen. Es listet alles an Ihrem aktuellen Standort auf. Fügen Sie '-la' für versteckte Gegenstände und Details hinzu. Wissen ist Überleben."},
+        {"character": "Du", "line": "Ich sehe einige Dateien... und ein Verzeichnis 'wald'. Wie komme ich dorthin?"},
+        {"character": "Terminal", "line": "'cd wald' bewegt Sie hinein. 'cd ..' bringt Sie zurück. Denken Sie an Verzeichnisse als Pfade — hinein, heraus. Und 'mkdir' erstellt einen neuen Unterschlupf. Zuerst: Lager aufschlagen."}
+      ]
+    },
+    "heist": {
+      "title": "Der Briefing-Raum",
+      "dialogue": [
+        {"character": "Erzähler", "line": "Ein schwach beleuchteter Raum. Ein einzelner Laptop auf einem Stahltisch. Sie setzen sich. Eine Stimme knistert durch den Ohrhörer."},
+        {"character": "Handler", "line": "Willkommen im Team, Neuling. Codename: Ghost. Ich bin Ihr Handler. Alles was wir tun, geht über das Terminal. Keine GUI, keine Spuren."},
+        {"character": "Ghost", "line": "Ich bin drin. Was ist der erste Schritt?"},
+        {"character": "Handler", "line": "Regel eins: Wissen Sie immer, wo Sie sind. Geben Sie 'pwd' ein. Wenn Sie Ihre Position nicht kennen, sind Sie bereits kompromittiert."},
+        {"character": "Ghost", "line": "Verstanden. /operationen/vorbereitung. Und ich muss sehen, was hier ist?"},
+        {"character": "Handler", "line": "'ls' — listen Sie alles auf. Verwenden Sie 'ls -la' für volle Informationen: versteckte Dateien, Berechtigungen, Zeitstempel. In diesem Geschäft ist das Versteckte am wichtigsten."},
+        {"character": "Ghost", "line": "Ich sehe Verzeichnisse: tresor, kommunikation, extraktion. Wie bewege ich mich?"},
+        {"character": "Handler", "line": "'cd tresor' bringt Sie hinein. 'cd ..' zieht Sie heraus. Und 'mkdir' erstellt ein neues Depot. Richten Sie einen Staging-Bereich ein. Wir werden ihn brauchen."}
+      ]
+    }
+  }
+}

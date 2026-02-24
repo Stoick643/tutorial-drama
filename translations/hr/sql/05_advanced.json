@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove SQL-a",
+  "technical_concept": "Kombiniranje više JOIN-ova i agregatnih funkcija za složene upite.",
+  "challenge": {
+    "task": "Pronađite sve zaposlenike koji rade na projektima u odjelu Engineering (department_id = 1). Spojite tablice employees, employee_projects i projects.",
+    "hint": "Povežite više INNER JOIN-ova za povezivanje sve tri tablice kroz njihove relacije."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Cjelokupna slika",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Moram znati koji inženjeri rade na Engineering projektima. To znači povezivanje tri tablice odjednom."},
+        {"character": "Podatkovna baza", "line": "Sada razmišljate kao profesionalac, detektive. Trebate lanac JOIN-ova — employees do employee_projects do projects."},
+        {"character": "Detektiv Indecks", "line": "Objasni mi korak po korak."},
+        {"character": "Podatkovna baza", "line": "Počnite s employees. Spojite s employee_projects koristeći employee_id. Zatim spojite employee_projects s projects koristeći project_id. Svako spajanje dodaje jednu razinu informacija."},
+        {"character": "Detektiv Indecks", "line": "I filtriram za Engineering projekte?"},
+        {"character": "Podatkovna baza", "line": "Dodajte WHERE p.department_id = 1 na kraju. Sada vidite samo Engineering projektna zaduženja."},
+        {"character": "Detektiv Indecks", "line": "To je zadnji dio slagalice. Pogledajmo tko je stvarno uključen u Engineering."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Višetablična korelacija",
+      "dialogue": [
+        {"character": "Inženir", "line": "NEXUS, trebam kadrovska zaduženja za sve projekte odjela Engineering. To zahtijeva podatke iz tri tablice."},
+        {"character": "NEXUS", "line": "Potvrđeno, inženjeru. Ova operacija zahtijeva lanac više operacija JOIN za prelaženje relacija između tablica."},
+        {"character": "Inženir", "line": "Objasni strukturu upita."},
+        {"character": "NEXUS", "line": "Počnite s tablicom employees. Spojite s employee_projects preko employee_id. Zatim spojite s projects preko project_id. Svaki JOIN proširuje skup podataka."},
+        {"character": "Inženir", "line": "Kako ograničim rezultate samo na Engineering projekte?"},
+        {"character": "NEXUS", "line": "Koristite klauzulu WHERE za filtriranje po odjelu: WHERE p.department_id = 1. To ograničava rezultate na Engineering projektna zaduženja."},
+        {"character": "Inženir", "line": "Struktura upita potvrđena. Izvršavam višetabličnu korelaciju."}
+      ]
+    }
+  }
+}

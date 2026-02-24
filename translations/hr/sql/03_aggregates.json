@@ -1,0 +1,38 @@
+{
+  "tutorial": "Osnove SQL-a",
+  "technical_concept": "Korištenje agregatnih funkcija (COUNT, SUM, AVG, MAX, MIN) i GROUP BY za analizu podataka.",
+  "challenge": {
+    "task": "Izračunajte ukupni broj zaposlenika u svakom odjelu. Koristite COUNT i GROUP BY da vidite raspodjelu kadrova.",
+    "hint": "Koristite COUNT(*) s GROUP BY department_id za brojanje zaposlenika po odjelima."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Igra s brojevima",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Ne trebam više pojedinačna imena. Trebam uzorke. Koliko ljudi je u svakom odjelu? Kuda ide novac?"},
+        {"character": "Podatkovna baza", "line": "Trebate agregatne funkcije, detektive. COUNT, SUM, AVG, MAX, MIN — one obrađuju brojeve umjesto vas."},
+        {"character": "Detektiv Indecks", "line": "Pokaži mi koliko zaposlenika je u svakom odjelu."},
+        {"character": "Podatkovna baza", "line": "`SELECT department_id, COUNT(*) FROM employees GROUP BY department_id`. GROUP BY razvrstava zaposlenike po odjelima, COUNT ih broji."},
+        {"character": "Detektiv Indecks", "line": "Što s prosječnim plaćama? Moram znati je li koji odjel sumnjivo dobro plaćen."},
+        {"character": "Podatkovna baza", "line": "`SELECT department_id, AVG(salary) FROM employees GROUP BY department_id`. AVG izračunava prosjek za svaku skupinu."},
+        {"character": "Detektiv Indecks", "line": "Mogu li vidjeti najveću plaću u svakom odjelu?"},
+        {"character": "Podatkovna baza", "line": "`SELECT department_id, MAX(salary) FROM employees GROUP BY department_id`. MAX pronalazi vrh za svaku skupinu."},
+        {"character": "Detektiv Indecks", "line": "Vrijeme da vidimo gdje se brojevi ne slažu."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Statistička analiza podataka",
+      "dialogue": [
+        {"character": "Inženir", "line": "NEXUS, trebam statistiku radne snage. Koliko kadrova u svakom odjelu? Kakve su razine kompenzacija?"},
+        {"character": "NEXUS", "line": "To zahtijeva agregatne funkcije, inženjeru. COUNT, SUM, AVG, MAX i MIN izvršavaju izračune preko cijelih skupova podataka."},
+        {"character": "Inženir", "line": "Pokaži mi broj kadrova po odjelima."},
+        {"character": "NEXUS", "line": "SELECT department_id, COUNT(*) FROM employees GROUP BY department_id. Klauzula GROUP BY kategorizira zapise prije agregacije."},
+        {"character": "Inženir", "line": "Trebam prosječne razine kompenzacija po odjelima."},
+        {"character": "NEXUS", "line": "SELECT department_id, AVG(salary) FROM employees GROUP BY department_id. AVG izračunava aritmetičku sredinu za svaku skupinu."},
+        {"character": "Inženir", "line": "Ukupni troškovi plaća po odjelima?"},
+        {"character": "NEXUS", "line": "SELECT department_id, SUM(salary) FROM employees GROUP BY department_id. SUM zbraja sve vrijednosti u skupini."},
+        {"character": "Inženir", "line": "Odlično. Generirajmo te odjelne statistike."}
+      ]
+    }
+  }
+}

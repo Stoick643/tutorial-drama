@@ -1,0 +1,37 @@
+{
+  "tutorial": "Docker Grundlagen",
+  "technical_concept": "Ein Dockerfile ist eine Textdatei mit Anweisungen zum Erstellen eines Docker-Images. Schlüsselanweisungen: FROM (Basis-Image), RUN (Befehl während des Builds ausführen) und CMD (Standardbefehl beim Start).",
+  "challenge": {
+    "task": "Schreiben Sie ein Dockerfile, das mit FROM eclipse-temurin:21 beginnt, RUN 'javac -version' zur Compiler-Überprüfung ausführt und CMD zum Starten von 'java App' setzt.",
+    "hint": "Sie brauchen drei Zeilen: FROM, RUN und CMD. CMD sollte die exec-Form verwenden: CMD [\"java\", \"App\"]"
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Die erste Zauberschriftrolle schreiben",
+      "dialogue": [
+        {"character": "Der alte Zauberer Dockerus", "line": "Du hast Wesen aus bestehenden Bauplänen beschworen. Jetzt ist es Zeit, DEINE eigene Zauberschriftrolle zu schreiben — dein Dockerfile!"},
+        {"character": "Lehrling", "line": "Meine eigene Zauberschriftrolle! Was kommt da rein?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Jede Schriftrolle beginnt mit FROM — dem Grundzauber. Er bestimmt, auf welchem bestehenden Wesen wir aufbauen. 'FROM eclipse-temurin:21' bedeutet 'beginne mit einem Wesen, das Java kann'."},
+        {"character": "Lehrling", "line": "Also stehen wir auf den Schultern bestehender Wesen?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Genau! Dann kommt RUN — der Verwandlungszauber. 'RUN javac -version' überprüft, dass dein Wesen Java kompilieren kann. Jedes RUN fügt eine neue Wissensschicht hinzu."},
+        {"character": "Lehrling", "line": "Und wenn das Wesen beschworen ist, was tut es?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Das ist CMD — der Bestimmungszauber. Er sagt dem Wesen, was es tun soll, wenn es erwacht. 'CMD [\"java\", \"App\"]' bedeutet 'deine Bestimmung ist es, diese Java-Anwendung zu starten'."},
+        {"character": "Lehrling", "line": "FROM für das Fundament, RUN zum Lernen, CMD für die Bestimmung. Lass mich versuchen!"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Schreiben Sie die Schriftrolle in die Konsole unten. Drei Zeilen: Fundament, Lernen und Bestimmung."}
+      ]
+    },
+    "flirting": {
+      "title": "Ein Dating-Profil erstellen",
+      "dialogue": [
+        {"character": "Docker", "line": "Okay, es wird ernst. Zeit für Ihr erstes Dockerfile. Denken Sie daran wie an ein Dating-Profil."},
+        {"character": "Du", "line": "Ein Dating-Profil? Wie das?"},
+        {"character": "Docker", "line": "Erste Zeile: FROM. Das ist Ihr Hintergrund. 'FROM eclipse-temurin:21' — sagt, woher Sie kommen. Java 21 Umgebung. Solide Basis."},
+        {"character": "Du", "line": "Okay, also FROM ist wie 'Ich komme aus...' auf dem Profil."},
+        {"character": "Docker", "line": "Genau. Dann RUN — das sind Ihre Fähigkeiten und Erfahrung. 'RUN javac -version' bedeutet 'lassen Sie mich zeigen, dass ich Java kompilieren kann'."},
+        {"character": "Du", "line": "Und CMD?"},
+        {"character": "Docker", "line": "CMD ist das, was Sie suchen. Ihre Bestimmung. 'CMD [\"java\", \"App\"]' — 'Ich bin hier, um diese Java-Anwendung zu starten.' Klar, selbstbewusst, attraktiv."},
+        {"character": "Du", "line": "FROM, RUN, CMD. Hintergrund, Fähigkeiten, Bestimmung. Das ergibt tatsächlich Sinn."}
+      ]
+    }
+  }
+}

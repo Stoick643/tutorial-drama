@@ -1,0 +1,34 @@
+{
+  "tutorial": "SQL Grundlagen",
+  "technical_concept": "Einführung in SQL und Erkundung der Datenbankstruktur.",
+  "challenge": {
+    "task": "Verbinden Sie sich mit der Datenbank und listen Sie alle verfügbaren Tabellen auf, um die Datenstruktur zu verstehen.",
+    "hint": "Fragen Sie die Tabelle sqlite_master ab, um zu sehen, welche Tabellen in dieser Datenbank existieren."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Die Firmenakten",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Noch eine späte Nacht. Noch ein Fall. Diesmal geht es um Unternehmensbetrug bei TechCorp. Zeit, in die Akten einzutauchen."},
+        {"character": "Datenbank", "line": "Willkommen, Herr Detektiv. Ich bin die Firmendatenbank — SQLite. Ich bewahre alle Aufzeichnungen auf: Mitarbeiter, Abteilungen, Projekte und Zuweisungen."},
+        {"character": "Detektiv Indecks", "line": "SQLite, hm? Habe noch nicht mit dir gearbeitet. Wie erfahre ich, was du hast?"},
+        {"character": "Datenbank", "line": "Ganz einfach. Jede Datenbank hat einen Hauptkatalog. Fragen Sie `sqlite_master` ab mit SELECT name, type FROM sqlite_master WHERE type='table' — und Sie erhalten eine Liste aller Tabellen."},
+        {"character": "Detektiv Indecks", "line": "Also sind Tabellen wie Aktenschränke? Jede enthält verschiedene Arten von Aufzeichnungen?"},
+        {"character": "Datenbank", "line": "Genau. Diese Datenbank hat vier Tabellen: departments, employees, projects und employee_projects. Jede erzählt einen anderen Teil der Geschichte."},
+        {"character": "Detektiv Indecks", "line": "In Ordnung, schauen wir uns an, womit wir es zu tun haben. Zeigen Sie mir diese Tabellen."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Zugriff auf das Datensystem",
+      "dialogue": [
+        {"character": "Ingenieur", "line": "NEXUS, ich brauche Zugriff auf die Personaldatenbank der Station. Welches System verwenden wir?"},
+        {"character": "NEXUS", "line": "Die Stationsdatenbank läuft auf SQLite, Ingenieur. Sie enthält alle Personal-, Abteilungs-, Projekt- und Zuweisungsdaten."},
+        {"character": "Ingenieur", "line": "Wie sehe ich, welche Datenstrukturen verfügbar sind?"},
+        {"character": "NEXUS", "line": "Jede SQLite-Datenbank pflegt einen Systemkatalog namens sqlite_master. Führen Sie aus: SELECT name, type FROM sqlite_master WHERE type='table' für eine Liste aller Datenentitäten."},
+        {"character": "Ingenieur", "line": "Tabellen sind die primären Behälter zur Datenspeicherung?"},
+        {"character": "NEXUS", "line": "Korrekt. Jede Tabelle repräsentiert einen eigenständigen Entitätstyp. Diese Datenbank enthält vier Tabellen: departments, employees, projects und employee_projects."},
+        {"character": "Ingenieur", "line": "Verstanden. Überprüfen wir die Integrität der Datenbank durch Auflistung der Tabellen."}
+      ]
+    }
+  }
+}

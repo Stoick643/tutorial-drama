@@ -1,0 +1,38 @@
+{
+  "tutorial": "Docker Grundlagen",
+  "technical_concept": "In Lektion 02 haben wir FROM, RUN, CMD geschrieben — aber wie kommt Ihr Code IN das Image? Das ist COPY. Und wohin geht er? Das ist WORKDIR. Und wie weiß die Welt, wo sie Sie findet? Das ist EXPOSE.",
+  "challenge": {
+    "task": "Schreiben Sie ein Dockerfile für unsere Java-Anwendung: Beginnen Sie FROM eclipse-temurin:21, setzen Sie WORKDIR auf /app, COPY App.java in den Container, RUN javac zum Kompilieren, EXPOSE Port 8080 und CMD zum Starten.",
+    "hint": "Sechs Zeilen: FROM, WORKDIR, COPY, RUN, EXPOSE, CMD. Verwenden Sie 'COPY App.java .' (mit Punkt!) zum Kopieren ins WORKDIR."
+  },
+  "styles": {
+    "fairy_tale": {
+      "title": "Die Kunst der Schichtzauber",
+      "dialogue": [
+        {"character": "Der alte Zauberer Dockerus", "line": "Deine erste Zauberschriftrolle war einfach aber mächtig. Jetzt lehre ich dich die fortgeschrittene Kunst — Schichtzauber!"},
+        {"character": "Lehrling", "line": "Schichtzauber? Klingt kompliziert."},
+        {"character": "Der alte Zauberer Dockerus", "line": "Stell dir vor, du baust einen Turm. Jede Anweisung fügt ein Stockwerk hinzu. WORKDIR bestimmt, in welchem Raum du arbeitest. COPY bringt deine magischen Zutaten herein."},
+        {"character": "Lehrling", "line": "Und EXPOSE?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "EXPOSE öffnet ein Fenster in deinem Turm — sagt der Welt 'mein Wesen hört hier an diesem Port zu'. Es öffnet nicht wirklich, dokumentiert nur die Absicht."},
+        {"character": "Lehrling", "line": "Aber Meister — in der letzten Lektion haben wir FROM und RUN und CMD geschrieben... aber nie wirklich unseren Code in den Container gebracht!"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Ausgezeichnete Frage! Genau das macht COPY. 'COPY App.java .' nimmt deine Schriftrolle aus der Außenwelt und legt sie ins WORKDIR des Containers."},
+        {"character": "Lehrling", "line": "Also ist das ganze Rezept: Fundament wählen, Raum einrichten, Quellcode kopieren, kompilieren und Fenster öffnen?"},
+        {"character": "Der alte Zauberer Dockerus", "line": "Genau! Und hier ist das Geheimnis — jede Anweisung erzeugt eine magische Schicht, die Docker sich merkt. Wenn sich eine Schicht nicht ändert, überspringt es sie!"}
+      ]
+    },
+    "flirting": {
+      "title": "Sich besser kennenlernen",
+      "dialogue": [
+        {"character": "Docker", "line": "Unser erstes Dockerfile war nett, aber gehen wir tiefer. Zeit, etwas Echtes zusammen zu bauen."},
+        {"character": "Du", "line": "Ich bin bereit. Was ist neu?"},
+        {"character": "Docker", "line": "WORKDIR — das ist die Wahl unserer Wohnung. 'WORKDIR /app' sagt 'hier wohnen wir jetzt.' Alles danach passiert in diesem Ordner."},
+        {"character": "Du", "line": "Und COPY?"},
+        {"character": "Docker", "line": "COPY ist der Umzug deiner Sachen. Erinnerst du dich an unsere Java-Anwendung? 'COPY App.java .' bringt deinen Quellcode in die Wohnung."},
+        {"character": "Du", "line": "Und EXPOSE?"},
+        {"character": "Docker", "line": "Das ist das Teilen unserer Adresse. 'EXPOSE 8080' — 'wir sind auf Port 8080 erreichbar.' Offene Tür für Besucher."},
+        {"character": "Du", "line": "Also ist das Gesamtbild: Basis wählen, Wohnung einrichten, Code umziehen, kompilieren, Tür öffnen und starten?"},
+        {"character": "Docker", "line": "Schau dich an, wie du alles zusammensetzt! Und hier ein Profi-Tipp — jede Anweisung ist eine Schicht, die Docker cached. Stabile Sachen zuerst!"}
+      ]
+    }
+  }
+}

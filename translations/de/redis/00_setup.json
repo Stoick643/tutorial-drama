@@ -1,0 +1,34 @@
+{
+  "tutorial": "Redis Grundlagen",
+  "technical_concept": "Einführung in Redis und Vorbereitung des Ermittlungswerkzeugs.",
+  "challenge": {
+    "task": "Verbinden Sie sich mit Redis und prüfen Sie, ob es funktioniert, indem Sie den Befehl PING senden.",
+    "hint": "Verwenden Sie den Befehl PING, um zu prüfen, ob Redis aktiv ist."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Der Datendetektiv",
+      "dialogue": [
+        {"character": "Erzähler", "line": "Der Regen prasselte gegen die Fenster des alten Bürogebäudes in der 42. Straße. Drinnen saß eine Gestalt über einem leuchtenden Terminal gebeugt."},
+        {"character": "Detektiv Indecks", "line": "Noch eine Nacht, noch ein Fall. Die Stadt schläft nie, und die Daten auch nicht."},
+        {"character": "REDIS", "line": "Guten Abend, Herr Detektiv. Ich habe Sie erwartet. Mein Name ist REDIS — Remote Dictionary Server. Ich bin Ihr neuer Partner in diesem Revier."},
+        {"character": "Detektiv Indecks", "line": "Partner? Ich arbeite allein."},
+        {"character": "REDIS", "line": "Nicht mehr. Die Datenverbrechen in dieser Stadt werden immer komplexer. Sie brauchen jemanden, der Beweise schnell speichern, noch schneller finden und niemals eine Spur vergessen kann. Da komme ich ins Spiel."},
+        {"character": "Detektiv Indecks", "line": "Beweisen Sie es. Zeigen Sie mir, dass Sie einsatzbereit sind."},
+        {"character": "REDIS", "line": "Ganz einfach. Senden Sie mir PING, und ich antworte mit PONG. So stellen wir Vertrauen her in diesem Geschäft."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Systeminitialisierung",
+      "dialogue": [
+        {"character": "Stations-UI", "line": "Willkommen auf der Orbitalstation Nexus-7. Ich bin NEXUS, der zentrale UI-Assistent Ihrer Station."},
+        {"character": "Ingenieur", "line": "NEXUS, Statusbericht. Ich muss überprüfen, ob alle Systeme funktionieren."},
+        {"character": "NEXUS", "line": "Selbstverständlich, Ingenieur. Ich verwende ein schnelles Datensystem namens REDIS — Remote Dictionary Server. Es verwaltet alle Stationsdaten mit Reaktionszeiten im Millisekundenbereich."},
+        {"character": "Ingenieur", "line": "REDIS? Nie davon gehört. Woher weiß ich, dass es korrekt funktioniert?"},
+        {"character": "NEXUS", "line": "Die einfachste Diagnose ist das Handshake-Protokoll. Senden Sie mir den Befehl PING und ich antworte mit PONG. Das bestätigt, dass der Datenkern aktiv und reaktionsfähig ist."},
+        {"character": "Ingenieur", "line": "In Ordnung, NEXUS. Prüfen wir, ob dieses System einsatzbereit ist."},
+        {"character": "NEXUS", "line": "Ich erwarte Ihren Befehl, Ingenieur."}
+      ]
+    }
+  }
+}

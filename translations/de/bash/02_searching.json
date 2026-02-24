@@ -1,0 +1,38 @@
+{
+  "tutorial": "Bash Grundlagen",
+  "technical_concept": "grep — durchsucht Textmuster in Dateien. Verwendung: grep \"muster\" datei.txt. Flags: -i (Groß-/Kleinschreibung ignorieren), -r (rekursiv durch Verzeichnisse), -n (Zeilennummern anzeigen). Der Name steht für Global Regular Expression Print. Unter Hackern gibt es ein Sprichwort: 'You can't grep dead trees' — bedeutet, dass digitaler Text sofort durchsuchbar ist, Papier aber nicht. Das ist Ihr Vorteil.\n\nfind — lokalisiert Dateien nach Name, Größe oder Typ durch Verzeichnisse. Verwendung: find . -name \"*.txt\" findet alle .txt-Dateien vom aktuellen Verzeichnis abwärts.",
+  "challenge": {
+    "task": "Durchsuchen Sie die Datei 'server.log' nach allen Zeilen die 'ERROR' enthalten (Groß-/Kleinschreibung ignorieren).",
+    "hint": "grep durchsucht Dateiinhalte. Fügen Sie ein Flag hinzu, um Groß-/Kleinschreibung zu ignorieren."
+  },
+  "styles": {
+    "survival": {
+      "title": "Spuren verfolgen",
+      "dialogue": [
+        {"character": "Terminal", "line": "Sie haben ein Lager aufgeschlagen, Ressourcen gesammelt. Jetzt müssen Sie lernen zu verfolgen — Dinge in der Wildnis zu finden. 'grep' ist Ihr Fährtenleser."},
+        {"character": "Du", "line": "Wie die Suche nach Fußspuren?"},
+        {"character": "Terminal", "line": "Genau. 'grep \"wasser\" notizen.txt' findet jede Zeile die Wasser erwähnt. '-i' ignoriert Groß-/Kleinschreibung. '-n' für Zeilennummern."},
+        {"character": "Du", "line": "Was, wenn ich nicht weiß, in welcher Datei ich suchen soll?"},
+        {"character": "Terminal", "line": "Dafür gibt es 'find'. 'find . -name \"*.txt\"' durchsucht von hier abwärts alles was auf .txt endet."},
+        {"character": "Du", "line": "Also grep schaut in Dateien, und find sucht die Dateien selbst?"},
+        {"character": "Terminal", "line": "Jetzt denken Sie wie ein Überlebender. Es gibt ein altes Sprichwort: 'You can't grep dead trees.' Bedeutet: digitalen Text können Sie sofort durchsuchen — aber Papier? Jede Seite von Hand lesen."},
+        {"character": "Du", "line": "Tote Bäume... also Papier. Verstanden."},
+        {"character": "Terminal", "line": "Hier ist ein Server-Log — etwas Hinterlassenes. Durchsuchen Sie es nach Fehlern."}
+      ]
+    },
+    "heist": {
+      "title": "Aufklärung",
+      "dialogue": [
+        {"character": "Handler", "line": "Phase zwei: Aufklärung. Vor jeder Operation brauchen Sie Informationen. 'grep' ist Ihr Überwachungswerkzeug."},
+        {"character": "Ghost", "line": "Wie Abhören?"},
+        {"character": "Handler", "line": "Besser. 'grep \"passwort\" datenbank.txt' findet jede Zeile mit 'passwort'. '-i' ignoriert Groß-/Kleinschreibung. '-r' geht rekursiv."},
+        {"character": "Ghost", "line": "Was, wenn ich eine bestimmte Datei finden muss?"},
+        {"character": "Handler", "line": "'find' ist Ihr Gebäudeplan. 'find . -name \"*.log\"' kartiert jede Log-Datei."},
+        {"character": "Ghost", "line": "Datei finden, Inhalt greppen. Verstanden."},
+        {"character": "Handler", "line": "Hacker sagen 'You can't grep dead trees.' Papierdateien? Ein Team von Analysten. Digitale Dateien? Ein grep-Befehl, jeder Treffer in Millisekunden."},
+        {"character": "Ghost", "line": "Das merke ich mir."},
+        {"character": "Handler", "line": "Im Zielsystem ist ein Server-Log. Finden Sie die Fehler — das ist unser Weg hinein."}
+      ]
+    }
+  }
+}

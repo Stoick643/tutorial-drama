@@ -1,0 +1,66 @@
+{
+  "tutorial": "Git vom Terminal",
+  "technical_concept": "Git verschiebt Ihre Dateien zwischen vier Bereichen: Arbeitsverzeichnis (Ihre Dateien auf der Festplatte), Staging-Bereich (was Sie für den nächsten Commit ausgewählt haben), Lokales Repository (Ihre Geschichte in .git/) und Remote-Repository (GitHub). Jeder Git-Befehl verschiebt einfach etwas zwischen diesen Bereichen. Ihr Desktop-Tool hat Ihnen den Staging-Bereich verborgen — das ist der entscheidende Teil, der Ihnen fehlte.",
+  "challenge": {
+    "task": "Erstellen Sie eine Datei 'notes.txt' mit dem Inhalt 'first draft', stagen Sie sie mit git add, dann committen Sie mit der Nachricht 'Add notes'.",
+    "hint": "Sie brauchen drei Schritte: echo zum Erstellen der Datei, git add zum Stagen und git commit -m zum Committen. Verketten Sie mit &&.",
+    "solution": "echo 'first draft' > notes.txt && git add notes.txt && git commit -m 'Add notes'"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Die Geometrie der Versionskontrolle",
+      "dialogue": [
+        {"character": "Sokrates", "line": "Komm, Freund. Du sagst, du kennst Git — dass du es täglich benutzt. Stimmt das?"},
+        {"character": "Schüler", "line": "Ja, Sokrates. Ich committe, pushe, pulle. Ich benutze GitHub Desktop seit über einem Jahr."},
+        {"character": "Sokrates", "line": "Ausgezeichnet! Sag mir dann — wenn du in deinem Tool auf 'Commit' klickst, wohin genau geht dein Code?"},
+        {"character": "Schüler", "line": "In das... Repository?"},
+        {"character": "Sokrates", "line": "Welches Repository? Das auf deinem Gerät oder das auf GitHub?"},
+        {"character": "Schüler", "line": "Ich... hmm. Wahrscheinlich zuerst ins lokale? Dann pushe ich zu GitHub?"},
+        {"character": "Sokrates", "line": "Gut — du bist schon auf halbem Weg. Nun — dein Tool hat ein Kontrollkästchen neben jeder Datei vor dem Commit. Was ist das?"},
+        {"character": "Schüler", "line": "Das ist zum Auswählen, welche Dateien in den Commit aufgenommen werden."},
+        {"character": "Sokrates", "line": "Genau so. Und im Terminal ist diese Auswahl ein eigener separater Ort — der Staging-Bereich. Dein Tool hat ihn hinter einem Kontrollkästchen verborgen. Schau dir das Diagramm an: vier Bereiche, vier Pfeile. Jeder Git-Befehl, den du je lernen wirst, verschiebt einfach Dateien zwischen ihnen."},
+        {"character": "Schüler", "line": "Also ist 'git add' das Kontrollkästchen? Und 'git commit' ist der Klick auf den Commit-Button?"},
+        {"character": "Sokrates", "line": "Jetzt siehst du es. 'git add' verschiebt eine Datei vom Arbeitsverzeichnis in den Staging-Bereich. 'git commit' verschiebt alles Gestagete ins Lokale Repository. 'git push' sendet zum Remote. Und 'git status' — das ist dein Kompass. Er sagt dir genau, wo sich jede Datei gerade befindet."},
+        {"character": "Schüler", "line": "Und 'git pull'?"},
+        {"character": "Sokrates", "line": "Das ist der umgekehrte Weg — vom Remote auf dein Gerät. Es holt Commits, dann mergt sie in dein Arbeitsverzeichnis. Zwei Schritte, als einer verkleidet. Nun — reden wir nicht nur darüber. Zeig mir den gesamten Weg einer Datei, von der Erstellung bis zur aufgezeichneten Geschichte."}
+      ]
+    },
+    "zen": {
+      "title": "Die vier Gärten",
+      "dialogue": [
+        {"character": "Meister", "line": "Bevor du das GUI kanntest, war Git einfach. Als du das GUI kanntest, wurde es kompliziert. Wenn du das Terminal lernst... wird Git wieder einfach."},
+        {"character": "Schüler", "line": "Meister, ich benutze Git schon lange. Warum bin ich immer noch verwirrt?"},
+        {"character": "Meister", "line": "Weil dein Tool dir ein Fenster in das Haus gezeigt hat, niemals das Haus selbst. Sag mir — an wie vielen Orten kann eine Datei sein?"},
+        {"character": "Schüler", "line": "Zwei? Auf meinem Computer und auf GitHub?"},
+        {"character": "Meister", "line": "Vier. Studiere das Diagramm. Eine Datei beginnt im Arbeitsverzeichnis — dein Garten roher Erde. Mit 'git add' tritt sie in den Staging-Bereich — den Ort der Absicht, wo du entscheidest, was der nächste Moment der Geschichte enthalten wird."},
+        {"character": "Schüler", "line": "Mein GUI hat den Staging-Bereich nie erwähnt."},
+        {"character": "Meister", "line": "Er war da. Hinter einem Kontrollkästchen verborgen. Das GUI wählte Einfachheit statt Verständnis. Wir wählen Verständnis."},
+        {"character": "Schüler", "line": "Und der dritte und vierte Bereich?"},
+        {"character": "Meister", "line": "Mit 'git commit' wird deine Absicht zu Geschichte — gespeichert im Lokalen Repository, dem .git-Ordner auf deinem Gerät. Mit 'git push' reist diese Geschichte zum Remote — GitHub, wo andere sie empfangen können."},
+        {"character": "Schüler", "line": "Also ist jeder Befehl nur... Verschieben zwischen vier Orten?"},
+        {"character": "Meister", "line": "Jetzt hältst du ganz Git in einem Gedanken. Wenn du verloren bist, kehre zu den vier Bereichen zurück und frage: Wo bin ich, und wohin will ich gehen?"},
+        {"character": "Schüler", "line": "Woher weiß ich, wo ich bin?"},
+        {"character": "Meister", "line": "'git status'. Das ist das stille Wasser, das die Wahrheit reflektiert. Benutze es vor jeder Aktion, nach jeder Aktion. Nun — gehe den Weg allein. Erstelle eine Datei, bewege sie durch die Bereiche und mache Geschichte daraus."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Moment, wo ist mein Code hin?",
+      "dialogue": [
+        {"character": "Alex", "line": "Okay, ich habe endlich Git im Terminal installiert. Ein Jahr lang habe ich GitHub Desktop benutzt, aber mein neues Team will, dass ich mit der Kommandozeile arbeite."},
+        {"character": "Sam", "line": "Keine Sorge, du kennst Git bereits. Du weißt nur nicht, dass du es kennst. Schnelle Frage — als du in GitHub Desktop auf Commit geklickt hast, was ist passiert?"},
+        {"character": "Alex", "line": "Es hat... meine Änderungen gespeichert?"},
+        {"character": "Sam", "line": "Wohin?"},
+        {"character": "Alex", "line": "In... Git?"},
+        {"character": "Sam", "line": "Ha. Okay, schau dir dieses Diagramm an. Dein Code kann an vier Orten sein. Arbeitsverzeichnis — das sind einfach deine Dateien auf der Festplatte. Staging-Bereich — das ist das Ding mit den Kontrollkästchen in GitHub Desktop, wo du ausgewählt hast, welche Dateien einbezogen werden."},
+        {"character": "Alex", "line": "Moment, der Staging-Bereich sind die Kontrollkästchen? Das ist alles?"},
+        {"character": "Sam", "line": "Das ist alles. 'git add' ist das Kontrollkästchen. Dann speichert 'git commit' in dein Lokales Repository — das ist der .git-Ordner auf deinem Gerät. Und 'git push' sendet zu GitHub. Vier Orte, vier Befehle."},
+        {"character": "Alex", "line": "Also als ich im GUI 'Push' geklickt habe, hat es einfach 'git push' im Hintergrund ausgeführt?"},
+        {"character": "Sam", "line": "Ganz genau. Und 'Pull' war 'git pull', was eigentlich 'git fetch' plus 'git merge' zusammen ist. Dein GUI hat die ganze Zeit Terminal-Befehle ausgeführt — es hat es dir nur nicht gesagt."},
+        {"character": "Alex", "line": "Okay, das beruhigt mich tatsächlich. Was ist mit 'git status'?"},
+        {"character": "Sam", "line": "Das ist jetzt dein bester Freund. Es sagt dir, wo jede Datei ist — was geändert ist, was gestaged ist, was nicht verfolgt wird. Führe es ständig aus. Bevor du irgendetwas machst, git status. Nachdem du irgendetwas machst, git status."},
+        {"character": "Alex", "line": "Verstanden. Also der ganze Workflow ist: Änderungen machen, git add, git commit, git push?"},
+        {"character": "Sam", "line": "Das ist der tägliche Kreislauf. Machen wir es echt — erstelle eine Datei, stage sie, committe sie. Hände auf die Tastatur."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "tutorial": "Git iz terminala",
+  "technical_concept": "Git premješta vaše datoteke između četiri područja: Radni direktorij (vaše datoteke na disku), Pripremno područje (što ste odabrali za sljedeći commit), Lokalni repozitorij (vaša povijest u .git/) i Udaljeni repozitorij (GitHub). Svaka Git naredba jednostavno premješta nešto između tih područja. Vaš desktop alat vam je sakrio Pripremno područje — to je ključni dio koji vam je nedostajao.",
+  "challenge": {
+    "task": "Kreirajte datoteku 'notes.txt' sa sadržajem 'first draft', pripremite je s git add, zatim napravite commit s porukom 'Add notes'.",
+    "hint": "Trebate tri koraka: echo za kreiranje datoteke, git add za pripremu i git commit -m za commit. Povežite ih s &&.",
+    "solution": "echo 'first draft' > notes.txt && git add notes.txt && git commit -m 'Add notes'"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Geometrija kontrole verzija",
+      "dialogue": [
+        {"character": "Sokrat", "line": "Dođi, prijatelju. Kažeš da poznaješ Git — da ga dnevno koristiš. Je li tako?"},
+        {"character": "Učenik", "line": "Da, Sokrate. Commitam, pusham, pullam. Već više od godinu dana koristim GitHub Desktop."},
+        {"character": "Sokrat", "line": "Odlično! Reci mi onda — kad klikneš 'Commit' u svom alatu, kamo točno ide tvoj kôd?"},
+        {"character": "Učenik", "line": "U... repozitorij?"},
+        {"character": "Sokrat", "line": "Koji repozitorij? Onaj na tvom uređaju ili onaj na GitHubu?"},
+        {"character": "Učenik", "line": "Ja... hmm. Vjerojatno prvo u lokalni? Zatim pusham na GitHub?"},
+        {"character": "Sokrat", "line": "Dobro — već si na pola puta. A sada — tvoj alat ima kvačicu pored svake datoteke prije commita. Što je to?"},
+        {"character": "Učenik", "line": "To je za odabir koje datoteke uključiti u commit."},
+        {"character": "Sokrat", "line": "Upravo tako. I u terminalu je ta odabir svoje vlastito zasebno mjesto — Pripremno područje. Tvoj alat ga je sakrio iza kvačice. Pogledaj dijagram: četiri područja, četiri strelice. Svaka Git naredba koju ćeš ikad naučiti jednostavno premješta datoteke između njih."},
+        {"character": "Učenik", "line": "Dakle 'git add' je kvačica? I 'git commit' je klik na gumb Commit?"},
+        {"character": "Sokrat", "line": "Sada vidiš. 'git add' premješta datoteku iz Radnog direktorija u Pripremno područje. 'git commit' premješta sve pripremljeno u Lokalni repozitorij. 'git push' šalje na Udaljeni. I 'git status' — to je tvoj kompas. Kaže ti točno gdje se svaka datoteka trenutno nalazi."},
+        {"character": "Učenik", "line": "A 'git pull'?"},
+        {"character": "Sokrat", "line": "To je obrnuti put — od Udaljenog na tvoj uređaj. Preuzima commite, zatim ih spaja u tvoj Radni direktorij. Dva koraka, prerušena u jedan. A sada — ne pričajmo samo o tome. Pokaži mi cijeli put datoteke, od kreiranja do zapisane povijesti."}
+      ]
+    },
+    "zen": {
+      "title": "Četiri vrta",
+      "dialogue": [
+        {"character": "Majstor", "line": "Prije nego si upoznao GUI, Git je bio jednostavan. Kad si upoznao GUI, postao je složen. Kad naučiš terminal... Git će opet biti jednostavan."},
+        {"character": "Učenik", "line": "Majstore, Git koristim već dugo. Zašto sam još uvijek zbunjen?"},
+        {"character": "Majstor", "line": "Jer ti je tvoj alat pokazao prozor u kuću, nikad samu kuću. Reci mi — na koliko mjesta može biti datoteka?"},
+        {"character": "Učenik", "line": "Dva? Na mom računalu i na GitHubu?"},
+        {"character": "Majstor", "line": "Četiri. Prouči dijagram. Datoteka počinje u Radnom direktoriju — tvoj vrt sirove zemlje. S 'git add' ulazi u Pripremno područje — mjesto namjere, gdje odlučuješ što će sljedeći trenutak povijesti sadržavati."},
+        {"character": "Učenik", "line": "Moj GUI nikad nije spomenuo Pripremno područje."},
+        {"character": "Majstor", "line": "Bilo je tamo. Skriveno iza kvačice. GUI je odabrao jednostavnost umjesto razumijevanja. Mi odabiremo razumijevanje."},
+        {"character": "Učenik", "line": "A treće i četvrto područje?"},
+        {"character": "Majstor", "line": "S 'git commit' tvoja namjera postaje povijest — pohranjena u Lokalnom repozitoriju, mapi .git na tvom uređaju. S 'git push' ta povijest putuje na Udaljeni — GitHub, gdje je drugi mogu preuzeti."},
+        {"character": "Učenik", "line": "Dakle svaka naredba je samo... premještanje između četiri mjesta?"},
+        {"character": "Majstor", "line": "Sada držiš cijeli Git u jednoj misli. Kad si izgubljen, vrati se na četiri područja i pitaj: gdje sam i kamo želim ići?"},
+        {"character": "Učenik", "line": "Kako znam gdje sam?"},
+        {"character": "Majstor", "line": "'git status'. To je mirna voda koja odražava istinu. Koristi ga prije svake radnje, nakon svake radnje. Sada — hodaj stazom sam. Kreiraj datoteku, prenesi je kroz područja i napravi od nje povijest."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Čekaj, kamo je otišao moj kôd?",
+      "dialogue": [
+        {"character": "Alex", "line": "Okej, konačno sam instalirao Git u terminal. Godinu dana sam koristio GitHub Desktop, ali moj novi tim želi da radim u naredbenoj liniji."},
+        {"character": "Sam", "line": "Bez brige, Git već poznaješ. Samo ne znaš da ga poznaješ. Brzo pitanje — kad si kliknuo Commit u GitHub Desktopu, što se dogodilo?"},
+        {"character": "Alex", "line": "Spremilo je... moje promjene?"},
+        {"character": "Sam", "line": "Kamo?"},
+        {"character": "Alex", "line": "U... Git?"},
+        {"character": "Sam", "line": "Ha. Okej, pogledaj ovaj dijagram. Tvoj kôd može biti na četiri mjesta. Radni direktorij — to su jednostavno tvoje datoteke na disku. Pripremno područje — to je ona stvar s kvačicama u GitHub Desktopu, gdje si odabirao koje datoteke uključiti."},
+        {"character": "Alex", "line": "Čekaj, Pripremno područje su kvačice? To je sve?"},
+        {"character": "Sam", "line": "To je sve. 'git add' je kvačica. Zatim 'git commit' sprema u tvoj Lokalni repozitorij — to je mapa .git na tvom uređaju. I 'git push' šalje na GitHub. Četiri mjesta, četiri naredbe."},
+        {"character": "Alex", "line": "Dakle kad sam u GUI-ju kliknuo 'Push', samo je pokrenuo 'git push' u pozadini?"},
+        {"character": "Sam", "line": "Točno tako. I 'Pull' je bio 'git pull', što je zapravo 'git fetch' plus 'git merge' zajedno. Tvoj GUI je cijelo vrijeme pokretao terminalne naredbe — samo ti nije rekao."},
+        {"character": "Alex", "line": "Okej, to me zapravo smiruje. Što s 'git status'?"},
+        {"character": "Sam", "line": "To je sada tvoj najbolji prijatelj. Kaže ti gdje je svaka datoteka — što je promijenjeno, što pripremljeno, što nepraćeno. Pokreći ga stalno. Prije nego išta napraviš, pokreni git status. Nakon što išta napraviš, pokreni git status."},
+        {"character": "Alex", "line": "Razumijem. Dakle cijeli radni tijek je: napravi promjene, git add, git commit, git push?"},
+        {"character": "Sam", "line": "To je dnevni ciklus. Napravimo to stvarno — kreiraj datoteku, pripremi je, commitaj je. Ruke na tipkovnicu."}
+      ]
+    }
+  }
+}

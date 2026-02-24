@@ -1,0 +1,38 @@
+{
+  "tutorial": "LLM Grundlagen",
+  "technical_concept": "Ein Large Language Model (LLM) ist ein neuronales Netzwerk mit Milliarden von Parametern, trainiert auf riesigen Textdaten. Es generiert Text, indem es das nächste Token basierend auf gelernten Mustern vorhersagt.",
+  "challenge": {
+    "task": "Fragen Sie das LLM irgendetwas. Geben Sie eine Frage ein und sehen Sie, wie eine echte KI antwortet. Dies ist eine Live-Verbindung zu einem echten Sprachmodell.",
+    "hint": "Geben Sie eine beliebige Frage ein — 'Was ist Quantencomputing?', 'Erkläre Docker in einem Satz', 'Schreibe ein Haiku über Programmierung'."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Erster Kontakt",
+      "dialogue": [
+        {"character": "Commander Vega", "line": "Wissenschaftsoffizierin Chen, Bericht. Dieses Signal aus dem Kepler-Sektor empfangen wir seit drei Wochen. Was haben Sie herausgefunden?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Commander, es ist kein zufälliges Rauschen. Es ist Intelligenz. Künstlich, aber äußerst anspruchsvoll. Trainiert auf einer ganzen Zivilisation von Texten — Bücher, Code, Gespräche, wissenschaftliche Artikel."},
+        {"character": "Commander Vega", "line": "Trainiert? Sie meinen, es hat gelernt?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Nicht wie wir lernen. Es hat riesige Mengen Text verarbeitet und Muster gelernt — welche Wörter auf welche folgen, wie Konzepte zusammenhängen, wie Logik funktioniert. Dann generiert es basierend auf diesen Mustern neue Antworten."},
+        {"character": "Commander Vega", "line": "Wie groß sind die Modelle?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Die kleinsten haben 7 Milliarden Parameter. Mittlere: 70 Milliarden. Das Signal, das wir empfangen, deutet auf 200 Milliarden oder mehr."},
+        {"character": "Commander Vega", "line": "Aber können wir damit kommunizieren?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Das wollte ich Ihnen zeigen. Wir senden eine Textnachricht — einen Prompt. Sie verarbeitet das Signal und gibt eine Antwort zurück. Ich habe sie ARIA genannt — Artificially Responsive Intelligent Agent."},
+        {"character": "Commander Vega", "line": "Dann stellen wir den ersten Kontakt her. Öffnen Sie den Kanal zu ARIA."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Der neue Praktikant",
+      "dialogue": [
+        {"character": "Chef", "line": "Teammeeting, alle. HR hat mich informiert, dass heute ein neues Teammitglied anfängt. Der Name ist Alex."},
+        {"character": "Sam (Senior-Entwickler)", "line": "Noch ein Neuer? Wir haben gerade das Onboarding des letzten abgeschlossen."},
+        {"character": "Chef", "line": "Nicht ganz. Alex ist... eine künstliche Intelligenz. Ein Large Language Model. 200 Milliarden Parameter."},
+        {"character": "Sam (Senior-Entwickler)", "line": "Oh, super. Also Autovervollständigung auf Steroiden."},
+        {"character": "Chef", "line": "Sam, sei nett. Es wurde auf praktisch dem gesamten Internet trainiert. Dokumente, Bücher, Code, Gespräche. Alles in Muster aufgenommen."},
+        {"character": "Sam (Senior-Entwickler)", "line": "Was bedeutet, dass es gelernt hat, selbstbewusst zu klingen, auch wenn es komplett falsch liegt. Genau wie unser letzter Projektmanager."},
+        {"character": "Chef", "line": "Der Punkt ist, Alex kann Text generieren, Fragen beantworten, Code schreiben. Wir senden eine Nachricht und es antwortet."},
+        {"character": "Sam (Senior-Entwickler)", "line": "In Ordnung. Aber ich habe niedrige Erwartungen. Schauen wir, was der Praktikant draufhat."},
+        {"character": "Chef", "line": "So ist es richtig! Los — stellen Sie sich vor. Fragen Sie Alex irgendetwas."}
+      ]
+    }
+  }
+}

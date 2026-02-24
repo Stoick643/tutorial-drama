@@ -1,0 +1,63 @@
+{
+  "tutorial": "Git vom Terminal",
+  "technical_concept": "Der Ordner .git ist Gits gesamte Datenbank. HEAD ist eine Textdatei, die auf Ihren aktuellen Branch zeigt. Jeder Branch ist eine Datei in .git/refs/heads/, die einen 40-Zeichen-Commit-Hash enthält. Der Ordner objects/ speichert jede Version jeder Datei, die jemals committed wurde. Löschen Sie .git und die gesamte Geschichte verschwindet — Ihre Dateien bleiben, aber Git ist verschwunden. Die Datei .gitignore sagt Git, welche Dateien nie verfolgt werden sollen: Build-Artefakte, IDE-Einstellungen, Geheimnisse, Logs.",
+  "challenge": {
+    "task": "Schauen Sie in Gits Gehirn: Lesen Sie den Inhalt der HEAD-Datei mit 'cat .git/HEAD', um zu sehen, auf welchem Branch Sie sich befinden.",
+    "hint": "HEAD ist nur eine Textdatei im .git-Ordner. Überlegen Sie, welcher grundlegende Linux-Befehl Dateiinhalte liest.",
+    "solution": "cat .git/HEAD"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Hinter dem Vorhang",
+      "dialogue": [
+        {"character": "Sokrates", "line": "Wir haben über Branches, Commits und vier Bereiche gesprochen. Aber die ganze Zeit habe ich dich gebeten, mir zu vertrauen. Jetzt überprüfen wir. Wo glaubst du, speichert Git alles?"},
+        {"character": "Schüler", "line": "Irgendwo auf meinem Computer? In einer Datenbank?"},
+        {"character": "Sokrates", "line": "In einem versteckten Ordner namens .git, der direkt in deinem Projekt sitzt. Kein Cloud-Dienst, kein Hintergrundprozess. Nur Dateien in einem Ordner. Möchtest du hineinschauen?"},
+        {"character": "Schüler", "line": "Kann man einfach... öffnen?"},
+        {"character": "Sokrates", "line": "Natürlich! Keine Magie. HEAD ist eine Textdatei — öffne sie und du siehst, auf welchem Branch du bist. Jeder Branch in refs/heads/ ist eine Datei, die einen 40-Zeichen-Hash enthält. Der Ordner objects/ speichert jede Version jeder Datei, die jemals committed wurde."},
+        {"character": "Schüler", "line": "Also als wir sagten 'ein Branch ist nur ein Zeiger'..."},
+        {"character": "Sokrates", "line": "Meinten wir das wörtlich. Eine Datei mit einem Hash drin. Lösche diese Datei und der Branch ist verschwunden. Lösche den gesamten .git-Ordner und die gesamte Geschichte verschwindet — obwohl deine Arbeitsdateien bleiben."},
+        {"character": "Schüler", "line": "Das ist gleichzeitig elegant und erschreckend."},
+        {"character": "Sokrates", "line": "Deshalb brauchen wir auch .gitignore — eine Datei, die Git sagt, was es nie verfolgen soll. Build-Artefakte, IDE-Einstellungen, Log-Dateien und vor allem Geheimnisse. Eine .env-Datei, die auf GitHub committed wird, ist für jeden sichtbar, der das Repository sehen kann."},
+        {"character": "Schüler", "line": "Soll ich .gitignore vor meinem ersten Commit erstellen?"},
+        {"character": "Sokrates", "line": "Immer. Eine bereits verfolgte Datei nachträglich zu ignorieren erfordert zusätzliche Arbeit — 'git rm --cached'. Prävention ist sauberer als Heilung. Nun — lesen Sie die HEAD-Datei selbst. Schauen Sie mit eigenen Augen, was Ihr GUI Ihnen nie gezeigt hat."}
+      ]
+    },
+    "zen": {
+      "title": "Die Schachtel öffnen",
+      "dialogue": [
+        {"character": "Meister", "line": "Du hast ein Werkzeug benutzt, ohne jemals hineinzuschauen. Heute öffnen wir die Schachtel."},
+        {"character": "Schüler", "line": "Welche Schachtel?"},
+        {"character": "Meister", "line": "Den .git-Ordner. Das ist Gits gesamte Welt. Ein versteckter Ordner in deinem Projekt, der jeden Commit, jeden Branch, jedes Stück Geschichte enthält, das du jemals erstellt hast."},
+        {"character": "Schüler", "line": "Man hat mir gesagt, ich solle diesen Ordner nie anfassen."},
+        {"character": "Meister", "line": "Ändere ihn nie leichtfertig. Aber Lesen — so kommt Verständnis. HEAD ist eine Textdatei. Öffne sie. Sie sagt, auf welchem Branch du bist. Nicht mehr."},
+        {"character": "Schüler", "line": "Und die Branches selbst?"},
+        {"character": "Meister", "line": "Dateien in refs/heads/. Jede enthält vierzig Zeichen — einen Commit-Hash. Du sagtest, Branches schienen mysteriös. Jetzt siehst du: sie sind das Einfachste in Git."},
+        {"character": "Schüler", "line": "Was ist mit dem objects-Ordner?"},
+        {"character": "Meister", "line": "Jede Version jeder Datei, gespeichert nach Inhalts-Hash. Deshalb ist Git zuverlässig — derselbe Inhalt erzeugt immer denselben Hash, auf jedem Gerät, zu jeder Zeit. Wahrheit durch Mathematik."},
+        {"character": "Schüler", "line": "Und .gitignore?"},
+        {"character": "Meister", "line": "Nicht alles gehört in die Geschichte. Build-Artefakte sind temporär. IDE-Einstellungen sind persönlich. Geheimnisse sind gefährlich. Die .gitignore-Datei benennt, was draußen bleiben soll. Erstelle sie vor dem ersten Commit — etwas zu entfernen, das bereits verfolgt wird, ist wie zu versuchen, eine Glocke zurückzunehmen."},
+        {"character": "Schüler", "line": "Ich möchte hineinschauen."},
+        {"character": "Meister", "line": "Dann schau. Lies HEAD. Sieh die Wahrheit, die dort in einfachem Text geschrieben steht."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Heben wir den Deckel",
+      "dialogue": [
+        {"character": "Sam", "line": "Okay, du benutzt Git-Befehle jetzt seit ein paar Tagen. Willst du was Cooles sehen?"},
+        {"character": "Alex", "line": "Immer."},
+        {"character": "Sam", "line": "Kennst du den .git-Ordner im Wurzelverzeichnis deines Projekts? Den, von dem alle sagen 'nicht anfassen'?"},
+        {"character": "Alex", "line": "Ja, den habe ich nie geöffnet."},
+        {"character": "Sam", "line": "Öffnen wir ihn. Es sind nur Dateien. HEAD ist eine Textdatei — sie enthält buchstäblich den Namen deines aktuellen Branches. Das ist alles. Keine Magie."},
+        {"character": "Alex", "line": "Moment, echt? Nur eine Textdatei?"},
+        {"character": "Sam", "line": "Ja. Und Branches? Dateien in .git/refs/heads/. Jede enthält einen 40-Zeichen-Hash, der auf einen Commit zeigt. Erinnerst du dich, als ich sagte, Branches sind nur Zeiger? Ich meinte BUCHSTÄBLICH nur Zeiger. Eine Datei mit einem Hash."},
+        {"character": "Alex", "line": "Das ist... viel einfacher als erwartet."},
+        {"character": "Sam", "line": "Das ist Gits ganzer Trick — unter der Haube ist es elegant. Der objects-Ordner speichert jede Version jeder Datei, indiziert nach Inhalts-Hash. Gleicher Inhalt ergibt immer gleichen Hash. Deshalb ist Git geräteübergreifend zuverlässig."},
+        {"character": "Alex", "line": "Was ist mit .gitignore? Vergesse ich immer einzurichten."},
+        {"character": "Sam", "line": "Pro-Tipp: .gitignore VOR dem ersten Commit erstellen. Build-Artefakte, IDE-Dateien, .env-Dateien — alles was nicht ins Repo gehört. Wenn du vergisst und ein Geheimnis commitest, ist es für immer in der Geschichte. Du müsstest die Geschichte umschreiben, um es zu entfernen."},
+        {"character": "Alex", "line": "Ja, ich habe mal eine .env-Datei mit API-Schlüsseln committed. Mein Teamleiter war NICHT begeistert."},
+        {"character": "Sam", "line": "Ha, da waren wir alle schon. gitignore.io hat fertige Vorlagen für jede Sprache und IDE. Merk dir das. Jetzt — geh und lies die HEAD-Datei selbst. Schau, was tatsächlich drin ist."}
+      ]
+    }
+  }
+}

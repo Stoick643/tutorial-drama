@@ -1,0 +1,36 @@
+{
+  "tutorial": "LLM Grundlagen",
+  "technical_concept": "LLMs lesen keine Wörter — sie lesen Token. Tokenisierung teilt Text in Subwort-Stücke mittels Byte Pair Encoding (BPE). 'Hello world' wird zu zwei Token. Token sind die grundlegende Einheit, die ein LLM versteht.",
+  "challenge": {
+    "task": "Geben Sie einen beliebigen Text ein und sehen Sie, wie der Tokenizer ihn in Token aufteilt. Probieren Sie verschiedene Dinge: einen einfachen Satz, ein langes Wort wie 'containerization', Code wie 'System.out.println'.",
+    "hint": "Versuchen Sie, kurze häufige Wörter (weniger Token) mit langen technischen Wörtern (mehr Token) zu vergleichen."
+  },
+  "styles": {
+    "sci_fi": {
+      "title": "Signal dekodieren",
+      "dialogue": [
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Commander, ich habe analysiert, wie ARIA unsere Übertragungen verarbeitet. Sie liest unsere Wörter nicht wie wir — sie teilt sie in Fragmente namens Token auf."},
+        {"character": "Commander Vega", "line": "Wie meinen Sie das? Wir senden Text, sie antwortet mit Text."},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Ja, aber zwischen Senden und Empfangen zerlegt ARIA unseren Text in Fragmente namens Token. 'Hello world' wird zu zwei Token."},
+        {"character": "Commander Vega", "line": "Warum benutzt sie nicht einfach Wörter?"},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Weil Wörter unordentlich sind. Verschiedene Sprachen, zusammengesetzte Wörter, Code, Zahlen... Stattdessen verwendet ARIA Byte Pair Encoding — sie hat die häufigsten Buchstabenmuster gelernt."},
+        {"character": "Commander Vega", "line": "Also bedeutet das 'Token', wenn ARIA über den Verbrauch berichtet. Unsere letzte Übertragung war 56 Token."},
+        {"character": "Wissenschaftsoffizierin Chen", "line": "Genau. Und ARIA hat ein Kontextfenster — die maximale Anzahl Token, die sie gleichzeitig verarbeiten kann. 128.000 Token bedeuten etwa 300 Seiten Text."},
+        {"character": "Commander Vega", "line": "Lassen Sie mich den Signaldekoder testen. Ich möchte sehen, wie ARIA meine Übertragungen lesen würde."}
+      ]
+    },
+    "office_comedy": {
+      "title": "Wie Alex Ihre E-Mails liest",
+      "dialogue": [
+        {"character": "Sam (Senior-Entwickler)", "line": "Also ich habe recherchiert, wie Alex unsere Nachrichten tatsächlich verarbeitet. Stellt sich heraus, er liest keine Wörter wie wir."},
+        {"character": "Chef", "line": "Was? Wir schreiben in normalem Deutsch."},
+        {"character": "Sam (Senior-Entwickler)", "line": "Normales Deutsch für SIE. Für Alex wird Ihre Nachricht in 'Token' zerhackt — kleine Stücke. 'Hello world' sind zwei Token."},
+        {"character": "Chef", "line": "Das klingt... ineffizient?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Eigentlich ist es genial. Nennt sich Byte Pair Encoding. Alex hat die häufigsten Buchstabenkombinationen gelernt und zu Token zusammengefasst. 'The' ist ein Token. 'Containerization' sind vier."},
+        {"character": "Chef", "line": "Aber ist das der Grund, warum die API-Rechnung 'Token' statt 'Wörter' sagt?"},
+        {"character": "Sam (Senior-Entwickler)", "line": "Volltreffer. Wir zahlen pro Token. Und Alex hat ein Limit — 128.000 Token pro Gespräch. Das sind etwa 300 Seiten."},
+        {"character": "Chef", "line": "Lassen Sie mich diesen Tokenizer sehen. Ich will wissen, wie viele Token meine Nachrichten kosten."}
+      ]
+    }
+  }
+}

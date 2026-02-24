@@ -1,0 +1,64 @@
+{
+  "tutorial": "Git vom Terminal",
+  "technical_concept": "git log zeigt Ihre Commit-Geschichte — fügen Sie --oneline --graph --all für einen visuellen Baum aller Branches hinzu. git diff zeigt, was sich geändert hat (Arbeitsverzeichnis vs. Staging, oder --staged für Staging vs. letzter Commit). Rückgängigmachen bildet sich auf die 4 Bereiche ab: 'git restore' verwirft Änderungen im Arbeitsverzeichnis, 'git restore --staged' entfernt aus dem Staging, 'git reset' macht lokale Commits rückgängig, und 'git revert' macht veröffentlichte Commits sicher rückgängig, indem es einen neuen Korrektur-Commit erstellt.",
+  "challenge": {
+    "task": "Ein schlechter Commit wurde gemacht. Verwenden Sie 'git revert HEAD', um ihn sicher rückgängig zu machen, dann überprüfen Sie, dass das Log die Rückgängigmachung zeigt.",
+    "hint": "git revert erstellt einen neuen Commit, der den vorherigen rückgängig macht. Verwenden Sie --no-edit, um die Standard-Nachricht zu akzeptieren.",
+    "solution": "git revert HEAD --no-edit && git log --oneline"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Die Kunst des Rückgängigmachens",
+      "dialogue": [
+        {"character": "Sokrates", "line": "Du hast schon viele Male committed und gepusht. Aber sag mir — musstest du jemals einen Commit rückgängig machen?"},
+        {"character": "Schüler", "line": "Ja! Und es war furchtbar. Ich wusste nie, welchen Befehl ich benutzen soll."},
+        {"character": "Sokrates", "line": "Weil du keine Karte hattest. Erinnerst du dich an unsere vier Bereiche? Jeder Rückgängig-Befehl zielt auf einen bestimmten Bereich ab. Wenn du weißt, welchen Bereich du zurücksetzen willst, offenbart sich der Befehl von selbst."},
+        {"character": "Schüler", "line": "Also wenn ich eine Datei geändert, aber noch nicht gestaged habe?"},
+        {"character": "Sokrates", "line": "Dann ist der Schaden im Arbeitsverzeichnis. 'git restore' verwirft diese Änderungen. Was, wenn du die Datei bereits gestaged hast?"},
+        {"character": "Schüler", "line": "'git restore --staged', um sie aus dem Staging zurückzuholen?"},
+        {"character": "Sokrates", "line": "Du lernst schnell. Und was, wenn du bereits committed hast?"},
+        {"character": "Schüler", "line": "Da bin ich mich immer verloren gegangen."},
+        {"character": "Sokrates", "line": "Zwei Wege. Wenn der Commit nur lokal ist — nie veröffentlicht — kannst du die Geschichte mit 'git reset' überschreiben. Soft behält deine Änderungen gestaged. Mixed bringt sie zurück ins Arbeitsverzeichnis. Hard... löscht alles."},
+        {"character": "Schüler", "line": "Und wenn ich schon gepusht habe?"},
+        {"character": "Sokrates", "line": "Dann darfst du die Geschichte nicht überschreiben — deine Teamkollegen haben sie bereits empfangen. Stattdessen erstellt 'git revert' einen neuen Commit, der den Schaden behebt. Der Fehler bleibt in der Geschichte, aber seine Auswirkungen sind rückgängig gemacht. Fair und sicher."},
+        {"character": "Schüler", "line": "Also ist revert für gemeinsame Arbeit, reset für lokale Fehler?"},
+        {"character": "Sokrates", "line": "Jetzt hast du das Gesamtbild. Aber zuerst — schauen wir auch die Geschichte an. 'git log --oneline --graph --all' zeigt dir den gesamten Baum deines Repos. Und 'git diff' zeigt genau, was sich geändert hat. Wisse, wo du bist, bevor du versuchst rückgängig zu machen. Nun — ein schlechter Commit wartet auf dich. Behebe ihn sicher."}
+      ]
+    },
+    "zen": {
+      "title": "Brechen und Reparieren",
+      "dialogue": [
+        {"character": "Meister", "line": "Ein Schüler, der nie einen Fehler macht, lernt nie die Wiederherstellung. Sag mir — was erschreckt dich an Git am meisten?"},
+        {"character": "Schüler", "line": "Dinge rückgängig machen. Ich habe immer Angst, meine Arbeit zu verlieren."},
+        {"character": "Meister", "line": "Eine vernünftige Angst, geboren aus Unverständnis. In Git kann nur ein Befehl wirklich Arbeit zerstören: 'git reset --hard'. Alles andere ist wiederherstellbar. Merke dir das und deine Angst wird verstummen."},
+        {"character": "Schüler", "line": "Aber es gibt so viele Rückgängig-Befehle. Wie wähle ich?"},
+        {"character": "Meister", "line": "Kehre zu den vier Bereichen zurück. Wo ist die Änderung, die du rückgängig machen willst? Im Arbeitsverzeichnis — 'git restore'. Im Staging — 'git restore --staged'. In einem lokalen Commit — 'git reset'. Bereits mit anderen geteilt — 'git revert'."},
+        {"character": "Schüler", "line": "Was ist der Unterschied zwischen reset und revert?"},
+        {"character": "Meister", "line": "Reset löscht den Commit, als wäre er nie passiert. Revert erstellt einen neuen Commit, der den alten rückgängig macht. Beide beheben das Problem. Aber reset überschreibt Geschichte — wenn andere diese Geschichte bereits empfangen haben, erzeugst du Chaos."},
+        {"character": "Schüler", "line": "Also ist revert die respektvolle Wahl."},
+        {"character": "Meister", "line": "Für geteilte Branches, ja. Es sagt: Ich habe einen Fehler gemacht, und hier ist die Korrektur. Die Geschichte ist ehrlich. Bevor du rückgängig machst, schaue immer zuerst. 'git log --oneline --graph --all' enthüllt die vollständige Form deiner Geschichte. 'git diff' zeigt genau, was sich geändert hat."},
+        {"character": "Schüler", "line": "Schauen, bevor ich handle."},
+        {"character": "Meister", "line": "Immer. Ein schlechter Commit wurde in deinem Repository gemacht. Er ist bereits Teil der Geschichte. Mache ihn mit Respekt rückgängig — erstelle einen Revert und beobachte das Ergebnis."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Hoppla, wie mache ich das rückgängig",
+      "dialogue": [
+        {"character": "Alex", "line": "Sam, ich glaube, ich habe gerade etwas Kaputtes committed. Wie mache ich das rückgängig?"},
+        {"character": "Sam", "line": "Keine Panik. Erstens — hast du gepusht?"},
+        {"character": "Alex", "line": "Nein, noch nicht."},
+        {"character": "Sam", "line": "Gut. Dann hast du Optionen. Aber bevor wir irgendetwas rückgängig machen — schauen wir, was passiert ist. Führe 'git log --oneline' aus. Das zeigt die Commit-Geschichte, eine Zeile pro Commit."},
+        {"character": "Alex", "line": "Oh cool, ich sehe alle meine Commits. Da ist der schlechte oben."},
+        {"character": "Sam", "line": "Jetzt zum Thema Rückgängigmachen in Git — es gibt etwa fünf verschiedene Befehle und alle verwirren sich. Der Trick ist: denke darüber nach, auf welchen der vier Bereiche du zurücksetzen willst."},
+        {"character": "Alex", "line": "Die vier Bereiche aus der ersten Lektion?"},
+        {"character": "Sam", "line": "Genau. Datei geändert, aber noch nicht gestaged? 'git restore'. Bereits gestaged? 'git restore --staged'. Bereits committed, aber nicht gepusht? 'git reset'. Bereits gepusht? 'git revert'."},
+        {"character": "Alex", "line": "Was ist der Unterschied zwischen reset und revert?"},
+        {"character": "Sam", "line": "Reset überschreibt Geschichte — der Commit verschwindet, als wäre er nie passiert. Das ist lokal in Ordnung. Aber wenn du schon gepusht hast, haben deine Kollegen diesen Commit. Du kannst ihn nicht einfach von deren Geräten löschen. Deshalb erstellt 'git revert' einen NEUEN Commit, der den alten rückgängig macht. Die Geschichte bleibt ehrlich."},
+        {"character": "Alex", "line": "Verstanden. Revert für geteilte Sachen, reset für lokale."},
+        {"character": "Sam", "line": "Genau. Und eine Warnung — 'git reset --hard' ist die nukleare Option. Löscht den Commit UND deine Änderungen. Ende. Alles andere ist wiederherstellbar, aber --hard bedeutet --hard."},
+        {"character": "Alex", "line": "Verstanden. Finger weg vom nuklearen Knopf."},
+        {"character": "Sam", "line": "Fürs Erste üben wir den sicheren Weg. In deinem Repo ist ein schlechter Commit — mache ihn rückgängig und überprüfe das Log, dass es funktioniert hat."}
+      ]
+    }
+  }
+}

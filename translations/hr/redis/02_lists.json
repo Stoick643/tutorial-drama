@@ -1,0 +1,34 @@
+{
+  "tutorial": "Osnove Redisa",
+  "technical_concept": "Korištenje lista (Lists) za upravljanje uređenim zbirkama s naredbama LPUSH, RPUSH, LPOP i RPOP za redove čekanja i nizove.",
+  "challenge": {
+    "task": "Tri osumnjičenika su upravo stigla: `suspect_alpha`, `suspect_bravo` i `suspect_charlie`. Dodajte ih u red za ispitivanje, zatim pozovite prvog na ispitivanje.",
+    "hint": "Koristite RPUSH za dodavanje osumnjičenika na kraj reda, zatim LPOP za pozivanje prvog na ispitivanje."
+  },
+  "styles": {
+    "detective_noir": {
+      "title": "Red za ispitivanje",
+      "dialogue": [
+        {"character": "Detektiv Indecks", "line": "Imam tri osumnjičenika u čekaonici. Trebam sustav — tko je došao prvi, ide prvi na ispitivanje."},
+        {"character": "REDIS", "line": "Za to su tu liste, detektive. Zamislite red čekanja. RPUSH dodaje nekoga na kraj. LPUSH ga stavlja na početak — za prioritetne slučajeve."},
+        {"character": "Detektiv Indecks", "line": "A kad sam spreman za ispitivanje?"},
+        {"character": "REDIS", "line": "LPOP uzima prvog iz reda. RPOP uzima zadnjeg. Kao red u pekari — prvi dođe, prvi bude poslužen. Ili obrnuto, ako imate razlog."},
+        {"character": "Detektiv Indecks", "line": "Uredan sustav. Bez zbrke, bez preskakanja."},
+        {"character": "REDIS", "line": "Točno. I s LRANGE možete bilo kad pogledati cijeli red, bez da ikoga uklonite. Kao pogled kroz jednosmjerno staklo."},
+        {"character": "Detektiv Indecks", "line": "Postavimo taj red za ispitivanje."}
+      ]
+    },
+    "sci_fi": {
+      "title": "Prioritetni red za obradu",
+      "dialogue": [
+        {"character": "NEXUS", "line": "Inženjeru, tri dijagnostička procesa čekaju na izvršavanje. Trebamo uređeni red čekanja."},
+        {"character": "Inženir", "line": "Moram ih obraditi po redu. Prvi unutra, prvi van."},
+        {"character": "NEXUS", "line": "Redis liste su idealne za to. RPUSH dodaje u red, LPOP uzima sljedećeg za obradu. Savršena FIFO struktura — prvi unutra, prvi van."},
+        {"character": "Inženir", "line": "Što ako moram hitni proces gurnuti na vrh?"},
+        {"character": "NEXUS", "line": "Koristite LPUSH — umeće na početak umjesto na kraj. Prioritetni procesi idu naprijed. LRANGE vam pokazuje cijeli red bilo kad."},
+        {"character": "Inženir", "line": "Fleksibilno. Postavimo red i počnimo s obradom."},
+        {"character": "NEXUS", "line": "Čekam vaše naredbe, inženjeru."}
+      ]
+    }
+  }
+}
