@@ -2,7 +2,7 @@
   "tutorial": "Redis Basics",
   "module": 1,
   "scene": 2,
-  "technical_concept": "Using Lists to manage ordered collections with LPUSH, RPUSH, LPOP, and RPOP for queue operations.",
+  "technical_concept": "Redis Lists are ordered collections that support push/pop from both ends — making them natural queues. In production, they power job queues (workers RPOP tasks that producers LPUSH), activity feeds (LPUSH new events, LRANGE to display recent ones), and message buffers. Unlike a database table, a Redis list handles thousands of push/pop operations per second with zero overhead. The key insight: if you need ordered, fast, temporary data — use a list.",
   "code_example": {
     "language": "redis-cli",
     "code": "LPUSH interrogation:queue \"suspect_charlie\"\nLPOP interrogation:queue"

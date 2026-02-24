@@ -2,7 +2,7 @@
   "tutorial": "Redis Basics",
   "module": 1,
   "scene": 1,
-  "technical_concept": "Using Strings for basic key-value storage with SET, GET, and SETEX for expiry.",
+  "technical_concept": "Strings are Redis's simplest data type: one key, one value. But with SETEX (SET + EXpiry), they become powerful for real-world use cases. Every website that remembers your login uses something like this — session tokens stored with a TTL that auto-expire. Rate limiters count requests per IP with expiring keys. Caches store expensive database query results for a few minutes. The pattern is always the same: SET a key, let Redis auto-delete it after N seconds.",
   "code_example": {
     "language": "redis-cli",
     "code": "SETEX online:user789 300 \"active\""

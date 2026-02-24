@@ -20,12 +20,14 @@ GRADER_MODE = os.getenv("GRADER_MODE", "docker")
 
 try:
     from app import grader_schemas
+    from app import settings as app_settings
     if GRADER_MODE == "subprocess":
         from app.subprocess_manager import manager as container_manager
     else:
         from app.docker_manager import manager as container_manager
 except ImportError:
     import grader_schemas
+    import settings as app_settings
     if GRADER_MODE == "subprocess":
         from subprocess_manager import manager as container_manager
     else:
@@ -114,10 +116,16 @@ async def health_check():
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse(request, "index.html")
+    enabled = app_settings.get_enabled_tutorials()
+    return templates.TemplateResponse(request, "index.html", {"enabled_tutorials": enabled})
 
 @app.get("/tutorial/{topic}", response_class=HTMLResponse)
 async def get_tutorial_menu(request: Request, topic: str):
+    # Check if tutorial is enabled
+    enabled = app_settings.get_enabled_tutorials()
+    if topic not in enabled:
+        raise HTTPException(status_code=404, detail=f"Tutorial topic '{topic}' not found")
+
     tutorial_dir = base_dir / f"tutorials/{topic}"
 
     if not tutorial_dir.exists():
@@ -186,6 +194,11 @@ async def get_tutorial_menu(request: Request, topic: str):
 
 @app.get("/tutorial/{topic}/{lesson}", response_class=HTMLResponse)
 async def get_tutorial(request: Request, topic: str, lesson: str):
+    # Check if tutorial is enabled
+    enabled = app_settings.get_enabled_tutorials()
+    if topic not in enabled:
+        raise HTTPException(status_code=404, detail=f"Tutorial topic '{topic}' not found")
+
     json_path = base_dir / f"tutorials/{topic}/{lesson}.json"
 
     if not json_path.exists():
@@ -326,6 +339,56 @@ async def check_answer(request: CommandRequest, req: Request):
         raise HTTPException(status_code=400, detail=f"Unsupported topic: {request.topic}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error during grading: {str(e)}")
+
+
+# --- Admin Settings ---
+
+TUTORIAL_DISPLAY_NAMES = {
+    "redis": "Redis Basics",
+    "sql": "SQL Investigation",
+    "git": "Git from the Terminal",
+    "docker": "Docker Dramas",
+    "llm": "LLM Internals",
+    "bash": "Bash Basics",
+}
+
+@app.get("/settings", response_class=HTMLResponse)
+async def settings_page(request: Request):
+    if not app_settings._get_admin_password():
+        raise HTTPException(status_code=404, detail="Settings not available (no ADMIN_PASSWORD configured)")
+
+    states = app_settings.get_all_tutorial_states()
+    tutorials = {}
+    for topic in app_settings.ALL_TUTORIALS:
+        topic_dir = base_dir / f"tutorials/{topic}"
+        lesson_count = len(list(topic_dir.glob("*.json"))) if topic_dir.exists() else 0
+        tutorials[topic] = {
+            "display_name": TUTORIAL_DISPLAY_NAMES.get(topic, topic.title()),
+            "enabled": states.get(topic, True),
+            "lesson_count": lesson_count,
+        }
+    return templates.TemplateResponse(request, "settings.html", {"tutorials": tutorials})
+
+
+class VerifyRequest(BaseModel):
+    password: str
+
+class SettingsUpdateRequest(BaseModel):
+    password: str
+    states: dict[str, bool]
+
+@app.post("/api/settings/verify")
+async def verify_password(req: VerifyRequest):
+    if app_settings.check_password(req.password):
+        return {"ok": True}
+    return {"ok": False}
+
+@app.post("/api/settings/tutorials")
+async def update_tutorials(req: SettingsUpdateRequest):
+    if not app_settings.check_password(req.password):
+        return JSONResponse(status_code=403, content={"ok": False, "detail": "Wrong password"})
+    app_settings.update_tutorial_states(req.states)
+    return {"ok": True}
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
   "tutorial": "Redis Basics",
   "module": 1,
   "scene": 0,
-  "technical_concept": "Introduction to Redis and setting up your detective toolkit.",
+  "technical_concept": "Redis is an in-memory data store — it keeps everything in RAM, making it extremely fast (sub-millisecond responses). This is why companies use it for caching, session storage, rate limiting, real-time leaderboards, and pub/sub messaging. Unlike traditional databases that read from disk, Redis trades durability for speed — perfect when you need instant answers. In this lesson, you connect to Redis and verify it is running.",
   "code_example": {
     "language": "redis-cli",
     "code": "redis-cli ping\n# PONG"

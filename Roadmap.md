@@ -159,12 +159,20 @@ fly deploy --dockerfile Dockerfile.flyio
 
 ---
 
-## Next Up
+## Next Up (Priority)
 
-### LLM Fixes
-- **Fix setup commands bug** — setup commands (e.g., `echo tokenize > /tmp/llm_mode`) were routed through topic handlers instead of running as shell. Fixed in both managers. Needs commit.
-- **Fix API call** — wrong URL (`api.moonshot.cn` → `api.moonshot.ai`), old model (`moonshot-v1-8k` → `kimi-k2.5`), make base URL and model configurable via env vars (`LLM_BASE_URL`, `LLM_MODEL`)
-- **401 diagnostics** — show masked key and guidance on auth failure. Partially done.
+### ~~LLM Fixes~~ ✅ Done (commit adc494d)
+- ~~Fix setup commands bug~~ — both managers run setup as `sh -c`
+- ~~Fix API call~~ — updated to `api.moonshot.ai`, model `kimi-k2.5`, configurable via env vars
+- ~~401 diagnostics~~ — shows masked key and guidance
+
+### Admin Settings Page (`/settings`)
+- Password-protected page (env var `ADMIN_PASSWORD`)
+- Checkboxes to enable/disable each tutorial for all visitors
+- Stored in SQLite — no restart needed
+- Default: all enabled
+- Hidden URL (no link from homepage)
+- Use case: progressive disclosure — launch with 2 tutorials, open more over time
 
 ### Redis: Add Real-World Motivation
 - Current technical_concepts say *what* Redis does but not *why* you'd use it
@@ -176,43 +184,34 @@ fly deploy --dockerfile Dockerfile.flyio
   - L04 Hashes: user profiles, shopping carts, atomic field updates
 - Non-invasive: only technical_concept changes, no dialogue rewrite
 
-### New Languages: Croatian + German
-- **Croatian (hr)** — translate all topics (redis, sql, git, docker, llm, bash)
-- **German (de)** — translate all topics
-- Add language options to selectors in index.html and tutorial_menu.html
-
-### Lesson Content Polish
+### Bash Lesson Content Polish
 - Bash lesson 00: simplify challenge to just `mkdir camp` (no `&&` for beginners)
 - Bash lesson 01: more flavor on command names (cat, touch, echo), explain `>` operator
 - Review all bash lessons for beginner-friendliness
 - Ensure challenges match difficulty progression
 
+### New Languages: Croatian + German
+- **Croatian (hr)** — translate all topics (redis, sql, git, docker, llm, bash)
+- **German (de)** — translate all topics
+- Add language options to selectors in index.html and tutorial_menu.html
+
+---
+
+## Nice-to-Have (No Priority)
+
 ### UI String Translations
 - Currently only lesson content is translated, UI chrome is English-only
 - Buttons: Check Answer, Hint, Show Solution, Previous, Next
 - Headers: "Lesson X of Y", homepage text, feature descriptions
-- Not priority — prep structure for it when implementing hint system
 
-### Code Quality (Deferred from Feb 2026 Evaluation)
-- **Extract `lesson_loader.py` from `main.py`** — Move JSON loading, i18n merging, and style selection into a dedicated module. Currently `main.py` is ~230 lines which is manageable, but would benefit from separation if it grows further.
-- **Move inline JS/CSS to external files** — `tutorial_template.html` has ~30 lines of inline hint system JS. `interactive.js` and `progress.js` inject CSS via `document.createElement('style')`. Move to `styles.css` and dedicated JS files.
-- **Dynamic homepage generation** — Generate topic cards from `tutorials/` directory instead of hardcoded HTML in `index.html`. Low priority — only needed when adding topics frequently.
-- **Docker manager input sanitization** — `subprocess_manager.py` has thorough input sanitization; `docker_manager.py` has none. Docker containers provide isolation, but defense-in-depth could be added carefully (avoiding blocking legitimate learning commands like SQL DROP).
-
----
-
-## Future / Phase 3
-
-### More Content
-- Additional narrative styles (Shakespearean for more topics)
-- More styles per existing topics
-- Additional topics TBD
+### Code Quality
+- **Extract `lesson_loader.py` from `main.py`** — Move JSON loading, i18n merging, and style selection into a dedicated module
+- **Move inline JS/CSS to external files** — inline hint system JS and injected CSS to proper files
+- **Dynamic homepage generation** — Generate topic cards from `tutorials/` directory instead of hardcoded HTML
+- **Docker manager input sanitization** — Add defense-in-depth to match `subprocess_manager.py`
 
 ### Platform Features
 - User accounts and authentication
 - Persistent progress tracking (replace localStorage with server-side DB)
 - Accessibility improvements (ARIA labels, keyboard navigation, color contrast)
-
-### Additional Languages
-- UI string translation infrastructure
-- More languages if demand exists
+- Additional narrative styles and topics

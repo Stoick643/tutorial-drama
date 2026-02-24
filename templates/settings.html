@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings — Tutorial Drama</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        .settings-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        .auth-section {
+            margin-bottom: 2rem;
+        }
+        .auth-section input[type="password"] {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 250px;
+        }
+        .auth-section button {
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background: #4a90d9;
+            color: white;
+            margin-left: 0.5rem;
+        }
+        .auth-section button:hover {
+            background: #357abd;
+        }
+        .tutorial-toggles {
+            display: none;
+        }
+        .tutorial-toggles.unlocked {
+            display: block;
+        }
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        .toggle-row label {
+            flex: 1;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-left: 0.75rem;
+        }
+        .toggle-row input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .topic-name {
+            font-weight: 600;
+        }
+        .topic-desc {
+            color: #666;
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
+        .save-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background: #28a745;
+            color: white;
+        }
+        .save-btn:hover {
+            background: #218838;
+        }
+        .status-msg {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 4px;
+            display: none;
+        }
+        .status-msg.success {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status-msg.error {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #4a90d9;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 class="tutorial-title">⚙️ Settings</h1>
+                <div class="subtitle">Tutorial Drama — Admin</div>
+            </div>
+        </header>
+
+        <main class="settings-container">
+            <div class="auth-section">
+                <label for="admin-password"><strong>Admin Password:</strong></label><br><br>
+                <input type="password" id="admin-password" placeholder="Enter password">
+                <button onclick="unlock()">Unlock 🔓</button>
+            </div>
+
+            <div class="tutorial-toggles" id="toggles">
+                <h3>Visible Tutorials</h3>
+                <p style="color: #666; margin-bottom: 1rem;">Unchecked tutorials are hidden from the homepage and return 404.</p>
+
+                {% for topic, info in tutorials.items() %}
+                <div class="toggle-row">
+                    <input type="checkbox" id="toggle-{{ topic }}" name="{{ topic }}" {% if info.enabled %}checked{% endif %}>
+                    <label for="toggle-{{ topic }}">
+                        <span class="topic-name">{{ info.display_name }}</span>
+                        <span class="topic-desc">— {{ info.lesson_count }} lessons</span>
+                    </label>
+                </div>
+                {% endfor %}
+
+                <button class="save-btn" onclick="saveSettings()">Save Changes ✓</button>
+
+                <div class="status-msg" id="status-msg"></div>
+            </div>
+
+            <a href="/" class="back-link">← Back to Homepage</a>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Tutorial Drama - Narrative Learning Engine</p>
+        </footer>
+    </div>
+
+    <script>
+        var adminPassword = '';
+
+        function unlock() {
+            adminPassword = document.getElementById('admin-password').value;
+            if (!adminPassword) {
+                showStatus('Please enter a password.', 'error');
+                return;
+            }
+            fetch('/api/settings/verify', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({password: adminPassword})
+            })
+            .then(function(r) {
+                if (!r.ok) throw new Error('Server error: ' + r.status);
+                return r.json();
+            })
+            .then(function(data) {
+                if (data.ok) {
+                    document.getElementById('toggles').classList.add('unlocked');
+                    document.querySelector('.auth-section').style.display = 'none';
+                } else {
+                    showStatus('Wrong password.', 'error');
+                }
+            })
+            .catch(function(err) {
+                showStatus('Error: ' + err.message, 'error');
+            });
+        }
+
+        function saveSettings() {
+            var states = {};
+            document.querySelectorAll('.toggle-row input[type="checkbox"]').forEach(function(cb) {
+                states[cb.name] = cb.checked;
+            });
+            fetch('/api/settings/tutorials', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({password: adminPassword, states: states})
+            })
+            .then(function(r) {
+                if (!r.ok) throw new Error('Server error: ' + r.status);
+                return r.json();
+            })
+            .then(function(data) {
+                if (data.ok) {
+                    showStatus('Settings saved!', 'success');
+                } else {
+                    showStatus(data.detail || 'Error saving settings.', 'error');
+                }
+            })
+            .catch(function(err) {
+                showStatus('Error: ' + err.message, 'error');
+            });
+        }
+
+        function showStatus(msg, type) {
+            var el = document.getElementById('status-msg');
+            el.textContent = msg;
+            el.className = 'status-msg ' + type;
+            if (type === 'success') {
+                setTimeout(function() { el.style.display = 'none'; }, 3000);
+            }
+        }
+
+        // Enter key triggers unlock
+        document.getElementById('admin-password').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') unlock();
+        });
+    </script>
+</body>
+</html>

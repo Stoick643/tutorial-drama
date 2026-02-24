@@ -2,7 +2,7 @@
   "tutorial": "Redis Basics",
   "module": 1,
   "scene": 4,
-  "technical_concept": "Using Hashes to store structured data with multiple fields using HSET, HGET, HGETALL, and HDEL.",
+  "technical_concept": "Redis Hashes store multiple field-value pairs under one key — like a mini-object or row. In production, they are used for user profiles (one hash per user with fields like name, email, role), shopping carts (product IDs as fields, quantities as values), and configuration stores. The advantage over Strings: you can read or update a single field (HGET, HSET) without fetching the whole object. This makes Hashes memory-efficient and fast for structured data that changes field by field.",
   "code_example": {
     "language": "redis-cli",
     "code": "HSET suspect:charlie age 34 height \"5'9\" last_seen \"downtown_pier\"\nHGET suspect:charlie age\nHGETALL suspect:charlie"

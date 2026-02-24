@@ -2,7 +2,7 @@
   "tutorial": "Redis Basics",
   "module": 1,
   "scene": 3,
-  "technical_concept": "Using Sets to store unique collections and find intersections with SADD, SREM, SISMEMBER, and SINTER.",
+  "technical_concept": "Redis Sets store unique, unordered elements — no duplicates allowed. This makes them perfect for problems where uniqueness matters: tracking unique visitors (SADD each visitor, SCARD to count), tagging systems (each tag is a set of items), and social features like mutual friends (SINTER to find common connections). Set operations (union, intersection, difference) happen server-side in microseconds, which would take multiple queries in a traditional database.",
   "code_example": {
     "language": "redis-cli",
     "code": "SADD known_associates:alpha \"murphy\" \"valdez\" \"chen\"\nSADD known_associates:bravo \"murphy\" \"torres\" \"kim\"\nSINTER known_associates:alpha known_associates:bravo"

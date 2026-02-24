@@ -2,7 +2,7 @@
   "tutorial": "Bash Basics",
   "module": 1,
   "scene": 1,
-  "technical_concept": "touch — creates empty files. You're literally touching a file into existence.\necho — prints text to the screen.\n> — the redirect operator. echo \"hello\" > file.txt pours text into a file (replacing what was there).\ncat — short for concatenate. Spills a file's contents onto your screen.\ncp — copies files: cp source dest.\nmv — moves or renames files: mv old new.\nrm — deletes files permanently. No recycle bin. Once gone, it's gone forever.\n\nBonus: use ; to chain commands on one line — echo hi > a.txt; cp a.txt b.txt does both in sequence.",
+  "technical_concept": "touch — creates empty files. The name comes from the Unix idea of \"touching\" a file's timestamp, but if the file doesn't exist, it creates one. Like tapping something into existence.\necho — prints text to the screen. Named because it echoes your words back at you.\n> — the redirect operator. Instead of printing to screen, it pours output into a file. echo \"hello\" > file.txt creates (or overwrites) file.txt with \"hello\".\ncat — short for \"concatenate\" (joining files together), but most people use it to simply display a file's contents on screen.\ncp — copies files: cp source dest. The original stays untouched.\nmv — moves OR renames files: mv old new. Same command, two uses.\nrm — removes files permanently. No trash can, no undo. Gone means gone.\n\nTip: use ; to chain commands on one line — echo hi > a.txt; cp a.txt b.txt does both in sequence.",
   "code_example": {
     "language": "bash",
     "code": "touch notes.txt\necho \"Hello World\" > notes.txt\ncat notes.txt\n# Hello World\n\ncp notes.txt backup.txt\nmv backup.txt archive.txt\nrm notes.txt"
