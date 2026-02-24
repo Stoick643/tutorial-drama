@@ -5,11 +5,11 @@
   "technical_concept": "The same JSON request works everywhere — curl, Java HttpClient, Python requests, JavaScript fetch. This is the OpenAI-compatible REST API format, used by Moonshot, Deepseek, OpenAI, and many others. You POST to /v1/chat/completions with an Authorization header and JSON body. The response contains choices[0].message.content. Different providers, same format — just change the URL.",
   "code_example": {
     "language": "llm",
-    "code": "# curl (command line)\ncurl https://api.moonshot.cn/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer $LLM_API_KEY\" \\\n  -d '{ \"model\": \"moonshot-v1-8k\",\n       \"messages\": [{\"role\": \"user\", \"content\": \"Hi\"}],\n       \"max_tokens\": 100 }'\n\n# Java (same request, different language)\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n  .uri(URI.create(\"https://api.moonshot.cn/v1/chat/completions\"))\n  .header(\"Content-Type\", \"application/json\")\n  .header(\"Authorization\", \"Bearer \" + apiKey)\n  .POST(HttpRequest.BodyPublishers.ofString(jsonBody))\n  .build();\n\n# Deepseek (same format, different URL)\n# Just change: https://api.deepseek.com/v1/chat/completions"
+    "code": "# curl (command line)\ncurl https://api.moonshot.cn/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer $LLM_API_KEY\" \\\n  -d '{ \"model\": \"kimi-k2.5\",\n       \"messages\": [{\"role\": \"user\", \"content\": \"Hi\"}],\n       \"max_tokens\": 100 }'\n\n# Java (same request, different language)\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n  .uri(URI.create(\"https://api.moonshot.cn/v1/chat/completions\"))\n  .header(\"Content-Type\", \"application/json\")\n  .header(\"Authorization\", \"Bearer \" + apiKey)\n  .POST(HttpRequest.BodyPublishers.ofString(jsonBody))\n  .build();\n\n# Deepseek (same format, different URL)\n# Just change: https://api.deepseek.com/v1/chat/completions"
   },
   "challenge": {
     "multiline": true,
-    "task": "Write a complete API request JSON and see the real response. Include 'model' (moonshot-v1-8k), 'messages' with at least a 'user' message, and 'max_tokens'. This will make a REAL call to the Moonshot LLM!",
+    "task": "Write a complete API request JSON and see the real response. Include 'model' (kimi-k2.5), 'messages' with at least a 'user' message, and 'max_tokens'. This will make a REAL call to the Moonshot LLM!",
     "hint": "Look at the curl example — you need the right endpoint, headers, and JSON body structure.",
     "check_logic": {
       "setup_commands": [
@@ -21,7 +21,7 @@
         "value": "model"
       }
     },
-    "solution": "{\"model\": \"moonshot-v1-8k\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, {\"role\": \"user\", \"content\": \"Explain what an API is in one sentence.\"}], \"temperature\": 0.7}"
+    "solution": "{\"model\": \"kimi-k2.5\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, {\"role\": \"user\", \"content\": \"Explain what an API is in one sentence.\"}], \"temperature\": 0.7}"
   },
   "styles": [
     {

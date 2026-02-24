@@ -161,6 +161,26 @@ fly deploy --dockerfile Dockerfile.flyio
 
 ## Next Up
 
+### LLM Fixes
+- **Fix setup commands bug** — setup commands (e.g., `echo tokenize > /tmp/llm_mode`) were routed through topic handlers instead of running as shell. Fixed in both managers. Needs commit.
+- **Fix API call** — wrong URL (`api.moonshot.cn` → `api.moonshot.ai`), old model (`moonshot-v1-8k` → `kimi-k2.5`), make base URL and model configurable via env vars (`LLM_BASE_URL`, `LLM_MODEL`)
+- **401 diagnostics** — show masked key and guidance on auth failure. Partially done.
+
+### Redis: Add Real-World Motivation
+- Current technical_concepts say *what* Redis does but not *why* you'd use it
+- Add 2-3 sentences of real-world use cases to each lesson's technical_concept:
+  - L00: why Redis exists (in-memory, sub-ms, caching, sessions, rate limiting)
+  - L01 Strings: session tokens, temporary caches, login states
+  - L02 Lists: job queues, message queues, activity feeds
+  - L03 Sets: mutual friends, tag systems, unique visitor counting
+  - L04 Hashes: user profiles, shopping carts, atomic field updates
+- Non-invasive: only technical_concept changes, no dialogue rewrite
+
+### New Languages: Croatian + German
+- **Croatian (hr)** — translate all topics (redis, sql, git, docker, llm, bash)
+- **German (de)** — translate all topics
+- Add language options to selectors in index.html and tutorial_menu.html
+
 ### Lesson Content Polish
 - Bash lesson 00: simplify challenge to just `mkdir camp` (no `&&` for beginners)
 - Bash lesson 01: more flavor on command names (cat, touch, echo), explain `>` operator

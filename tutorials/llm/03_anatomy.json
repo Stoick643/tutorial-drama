@@ -5,11 +5,11 @@
   "technical_concept": "Every LLM API call is a JSON request with: 'model' (which LLM to use), 'messages' (array of role/content pairs — system sets behavior, user asks the question), 'temperature' (0=deterministic, 1=creative, 2=wild), and 'max_tokens' (response length limit). The system prompt is invisible to the end user but controls everything. This is the OpenAI-compatible format used by Moonshot, Deepseek, and many others.",
   "code_example": {
     "language": "llm",
-    "code": "{\n  \"model\": \"moonshot-v1-8k\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a helpful assistant that explains concepts clearly and concisely.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"What is Docker?\"\n    }\n  ],\n  \"temperature\": 0.7,\n  \"max_tokens\": 200\n}"
+    "code": "{\n  \"model\": \"kimi-k2.5\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a helpful assistant that explains concepts clearly and concisely.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"What is Docker?\"\n    }\n  ],\n  \"temperature\": 0.7,\n  \"max_tokens\": 200\n}"
   },
   "challenge": {
     "multiline": true,
-    "task": "Build a complete API request JSON. Include: 'model' (use 'moonshot-v1-8k'), 'messages' array with a 'system' role (give it a persona) and a 'user' role (ask a question), 'temperature' (pick a value 0-2), and 'max_tokens' (pick a limit).",
+    "task": "Build a complete API request JSON. Include: 'model' (use 'kimi-k2.5'), 'messages' array with a 'system' role (give it a persona) and a 'user' role (ask a question), 'temperature' (pick a value 0-2), and 'max_tokens' (pick a limit).",
     "hint": "Think about the layers a prompt passes through: tokenization, embedding, attention, output.",
     "check_logic": {
       "setup_commands": [
@@ -21,7 +21,7 @@
         "value": "PASS"
       }
     },
-    "solution": "{\"model\": \"moonshot-v1-8k\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, {\"role\": \"user\", \"content\": \"What is machine learning?\"}], \"temperature\": 0.7}"
+    "solution": "{\"model\": \"kimi-k2.5\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, {\"role\": \"user\", \"content\": \"What is machine learning?\"}], \"temperature\": 0.7}"
   },
   "styles": [
     {
@@ -42,7 +42,7 @@
         },
         {
           "character": "Science Officer Chen",
-          "line": "First: 'model' — which version of ARIA we're addressing. 'moonshot-v1-8k' is the standard channel. Then: 'messages' — an array of transmissions. Each has a 'role' and 'content'."
+          "line": "First: 'model' — which version of ARIA we're addressing. 'kimi-k2.5' is the standard channel. Then: 'messages' — an array of transmissions. Each has a 'role' and 'content'."
         },
         {
           "character": "Commander Vega",

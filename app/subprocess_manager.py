@@ -393,9 +393,11 @@ class SubprocessManager:
 
         try:
             # 1. Run setup commands (trusted, from lesson JSON — not sanitized)
+            #    Run as shell commands directly since they may include redirects
+            #    like 'echo tokenize > /tmp/llm_mode' that don't fit topic handlers.
             if check_logic.setup_commands:
                 for cmd in check_logic.setup_commands:
-                    self._execute(language, cmd)
+                    self._run_cmd(["sh", "-c", cmd])
 
             # 2. Run the user's code
             exit_code, output = self._execute(language, user_code)

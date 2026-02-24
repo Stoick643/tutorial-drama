@@ -184,10 +184,11 @@ class ContainerManager:
 
         try:
             # 1. Run setup commands if they exist
+            #    Run as plain shell commands since they're trusted (from lesson JSON)
+            #    and may include redirects like 'echo tokenize > /tmp/llm_mode'
             if check_logic.setup_commands:
                 for cmd in check_logic.setup_commands:
-                    full_cmd = self._build_command(language, cmd)
-                    container.exec_run(full_cmd)
+                    container.exec_run(["sh", "-c", cmd])
 
             # 2. Run the user's code and capture the output
             full_user_cmd = self._build_command(language, user_code)

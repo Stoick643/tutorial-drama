@@ -55,7 +55,7 @@ On startup, the app warms Docker container pools (3 containers × 6 topics = 18 
 | SQL | `grader-image-sql` | Real SQLite3 with pre-loaded database |
 | Git | `grader-image-git` | Real git in initialized repo |
 | Docker | `grader-image-docker` | Mock docker CLI + Dockerfile/Compose validators |
-| LLM | `grader-image-llm` | Real tokenizer + API calls to Moonshot |
+| LLM | `grader-image-llm` | Real tokenizer + API calls to Kimi (Moonshot AI) |
 | Bash | `grader-image-bash` | Real bash + coreutils in Alpine with sample files |
 
 **fly.io** uses subprocess calls — same tools installed directly in the image. Toggle via `GRADER_MODE` env var (`docker` or `subprocess`).
@@ -131,7 +131,9 @@ Each lesson file contains:
 |----------|-------|--------|---------|
 | `GRADER_MODE` | (unset = docker) | `subprocess` | Which grading backend |
 | `DEV_MODE` | `true` | (unset) | Disables caching |
-| `LLM_API_KEY` | in `.env` | `fly secrets set` | Moonshot API key for LLM lessons |
+| `LLM_API_KEY` | in `.env` | `fly secrets set` | API key for LLM lessons (default: Moonshot/Kimi) |
+| `LLM_BASE_URL` | (unset = Moonshot) | `fly secrets set` | OpenAI-compatible API base URL |
+| `LLM_MODEL` | (unset = kimi-k2.5) | `fly secrets set` | Model name for LLM API calls |
 
 ## Adding Content
 

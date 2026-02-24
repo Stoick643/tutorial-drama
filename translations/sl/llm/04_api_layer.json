@@ -2,34 +2,82 @@
   "tutorial": "Osnove LLM",
   "technical_concept": "Ista JSON zahteva deluje povsod — curl, Java HttpClient, Python requests, JavaScript fetch. To je OpenAI-kompatibilen format, ki ga uporablja večina ponudnikov LLM (Moonshot, Deepseek, OpenAI).",
   "challenge": {
-    "task": "Napišite popolno JSON zahtevo za API in vidite pravi odgovor. Vključite 'model' (moonshot-v1-8k), 'messages' z vsaj enim sistemskim in enim uporabniškim sporočilom ter 'max_tokens'.",
+    "task": "Napišite popolno JSON zahtevo za API in vidite pravi odgovor. Vključite 'model' (kimi-k2.5), 'messages' z vsaj enim sistemskim in enim uporabniškim sporočilom ter 'max_tokens'.",
     "hint": "Napišite veljaven JSON z model, messages seznamom in max_tokens. API ključ se upravlja samodejno."
   },
   "styles": {
     "sci_fi": {
       "title": "Prenos v živo",
       "dialogue": [
-        {"character": "Poveljnik Vega", "line": "Chen, naučil sem se protokol. Zdaj želim poslati prenos v živo do ARIA. Ne prek vmesnika, ampak neposredno."},
-        {"character": "Znanstvena častnica Chen", "line": "Seveda, poveljnik. Prenos gre na ARIA-ino končno točko: api.moonshot.cn/v1/chat/completions. POST zahteva z vašim JSON-om."},
-        {"character": "Poveljnik Vega", "line": "Ali lahko pošljem iz različnih sistemov?"},
-        {"character": "Znanstvena častnica Chen", "line": "To je elegantni del. Isti JSON deluje iz kateregakoli sistema. Naš terminal uporablja curl, inženirska enota Java HttpClient, raziskovalni laboratorij Python requests."},
-        {"character": "Poveljnik Vega", "line": "Kaj pa druge inteligence? Tista na postaji Deepseek?"},
-        {"character": "Znanstvena častnica Chen", "line": "Isti protokol! Samo spremenite URL končne točke. api.deepseek.com namesto api.moonshot.cn. Vsi govorijo isti format."},
-        {"character": "Poveljnik Vega", "line": "Impresivno. Sestavim prenos in ga pošljem v živo."},
-        {"character": "Znanstvena častnica Chen", "line": "Zgradite svojo JSON zahtevo. Tokrat bo dosegla pravo ARIA. Prenos v živo, poveljnik."}
+        {
+          "character": "Poveljnik Vega",
+          "line": "Chen, naučil sem se protokol. Zdaj želim poslati prenos v živo do ARIA. Ne prek vmesnika, ampak neposredno."
+        },
+        {
+          "character": "Znanstvena častnica Chen",
+          "line": "Seveda, poveljnik. Prenos gre na ARIA-ino končno točko: api.moonshot.cn/v1/chat/completions. POST zahteva z vašim JSON-om."
+        },
+        {
+          "character": "Poveljnik Vega",
+          "line": "Ali lahko pošljem iz različnih sistemov?"
+        },
+        {
+          "character": "Znanstvena častnica Chen",
+          "line": "To je elegantni del. Isti JSON deluje iz kateregakoli sistema. Naš terminal uporablja curl, inženirska enota Java HttpClient, raziskovalni laboratorij Python requests."
+        },
+        {
+          "character": "Poveljnik Vega",
+          "line": "Kaj pa druge inteligence? Tista na postaji Deepseek?"
+        },
+        {
+          "character": "Znanstvena častnica Chen",
+          "line": "Isti protokol! Samo spremenite URL končne točke. api.deepseek.com namesto api.moonshot.cn. Vsi govorijo isti format."
+        },
+        {
+          "character": "Poveljnik Vega",
+          "line": "Impresivno. Sestavim prenos in ga pošljem v živo."
+        },
+        {
+          "character": "Znanstvena častnica Chen",
+          "line": "Zgradite svojo JSON zahtevo. Tokrat bo dosegla pravo ARIA. Prenos v živo, poveljnik."
+        }
       ]
     },
     "office_comedy": {
       "title": "Pošiljanje memoranduma zares",
       "dialogue": [
-        {"character": "Vodja", "line": "Okej Sam, zgradila sem JSON memorandum. Kako ga zdaj dejansko POŠLJEM?"},
-        {"character": "Sam (starejši razvijalec)", "line": "Več načinov. Ukazna vrstica? Uporabite curl. Gradite Java storitev? Uporabite HttpClient. Python skript? requests knjižnico."},
-        {"character": "Vodja", "line": "Pokaži mi tistega s curl."},
-        {"character": "Sam (starejši razvijalec)", "line": "Pošljete POST na API končno točko z dvema glavicama — Content-Type pravi 'to je JSON' in Authorization vsebuje vaš API ključ. Telo je vaš JSON memorandum."},
-        {"character": "Vodja", "line": "Počakaj — ali bi lahko isti memorandum poslala drugemu AI-ju? Kot Deepseek namesto Moonshot?"},
-        {"character": "Sam (starejši razvijalec)", "line": "Ja. Isti JSON, drug URL. Vsi uporabljajo OpenAI-kompatibilen format. Kot elektronska pošta — različni ponudniki, isti protokol."},
-        {"character": "Vodja", "line": "Zares? Živ klic pravemu AI-ju?"},
-        {"character": "Sam (starejši razvijalec)", "line": "Zares. Napišite JSON, pritisnite pošlji in opazujte čarovnijo."}
+        {
+          "character": "Vodja",
+          "line": "Okej Sam, zgradila sem JSON memorandum. Kako ga zdaj dejansko POŠLJEM?"
+        },
+        {
+          "character": "Sam (starejši razvijalec)",
+          "line": "Več načinov. Ukazna vrstica? Uporabite curl. Gradite Java storitev? Uporabite HttpClient. Python skript? requests knjižnico."
+        },
+        {
+          "character": "Vodja",
+          "line": "Pokaži mi tistega s curl."
+        },
+        {
+          "character": "Sam (starejši razvijalec)",
+          "line": "Pošljete POST na API končno točko z dvema glavicama — Content-Type pravi 'to je JSON' in Authorization vsebuje vaš API ključ. Telo je vaš JSON memorandum."
+        },
+        {
+          "character": "Vodja",
+          "line": "Počakaj — ali bi lahko isti memorandum poslala drugemu AI-ju? Kot Deepseek namesto Moonshot?"
+        },
+        {
+          "character": "Sam (starejši razvijalec)",
+          "line": "Ja. Isti JSON, drug URL. Vsi uporabljajo OpenAI-kompatibilen format. Kot elektronska pošta — različni ponudniki, isti protokol."
+        },
+        {
+          "character": "Vodja",
+          "line": "Zares? Živ klic pravemu AI-ju?"
+        },
+        {
+          "character": "Sam (starejši razvijalec)",
+          "line": "Zares. Napišite JSON, pritisnite pošlji in opazujte čarovnijo."
+        }
       ]
     }
   }

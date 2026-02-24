@@ -5,7 +5,7 @@
   "technical_concept": "Production AI systems don't send your raw question to the LLM. They enhance it: a system prompt sets persona and rules, retrieved documents provide context (RAG = Retrieval Augmented Generation), and your question comes last. The user types 'What's our refund policy?' but the real prompt includes the entire policy document. RAG uses embeddings (lesson 02) to find relevant docs, then injects them into the prompt. This is how AI chatbots answer about YOUR data without retraining the model.",
   "code_example": {
     "language": "llm",
-    "code": "# What the user types:\n\"What is the refund policy for premium accounts?\"\n\n# What actually gets sent to the LLM:\n{\n  \"model\": \"moonshot-v1-8k\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a customer support assistant for TechCorp. Answer based ONLY on the provided context. If the answer is not in the context, say 'I don't have that information.'\\n\\nContext:\\nTechCorp Refund Policy (2024):\\n- Standard accounts: 30-day refund, no questions asked.\\n- Premium accounts: 90-day refund with full feature credit.\\n- Enterprise accounts: Custom terms, contact sales.\\n- All refunds processed within 5 business days.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"What is the refund policy for premium accounts?\"\n    }\n  ],\n  \"temperature\": 0.3,\n  \"max_tokens\": 200\n}"
+    "code": "# What the user types:\n\"What is the refund policy for premium accounts?\"\n\n# What actually gets sent to the LLM:\n{\n  \"model\": \"kimi-k2.5\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a customer support assistant for TechCorp. Answer based ONLY on the provided context. If the answer is not in the context, say 'I don't have that information.'\\n\\nContext:\\nTechCorp Refund Policy (2024):\\n- Standard accounts: 30-day refund, no questions asked.\\n- Premium accounts: 90-day refund with full feature credit.\\n- Enterprise accounts: Custom terms, contact sales.\\n- All refunds processed within 5 business days.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"What is the refund policy for premium accounts?\"\n    }\n  ],\n  \"temperature\": 0.3,\n  \"max_tokens\": 200\n}"
   },
   "challenge": {
     "multiline": true,
@@ -21,7 +21,7 @@
         "value": "PASS"
       }
     },
-    "solution": "{\"model\": \"moonshot-v1-8k\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a customer support assistant for TechCorp. Be professional and helpful. Only answer questions about our products.\"}, {\"role\": \"user\", \"content\": \"How do I reset my password?\"}], \"temperature\": 0.3}"
+    "solution": "{\"model\": \"kimi-k2.5\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a customer support assistant for TechCorp. Be professional and helpful. Only answer questions about our products.\"}, {\"role\": \"user\", \"content\": \"How do I reset my password?\"}], \"temperature\": 0.3}"
   },
   "styles": [
     {
