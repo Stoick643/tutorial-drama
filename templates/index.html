@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutorial Drama - Narrative Learning Engine</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        .tutorial-card.coming-soon {
+            opacity: 0.7;
+            position: relative;
+        }
+        .tutorial-card.coming-soon .card-content {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .coming-soon-text {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            padding: 1rem;
+        }
+        .coming-soon-text .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .tutorial-card.coming-soon .btn-disabled {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: #ccc;
+            color: #888;
+            border-radius: 4px;
+            cursor: default;
+            text-decoration: none;
+        }
+        .tutorial-card.coming-soon .status-badge {
+            background: #f0ad4e;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -47,119 +83,179 @@
                 <h3 class="section-title">Available Tutorials</h3>
 
                 <div class="tutorial-cards">
-                    {% if "redis" in enabled_tutorials %}
-                    <div class="tutorial-card available">
+                    <div class="tutorial-card {{ 'available' if 'redis' in enabled_tutorials else 'coming-soon' }}">
                         <div class="card-header">
                             <h4>Redis Basics</h4>
+                            {% if "redis" in enabled_tutorials %}
                             <span class="status-badge completed">Phase 1 Complete</span>
+                            {% else %}
+                            <span class="status-badge">Coming Soon</span>
+                            {% endif %}
                         </div>
                         <div class="card-content">
+                            {% if "redis" in enabled_tutorials %}
                             <p class="card-description">Join Detective Indecks in solving data crimes while learning Redis commands. Master SET, GET, SETEX and more through noir-style investigations.</p>
                             <div class="card-stats">
                                 <span class="lesson-count">5 lessons</span>
                                 <span class="style-count">2 styles available</span>
                             </div>
+                            {% else %}
+                            <div class="coming-soon-text"><span class="icon">🎭</span>Kmalu na sporedu...</div>
+                            {% endif %}
                         </div>
                         <div class="card-actions">
+                            {% if "redis" in enabled_tutorials %}
                             <a href="/tutorial/redis" class="btn-primary">Start Tutorial</a>
+                            {% else %}
+                            <span class="btn-disabled">Start Tutorial</span>
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
 
-                    {% if "sql" in enabled_tutorials %}
-                    <div class="tutorial-card available">
+                    <div class="tutorial-card {{ 'available' if 'sql' in enabled_tutorials else 'coming-soon' }}">
                         <div class="card-header">
                             <h4>SQL Investigation</h4>
+                            {% if "sql" in enabled_tutorials %}
                             <span class="status-badge completed">Phase 2 Complete</span>
+                            {% else %}
+                            <span class="status-badge">Coming Soon</span>
+                            {% endif %}
                         </div>
                         <div class="card-content">
+                            {% if "sql" in enabled_tutorials %}
                             <p class="card-description">Investigate corporate fraud at TechCorp using SQL queries. Master SELECT, WHERE, JOINs, and aggregates through detective work or space station database management.</p>
                             <div class="card-stats">
                                 <span class="lesson-count">6 lessons</span>
                                 <span class="style-count">2 styles available</span>
                             </div>
+                            {% else %}
+                            <div class="coming-soon-text"><span class="icon">🎭</span>Kmalu na sporedu...</div>
+                            {% endif %}
                         </div>
                         <div class="card-actions">
+                            {% if "sql" in enabled_tutorials %}
                             <a href="/tutorial/sql" class="btn-primary">Start Tutorial</a>
+                            {% else %}
+                            <span class="btn-disabled">Start Tutorial</span>
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
 
-                    {% if "git" in enabled_tutorials %}
-                    <div class="tutorial-card available">
+                    <div class="tutorial-card {{ 'available' if 'git' in enabled_tutorials else 'coming-soon' }}">
                         <div class="card-header">
                             <h4>Git from the Terminal</h4>
+                            {% if "git" in enabled_tutorials %}
                             <span class="status-badge completed">Rewritten</span>
+                            {% else %}
+                            <span class="status-badge">Coming Soon</span>
+                            {% endif %}
                         </div>
                         <div class="card-content">
+                            {% if "git" in enabled_tutorials %}
                             <p class="card-description">Already use Git through a GUI? Discover what it was hiding. Master the 4 areas, branches as pointers, undoing with confidence, and the .git folder — through Socratic dialogue and Zen wisdom.</p>
                             <div class="card-stats">
                                 <span class="lesson-count">5 Lessons</span>
                                 <span class="style-count">Socratic · Zen · Pair Programming</span>
                             </div>
+                            {% else %}
+                            <div class="coming-soon-text"><span class="icon">🎭</span>Kmalu na sporedu...</div>
+                            {% endif %}
                         </div>
                         <div class="card-actions">
+                            {% if "git" in enabled_tutorials %}
                             <a href="/tutorial/git" class="btn-primary">Start Tutorial</a>
+                            {% else %}
+                            <span class="btn-disabled">Start Tutorial</span>
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
 
-                    {% if "docker" in enabled_tutorials %}
-                    <div class="tutorial-card available">
+                    <div class="tutorial-card {{ 'available' if 'docker' in enabled_tutorials else 'coming-soon' }}">
                         <div class="card-header">
                             <h4>Docker Dramas</h4>
+                            {% if "docker" in enabled_tutorials %}
                             <span class="status-badge completed">Phase 2</span>
+                            {% else %}
+                            <span class="status-badge">Coming Soon</span>
+                            {% endif %}
                         </div>
                         <div class="card-content">
+                            {% if "docker" in enabled_tutorials %}
                             <p class="card-description">Master containers through magical fairy tales or flirty romance. Learn Dockerfiles, images, volumes, and Compose through enchanting stories.</p>
                             <div class="card-stats">
                                 <span class="lesson-count">6 Lessons</span>
                                 <span class="style-count">Fairy Tale · Romance</span>
                             </div>
+                            {% else %}
+                            <div class="coming-soon-text"><span class="icon">🎭</span>Kmalu na sporedu...</div>
+                            {% endif %}
                         </div>
                         <div class="card-actions">
+                            {% if "docker" in enabled_tutorials %}
                             <a href="/tutorial/docker" class="btn-primary">Start Tutorial</a>
+                            {% else %}
+                            <span class="btn-disabled">Start Tutorial</span>
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
 
-                    {% if "llm" in enabled_tutorials %}
-                    <div class="tutorial-card available">
+                    <div class="tutorial-card {{ 'available' if 'llm' in enabled_tutorials else 'coming-soon' }}">
                         <div class="card-header">
                             <h4>LLM Internals</h4>
+                            {% if "llm" in enabled_tutorials %}
                             <span class="status-badge completed">New</span>
+                            {% else %}
+                            <span class="status-badge">Coming Soon</span>
+                            {% endif %}
                         </div>
                         <div class="card-content">
+                            {% if "llm" in enabled_tutorials %}
                             <p class="card-description">Discover how Large Language Models work under the hood. From tokens to embeddings to real API calls — talk to a real AI and understand the magic behind it.</p>
                             <div class="card-stats">
                                 <span class="lesson-count">6 Lessons</span>
                                 <span class="style-count">Sci-Fi · Office Comedy</span>
                             </div>
+                            {% else %}
+                            <div class="coming-soon-text"><span class="icon">🎭</span>Kmalu na sporedu...</div>
+                            {% endif %}
                         </div>
                         <div class="card-actions">
+                            {% if "llm" in enabled_tutorials %}
                             <a href="/tutorial/llm" class="btn-primary">Start Tutorial</a>
+                            {% else %}
+                            <span class="btn-disabled">Start Tutorial</span>
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
 
-                    {% if "bash" in enabled_tutorials %}
-                    <div class="tutorial-card available">
+                    <div class="tutorial-card {{ 'available' if 'bash' in enabled_tutorials else 'coming-soon' }}">
                         <div class="card-header">
                             <h4>Bash Basics</h4>
+                            {% if "bash" in enabled_tutorials %}
                             <span class="status-badge completed">New</span>
+                            {% else %}
+                            <span class="status-badge">Coming Soon</span>
+                            {% endif %}
                         </div>
                         <div class="card-content">
+                            {% if "bash" in enabled_tutorials %}
                             <p class="card-description">Survive the wilderness or pull off a heist — using only the terminal. Master navigation, files, grep, pipes, xargs, sed, awk, and write your first bash script.</p>
                             <div class="card-stats">
                                 <span class="lesson-count">8 Lessons</span>
                                 <span class="style-count">Survival Adventure · Heist/Spy</span>
                             </div>
+                            {% else %}
+                            <div class="coming-soon-text"><span class="icon">🎭</span>Kmalu na sporedu...</div>
+                            {% endif %}
                         </div>
                         <div class="card-actions">
+                            {% if "bash" in enabled_tutorials %}
                             <a href="/tutorial/bash" class="btn-primary">Start Tutorial</a>
+                            {% else %}
+                            <span class="btn-disabled">Start Tutorial</span>
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
                 </div>
             </section>
 
