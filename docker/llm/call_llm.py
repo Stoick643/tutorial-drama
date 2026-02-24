@@ -38,7 +38,7 @@ def call_llm(user_input, system_prompt=None):
         "model": DEFAULT_MODEL,
         "messages": messages,
         "temperature": 1,
-        "max_tokens": 500
+        "max_tokens": 4096
     }
 
     headers = {
@@ -51,7 +51,13 @@ def call_llm(user_input, system_prompt=None):
         req = urllib.request.Request(LLM_CHAT_URL, data=data, headers=headers, method="POST")
         with urllib.request.urlopen(req, timeout=30) as response:
             result = json.loads(response.read().decode("utf-8"))
-            content = result["choices"][0]["message"]["content"]
+            message = result["choices"][0]["message"]
+            content = message.get("content", "") or ""
+            
+            # Some reasoning models (like kimi-k2.5) may put thinking in reasoning_content
+            reasoning = message.get("reasoning_content", "")
+            if reasoning and not content:
+                content = reasoning
             
             # Also show some metadata for educational purposes
             usage = result.get("usage", {})
