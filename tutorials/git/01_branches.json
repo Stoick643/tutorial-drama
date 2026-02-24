@@ -21,7 +21,10 @@
       "validation_command": "git log --oneline",
       "expected_result": {
         "type": "user_output_contains_all",
-        "value": ["Add feature", "Initial commit"]
+        "value": [
+          "Add feature",
+          "Initial commit"
+        ]
       }
     }
   },
@@ -139,6 +142,68 @@
         {
           "character": "Master",
           "line": "It has done its work. Release it. 'git branch -d' removes the pointer. The commits remain — they are now part of main's history. Now go: create, branch, work, return, merge. Feel the cycle."
+        }
+      ]
+    },
+    {
+      "name": "pair_programming",
+      "title": "Branches Are Basically Free",
+      "dialogue": [
+        {
+          "character": "Alex",
+          "line": "Okay, branching. In GitHub Desktop I just clicked 'New Branch' and it seemed to copy everything. Does the terminal do the same thing?"
+        },
+        {
+          "character": "Sam",
+          "line": "Here's the thing — GitHub Desktop didn't copy anything either. It just didn't tell you that."
+        },
+        {
+          "character": "Alex",
+          "line": "What do you mean?"
+        },
+        {
+          "character": "Sam",
+          "line": "A branch is a tiny file. Forty characters. It's a pointer to a commit. When you 'create a branch', Git writes one small file. That's why it's instant even on huge projects."
+        },
+        {
+          "character": "Alex",
+          "line": "No way. So there's no copy of my code?"
+        },
+        {
+          "character": "Sam",
+          "line": "None. Your files stay exactly where they are. The branch just says 'I'm pointing at this commit.' And HEAD — that's another pointer that says 'I'm currently on this branch.'"
+        },
+        {
+          "character": "Alex",
+          "line": "Okay, so how do I actually create one from the terminal?"
+        },
+        {
+          "character": "Sam",
+          "line": "'git switch -c feature' — creates the branch and switches to it in one shot. That's what you'll use 90% of the time."
+        },
+        {
+          "character": "Alex",
+          "line": "And when I'm done with the feature?"
+        },
+        {
+          "character": "Sam",
+          "line": "Switch back to main with 'git switch main', then 'git merge feature'. Important: always go to the branch you want to merge INTO first. Then pull the other one in."
+        },
+        {
+          "character": "Alex",
+          "line": "Like... standing at the destination and saying 'come here'?"
+        },
+        {
+          "character": "Sam",
+          "line": "Exactly. And after merging, delete the branch with 'git branch -d feature'. Keep it clean. Dead branches everywhere is how repos turn into a mess."
+        },
+        {
+          "character": "Alex",
+          "line": "Alright, let me try the whole thing — branch, commit, merge back."
+        },
+        {
+          "character": "Sam",
+          "line": "Go for it. The full lifecycle."
         }
       ]
     }

@@ -134,6 +134,68 @@
           "line": "Always. A bad commit has been made in your repository. It is already part of history. Undo it with respect — create a revert, and observe the result."
         }
       ]
+    },
+    {
+      "name": "pair_programming",
+      "title": "Oh No, How Do I Undo That",
+      "dialogue": [
+        {
+          "character": "Alex",
+          "line": "Sam, I think I just committed something broken. How do I undo it?"
+        },
+        {
+          "character": "Sam",
+          "line": "Don't panic. First — did you push it?"
+        },
+        {
+          "character": "Alex",
+          "line": "No, not yet."
+        },
+        {
+          "character": "Sam",
+          "line": "Good. Then you have options. But before we undo anything — let's look at what happened. Run 'git log --oneline'. That shows you the commit history, one line per commit."
+        },
+        {
+          "character": "Alex",
+          "line": "Oh nice, I can see all my commits. There's the bad one at the top."
+        },
+        {
+          "character": "Sam",
+          "line": "Now here's the thing about undoing in Git — there are like five different commands and everyone gets confused. The trick is: think about which of the four areas you want to undo."
+        },
+        {
+          "character": "Alex",
+          "line": "The four areas from lesson one?"
+        },
+        {
+          "character": "Sam",
+          "line": "Exactly. Changed a file but haven't staged it? 'git restore'. Already staged? 'git restore --staged'. Already committed but not pushed? 'git reset'. Already pushed? 'git revert'."
+        },
+        {
+          "character": "Alex",
+          "line": "What's the difference between reset and revert?"
+        },
+        {
+          "character": "Sam",
+          "line": "Reset rewrites history — the commit disappears like it never happened. That's fine locally. But if you already pushed, your teammates have that commit. You can't just erase it from their machines. So 'git revert' creates a NEW commit that undoes the old one. History stays honest."
+        },
+        {
+          "character": "Alex",
+          "line": "Makes sense. Revert for shared stuff, reset for local stuff."
+        },
+        {
+          "character": "Sam",
+          "line": "You got it. Oh and one warning — 'git reset --hard' is the nuclear option. It erases the commit AND your changes. Gone. Everything else is recoverable, but --hard means --hard."
+        },
+        {
+          "character": "Alex",
+          "line": "Noted. Avoid the nuclear button."
+        },
+        {
+          "character": "Sam",
+          "line": "For now, let's practice the safe way. There's a bad commit in your repo — revert it and check the log to make sure it worked."
+        }
+      ]
     }
   ]
 }

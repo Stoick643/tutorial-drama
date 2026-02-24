@@ -135,6 +135,60 @@
           "line": "As I promised. Go now — use this space freely. Try any command. The terminal is no longer a mystery."
         }
       ]
+    },
+    {
+      "name": "pair_programming",
+      "title": "Push to Main, Deploy to Prod",
+      "dialogue": [
+        {
+          "character": "Alex",
+          "line": "So everything we've done has been local. When does GitHub come in?"
+        },
+        {
+          "character": "Sam",
+          "line": "GitHub is just a remote — a hosted copy of your .git folder with a fancy web UI on top. When you push, your commits go there. Pull Requests, issues, code review — that's all GitHub's layer. The Git part is identical."
+        },
+        {
+          "character": "Alex",
+          "line": "What about 'origin'? I see that everywhere."
+        },
+        {
+          "character": "Sam",
+          "line": "Just a name. When you clone a repo, Git automatically calls the source 'origin'. Convention. You could rename it to 'banana' and it would still work."
+        },
+        {
+          "character": "Alex",
+          "line": "Ha. Okay, and CI/CD? My team keeps talking about pipelines."
+        },
+        {
+          "character": "Sam",
+          "line": "Simple concept: you push to main, GitHub detects it, runs a script automatically. That script runs your tests, builds the project, and if everything passes — deploys it. Your 'git push' literally puts code in production."
+        },
+        {
+          "character": "Alex",
+          "line": "That's awesome and terrifying."
+        },
+        {
+          "character": "Sam",
+          "line": "Which is exactly why all those Git habits matter. Small commits, clear messages, feature branches. When something breaks in production, you need to read the log and figure out which commit did it. 'fix stuff' doesn't help. 'Fix login validation for empty emails' does."
+        },
+        {
+          "character": "Alex",
+          "line": "I'm starting to see why my team lead is so strict about commit messages."
+        },
+        {
+          "character": "Sam",
+          "line": "It's not about being neat — it's about being able to debug at 2 AM when production is down. Good Git hygiene is just future-you being grateful."
+        },
+        {
+          "character": "Alex",
+          "line": "This whole tutorial... I think I actually understand Git now. Like, actually."
+        },
+        {
+          "character": "Sam",
+          "line": "You always knew it — you just couldn't see through the GUI. Now you've got the mental model. Go mess around in the terminal, try any command. Break stuff. That's how you learn."
+        }
+      ]
     }
   ]
 }

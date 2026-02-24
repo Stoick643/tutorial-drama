@@ -8,7 +8,7 @@
 |-------|---------|--------|--------|
 | Redis | 5 (00-04) | Detective Noir, Sci-Fi, Shakespearean, Office Comedy | ✅ Complete |
 | SQL | 6 (00-05) | Detective Noir, Sci-Fi | ✅ Complete |
-| Git | 5 (00-04) | Socratic, Zen | ✅ Rewritten Feb 2026 |
+| Git | 5 (00-04) | Socratic, Zen, Pair Programming | ✅ Rewritten Feb 2026 |
 | Docker | 6 (00-05) | Fairy Tale, Romance | ✅ Complete |
 | LLM | 6 (00-05) | Sci-Fi, Office Comedy | ✅ Complete |
 | Bash | 8 (00-07) | Survival Adventure, Heist/Spy | ✅ Complete |

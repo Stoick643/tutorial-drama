@@ -10,7 +10,7 @@ A web-based interactive learning platform that teaches technical subjects throug
 |-------|---------|---------------|--------|
 | Redis | 5 | Key-value store: SET, GET, lists, sets, hashes | Noir, Sci-Fi, Shakespearean, Comedy |
 | SQL | 6 | Queries: SELECT, WHERE, JOINs, aggregates | Noir, Sci-Fi |
-| Git | 5 | Version control: 4 areas, branches, undo, .git internals, CI/CD | Socratic, Zen |
+| Git | 5 | Version control: 4 areas, branches, undo, .git internals, CI/CD | Socratic, Zen, Pair Programming |
 | Docker | 6 | Containers: Dockerfiles, images, volumes, Compose | Fairy Tale, Romance |
 | LLM | 6 | AI internals: tokens, embeddings, API calls | Sci-Fi, Office Comedy |
 | Bash | 8 | Shell: navigation, files, grep, pipes, xargs, sed/awk, scripting | Survival Adventure, Heist/Spy |

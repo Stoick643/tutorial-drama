@@ -140,6 +140,68 @@
           "line": "'git status'. It is the still water that reflects truth. Use it before every action, after every action. Now — walk the path yourself. Create a file, carry it through the areas, and make it history."
         }
       ]
+    },
+    {
+      "name": "pair_programming",
+      "title": "Wait, Where Did My Code Go?",
+      "dialogue": [
+        {
+          "character": "Alex",
+          "line": "Okay, I finally installed Git on the terminal. I've been using GitHub Desktop for a year but my new team wants me on the command line."
+        },
+        {
+          "character": "Sam",
+          "line": "No worries, you already know Git. You just don't know you know it. Quick question — when you clicked Commit in GitHub Desktop, what happened?"
+        },
+        {
+          "character": "Alex",
+          "line": "It... saved my changes?"
+        },
+        {
+          "character": "Sam",
+          "line": "Where?"
+        },
+        {
+          "character": "Alex",
+          "line": "In... Git?"
+        },
+        {
+          "character": "Sam",
+          "line": "Ha. Okay, look at this diagram. There are four places your code can be. Working Directory — that's just your files on disk. Staging Area — that's the checkbox thing in GitHub Desktop where you picked which files to include."
+        },
+        {
+          "character": "Alex",
+          "line": "Wait, Staging Area is the checkboxes? That's it?"
+        },
+        {
+          "character": "Sam",
+          "line": "That's it. 'git add' is the checkbox. Then 'git commit' saves it to your Local Repository — that's the .git folder on your machine. And 'git push' sends it to GitHub. Four places, four commands."
+        },
+        {
+          "character": "Alex",
+          "line": "So when I clicked 'Push' in the GUI, it was just running 'git push' behind the scenes?"
+        },
+        {
+          "character": "Sam",
+          "line": "Exactly. And 'Pull' was 'git pull', which is actually 'git fetch' plus 'git merge' combined. Your GUI was running terminal commands the whole time — it just didn't tell you."
+        },
+        {
+          "character": "Alex",
+          "line": "Okay that actually makes me feel better. What about 'git status'?"
+        },
+        {
+          "character": "Sam",
+          "line": "That's your best friend now. It tells you where every file is — what's modified, what's staged, what's untracked. Run it constantly. Before you do anything, run git status. After you do anything, run git status."
+        },
+        {
+          "character": "Alex",
+          "line": "Got it. So the whole workflow is: make changes, git add, git commit, git push?"
+        },
+        {
+          "character": "Sam",
+          "line": "That's the daily cycle. Let's do it for real — create a file, stage it, commit it. Hands on keyboard."
+        }
+      ]
     }
   ]
 }

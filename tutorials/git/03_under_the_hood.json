@@ -132,6 +132,64 @@
           "line": "Then look. Read HEAD. See the truth written there in plain text."
         }
       ]
+    },
+    {
+      "name": "pair_programming",
+      "title": "Let's Open the Hood",
+      "dialogue": [
+        {
+          "character": "Sam",
+          "line": "Okay, you've been using Git commands for a few days now. Want to see something cool?"
+        },
+        {
+          "character": "Alex",
+          "line": "Always."
+        },
+        {
+          "character": "Sam",
+          "line": "You know the .git folder in your project root? The one everyone says 'don't touch'?"
+        },
+        {
+          "character": "Alex",
+          "line": "Yeah, I've never opened it."
+        },
+        {
+          "character": "Sam",
+          "line": "Let's open it. It's just files. HEAD is a text file — it literally contains the name of your current branch. That's it. No magic."
+        },
+        {
+          "character": "Alex",
+          "line": "Wait, seriously? Just a text file?"
+        },
+        {
+          "character": "Sam",
+          "line": "Yep. And branches? Files in .git/refs/heads/. Each one contains a 40-character hash pointing to a commit. Remember when I said branches are just pointers? I meant LITERALLY just pointers. A file with a hash."
+        },
+        {
+          "character": "Alex",
+          "line": "That's... way simpler than I expected."
+        },
+        {
+          "character": "Sam",
+          "line": "That's Git's whole thing — it's elegant under the hood. The objects folder stores every version of every file, indexed by content hash. Same content always gives the same hash. That's why Git is reliable across machines."
+        },
+        {
+          "character": "Alex",
+          "line": "What about .gitignore? I always forget to set that up."
+        },
+        {
+          "character": "Sam",
+          "line": "Pro tip: create .gitignore BEFORE your first commit. Put in build artifacts, IDE files, .env files — anything that shouldn't be in the repo. If you forget and commit a secret, it's in the history forever. You'd have to rewrite history to remove it."
+        },
+        {
+          "character": "Alex",
+          "line": "Yeah, I once committed a .env file with API keys. My team lead was NOT happy."
+        },
+        {
+          "character": "Sam",
+          "line": "Ha, we've all been there. gitignore.io has ready-made templates for every language and IDE. Bookmark it. Now — go read the HEAD file yourself. See what's actually in there."
+        }
+      ]
     }
   ]
 }
