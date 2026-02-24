@@ -17,6 +17,8 @@
                     <select id="lang-select">
                         <option value="en">English</option>
                         <option value="sl">Slovenščina</option>
+                        <option value="hr">Hrvatski</option>
+                        <option value="de">Deutsch</option>
                         <option value="sr-cyrl">Српски</option>
                     </select>
                 </div>
@@ -45,6 +47,7 @@
                 <h3 class="section-title">Available Tutorials</h3>
 
                 <div class="tutorial-cards">
+                    {% if "redis" in enabled_tutorials %}
                     <div class="tutorial-card available">
                         <div class="card-header">
                             <h4>Redis Basics</h4>
@@ -61,7 +64,9 @@
                             <a href="/tutorial/redis" class="btn-primary">Start Tutorial</a>
                         </div>
                     </div>
+                    {% endif %}
 
+                    {% if "sql" in enabled_tutorials %}
                     <div class="tutorial-card available">
                         <div class="card-header">
                             <h4>SQL Investigation</h4>
@@ -78,7 +83,9 @@
                             <a href="/tutorial/sql" class="btn-primary">Start Tutorial</a>
                         </div>
                     </div>
+                    {% endif %}
 
+                    {% if "git" in enabled_tutorials %}
                     <div class="tutorial-card available">
                         <div class="card-header">
                             <h4>Git from the Terminal</h4>
@@ -95,7 +102,9 @@
                             <a href="/tutorial/git" class="btn-primary">Start Tutorial</a>
                         </div>
                     </div>
+                    {% endif %}
 
+                    {% if "docker" in enabled_tutorials %}
                     <div class="tutorial-card available">
                         <div class="card-header">
                             <h4>Docker Dramas</h4>
@@ -112,7 +121,9 @@
                             <a href="/tutorial/docker" class="btn-primary">Start Tutorial</a>
                         </div>
                     </div>
+                    {% endif %}
 
+                    {% if "llm" in enabled_tutorials %}
                     <div class="tutorial-card available">
                         <div class="card-header">
                             <h4>LLM Internals</h4>
@@ -129,7 +140,9 @@
                             <a href="/tutorial/llm" class="btn-primary">Start Tutorial</a>
                         </div>
                     </div>
+                    {% endif %}
 
+                    {% if "bash" in enabled_tutorials %}
                     <div class="tutorial-card available">
                         <div class="card-header">
                             <h4>Bash Basics</h4>
@@ -146,6 +159,7 @@
                             <a href="/tutorial/bash" class="btn-primary">Start Tutorial</a>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </section>
 
