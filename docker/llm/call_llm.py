@@ -37,7 +37,7 @@ def call_llm(user_input, system_prompt=None):
     payload = {
         "model": DEFAULT_MODEL,
         "messages": messages,
-        "temperature": 0.7,
+        "temperature": 1,
         "max_tokens": 500
     }
 
