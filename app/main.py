@@ -136,12 +136,32 @@ async def get_tutorial_menu(request: Request, topic: str):
     description = "Learn through engaging narratives and interactive challenges"
     available_styles = []
     current_style = request.query_params.get("style", "detective_noir")
+    lang = request.query_params.get("lang", "en")
 
     # Load all lesson files
     for json_file in sorted(tutorial_dir.glob("*.json")):
         try:
             with open(json_file, "r", encoding="utf-8") as f:
                 lesson_data = json.load(f)
+
+            # i18n: load translation if language is specified
+            if lang != "en":
+                trans_path = base_dir / f"translations/{lang}/{topic}/{json_file.stem}.json"
+                if trans_path.exists():
+                    with open(trans_path, "r", encoding="utf-8") as f:
+                        trans = json.load(f)
+                    if "tutorial" in trans:
+                        lesson_data["tutorial"] = trans["tutorial"]
+                    if "technical_concept" in trans:
+                        lesson_data["technical_concept"] = trans["technical_concept"]
+                    # Merge translated style titles
+                    if "styles" in trans:
+                        for style_obj in lesson_data.get("styles", []):
+                            style_name = style_obj.get("name", "")
+                            if style_name in trans["styles"]:
+                                ts = trans["styles"][style_name]
+                                if "title" in ts:
+                                    style_obj["title"] = ts["title"]
 
             # Collect available styles from first lesson
             if not available_styles and lesson_data.get("styles"):
@@ -166,7 +186,6 @@ async def get_tutorial_menu(request: Request, topic: str):
                 "filename": json_file.stem,
                 "title": selected_style.get("title", f"Lesson {json_file.stem}") if selected_style else f"Lesson {json_file.stem}",
                 "technical_concept": lesson_data.get("technical_concept", ""),
-                "code_example": lesson_data.get("code_example"),
                 "module": lesson_data.get("module", 1),
                 "scene": lesson_data.get("scene", 1)
             })
@@ -188,7 +207,8 @@ async def get_tutorial_menu(request: Request, topic: str):
             "description": description,
             "available_styles": available_styles,
             "current_style": current_style,
-            "lessons": lessons
+            "lessons": lessons,
+            "lang": lang
         }
     )
 
