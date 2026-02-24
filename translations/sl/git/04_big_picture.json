@@ -1,0 +1,64 @@
+{
+  "tutorial": "Git iz terminala",
+  "technical_concept": "GitHub je preprosto gostovana kopija vaše mape .git s spletnim vmesnikom, zgrajenim nad njo. Pull Requesti, težave in pregled kode so GitHubove funkcije — Git pod njimi je identičen tistemu, kar delate lokalno. CI/CD (Neprekinjena integracija/Namestitev) poveže avtomatizacijo z vašimi objavami: pushnite na main, cevovod požene teste in samodejno namesti. Ko je cevovod povezan, ima vsak 'git push' resnične posledice — zato so čiste Git navade pomembne.",
+  "challenge": {
+    "task": "To je odprto raziskovanje. Vpišite katerikoli git ukaz, ki ste se ga naučili — poskusite 'git log --oneline --graph --all', 'cat .git/HEAD', 'git status', 'git branch', ali vprašajte karkoli iz tega vodiča.",
+    "hint": "Poskusite ukaze iz katerekoli lekcije. To je vaš peskovnik za prosto eksperimentiranje.",
+    "solution": "git log --oneline --graph --all"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Onkraj tvoje naprave",
+      "dialogue": [
+        {"character": "Sokrat", "line": "Raziskali smo štiri območja, veje, razveljavitve in mapo .git. Ampak do zdaj je bilo vse lokalno. Ko pushaš — kam gre?"},
+        {"character": "Učenec", "line": "Na GitHub."},
+        {"character": "Sokrat", "line": "In kaj je GitHub, v smislu tega, kar smo se naučili?"},
+        {"character": "Učenec", "line": "Oddaljena... kopija moje mape .git?"},
+        {"character": "Sokrat", "line": "Prav tako! GitHub hrani iste objekte, iste reference, isto zgodovino. Vse ostalo — Pull Requesti, težave, spletni vmesnik — to so GitHubovi dodatki. Git pod njimi je identičen tistemu, kar sedi na tvoji napravi."},
+        {"character": "Učenec", "line": "Torej je 'origin' samo ime za ta oddaljeni?"},
+        {"character": "Sokrat", "line": "Konvencija, nič več. Zdaj — tu postane posledično. Mnoge ekipe povežejo avtomatizacijo s svojimi repozitoriji. Ko pushaš na main, cevovod zazna spremembo, požene teste in namesti kodo. Samodejno."},
+        {"character": "Učenec", "line": "Torej bi moj 'git push' lahko namestil v produkcijo?"},
+        {"character": "Sokrat", "line": "Lahko in pogosto to počne. To se imenuje CI/CD — Neprekinjena integracija, Neprekinjena namestitev. Pomeni, da ima vsak push resnične posledice. Površno sporočilo commita postane uganka v dnevniku namestitve. Pokvarjen test blokira celotno ekipo."},
+        {"character": "Učenec", "line": "Zato ljudje tako skrbijo za čiste commite in dobra sporočila."},
+        {"character": "Sokrat", "line": "Zdaj razumeš celotno sliko. Majhni, osredotočeni commiti. Smiselna sporočila. Veje za funkcije za izolacijo dela. Stabilen main. To niso pedantna pravila — so praktične nujnosti, ko je avtomatizacija vključena."},
+        {"character": "Učenec", "line": "Čutim, da zdaj res razumem Git."},
+        {"character": "Sokrat", "line": "Vedno si imel znanje — potreboval si le prava vprašanja. Pojdi — prosto raziskuj. Poskusi katerikoli ukaz, ki si se ga naučil. Terminal je tvoj."}
+      ]
+    },
+    "zen": {
+      "title": "Reka doseže morje",
+      "dialogue": [
+        {"character": "Mojster", "line": "Vse, kar smo vadili, je bilo znotraj tvoje naprave. Reka, ki teče v krogih. Danes doseže morje."},
+        {"character": "Učenec", "line": "Oddaljeni — GitHub."},
+        {"character": "Mojster", "line": "Da. In kaj je GitHub, zdaj ko razumeš .git?"},
+        {"character": "Učenec", "line": "Še ena kopija iste mape .git, gostovana na strežniku."},
+        {"character": "Mojster", "line": "Dobro. Pull Requesti, težave, spletni vmesnik — to je pristanišče, zgrajeno okoli morja. Ampak voda sama je isti Git, ki ga že poznaš."},
+        {"character": "Učenec", "line": "Kaj se zgodi, ko pusham?"},
+        {"character": "Mojster", "line": "To je odvisno od tega, kaj posluša. Mnoge ekipe povežejo cevovod s svojim repozitorijem. Push na main sproži verigo: testi se poženejo, projekt se zgradi, in če je vse v redu, se koda namesti. Samodejno. Tvoj 'git push' postane namestitev."},
+        {"character": "Učenec", "line": "To je mogočno. In zastrašujoče."},
+        {"character": "Mojster", "line": "Zato je disciplina pomembna. Piši jasna sporočila commitov — pojavljajo se v dnevnikih namestitev. Ohranjaj main stabilen. Uporabljaj veje za funkcije. Delaj majhne, osredotočene commite, ki jih je enostavno razumeti in enostavno razveljaviti."},
+        {"character": "Učenec", "line": "To niso samo stilske preference."},
+        {"character": "Mojster", "line": "So posledice sistema. Ko tvoj push sproži namestitev, čistoča postane preživetje. To pot si začel, ne da bi znal razložiti, kaj je veja. Zdaj veš, da je štirideset-znakovna datoteka. Poznaš štiri območja. Veš, kako razveljaviti z zaupanjem."},
+        {"character": "Učenec", "line": "Git je spet preprost."},
+        {"character": "Mojster", "line": "Kot sem obljubil. Pojdi zdaj — ta prostor uporabi prosto. Poskusi katerikoli ukaz. Terminal ni več skrivnost."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Pushni na main, namesti v produkcijo",
+      "dialogue": [
+        {"character": "Alex", "line": "Torej vse, kar smo delali, je bilo lokalno. Kdaj pride GitHub na vrsto?"},
+        {"character": "Sam", "line": "GitHub je samo oddaljeni — gostovana kopija tvoje mape .git s fancy spletnim vmesnikom na vrhu. Ko pushaš, tvoji commiti grejo tja. Pull Requesti, težave, pregled kode — to je vse GitHubov sloj. Del z Gitom je identičen."},
+        {"character": "Alex", "line": "Kaj pa 'origin'? To vidim povsod."},
+        {"character": "Sam", "line": "Samo ime. Ko kloniraš repo, Git samodejno poimenuje vir 'origin'. Konvencija. Lahko bi ga preimenoval v 'banana' in bi še vedno delalo."},
+        {"character": "Alex", "line": "Ha. Okej, in CI/CD? Moja ekipa stalno govori o cevovodih."},
+        {"character": "Sam", "line": "Preprost koncept: pushaš na main, GitHub to zazna, samodejno požene skripto. Ta skripta požene tvoje teste, zgradi projekt, in če vse uspe — namesti. Tvoj 'git push' dobesedno postavi kodo v produkcijo."},
+        {"character": "Alex", "line": "To je super in zastrašujoče."},
+        {"character": "Sam", "line": "Kar je točno razlog, zakaj so vse te Git navade pomembne. Majhni commiti, jasna sporočila, veje za funkcije. Ko se nekaj pokvari v produkciji, moraš prebrati dnevnik in ugotoviti, kateri commit je to naredil. 'popravi stvari' ne pomaga. 'Popravi validacijo prijave za prazne e-naslove' pomaga."},
+        {"character": "Alex", "line": "Začenjam razumeti, zakaj je moj vodja ekipe tako strog glede sporočil commitov."},
+        {"character": "Sam", "line": "Ne gre za urejenost — gre za to, da lahko debugiraš ob 2. uri zjutraj, ko je produkcija padla. Dobra Git higiena je samo to, da ti bo prihodnji ti hvaležen."},
+        {"character": "Alex", "line": "Ta celoten vodič... mislim, da zdaj res razumem Git. Kot, zares."},
+        {"character": "Sam", "line": "Vedno si ga poznal — samo nisi videl skozi GUI. Zdaj imaš mentalni model. Pojdi se igrat po terminalu, poskusi katerikoli ukaz. Pokvari stvari. Tako se učiš."}
+      ]
+    }
+  }
+}

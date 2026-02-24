@@ -1,0 +1,64 @@
+{
+  "tutorial": "Git iz terminala",
+  "technical_concept": "git log prikaže vašo zgodovino commitov — dodajte --oneline --graph --all za vizualno drevo vseh vej. git diff pokaže, kaj se je spremenilo (Delovni imenik proti Pripravljalnemu, ali --staged za Pripravljalno proti zadnjemu commitu). Razveljavitev se preslika na 4 območja: 'git restore' zavrže spremembe Delovnega imenika, 'git restore --staged' odstrani iz priprave, 'git reset' razveljavi lokalne commite, 'git revert' pa varno razveljavi objavljene commite z ustvarjanjem novega popravnega commita.",
+  "challenge": {
+    "task": "Narejen je bil slab commit. Uporabite 'git revert HEAD', da ga varno razveljavite, nato preverite, da dnevnik prikazuje razveljavitev.",
+    "hint": "git revert ustvari nov commit, ki razveljavi prejšnjega. Uporabite --no-edit, da sprejmete privzeto sporočilo.",
+    "solution": "git revert HEAD --no-edit && git log --oneline"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Umetnost razveljavitve",
+      "dialogue": [
+        {"character": "Sokrat", "line": "Že večkrat si commital in pushal. Ampak povej mi — si kdaj moral razveljaviti commit?"},
+        {"character": "Učenec", "line": "Da! In bilo je grozljivo. Nikoli nisem vedel, kateri ukaz uporabiti."},
+        {"character": "Sokrat", "line": "Ker nisi imel zemljevida. Se spomniš naših štirih območij? Vsak ukaz za razveljavitev cilja na določeno območje. Če veš, katero območje želiš povrniti, se ukaz razkrije sam."},
+        {"character": "Učenec", "line": "Torej če sem spremenil datoteko, ampak je še nisem pripravil?"},
+        {"character": "Sokrat", "line": "Potem je škoda v Delovnem imeniku. 'git restore' zavrže te spremembe. Kaj pa, če si datoteko že pripravil?"},
+        {"character": "Učenec", "line": "'git restore --staged', da jo premaknem nazaj iz Priprave?"},
+        {"character": "Sokrat", "line": "Hitro se učiš. In kaj, če si že commital?"},
+        {"character": "Učenec", "line": "Tam sem se vedno izgubil."},
+        {"character": "Sokrat", "line": "Dve poti. Če je commit samo lokalen — nikoli objavljen — lahko prepišeš zgodovino z 'git reset'. Soft obdrži tvoje spremembe pripravljene. Mixed jih vrne v Delovni imenik. Hard... izbriše vse."},
+        {"character": "Učenec", "line": "In če sem že pushal?"},
+        {"character": "Sokrat", "line": "Potem ne smeš prepisovati zgodovine — tvoji soigralci so jo že prejeli. Namesto tega 'git revert' ustvari nov commit, ki popravi škodo. Napaka ostane v zgodovini, ampak njeni učinki so razveljavljeni. Pošteno in varno."},
+        {"character": "Učenec", "line": "Torej je revert za skupno delo, reset za lokalne napake?"},
+        {"character": "Sokrat", "line": "Zdaj imaš celotno sliko. Ampak najprej — poglejmo tudi zgodovino. 'git log --oneline --graph --all' ti pokaže celotno drevo tvojega repozitorija. In 'git diff' pokaže točno, kaj se je spremenilo. Vedi, kje si, preden poskušaš razveljaviti. Zdaj — slab commit te čaka. Popravi ga varno."}
+      ]
+    },
+    "zen": {
+      "title": "Lomljenje in popravljanje",
+      "dialogue": [
+        {"character": "Mojster", "line": "Učenec, ki nikoli ne naredi napake, se nikoli ne nauči okrevati. Povej mi — kaj te pri Gitu najbolj straši?"},
+        {"character": "Učenec", "line": "Razveljavitev stvari. Vedno me je strah, da bom izgubil svoje delo."},
+        {"character": "Mojster", "line": "Razumen strah, rojen iz nerazumevanja. V Gitu lahko samo en ukaz resnično uniči delo: 'git reset --hard'. Vse ostalo je obnovljivo. Zapomni si to in tvoj strah bo utihnil."},
+        {"character": "Učenec", "line": "Ampak toliko ukazov za razveljavitev je. Kako izberem?"},
+        {"character": "Mojster", "line": "Vrni se k štirim območjem. Kje je sprememba, ki jo želiš razveljaviti? V Delovnem imeniku — uporabi 'git restore'. V Pripravljalnem območju — 'git restore --staged'. V lokalnem commitu — 'git reset'. Že deljeno z drugimi — 'git revert'."},
+        {"character": "Učenec", "line": "Kakšna je razlika med reset in revert?"},
+        {"character": "Mojster", "line": "Reset izbriše commit, kot da se ni nikoli zgodil. Revert ustvari nov commit, ki razveljavi starega. Oba popravita problem. Ampak reset prepiše zgodovino — če so drugi to zgodovino že prejeli, ustvariš zmedo."},
+        {"character": "Učenec", "line": "Torej je revert spoštljiva izbira."},
+        {"character": "Mojster", "line": "Za deljene veje, da. Pravi: naredil sem napako in tukaj je popravek. Zgodovina je poštena. Preden razveljaviš, vedno najprej poglej. 'git log --oneline --graph --all' razkrije celotno obliko tvoje zgodovine. 'git diff' pokaže točno, kaj se je spremenilo."},
+        {"character": "Učenec", "line": "Poglej preden ukrepam."},
+        {"character": "Mojster", "line": "Vedno. Slab commit je bil narejen v tvojem repozitoriju. Že je del zgodovine. Razveljavi ga s spoštovanjem — ustvari revert in opazuj rezultat."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Ojoj, kako to razveljavim",
+      "dialogue": [
+        {"character": "Alex", "line": "Sam, mislim, da sem pravkar commital nekaj pokvarjenega. Kako to razveljavim?"},
+        {"character": "Sam", "line": "Brez panike. Najprej — si pushal?"},
+        {"character": "Alex", "line": "Ne, še ne."},
+        {"character": "Sam", "line": "Dobro. Potem imaš možnosti. Ampak preden karkoli razveljavimo — poglejmo, kaj se je zgodilo. Poženi 'git log --oneline'. To pokaže zgodovino commitov, ena vrstica na commit."},
+        {"character": "Alex", "line": "O lepo, vidim vse svoje commite. Tam je slab na vrhu."},
+        {"character": "Sam", "line": "Zdaj pa tukaj je stvar z razveljavitvami v Gitu — obstaja nekje pet različnih ukazov in vsi se zmedejo. Trik je: razmisli, na katero od štirih območij želiš razveljaviti."},
+        {"character": "Alex", "line": "Štiri območja iz prve lekcije?"},
+        {"character": "Sam", "line": "Točno. Spremenil datoteko, ampak je še nisi pripravil? 'git restore'. Že pripravil? 'git restore --staged'. Že commital, ampak nisi pushal? 'git reset'. Že pushal? 'git revert'."},
+        {"character": "Alex", "line": "Kakšna je razlika med reset in revert?"},
+        {"character": "Sam", "line": "Reset prepiše zgodovino — commit izgine, kot da se ni nikoli zgodil. To je v redu lokalno. Ampak če si že pushal, tvoji sodelavci imajo ta commit. Ne moreš ga kar izbrisati z njihovih naprav. Zato 'git revert' ustvari NOV commit, ki razveljavi starega. Zgodovina ostane poštena."},
+        {"character": "Alex", "line": "Razumem. Revert za deljene stvari, reset za lokalne."},
+        {"character": "Sam", "line": "Točno. In eno opozorilo — 'git reset --hard' je nuklearna opcija. Izbriše commit IN tvoje spremembe. Konec. Vse ostalo je obnovljivo, ampak --hard pomeni --hard."},
+        {"character": "Alex", "line": "Razumem. Izogibaj se nuklearnemu gumbu."},
+        {"character": "Sam", "line": "Za zdaj vadimo varno pot. V tvojem repozitoriju je slab commit — razveljavi ga in preveri dnevnik, da se prepričaš, da je delovalo."}
+      ]
+    }
+  }
+}

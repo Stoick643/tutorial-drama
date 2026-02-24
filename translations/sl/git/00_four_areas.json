@@ -1,0 +1,66 @@
+{
+  "tutorial": "Git iz terminala",
+  "technical_concept": "Git premika vaše datoteke med štirimi območji: Delovni imenik (vaše datoteke na disku), Pripravljalno območje (kar ste izbrali za naslednji commit), Lokalni repozitorij (vaša zgodovina v .git/) in Oddaljeni repozitorij (GitHub). Vsak Git ukaz preprosto premakne nekaj med temi območji. Vaše namizno orodje vam je skrilo Pripravljalno območje — to je ključni del, ki vam je manjkal.",
+  "challenge": {
+    "task": "Ustvarite datoteko 'notes.txt' z vsebino 'first draft', jo pripravite z git add, nato naredite commit s sporočilom 'Add notes'.",
+    "hint": "Potrebujete tri korake: echo za ustvarjanje datoteke, git add za pripravo in git commit -m za commit. Povežite jih z &&.",
+    "solution": "echo 'first draft' > notes.txt && git add notes.txt && git commit -m 'Add notes'"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Geometrija nadzora različic",
+      "dialogue": [
+        {"character": "Sokrat", "line": "Pridi, prijatelj. Praviš, da poznaš Git — da ga dnevno uporabljaš. Je tako?"},
+        {"character": "Učenec", "line": "Da, Sokrat. Commitam, pusham, pullam. Že več kot leto dni uporabljam GitHub Desktop."},
+        {"character": "Sokrat", "line": "Odlično! Povej mi torej — ko klikneš 'Commit' v svojem orodju, kam točno gre tvoja koda?"},
+        {"character": "Učenec", "line": "V... repozitorij?"},
+        {"character": "Sokrat", "line": "Kateri repozitorij? Tisti na tvoji napravi ali tisti na GitHubu?"},
+        {"character": "Učenec", "line": "Jaz... hmm. Verjetno najprej v lokalnega? Nato pusham na GitHub?"},
+        {"character": "Sokrat", "line": "Dobro — že si na pol poti. Zdaj pa — tvoje orodje ima potrditveno polje ob vsaki datoteki pred commitom. Kaj je to?"},
+        {"character": "Učenec", "line": "To je za izbiro, katere datoteke vključiti v commit."},
+        {"character": "Sokrat", "line": "Prav tako. In v terminalu je ta izbira svoje lastno ločeno mesto — Pripravljalno območje. Tvoje orodje ga je skrilo za potrditvenim poljem. Poglej diagram: štiri območja, štiri puščice. Vsak Git ukaz, ki se ga boš kdaj naučil, preprosto premika datoteke med njimi."},
+        {"character": "Učenec", "line": "Torej je 'git add' potrditveno polje? In 'git commit' je klik na gumb Commit?"},
+        {"character": "Sokrat", "line": "Zdaj vidiš. 'git add' premakne datoteko iz Delovnega imenika v Pripravljalno območje. 'git commit' premakne vse pripravljeno v Lokalni repozitorij. 'git push' pošlje na Oddaljeni. In 'git status' — to je tvoj kompas. Pove ti točno, kje se vsaka datoteka trenutno nahaja."},
+        {"character": "Učenec", "line": "In 'git pull'?"},
+        {"character": "Sokrat", "line": "To je obratna pot — od Oddaljenega na tvojo napravo. Prenese commite, nato jih združi v tvoj Delovni imenik. Dva koraka, preoblečena v enega. Zdaj pa — ne govorimo le o tem. Pokaži mi celotno pot datoteke, od ustvarjanja do zapisane zgodovine."}
+      ]
+    },
+    "zen": {
+      "title": "Štirje vrtovi",
+      "dialogue": [
+        {"character": "Mojster", "line": "Preden si spoznal GUI, je bil Git preprost. Ko si spoznal GUI, je postal zapleten. Ko se naučiš terminala... bo Git spet preprost."},
+        {"character": "Učenec", "line": "Mojster, Git uporabljam že dolgo. Zakaj sem še vedno zmeden?"},
+        {"character": "Mojster", "line": "Ker ti je tvoje orodje pokazalo okno v hišo, nikoli pa hiše same. Povej mi — na koliko mestih je lahko datoteka?"},
+        {"character": "Učenec", "line": "Dveh? Na mojem računalniku in na GitHubu?"},
+        {"character": "Mojster", "line": "Štirih. Prouči diagram. Datoteka se začne v Delovnem imeniku — tvoj vrt surove zemlje. Z 'git add' vstopi v Pripravljalno območje — mesto namere, kjer se odločiš, kaj bo naslednji trenutek zgodovine vseboval."},
+        {"character": "Učenec", "line": "Moj GUI ni nikoli omenil Pripravljalnega območja."},
+        {"character": "Mojster", "line": "Bilo je tam. Skrito za potrditvenim poljem. GUI je izbral preprostost pred razumevanjem. Mi izbiramo razumevanje."},
+        {"character": "Učenec", "line": "In tretje in četrto območje?"},
+        {"character": "Mojster", "line": "Z 'git commit' tvoja namera postane zgodovina — shranjena v Lokalnem repozitoriju, mapi .git na tvoji napravi. Z 'git push' ta zgodovina potuje na Oddaljeni — GitHub, kjer jo lahko drugi prejmejo."},
+        {"character": "Učenec", "line": "Torej je vsak ukaz samo... premikanje med štirimi mesti?"},
+        {"character": "Mojster", "line": "Zdaj držiš celoten Git v eni misli. Ko si izgubljen, se vrni k štirim območjem in vprašaj: kje sem in kam želim iti?"},
+        {"character": "Učenec", "line": "Kako vem, kje sem?"},
+        {"character": "Mojster", "line": "'git status'. To je mirna voda, ki odseva resnico. Uporabi ga pred vsakim dejanjem, po vsakem dejanju. Zdaj — hodi po poti sam. Ustvari datoteko, prenesi jo skozi območja in naredi iz nje zgodovino."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Čakaj, kam je šla moja koda?",
+      "dialogue": [
+        {"character": "Alex", "line": "Okej, končno sem namestil Git v terminal. Eno leto sem uporabljal GitHub Desktop, ampak moja nova ekipa želi, da delam v ukazni vrstici."},
+        {"character": "Sam", "line": "Brez skrbi, Git že poznaš. Samo ne veš, da ga poznaš. Hitro vprašanje — ko si kliknil Commit v GitHub Desktopu, kaj se je zgodilo?"},
+        {"character": "Alex", "line": "Je... shranilo moje spremembe?"},
+        {"character": "Sam", "line": "Kam?"},
+        {"character": "Alex", "line": "V... Git?"},
+        {"character": "Sam", "line": "Ha. Okej, poglej ta diagram. Tvoja koda je lahko na štirih mestih. Delovni imenik — to so preprosto tvoje datoteke na disku. Pripravljalno območje — to je tista stvar s potrditvenimi polji v GitHub Desktopu, kjer si izbiral, katere datoteke vključiti."},
+        {"character": "Alex", "line": "Čakaj, Pripravljalno območje so potrditvena polja? To je vse?"},
+        {"character": "Sam", "line": "To je vse. 'git add' je potrditveno polje. Nato 'git commit' shrani v tvoj Lokalni repozitorij — to je mapa .git na tvoji napravi. In 'git push' pošlje na GitHub. Štiri mesta, štirje ukazi."},
+        {"character": "Alex", "line": "Torej ko sem v GUI-ju kliknil 'Push', je samo pognal 'git push' v ozadju?"},
+        {"character": "Sam", "line": "Točno tako. In 'Pull' je bil 'git pull', kar je pravzaprav 'git fetch' plus 'git merge' skupaj. Tvoj GUI je ves čas poganjal terminalne ukaze — samo ni ti povedal."},
+        {"character": "Alex", "line": "Okej, to me pravzaprav pomirja. Kaj pa 'git status'?"},
+        {"character": "Sam", "line": "To je zdaj tvoj najboljši prijatelj. Pove ti, kje je vsaka datoteka — kaj je spremenjeno, kaj pripravljeno, kaj nesledeno. Poganjaj ga nenehno. Preden karkoli narediš, poženi git status. Po tem ko karkoli narediš, poženi git status."},
+        {"character": "Alex", "line": "Razumem. Torej je celoten potek dela: naredi spremembe, git add, git commit, git push?"},
+        {"character": "Sam", "line": "To je dnevni cikel. Naredimo to zares — ustvari datoteko, pripravi jo, commitaj jo. Roke na tipkovnico."}
+      ]
+    }
+  }
+}

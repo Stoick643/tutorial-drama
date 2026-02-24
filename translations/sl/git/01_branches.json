@@ -1,0 +1,66 @@
+{
+  "tutorial": "Git iz terminala",
+  "technical_concept": "Veja ni kopija vaše kode. Je majhna datoteka, ki vsebuje en sam 40-znakovni hash, ki kaže na commit. Ustvarjanje veje je takojšnje, ker Git ne kopira ničesar — samo zapiše nov kazalec. HEAD je še en kazalec, ki pove Gitu, na kateri veji ste trenutno. Združevanje prinese commite ene veje v drugo — vedno najprej preklopite na ciljno vejo.",
+  "challenge": {
+    "task": "Ustvarite novo vejo 'feature', preklopite nanjo, ustvarite datoteko 'feature.txt', jo pripravite in commitajte s sporočilom 'Add feature', nato se vrnite na main in združite vejo feature.",
+    "hint": "Uporabite 'git switch -c feature' za ustvarjanje in preklop, nato običajen cikel add/commit, nato 'git switch main' in 'git merge feature'.",
+    "solution": "git switch -c feature && echo 'new feature' > feature.txt && git add feature.txt && git commit -m 'Add feature' && git switch main && git merge feature"
+  },
+  "styles": {
+    "socratic": {
+      "title": "Narava vejanja",
+      "dialogue": [
+        {"character": "Sokrat", "line": "Povej mi — ko ustvariš vejo v svojem namiznem orodju, kaj misliš, da se zgodi?"},
+        {"character": "Učenec", "line": "Git naredi kopijo vseh mojih datotek na novi veji, kajne?"},
+        {"character": "Sokrat", "line": "Razumno prepričanje. In koliko časa traja?"},
+        {"character": "Učenec", "line": "Takoj. Tudi pri velikih projektih."},
+        {"character": "Sokrat", "line": "Takoj! In vendar praviš, da Git kopira vse tvoje datoteke? Povej mi — če bi te prosil, da kopiraš tisoč datotek, bi bilo to takojšnje?"},
+        {"character": "Učenec", "line": "Ne, to bi trajalo. Torej... Git ne kopira datotek?"},
+        {"character": "Sokrat", "line": "Ne kopira. Veja je majhna datoteka — štirideset znakov dolga — ki vsebuje hash commita. Nič več. Ko 'ustvariš vejo', Git zapiše eno majhno datoteko. Zato je takojšnje."},
+        {"character": "Učenec", "line": "Samo kazalec? Kaj pa je HEAD?"},
+        {"character": "Sokrat", "line": "Še en kazalec! HEAD kaže na vejo, na kateri si trenutno. Ko preklopiš veje, se spremeni samo HEAD — kaže na drugo datoteko veje. Prouči diagram: kazalci vse do dna."},
+        {"character": "Učenec", "line": "In združevanje?"},
+        {"character": "Sokrat", "line": "Ko združuješ, Git vzame commite iz ene veje in jih vpleta v drugo. Ampak tu je ključna stvar — najprej moraš stati na veji, ki bo prejela delo. Preklopi na main, nato združi feature vanjo."},
+        {"character": "Učenec", "line": "Torej vedno grem najprej na cilj, nato združim vir vanjo?"},
+        {"character": "Sokrat", "line": "Prav tako. In po združitvi je veja feature opravila svoje. Izbriši jo. Čista delavnica je jasen um. Zdaj — ustvari vejo, opravi nekaj dela, se vrni in združi. Celoten cikel."}
+      ]
+    },
+    "zen": {
+      "title": "Prst, ki kaže na luno",
+      "dialogue": [
+        {"character": "Mojster", "line": "Kaj je veja?"},
+        {"character": "Učenec", "line": "Kopija kode, da lahko delam, ne da bi pokvaril stvari."},
+        {"character": "Mojster", "line": "Opisuješ, kaj počne, ne kaj je. Veja ni drevo. Je prst, ki kaže na luno."},
+        {"character": "Učenec", "line": "Ne razumem."},
+        {"character": "Mojster", "line": "Veja je kazalec — štirideset znakov, zapisanih v majhni datoteki. Kaže na commit, nič več. Git ne kopira ničesar, ko ustvariš vejo. Zapiše eno vrstico."},
+        {"character": "Učenec", "line": "Zato je takojšnje?"},
+        {"character": "Mojster", "line": "Začenjaš videti. In HEAD — veš, kaj je HEAD?"},
+        {"character": "Učenec", "line": "Trenutni commit?"},
+        {"character": "Mojster", "line": "Blizu. HEAD je kazalec na vejo, ki je kazalec na commit. Prst, ki kaže na prst, ki kaže na luno. 'git switch' preprosto premakne, kam HEAD kaže."},
+        {"character": "Učenec", "line": "In združevanje združi dve veji?"},
+        {"character": "Mojster", "line": "Da, ampak z namero. Najprej stani tam, kamor želiš, da reka teče — preklopi na prejemno vejo. Nato povabi drugi tok vanjo. 'git merge' združi tokova."},
+        {"character": "Učenec", "line": "Kaj se zgodi z vejo feature potem?"},
+        {"character": "Mojster", "line": "Opravila je svoje delo. Sprosti jo. 'git branch -d' odstrani kazalec. Commiti ostanejo — zdaj so del zgodovine maina. Zdaj pojdi: ustvari, razveji, delaj, se vrni, združi. Občuti cikel."}
+      ]
+    },
+    "pair_programming": {
+      "title": "Veje so praktično zastonj",
+      "dialogue": [
+        {"character": "Alex", "line": "Okej, vejanje. V GitHub Desktopu sem samo kliknil 'New Branch' in zdi se mi, da je vse kopiral. Ali terminal dela isto stvar?"},
+        {"character": "Sam", "line": "Tukaj je fora — GitHub Desktop tudi ni nič kopiral. Samo ni ti povedal."},
+        {"character": "Alex", "line": "Kaj misliš?"},
+        {"character": "Sam", "line": "Veja je majhna datoteka. Štirideset znakov. Je kazalec na commit. Ko 'ustvariš vejo', Git zapiše eno majhno datoteko. Zato je takojšnje tudi pri ogromnih projektih."},
+        {"character": "Alex", "line": "Resno? Torej ni kopije moje kode?"},
+        {"character": "Sam", "line": "Nobene. Tvoje datoteke ostanejo točno tam, kjer so. Veja samo pravi 'jaz kažem na ta commit.' In HEAD — to je še en kazalec, ki pravi 'trenutno sem na tej veji.'"},
+        {"character": "Alex", "line": "Okej, kako pa dejansko ustvarim eno iz terminala?"},
+        {"character": "Sam", "line": "'git switch -c feature' — ustvari vejo in preklopi nanjo v enem koraku. To boš uporabljal 90% časa."},
+        {"character": "Alex", "line": "In ko končam s feature?"},
+        {"character": "Sam", "line": "Preklopi nazaj na main z 'git switch main', nato 'git merge feature'. Pomembno: vedno pojdi najprej na vejo, v katero želiš združiti. Nato potegni drugo vanjo."},
+        {"character": "Alex", "line": "Kot da... stojiš na cilju in rečeš 'pridi sem'?"},
+        {"character": "Sam", "line": "Točno. In po združitvi izbriši vejo z 'git branch -d feature'. Ohranjaj red. Mrtve veje povsod so način, kako repozitoriji postanejo nered."},
+        {"character": "Alex", "line": "V redu, naj poskusim celotno stvar — razveji, commitaj, združi nazaj."},
+        {"character": "Sam", "line": "Kar daj. Celoten življenjski cikel."}
+      ]
+    }
+  }
+}
