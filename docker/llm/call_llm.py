@@ -15,7 +15,7 @@ import urllib.error
 # Configurable via environment variables — defaults to Moonshot/Kimi
 LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "https://api.moonshot.ai/v1")
 LLM_CHAT_URL = f"{LLM_BASE_URL}/chat/completions"
-DEFAULT_MODEL = os.environ.get("LLM_MODEL", "kimi-k2.5")
+DEFAULT_MODEL = os.environ.get("LLM_MODEL", "moonshot-v1-8k")
 
 
 def call_llm(user_input, system_prompt=None):
@@ -37,7 +37,7 @@ def call_llm(user_input, system_prompt=None):
     payload = {
         "model": DEFAULT_MODEL,
         "messages": messages,
-        "temperature": 1,
+        "temperature": 0.7,
         "max_tokens": 4096
     }
 
