@@ -119,6 +119,10 @@ async def root(request: Request):
     enabled = app_settings.get_enabled_tutorials()
     return templates.TemplateResponse(request, "index.html", {"enabled_tutorials": enabled})
 
+@app.get("/promo", response_class=HTMLResponse)
+async def promo(request: Request):
+    return templates.TemplateResponse(request, "promo.html")
+
 @app.get("/tutorial/{topic}", response_class=HTMLResponse)
 async def get_tutorial_menu(request: Request, topic: str):
     # Check if tutorial is enabled
