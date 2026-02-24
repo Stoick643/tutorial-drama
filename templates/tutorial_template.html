@@ -31,6 +31,17 @@
                     </div>
                     {% endif %}
 
+                    <div class="lang-selector">
+                        <label for="lang-select">🌐</label>
+                        <select id="lang-select" onchange="window.location.href='/tutorial/{{ topic }}/{{ lesson }}?style={{ current_style }}&lang=' + this.value">
+                            <option value="en" {% if lang == 'en' %}selected{% endif %}>English</option>
+                            <option value="sl" {% if lang == 'sl' %}selected{% endif %}>Slovenščina</option>
+                            <option value="hr" {% if lang == 'hr' %}selected{% endif %}>Hrvatski</option>
+                            <option value="de" {% if lang == 'de' %}selected{% endif %}>Deutsch</option>
+                            <option value="sr-cyrl" {% if lang == 'sr-cyrl' %}selected{% endif %}>Српски</option>
+                        </select>
+                    </div>
+
                     <div id="lesson-status" class="lesson-status"></div>
                 </div>
             </div>
