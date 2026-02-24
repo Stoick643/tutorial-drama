@@ -10,7 +10,10 @@ import os
 
 def main():
     mode_file = "/tmp/llm_mode"
+    # Check both paths: Docker uses /tmp/user_input, subprocess uses /tmp/grader-user-input
     input_file = "/tmp/user_input"
+    if not os.path.exists(input_file):
+        input_file = "/tmp/grader-user-input"
 
     if not os.path.exists(mode_file):
         print("Error: No mode set. Missing /tmp/llm_mode")
